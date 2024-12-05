@@ -12,8 +12,12 @@ class RootViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.delegate = self
         subsribeToProtocolID()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.delegate = self
     }
     
     override func loadView() {
@@ -62,7 +66,15 @@ class RootViewController: UIViewController {
     @objc private func nextButtonAction(_ sender: UIButton) {
         if let navigationController = navigationController {
             let vc = OverviewViewController()
-            navigationController.pushViewController(vc, animated: true)
+            
+            var viewControllers = navigationController.viewControllers
+            viewControllers.removeAll { $0 is OverviewViewController == false }
+            
+            if let existingRootVC = viewControllers.first(where: { $0 is OverviewViewController }) {
+                navigationController.popToViewController(existingRootVC, animated: true)
+            } else {
+                navigationController.pushViewController(vc, animated: true)
+            }
         } else {
             print("NavigationController is nil")
         }
@@ -131,4 +143,11 @@ extension RootViewController:UINavigationControllerDelegate{
             navigationItem.hidesBackButton = true
         }
     }
+    
+    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationController.Operation, from fromVC: UIViewController, to toVC: UIViewController) -> (any UIViewControllerAnimatedTransitioning)? {
+        return FadeTransition(operation: operation)
+    }
+    
 }
+
+

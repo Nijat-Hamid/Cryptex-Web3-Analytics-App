@@ -36,7 +36,6 @@ class SlideRightPresenter: UIPresentationController {
         super.presentationTransitionWillBegin()
         guard let containerView, let presentedView else {return}
         
-        
         let gesture = UITapGestureRecognizer(target: self, action: #selector(didTap))
         containerView.addGestureRecognizer(gesture)
         

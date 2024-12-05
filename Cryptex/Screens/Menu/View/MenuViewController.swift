@@ -12,7 +12,6 @@ class MenuViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
     
     override func loadView() {
@@ -112,7 +111,7 @@ class MenuViewController: UIViewController {
         let stack = UIStackView()
         stack.axis = .vertical
         stack.translatesAutoresizingMaskIntoConstraints = false
-        stack.spacing = 12
+        stack.spacing = 6
         stack.distribution = .fillProportionally
         stack.alignment = .top
         return stack
@@ -175,6 +174,11 @@ class MenuViewController: UIViewController {
         AppState.shared.resetProtocolID()
     }
     
+    @objc private func linkOpener (_ sender:UIButton) {
+        guard let url = sender.layer.name, let url = URL(string: url) else {return}
+        UIApplication.shared.open(url)
+    }
+    
     private func setupUI(){
         view.backgroundColor = .cardBackground
         view.addSubview(logoStack)
@@ -221,8 +225,9 @@ class MenuViewController: UIViewController {
             
             config.image = UIImage(named: item.image)?.resizedImage(Size: .init(width: 24, height: 24 ))?.withRenderingMode(.alwaysTemplate)
             button.configuration = config
+            button.layer.name = item.link
             button.tintColor = .foreground
-            
+            button.addTarget(self, action: #selector(linkOpener), for: .touchUpInside)
             socialStack.addArrangedSubview(button)
         }
         

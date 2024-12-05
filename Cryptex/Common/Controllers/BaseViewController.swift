@@ -9,20 +9,21 @@
 import UIKit
 import Combine
 
-class BaseViewController: UIViewController {
+class BaseViewController: BaseTransitionViewController {
 
     private var cancellables = Set<AnyCancellable>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         subsribeToProtocolID()
+        
     }
     
     override func loadView() {
         super.loadView()
         setupUI()
+      
     }
-    
     
     lazy var progress: UIActivityIndicatorView = {
         let progress = UIActivityIndicatorView()
@@ -48,11 +49,7 @@ class BaseViewController: UIViewController {
         present(vc, animated: true)
     }
     
-    private func dismissMenu() {
-        if let presentedVC = presentedViewController {
-            presentedVC.dismiss(animated: true, completion: nil)
-        }
-    }
+
     private func setupUI(){
         let customMenuButtonItem = UIBarButtonItem(customView: menuButton)
         navigationItem.leftBarButtonItem = customMenuButtonItem
@@ -94,15 +91,16 @@ class BaseViewController: UIViewController {
             if let existingRootVC = viewControllers.first(where: { $0 is RootViewController }) {
                 navigationController.popToViewController(existingRootVC, animated: true)
             } else {
-                viewControllers.append(rootViewController)
-                navigationController.setViewControllers(viewControllers, animated: true)
+                navigationController.pushViewController(rootViewController, animated: true)
             }
         }
     }
 }
 
 extension BaseViewController:UIViewControllerTransitioningDelegate{
+    
     func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
         return SlideRightPresenter(presentedViewController: presented, presenting: presenting)
     }
 }
+

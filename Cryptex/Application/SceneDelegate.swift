@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -17,30 +18,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let windowScene = (scene as? UIWindowScene) else { return }
-        
-        let appearance = UINavigationBarAppearance()
-        appearance.configureWithTransparentBackground()
-        appearance.titleTextAttributes = [
-            .foregroundColor: UIColor.foreground,
-            .font: UIFont(name: "Geist-semibold", size: 16)!
-        ]
-    
-        UINavigationBar.appearance().standardAppearance = appearance
-        UINavigationBar.appearance().scrollEdgeAppearance = appearance
-        UINavigationBar.appearance().compactAppearance = appearance
-        UINavigationBar.appearance().isTranslucent = true
-        UINavigationBar.appearance().tintColor = .foreground
-        if #available(iOS 15.0, *) {
-            UINavigationBar.appearance().compactScrollEdgeAppearance = appearance
-        }
-        
         window = UIWindow(windowScene: windowScene)
-        let root = OverviewViewController()
-        let navC = UINavigationController(rootViewController: root)
+        let main = OverviewViewController()
+        let navC = CustomNavigationController(rootViewController: main)
         window?.rootViewController = navC
         window?.makeKeyAndVisible()
-
-        
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
