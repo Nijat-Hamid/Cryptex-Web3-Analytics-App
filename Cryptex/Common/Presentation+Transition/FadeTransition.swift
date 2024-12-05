@@ -17,32 +17,29 @@ class FadeTransition: NSObject, UIViewControllerAnimatedTransitioning {
     }
     
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return 0.6
+        return 0.5
     }
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         guard
-            let fromView = transitionContext.viewController(forKey: .from)?.view,
+            let _ = transitionContext.viewController(forKey: .from)?.view,
             let toView = transitionContext.viewController(forKey: .to)?.view
-        else { return }
+        else {
+            transitionContext.completeTransition(false)
+            return
+        }
         
         let containerView = transitionContext.containerView
         
-        if operation == .push {
-            containerView.addSubview(toView)
-            
-            UIView.transition(from: fromView, to: toView, duration: transitionDuration(using: transitionContext), options: .transitionCrossDissolve) { _ in
-                transitionContext.completeTransition(true)
-            }
-            
-
-        } else if operation == .pop {
-            containerView.insertSubview(toView, belowSubview: fromView)
-            
-            UIView.transition(from: fromView, to: toView, duration: transitionDuration(using: transitionContext), options: .transitionCrossDissolve) { _ in
-                transitionContext.completeTransition(true)
-            }
-            
+        containerView.addSubview(toView)
+        let animation = CATransition()
+        animation.type = .fade
+        animation.duration = transitionDuration(using: transitionContext)
+        animation.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
+        containerView.layer.add(animation, forKey: "fadeAnimation")
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + transitionDuration(using: transitionContext)) {
+                    transitionContext.completeTransition(true)
         }
     }
 }
