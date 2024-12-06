@@ -9,15 +9,10 @@
 import UIKit
 
 class FadeTransition: NSObject, UIViewControllerAnimatedTransitioning {
-    private let operation: UINavigationController.Operation
     
-    init(operation: UINavigationController.Operation) {
-        self.operation = operation
-        super.init()
-    }
     
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return 0.5
+        return 0.6
     }
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {

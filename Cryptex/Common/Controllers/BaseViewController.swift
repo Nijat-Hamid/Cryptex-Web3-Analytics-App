@@ -43,10 +43,10 @@ class BaseViewController: BaseTransitionViewController {
     }()
     
     @objc private func openMenu (_ sender:UIButton) {
-        let vc = MenuViewController()
-        vc.modalPresentationStyle = .custom
-        vc.transitioningDelegate = self
-        present(vc, animated: true)
+        let navC = MenuViewController()
+        navC.modalPresentationStyle = .custom
+        navC.transitioningDelegate = self
+        present(navC, animated: true)
     }
     
 
@@ -66,35 +66,14 @@ class BaseViewController: BaseTransitionViewController {
     
     
     private func subsribeToProtocolID(){
-        AppState.shared.protocolIDPublisher.removeDuplicates().sink { [weak self] value in
-            guard let self else {return}
+        AppState.shared.protocolIDPublisher.sink { value in
             if value.isEmpty {
-                navigateToRoot()
+                AppState.shared.navigateToPage(page: .root)
             }
             
         }.store(in: &cancellables)
     }
     
-    private func navigateToRoot() {
-        guard navigationController != nil else { return }
-        
-        DispatchQueue.main.async { [weak self] in
-            guard let self,
-                  let navigationController = self.navigationController
-            else { return }
-            
-            let rootViewController = RootViewController()
-            
-            var viewControllers = navigationController.viewControllers
-            viewControllers.removeAll { $0 is RootViewController == false }
-            
-            if let existingRootVC = viewControllers.first(where: { $0 is RootViewController }) {
-                navigationController.popToViewController(existingRootVC, animated: true)
-            } else {
-                navigationController.pushViewController(rootViewController, animated: true)
-            }
-        }
-    }
 }
 
 extension BaseViewController:UIViewControllerTransitioningDelegate{

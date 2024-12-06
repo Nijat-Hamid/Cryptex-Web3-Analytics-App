@@ -14,6 +14,9 @@ class MenuViewController: UIViewController {
         super.viewDidLoad()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
     override func loadView() {
         super.loadView()
         setupUI()
@@ -179,6 +182,22 @@ class MenuViewController: UIViewController {
         UIApplication.shared.open(url)
     }
     
+    @objc private func navigateToPage (_ sender:UIButton){
+        let index = sender.tag
+        let selected = viewModel.menuData[index].name
+        
+        if let page = PageName(rawValue: selected) {
+             AppState.shared.navigateToPage(page: page)
+        }
+        
+        if let presentationController = presentationController as? SlideRightPresenter {
+            presentationController.dismissMenu()
+        } else {
+            dismiss(animated: true)
+        }
+        
+    }
+    
     private func setupUI(){
         view.backgroundColor = .cardBackground
         view.addSubview(logoStack)
@@ -189,8 +208,9 @@ class MenuViewController: UIViewController {
         view.addSubview(secondHorizontalLine)
         view.addSubview(logOut)
         
-        viewModel.menuData.forEach { item in
+        viewModel.menuData.enumerated().forEach { index, item in
             let button = UIButton()
+            button.tag = index
             button.translatesAutoresizingMaskIntoConstraints = false
             button.setTitleColor(.foreground, for: .normal)
             button.setTitleColor(.muted, for: .disabled)
@@ -210,6 +230,8 @@ class MenuViewController: UIViewController {
               ]))
             button.configuration = config
 
+            button.addTarget(self, action: #selector(navigateToPage(_:)), for: .touchUpInside)
+            
             linkStack.addArrangedSubview(button)
             
             NSLayoutConstraint.activate([

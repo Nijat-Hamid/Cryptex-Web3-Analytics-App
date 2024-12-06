@@ -12,8 +12,14 @@ class PoolsViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        
     }
     
+    override func loadView() {
+        super.loadView()
+        setupUI()
+    }
+    
+    private func setupUI (){
+        navigationItem.title = "Pools"
+    }
 }

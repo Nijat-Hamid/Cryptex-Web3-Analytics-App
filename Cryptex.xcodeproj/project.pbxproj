@@ -24,6 +24,7 @@
 		1F42934F2D00F50D000CFA9E /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F42934E2D00F50D000CFA9E /* NavigationController.swift */; };
 		1F4293512D00FA66000CFA9E /* FadeTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4293502D00FA61000CFA9E /* FadeTransition.swift */; };
 		1F4293552D0173DB000CFA9E /* BaseTransitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4293542D0173DB000CFA9E /* BaseTransitionViewController.swift */; };
+		1F4CCAFA2D02A283003F9D99 /* PlaceholderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4CCAF92D02A283003F9D99 /* PlaceholderViewController.swift */; };
 		1FBDD1E22CF71CAF00223819 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FBDD1D92CF71CAF00223819 /* Assets.xcassets */; };
 		1FBDD1E42CF71CAF00223819 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FBDD1DC2CF71CAF00223819 /* LaunchScreen.storyboard */; };
 		1FBDD1E62CF71CAF00223819 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBDD1D82CF71CAF00223819 /* AppDelegate.swift */; };
@@ -63,6 +64,7 @@
 		1F42934E2D00F50D000CFA9E /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		1F4293502D00FA61000CFA9E /* FadeTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadeTransition.swift; sourceTree = "<group>"; };
 		1F4293542D0173DB000CFA9E /* BaseTransitionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTransitionViewController.swift; sourceTree = "<group>"; };
+		1F4CCAF92D02A283003F9D99 /* PlaceholderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderViewController.swift; sourceTree = "<group>"; };
 		1FBDD1C02CF71CA800223819 /* Cryptex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cryptex.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FBDD1D82CF71CAF00223819 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1FBDD1D92CF71CAF00223819 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -367,6 +369,7 @@
 			children = (
 				1FBDD1F62CF71EE000223819 /* BaseViewController.swift */,
 				1F4293542D0173DB000CFA9E /* BaseTransitionViewController.swift */,
+				1F4CCAF92D02A283003F9D99 /* PlaceholderViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -552,6 +555,7 @@
 				1F4293552D0173DB000CFA9E /* BaseTransitionViewController.swift in Sources */,
 				1F4293462D008D90000CFA9E /* MenuViewModel.swift in Sources */,
 				1F42934F2D00F50D000CFA9E /* NavigationController.swift in Sources */,
+				1F4CCAFA2D02A283003F9D99 /* PlaceholderViewController.swift in Sources */,
 				1F4293152CF9F8C3000CFA9E /* RootUIModel.swift in Sources */,
 				1F42933E2D008D23000CFA9E /* TokensViewController.swift in Sources */,
 				1F4293512D00FA66000CFA9E /* FadeTransition.swift in Sources */,

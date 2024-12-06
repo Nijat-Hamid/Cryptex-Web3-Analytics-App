@@ -9,11 +9,18 @@
 import UIKit
 
 class BlockchainsViewController: BaseViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
     }
-
+    
+    override func loadView() {
+        super.loadView()
+        setupUI()
+    }
+    
+    private func setupUI(){
+        navigationItem.title = "Blockchains"
+    }
 }
