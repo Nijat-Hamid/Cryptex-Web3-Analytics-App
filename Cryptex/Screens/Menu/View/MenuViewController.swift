@@ -14,9 +14,6 @@ class MenuViewController: UIViewController {
         super.viewDidLoad()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-    }
     override func loadView() {
         super.loadView()
         setupUI()
@@ -158,7 +155,7 @@ class MenuViewController: UIViewController {
         config.image = UIImage(named: "change")?.resizedImage(Size: .init(width: 16, height: 16))?.withRenderingMode(.alwaysTemplate)
         config.imagePlacement = .leading
         config.imagePadding = 8
-        config.attributedTitle = AttributedString("Change Protocol", attributes: AttributeContainer([
+        config.attributedTitle = AttributedString("Change DeFi", attributes: AttributeContainer([
             .font: UIFont(name: "Geist-semibold", size: 14)!,
             .foregroundColor: UIColor.foreground
           ]))
@@ -175,6 +172,7 @@ class MenuViewController: UIViewController {
             dismiss(animated: true)
         }
         AppState.shared.resetProtocolID()
+        AppState.shared.navigateToPage(page: .defi)
     }
     
     @objc private func linkOpener (_ sender:UIButton) {
@@ -186,15 +184,15 @@ class MenuViewController: UIViewController {
         let index = sender.tag
         let selected = viewModel.menuData[index].name
         
-        if let page = PageName(rawValue: selected) {
-             AppState.shared.navigateToPage(page: page)
-        }
+        guard let page = PageName(rawValue: selected) else { return }
         
-        if let presentationController = presentationController as? SlideRightPresenter {
-            presentationController.dismissMenu()
-        } else {
-            dismiss(animated: true)
+        AppState.shared.navigateToPage(page: page)
+        
+        if AppState.shared.currentPage != page {
+            let presentationController = presentationController as? SlideRightPresenter
+            presentationController?.dismissMenu()
         }
+    
         
     }
     
@@ -231,6 +229,12 @@ class MenuViewController: UIViewController {
             button.configuration = config
 
             button.addTarget(self, action: #selector(navigateToPage(_:)), for: .touchUpInside)
+            
+            if let currentPage = AppState.shared.currentPage, currentPage.rawValue == item.name {
+                button.backgroundColor = .cardBackgroundDark
+                
+            }
+                  
             
             linkStack.addArrangedSubview(button)
             

@@ -12,7 +12,7 @@ class FadeTransition: NSObject, UIViewControllerAnimatedTransitioning {
     
     
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return 0.6
+        return 0.5
     }
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
@@ -29,14 +29,15 @@ class FadeTransition: NSObject, UIViewControllerAnimatedTransitioning {
         containerView.addSubview(toView)
         let animation = CATransition()
         animation.type = .fade
-        animation.duration = transitionDuration(using: transitionContext)
+        animation.duration = transitionDuration(using: transitionContext) - 0.1
         animation.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
         containerView.layer.add(animation, forKey: "fadeAnimation")
         
         DispatchQueue.main.asyncAfter(deadline: .now() + transitionDuration(using: transitionContext)) {
-                    transitionContext.completeTransition(true)
+            transitionContext.completeTransition(true)
         }
     }
 }
+
 
 

@@ -8,20 +8,15 @@
 
 import UIKit
 
-class BaseTransitionViewController: UIViewController {
+class CustomTransitionViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         navigationController?.delegate = self
     }
-
 }
 
-extension BaseTransitionViewController:UINavigationControllerDelegate{
+extension CustomTransitionViewController:UINavigationControllerDelegate{
     func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationController.Operation, from fromVC: UIViewController, to toVC: UIViewController) -> (any UIViewControllerAnimatedTransitioning)? {
         return FadeTransition()
     }

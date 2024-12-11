@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1F4293112CF9EB54000CFA9E /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4293102CF9EB4C000CFA9E /* UIView+Extension.swift */; };
-		1F4293152CF9F8C3000CFA9E /* RootUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4293142CF9F8AA000CFA9E /* RootUIModel.swift */; };
+		1F4293152CF9F8C3000CFA9E /* DeFiUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4293142CF9F8AA000CFA9E /* DeFiUIModel.swift */; };
 		1F42931B2CF9F955000CFA9E /* OverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F42931A2CF9F955000CFA9E /* OverviewViewController.swift */; };
 		1F42931E2CFCC7BD000CFA9E /* ListItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F42931D2CFCC7BD000CFA9E /* ListItemCell.swift */; };
 		1F4293202CFDA9D9000CFA9E /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F42931F2CFDA9D7000CFA9E /* AppState.swift */; };
@@ -23,13 +23,13 @@
 		1F42934C2D00D03E000CFA9E /* SocialUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F42934B2D00D03A000CFA9E /* SocialUIModel.swift */; };
 		1F42934F2D00F50D000CFA9E /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F42934E2D00F50D000CFA9E /* NavigationController.swift */; };
 		1F4293512D00FA66000CFA9E /* FadeTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4293502D00FA61000CFA9E /* FadeTransition.swift */; };
-		1F4293552D0173DB000CFA9E /* BaseTransitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4293542D0173DB000CFA9E /* BaseTransitionViewController.swift */; };
-		1F4CCAFA2D02A283003F9D99 /* PlaceholderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4CCAF92D02A283003F9D99 /* PlaceholderViewController.swift */; };
+		1F4293552D0173DB000CFA9E /* CustomTransitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4293542D0173DB000CFA9E /* CustomTransitionViewController.swift */; };
+		1F4CCAFA2D02A283003F9D99 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4CCAF92D02A283003F9D99 /* RootViewController.swift */; };
 		1FBDD1E22CF71CAF00223819 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FBDD1D92CF71CAF00223819 /* Assets.xcassets */; };
 		1FBDD1E42CF71CAF00223819 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FBDD1DC2CF71CAF00223819 /* LaunchScreen.storyboard */; };
 		1FBDD1E62CF71CAF00223819 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBDD1D82CF71CAF00223819 /* AppDelegate.swift */; };
 		1FBDD1E72CF71CAF00223819 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBDD1DF2CF71CAF00223819 /* SceneDelegate.swift */; };
-		1FBDD1E82CF71CAF00223819 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBDD1E02CF71CAF00223819 /* RootViewController.swift */; };
+		1FBDD1E82CF71CAF00223819 /* DeFiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBDD1E02CF71CAF00223819 /* DeFiViewController.swift */; };
 		1FBDD1F22CF71E8400223819 /* Data+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBDD1F12CF71E8100223819 /* Data+Extension.swift */; };
 		1FBDD1F72CF71EE000223819 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBDD1F62CF71EE000223819 /* BaseViewController.swift */; };
 		1FBDD1FA2CF72AAB00223819 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 1FBDD1F92CF72AAB00223819 /* SDWebImage */; };
@@ -42,13 +42,13 @@
 		1FBDD20B2CF76BA300223819 /* geist-sans-latin-400-normal.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1FBDD1FF2CF76BA300223819 /* geist-sans-latin-400-normal.ttf */; };
 		1FBDD20C2CF76BA300223819 /* geist-sans-latin-800-normal.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1FBDD2032CF76BA300223819 /* geist-sans-latin-800-normal.ttf */; };
 		1FBDD20D2CF76BA300223819 /* geist-sans-latin-900-normal.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1FBDD2042CF76BA300223819 /* geist-sans-latin-900-normal.ttf */; };
-		1FBDD21A2CF8903500223819 /* RootItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBDD2192CF8903500223819 /* RootItemView.swift */; };
-		1FBDD21C2CF894A700223819 /* RootViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBDD21B2CF894A300223819 /* RootViewModel.swift */; };
+		1FBDD21A2CF8903500223819 /* DeFiItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBDD2192CF8903500223819 /* DeFiItemViewController.swift */; };
+		1FBDD21C2CF894A700223819 /* DeFiViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBDD21B2CF894A300223819 /* DeFiViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1F4293102CF9EB4C000CFA9E /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
-		1F4293142CF9F8AA000CFA9E /* RootUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootUIModel.swift; sourceTree = "<group>"; };
+		1F4293142CF9F8AA000CFA9E /* DeFiUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeFiUIModel.swift; sourceTree = "<group>"; };
 		1F42931A2CF9F955000CFA9E /* OverviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewViewController.swift; sourceTree = "<group>"; };
 		1F42931D2CFCC7BD000CFA9E /* ListItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemCell.swift; sourceTree = "<group>"; };
 		1F42931F2CFDA9D7000CFA9E /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
@@ -63,15 +63,15 @@
 		1F42934B2D00D03A000CFA9E /* SocialUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialUIModel.swift; sourceTree = "<group>"; };
 		1F42934E2D00F50D000CFA9E /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		1F4293502D00FA61000CFA9E /* FadeTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadeTransition.swift; sourceTree = "<group>"; };
-		1F4293542D0173DB000CFA9E /* BaseTransitionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTransitionViewController.swift; sourceTree = "<group>"; };
-		1F4CCAF92D02A283003F9D99 /* PlaceholderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderViewController.swift; sourceTree = "<group>"; };
+		1F4293542D0173DB000CFA9E /* CustomTransitionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTransitionViewController.swift; sourceTree = "<group>"; };
+		1F4CCAF92D02A283003F9D99 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		1FBDD1C02CF71CA800223819 /* Cryptex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cryptex.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FBDD1D82CF71CAF00223819 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1FBDD1D92CF71CAF00223819 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1FBDD1DA2CF71CAF00223819 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1FBDD1DB2CF71CAF00223819 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1FBDD1DF2CF71CAF00223819 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		1FBDD1E02CF71CAF00223819 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		1FBDD1E02CF71CAF00223819 /* DeFiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeFiViewController.swift; sourceTree = "<group>"; };
 		1FBDD1F12CF71E8100223819 /* Data+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Extension.swift"; sourceTree = "<group>"; };
 		1FBDD1F62CF71EE000223819 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		1FBDD1FC2CF76BA300223819 /* geist-sans-latin-100-normal.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "geist-sans-latin-100-normal.ttf"; sourceTree = "<group>"; };
@@ -83,8 +83,8 @@
 		1FBDD2022CF76BA300223819 /* geist-sans-latin-700-normal.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "geist-sans-latin-700-normal.ttf"; sourceTree = "<group>"; };
 		1FBDD2032CF76BA300223819 /* geist-sans-latin-800-normal.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "geist-sans-latin-800-normal.ttf"; sourceTree = "<group>"; };
 		1FBDD2042CF76BA300223819 /* geist-sans-latin-900-normal.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "geist-sans-latin-900-normal.ttf"; sourceTree = "<group>"; };
-		1FBDD2192CF8903500223819 /* RootItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootItemView.swift; sourceTree = "<group>"; };
-		1FBDD21B2CF894A300223819 /* RootViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewModel.swift; sourceTree = "<group>"; };
+		1FBDD2192CF8903500223819 /* DeFiItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeFiItemViewController.swift; sourceTree = "<group>"; };
+		1FBDD21B2CF894A300223819 /* DeFiViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeFiViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,7 +102,7 @@
 		1F4293122CF9F883000CFA9E /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				1F4293142CF9F8AA000CFA9E /* RootUIModel.swift */,
+				1F4293142CF9F8AA000CFA9E /* DeFiUIModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -295,6 +295,22 @@
 			path = Navigation;
 			sourceTree = "<group>";
 		};
+		1FB9E5D02D099D2A00128526 /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				1FB9E5D12D09A29B00128526 /* View */,
+			);
+			path = Root;
+			sourceTree = "<group>";
+		};
+		1FB9E5D12D09A29B00128526 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1F4CCAF92D02A283003F9D99 /* RootViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		1FBDD1B72CF71CA800223819 = {
 			isa = PBXGroup;
 			children = (
@@ -368,8 +384,7 @@
 			isa = PBXGroup;
 			children = (
 				1FBDD1F62CF71EE000223819 /* BaseViewController.swift */,
-				1F4293542D0173DB000CFA9E /* BaseTransitionViewController.swift */,
-				1F4CCAF92D02A283003F9D99 /* PlaceholderViewController.swift */,
+				1F4293542D0173DB000CFA9E /* CustomTransitionViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -393,12 +408,13 @@
 		1FBDD20E2CF7802D00223819 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				1FB9E5D02D099D2A00128526 /* Root */,
 				1F42933F2D008D2E000CFA9E /* Blockchains */,
 				1F4293392D008D06000CFA9E /* Tokens */,
 				1F4293332D008CB4000CFA9E /* Pools */,
 				1F4293272CFE1CD9000CFA9E /* Menu */,
 				1F4293162CF9F8F6000CFA9E /* Overview */,
-				1FBDD2112CF7880E00223819 /* Root */,
+				1FBDD2112CF7880E00223819 /* DeFi */,
 				1FBDD20F2CF7809700223819 /* Launch */,
 			);
 			path = Screens;
@@ -420,21 +436,21 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		1FBDD2112CF7880E00223819 /* Root */ = {
+		1FBDD2112CF7880E00223819 /* DeFi */ = {
 			isa = PBXGroup;
 			children = (
 				1F4293122CF9F883000CFA9E /* Model */,
 				1FBDD2122CF7887500223819 /* View */,
 				1FBDD2172CF88F6900223819 /* ViewModel */,
 			);
-			path = Root;
+			path = DeFi;
 			sourceTree = "<group>";
 		};
 		1FBDD2122CF7887500223819 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				1FBDD2182CF8901700223819 /* RootItemView */,
-				1FBDD1E02CF71CAF00223819 /* RootViewController.swift */,
+				1FBDD2182CF8901700223819 /* DeFiItemView */,
+				1FBDD1E02CF71CAF00223819 /* DeFiViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -442,17 +458,17 @@
 		1FBDD2172CF88F6900223819 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				1FBDD21B2CF894A300223819 /* RootViewModel.swift */,
+				1FBDD21B2CF894A300223819 /* DeFiViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		1FBDD2182CF8901700223819 /* RootItemView */ = {
+		1FBDD2182CF8901700223819 /* DeFiItemView */ = {
 			isa = PBXGroup;
 			children = (
-				1FBDD2192CF8903500223819 /* RootItemView.swift */,
+				1FBDD2192CF8903500223819 /* DeFiItemViewController.swift */,
 			);
-			path = RootItemView;
+			path = DeFiItemView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -542,7 +558,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1FBDD21A2CF8903500223819 /* RootItemView.swift in Sources */,
+				1FBDD21A2CF8903500223819 /* DeFiItemViewController.swift in Sources */,
 				1FBDD1F72CF71EE000223819 /* BaseViewController.swift in Sources */,
 				1F4293112CF9EB54000CFA9E /* UIView+Extension.swift in Sources */,
 				1F42934C2D00D03E000CFA9E /* SocialUIModel.swift in Sources */,
@@ -552,11 +568,11 @@
 				1F42931E2CFCC7BD000CFA9E /* ListItemCell.swift in Sources */,
 				1F42934A2D00AFC1000CFA9E /* UIImage+Extension.swift in Sources */,
 				1FBDD1E62CF71CAF00223819 /* AppDelegate.swift in Sources */,
-				1F4293552D0173DB000CFA9E /* BaseTransitionViewController.swift in Sources */,
+				1F4293552D0173DB000CFA9E /* CustomTransitionViewController.swift in Sources */,
 				1F4293462D008D90000CFA9E /* MenuViewModel.swift in Sources */,
 				1F42934F2D00F50D000CFA9E /* NavigationController.swift in Sources */,
-				1F4CCAFA2D02A283003F9D99 /* PlaceholderViewController.swift in Sources */,
-				1F4293152CF9F8C3000CFA9E /* RootUIModel.swift in Sources */,
+				1F4CCAFA2D02A283003F9D99 /* RootViewController.swift in Sources */,
+				1F4293152CF9F8C3000CFA9E /* DeFiUIModel.swift in Sources */,
 				1F42933E2D008D23000CFA9E /* TokensViewController.swift in Sources */,
 				1F4293512D00FA66000CFA9E /* FadeTransition.swift in Sources */,
 				1F42932D2CFE4976000CFA9E /* MenuViewController.swift in Sources */,
@@ -565,8 +581,8 @@
 				1F4293482D008DCC000CFA9E /* MenuUIModel.swift in Sources */,
 				1F42931B2CF9F955000CFA9E /* OverviewViewController.swift in Sources */,
 				1F4293382D008CF1000CFA9E /* PoolsViewController.swift in Sources */,
-				1FBDD21C2CF894A700223819 /* RootViewModel.swift in Sources */,
-				1FBDD1E82CF71CAF00223819 /* RootViewController.swift in Sources */,
+				1FBDD21C2CF894A700223819 /* DeFiViewModel.swift in Sources */,
+				1FBDD1E82CF71CAF00223819 /* DeFiViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

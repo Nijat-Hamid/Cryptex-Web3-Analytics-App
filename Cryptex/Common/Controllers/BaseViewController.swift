@@ -9,14 +9,12 @@
 import UIKit
 import Combine
 
-class BaseViewController: BaseTransitionViewController {
+class BaseViewController: CustomTransitionViewController {
 
     private var cancellables = Set<AnyCancellable>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        subsribeToProtocolID()
-        
     }
     
     override func loadView() {
@@ -64,15 +62,6 @@ class BaseViewController: BaseTransitionViewController {
         ])
     }
     
-    
-    private func subsribeToProtocolID(){
-        AppState.shared.protocolIDPublisher.sink { value in
-            if value.isEmpty {
-                AppState.shared.navigateToPage(page: .root)
-            }
-            
-        }.store(in: &cancellables)
-    }
     
 }
 

@@ -6,7 +6,7 @@
 //  Copyright © 2024 Nijat Hamid. All rights reserved.
 //
 
-struct RootItemViewModel {
+struct DeFiUIModel {
     let id:String
     let imageName: String
     let description: String

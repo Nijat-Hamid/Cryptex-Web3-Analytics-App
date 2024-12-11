@@ -12,7 +12,6 @@ class OverviewViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
     
     override func loadView() {

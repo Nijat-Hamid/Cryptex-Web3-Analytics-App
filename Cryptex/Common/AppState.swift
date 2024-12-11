@@ -13,7 +13,9 @@ class AppState {
     // Singleton Pattern
     static let shared = AppState()
     // Weak Connection
-    private weak var navigationController: UINavigationController?
+    private weak var navigationController: CustomNavigationController?
+    // Current Page
+    var currentPage: PageName?
     // UserDefaults
     private let userDefault = UserDefaults.standard
     // SelectedProtocolID publisher
@@ -47,54 +49,62 @@ class AppState {
            return ""
        }
     
-    // Navigation Coordinator Functions
-    
-    func setRootNavigationController(_ navController: UINavigationController) {
+    // Coordinator Pattern
+    func setRootNavigationController(_ navController: CustomNavigationController) {
             navigationController = navController
         }
     
     func navigateToPage(page:PageName) {
         DispatchQueue.main.async { [weak self] in
-            guard let self, let navigationController = navigationController else {
-                       print("Navigation Controller is not set")
-                       return
-             }
+            guard let self,
+                  let navigationController = navigationController
+            else {
+                print("Navigation Controller is not set")
+                return
+            }
+            
+            
+            if currentPage == page {
+                print("Already on the \(page.rawValue) page")
+                return
+            }else{
+                currentPage = page
+            }
+            
             
             var viewControllers = navigationController.viewControllers
+            
             switch page {
             case .overview:
                 let vc = OverviewViewController()
                 viewControllers = viewControllers.filter { !($0 is OverviewViewController) }
                 viewControllers.append(vc)
-                navigationController.setViewControllers(viewControllers, animated: true)
             case .pools:
                 let vc = PoolsViewController()
                 viewControllers = viewControllers.filter { !($0 is PoolsViewController) }
                 viewControllers.append(vc)
-                navigationController.setViewControllers(viewControllers, animated: true)
             case .tokens:
                 let vc = TokensViewController()
                 viewControllers = viewControllers.filter { !($0 is TokensViewController) }
                 viewControllers.append(vc)
-                navigationController.setViewControllers(viewControllers, animated: true)
             case .blockchains:
                 let vc = BlockchainsViewController()
                 viewControllers = viewControllers.filter { !($0 is BlockchainsViewController) }
                 viewControllers.append(vc)
-                navigationController.setViewControllers(viewControllers, animated: true)
-            case .root:
-                let vc = RootViewController()
-                viewControllers = viewControllers.filter { !($0 is RootViewController) }
+            case .defi:
+                let vc = DeFiViewController()
+                viewControllers = viewControllers.filter { !($0 is DeFiViewController) }
                 viewControllers.append(vc)
-                navigationController.setViewControllers(viewControllers, animated: true)
             }
+            
+            navigationController.setViewControllers(viewControllers, animated: true)
         }
         
     }
 }
 
 enum PageName:String{
-    case root = "Root"
+    case defi = "defi"
     case overview = "Overview"
     case pools = "Pools"
     case tokens = "Tokens"

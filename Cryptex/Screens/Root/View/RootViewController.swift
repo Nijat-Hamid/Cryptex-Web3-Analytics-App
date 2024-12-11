@@ -1,140 +1,69 @@
 //
-//  ViewController.swift
+//  PlaceholderViewController.swift
 //  Cryptex
 //
-//  Created by Nijat Hamid on 11/27/24.
+//  Created by Nijat Hamid on 12/6/24.
+//  Copyright © 2024 Nijat Hamid. All rights reserved.
 //
 
 import UIKit
-import Combine
 
-class RootViewController: UIViewController {
-    
+class RootViewController: CustomTransitionViewController {
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        subsribeToProtocolID()
+        addInfiniteRotateAnimation(to: animatedLogo)
+        performInitialCheck()
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.delegate = self
-    }
-    
     override func loadView() {
         super.loadView()
         setupUI()
     }
+
+    private lazy var animatedLogo:UIImageView = {
+        let image = UIImageView(image: UIImage(named: "launch"))
+        image.translatesAutoresizingMaskIntoConstraints = false
+        image.contentMode = .scaleAspectFit
+        return image
+    }()
     
-    private let viewModel = RootViewModel()
-    private var itemViews: [RootItemView] = []
-    private var safeAreaLayoutGuide:UILayoutGuide{
-        view.safeAreaLayoutGuide
+    private func addInfiniteRotateAnimation(to view: UIView) {
+        let rotation = CABasicAnimation(keyPath: "transform.rotation")
+        rotation.fromValue = 0
+        rotation.toValue = -CGFloat.pi * 2
+        rotation.duration = 3.3
+        rotation.repeatCount = .infinity
+        rotation.isRemovedOnCompletion = false
+        view.layer.add(rotation, forKey: "infiniteRotateAnimation")
     }
-    private var cancellables = Set<AnyCancellable>()
-    private var selectedProtocolID: String? {
-           didSet { updateSelection() }
-       }
     
+    private func pauseAnimation(on view: UIView) {
+        guard let layer = view.layer.presentation() else { return }
+        let pausedTime = layer.convertTime(CACurrentMediaTime(), from: nil)
+        view.layer.speed = 0
+        view.layer.timeOffset = pausedTime
+    }
     
-    private lazy var stackContainer:UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .vertical
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.spacing = 20
-        stackView.distribution = .fill
-        stackView.alignment = .center
-        return stackView
-    }()
-    
-    
-    private lazy var nextButton:UIButton = {
-        let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Next", for: .normal)
-        button.setTitle("Choose First", for: .disabled)
-        button.setTitleColor(.foreground, for: .normal)
-        button.setTitleColor(.muted, for: .disabled)
-        button.backgroundColor = .cardBackgroundDark
-        button.titleLabel?.font = UIFont(name: "Geist-semibold", size: 14)
-        button.layer.cornerRadius = 10
-        
-        button.addTarget(self, action: #selector(nextButtonAction), for: .touchUpInside)
-        
-        return button
-    }()
-    
-    @objc private func nextButtonAction(_ sender: UIButton) {
-        AppState.shared.navigateToPage(page: .overview)
+    private func performInitialCheck (){
+        let protocolID = AppState.shared.getInitialProtocolID()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            if protocolID.isEmpty {
+                AppState.shared.navigateToPage(page: .defi)
+            }else{
+                AppState.shared.navigateToPage(page: .overview)
+            }
+        }
     }
     
     private func setupUI(){
         view.backgroundColor = .background
-        view.addSubview(stackContainer)
-        navigationItem.title = "Choose Protocol"
-        
-        viewModel.rootData.forEach { item in
-            let view = RootItemView()
-            view.configure(with: item)
-            view.delegate = self
-            itemViews.append(view)
-            stackContainer.addArrangedSubview(view)
-        }
-        
-        stackContainer.addArrangedSubview(nextButton)
-        
+        view.addSubview(animatedLogo)
         NSLayoutConstraint.activate([
-            stackContainer.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -12),
-            stackContainer.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 12),
-            stackContainer.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            stackContainer.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            
-            nextButton.trailingAnchor.constraint(lessThanOrEqualTo: stackContainer.trailingAnchor,constant: -100),
-            nextButton.leadingAnchor.constraint(lessThanOrEqualTo: stackContainer.leadingAnchor,constant: 100),
-            nextButton.bottomAnchor.constraint(equalTo: stackContainer.bottomAnchor)
-           
+            animatedLogo.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            animatedLogo.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            animatedLogo.heightAnchor.constraint(equalToConstant: 224),
+            animatedLogo.trailingAnchor.constraint(equalTo: view.trailingAnchor,constant: -16),
+            animatedLogo.leadingAnchor.constraint(equalTo: view.leadingAnchor,constant: 16),
         ])
-        
-    }
-    
-    private func updateSelection() {
-          itemViews.forEach { itemView in
-              let isSelected = itemView.protocolID == selectedProtocolID
-              itemView.setSelected(isSelected)
-          }
-      }
-    
-    private func subsribeToProtocolID(){
-        AppState.shared.protocolIDPublisher.sink { [weak self] value in
-            guard let self else {return}
-            if value.isEmpty {
-                nextButton.isEnabled = false
-            }else{
-                nextButton.isEnabled = true
-            }
-            
-        }.store(in: &cancellables)
     }
 }
-
-extension RootViewController:RootItemViewDelegate{
-    func didSelectProtocol(withID id: String) {
-        selectedProtocolID = id
-        AppState.shared.setProtocolID(with: id)
-    }
-}
-
-extension RootViewController:UINavigationControllerDelegate{
-    func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
-        if viewController == self {
-            navigationController.interactivePopGestureRecognizer?.isEnabled = false
-            navigationItem.hidesBackButton = true
-        }
-    }
-    
-    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationController.Operation, from fromVC: UIViewController, to toVC: UIViewController) -> (any UIViewControllerAnimatedTransitioning)? {
-        return FadeTransition()
-    }
-    
-}
-
-

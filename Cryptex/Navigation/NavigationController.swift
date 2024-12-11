@@ -36,5 +36,4 @@ class CustomNavigationController: UINavigationController {
             UINavigationBar.appearance().compactScrollEdgeAppearance = appearance
         }
     }
-
 }

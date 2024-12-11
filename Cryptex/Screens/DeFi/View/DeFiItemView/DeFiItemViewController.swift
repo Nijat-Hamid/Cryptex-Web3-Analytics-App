@@ -8,11 +8,11 @@
 
 import UIKit
 
-protocol RootItemViewDelegate:AnyObject {
+protocol DeFiItemViewDelegate:AnyObject {
     func didSelectProtocol (withID id:String)
 }
 
-class RootItemView: UIView {
+class DeFiItemViewController: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -26,7 +26,7 @@ class RootItemView: UIView {
     
     var protocolID:String?
     
-    weak var delegate: RootItemViewDelegate?
+    weak var delegate: DeFiItemViewDelegate?
     
     private lazy var image:UIImageView = {
         let image = UIImageView()
@@ -70,7 +70,7 @@ class RootItemView: UIView {
         self.addGestureRecognizer(gesture)
     }
     
-    func configure(with viewModel:RootItemViewModel){
+    func configure(with viewModel:DeFiUIModel){
         image.image = UIImage(named: viewModel.imageName)
         text.text = viewModel.description
         protocolID = viewModel.id
