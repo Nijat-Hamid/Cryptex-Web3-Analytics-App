@@ -166,11 +166,9 @@ class MenuViewController: UIViewController {
     }()
     
     @objc private func logOutAction(_ sender:UIButton){
-        if let presentationController = presentationController as? SlideRightPresenter {
-            presentationController.dismissMenu()
-        } else {
-            dismiss(animated: true)
-        }
+        let presentationController = presentationController as? SlideRightPresenter
+        presentationController?.dismissMenu()
+        
         AppState.shared.resetProtocolID()
         AppState.shared.navigateToPage(page: .defi)
     }
@@ -210,12 +208,12 @@ class MenuViewController: UIViewController {
             let button = UIButton()
             button.tag = index
             button.translatesAutoresizingMaskIntoConstraints = false
-            button.setTitleColor(.foreground, for: .normal)
-            button.setTitleColor(.muted, for: .disabled)
-            button.backgroundColor = .background
             button.layer.cornerRadius = 10
             button.contentHorizontalAlignment = .leading
             button.tintColor = .foreground
+            button.backgroundColor = .background
+            button.setTitleColor(.foreground, for: .normal)
+            button.setTitleColor(.muted, for: .disabled)
             var config = UIButton.Configuration.plain()
             config.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 12, bottom: 10, trailing: 12)
             config.image = UIImage(named: item.image)?.resizedImage(Size: .init(width: 16, height: 16))?.withRenderingMode(.alwaysTemplate)
@@ -224,14 +222,13 @@ class MenuViewController: UIViewController {
             config.imagePadding = 8
             config.attributedTitle = AttributedString(item.name, attributes: AttributeContainer([
                 .font: UIFont(name: "Geist-medium", size: 14)!,
-                .foregroundColor: UIColor.foreground
               ]))
             button.configuration = config
 
             button.addTarget(self, action: #selector(navigateToPage(_:)), for: .touchUpInside)
             
             if let currentPage = AppState.shared.currentPage, currentPage.rawValue == item.name {
-                button.backgroundColor = .cardBackgroundDark
+                button.backgroundColor = .brandForeground
                 
             }
                   

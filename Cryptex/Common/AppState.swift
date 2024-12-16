@@ -95,6 +95,10 @@ class AppState {
                 let vc = DeFiViewController()
                 viewControllers = viewControllers.filter { !($0 is DeFiViewController) }
                 viewControllers.append(vc)
+            case .metrics:
+                let vc = MetricsViewController()
+                viewControllers = viewControllers.filter { !($0 is MetricsViewController) }
+                viewControllers.append(vc)
             }
             
             navigationController.setViewControllers(viewControllers, animated: true)
@@ -109,4 +113,5 @@ enum PageName:String{
     case pools = "Pools"
     case tokens = "Tokens"
     case blockchains = "Blockchains"
+    case metrics = "Metrics"
 }

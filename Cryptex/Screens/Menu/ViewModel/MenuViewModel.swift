@@ -14,7 +14,8 @@ class MenuViewModel: NSObject {
         MenuUIModel(name: "Overview", image: "overview"),
         MenuUIModel(name: "Pools", image: "pool"),
         MenuUIModel(name: "Tokens", image: "token"),
-        MenuUIModel(name: "Blockchains", image: "blockchain")
+        MenuUIModel(name: "Blockchains", image: "blockchain"),
+        MenuUIModel(name: "Metrics", image: "metrics")
     ]
     
     private let social:[SocialUIModel] = [

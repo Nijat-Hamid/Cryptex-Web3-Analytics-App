@@ -10,7 +10,7 @@
 		1F4293112CF9EB54000CFA9E /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4293102CF9EB4C000CFA9E /* UIView+Extension.swift */; };
 		1F4293152CF9F8C3000CFA9E /* DeFiUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4293142CF9F8AA000CFA9E /* DeFiUIModel.swift */; };
 		1F42931B2CF9F955000CFA9E /* OverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F42931A2CF9F955000CFA9E /* OverviewViewController.swift */; };
-		1F42931E2CFCC7BD000CFA9E /* ListItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F42931D2CFCC7BD000CFA9E /* ListItemCell.swift */; };
+		1F42931E2CFCC7BD000CFA9E /* ChartMarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F42931D2CFCC7BD000CFA9E /* ChartMarkerView.swift */; };
 		1F4293202CFDA9D9000CFA9E /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F42931F2CFDA9D7000CFA9E /* AppState.swift */; };
 		1F42932D2CFE4976000CFA9E /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F42932C2CFE4976000CFA9E /* MenuViewController.swift */; };
 		1F4293322CFE64AE000CFA9E /* SlideRightPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4293312CFE64A8000CFA9E /* SlideRightPresenter.swift */; };
@@ -25,6 +25,23 @@
 		1F4293512D00FA66000CFA9E /* FadeTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4293502D00FA61000CFA9E /* FadeTransition.swift */; };
 		1F4293552D0173DB000CFA9E /* CustomTransitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4293542D0173DB000CFA9E /* CustomTransitionViewController.swift */; };
 		1F4CCAFA2D02A283003F9D99 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4CCAF92D02A283003F9D99 /* RootViewController.swift */; };
+		1F60925D2D0F0585001CCE43 /* TokensDTOModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F60925C2D0F0580001CCE43 /* TokensDTOModel.swift */; };
+		1F60925F2D0F058C001CCE43 /* TokensUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F60925E2D0F0589001CCE43 /* TokensUIModel.swift */; };
+		1F6092622D0F0C2E001CCE43 /* TokenCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6092612D0F0C2B001CCE43 /* TokenCell.swift */; };
+		1F6092642D0F1276001CCE43 /* BlockchainsDTOModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6092632D0F126D001CCE43 /* BlockchainsDTOModel.swift */; };
+		1F6092662D0F12C8001CCE43 /* BlockchainsUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6092652D0F12C3001CCE43 /* BlockchainsUIModel.swift */; };
+		1F6092692D0F13E4001CCE43 /* BlockchainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6092682D0F13E1001CCE43 /* BlockchainCell.swift */; };
+		1F60926F2D0F2CC3001CCE43 /* MetricsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F60926E2D0F2CC3001CCE43 /* MetricsViewController.swift */; };
+		1F6092722D102533001CCE43 /* MetricsCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6092712D102533001CCE43 /* MetricsCardView.swift */; };
+		1F6092752D104473001CCE43 /* DGCharts in Frameworks */ = {isa = PBXBuildFile; productRef = 1F6092742D104473001CCE43 /* DGCharts */; };
+		1F6092782D10457E001CCE43 /* MetricsChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6092772D10457E001CCE43 /* MetricsChart.swift */; };
+		1F60927B2D106031001CCE43 /* LineChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F60927A2D10602D001CCE43 /* LineChartView.swift */; };
+		1FB9E5D42D09B9C100128526 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB9E5D32D09B9BA00128526 /* Helpers.swift */; };
+		1FB9E5D62D09BC8E00128526 /* PoolsUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB9E5D52D09BC8800128526 /* PoolsUIModel.swift */; };
+		1FB9E5D92D0AB2A400128526 /* PoolCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB9E5D82D0AB2A400128526 /* PoolCell.swift */; };
+		1FB9E5DB2D0AC62200128526 /* PoolsDTOModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB9E5DA2D0AC61C00128526 /* PoolsDTOModel.swift */; };
+		1FB9E5DD2D0AF02000128526 /* UICollectionViewCell+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB9E5DC2D0AF01900128526 /* UICollectionViewCell+Extensions.swift */; };
+		1FB9E5DF2D0C393200128526 /* UILabel+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB9E5DE2D0C392900128526 /* UILabel+Extensions.swift */; };
 		1FBDD1E22CF71CAF00223819 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FBDD1D92CF71CAF00223819 /* Assets.xcassets */; };
 		1FBDD1E42CF71CAF00223819 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FBDD1DC2CF71CAF00223819 /* LaunchScreen.storyboard */; };
 		1FBDD1E62CF71CAF00223819 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBDD1D82CF71CAF00223819 /* AppDelegate.swift */; };
@@ -50,7 +67,7 @@
 		1F4293102CF9EB4C000CFA9E /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		1F4293142CF9F8AA000CFA9E /* DeFiUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeFiUIModel.swift; sourceTree = "<group>"; };
 		1F42931A2CF9F955000CFA9E /* OverviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewViewController.swift; sourceTree = "<group>"; };
-		1F42931D2CFCC7BD000CFA9E /* ListItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemCell.swift; sourceTree = "<group>"; };
+		1F42931D2CFCC7BD000CFA9E /* ChartMarkerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartMarkerView.swift; sourceTree = "<group>"; };
 		1F42931F2CFDA9D7000CFA9E /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		1F42932C2CFE4976000CFA9E /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		1F4293312CFE64A8000CFA9E /* SlideRightPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideRightPresenter.swift; sourceTree = "<group>"; };
@@ -65,6 +82,22 @@
 		1F4293502D00FA61000CFA9E /* FadeTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadeTransition.swift; sourceTree = "<group>"; };
 		1F4293542D0173DB000CFA9E /* CustomTransitionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTransitionViewController.swift; sourceTree = "<group>"; };
 		1F4CCAF92D02A283003F9D99 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		1F60925C2D0F0580001CCE43 /* TokensDTOModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokensDTOModel.swift; sourceTree = "<group>"; };
+		1F60925E2D0F0589001CCE43 /* TokensUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokensUIModel.swift; sourceTree = "<group>"; };
+		1F6092612D0F0C2B001CCE43 /* TokenCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenCell.swift; sourceTree = "<group>"; };
+		1F6092632D0F126D001CCE43 /* BlockchainsDTOModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockchainsDTOModel.swift; sourceTree = "<group>"; };
+		1F6092652D0F12C3001CCE43 /* BlockchainsUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockchainsUIModel.swift; sourceTree = "<group>"; };
+		1F6092682D0F13E1001CCE43 /* BlockchainCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockchainCell.swift; sourceTree = "<group>"; };
+		1F60926E2D0F2CC3001CCE43 /* MetricsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricsViewController.swift; sourceTree = "<group>"; };
+		1F6092712D102533001CCE43 /* MetricsCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricsCardView.swift; sourceTree = "<group>"; };
+		1F6092772D10457E001CCE43 /* MetricsChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricsChart.swift; sourceTree = "<group>"; };
+		1F60927A2D10602D001CCE43 /* LineChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChartView.swift; sourceTree = "<group>"; };
+		1FB9E5D32D09B9BA00128526 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		1FB9E5D52D09BC8800128526 /* PoolsUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoolsUIModel.swift; sourceTree = "<group>"; };
+		1FB9E5D82D0AB2A400128526 /* PoolCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoolCell.swift; sourceTree = "<group>"; };
+		1FB9E5DA2D0AC61C00128526 /* PoolsDTOModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoolsDTOModel.swift; sourceTree = "<group>"; };
+		1FB9E5DC2D0AF01900128526 /* UICollectionViewCell+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell+Extensions.swift"; sourceTree = "<group>"; };
+		1FB9E5DE2D0C392900128526 /* UILabel+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extensions.swift"; sourceTree = "<group>"; };
 		1FBDD1C02CF71CA800223819 /* Cryptex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cryptex.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FBDD1D82CF71CAF00223819 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1FBDD1D92CF71CAF00223819 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -92,6 +125,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F6092752D104473001CCE43 /* DGCharts in Frameworks */,
 				1FBDD1FA2CF72AAB00223819 /* SDWebImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -142,7 +176,7 @@
 		1F42931C2CFCC723000CFA9E /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				1F42931D2CFCC7BD000CFA9E /* ListItemCell.swift */,
+				1F6092792D106021001CCE43 /* Chart */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -211,6 +245,7 @@
 		1F4293352D008CD6000CFA9E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				1FB9E5D72D0AB26000128526 /* PoolCell */,
 				1F4293372D008CF1000CFA9E /* PoolsViewController.swift */,
 			);
 			path = View;
@@ -219,6 +254,8 @@
 		1F4293362D008CDB000CFA9E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				1FB9E5DA2D0AC61C00128526 /* PoolsDTOModel.swift */,
+				1FB9E5D52D09BC8800128526 /* PoolsUIModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -243,6 +280,7 @@
 		1F42933B2D008D12000CFA9E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				1F6092602D0F0C21001CCE43 /* TokenCell */,
 				1F42933D2D008D23000CFA9E /* TokensViewController.swift */,
 			);
 			path = View;
@@ -251,6 +289,8 @@
 		1F42933C2D008D16000CFA9E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				1F60925E2D0F0589001CCE43 /* TokensUIModel.swift */,
+				1F60925C2D0F0580001CCE43 /* TokensDTOModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -275,6 +315,7 @@
 		1F4293412D008D3A000CFA9E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				1F6092672D0F13D7001CCE43 /* BlockchainCell */,
 				1F4293432D008D53000CFA9E /* BlockchainsViewController.swift */,
 			);
 			path = View;
@@ -283,6 +324,8 @@
 		1F4293422D008D3E000CFA9E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				1F6092652D0F12C3001CCE43 /* BlockchainsUIModel.swift */,
+				1F6092632D0F126D001CCE43 /* BlockchainsDTOModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -293,6 +336,81 @@
 				1F42934E2D00F50D000CFA9E /* NavigationController.swift */,
 			);
 			path = Navigation;
+			sourceTree = "<group>";
+		};
+		1F6092602D0F0C21001CCE43 /* TokenCell */ = {
+			isa = PBXGroup;
+			children = (
+				1F6092612D0F0C2B001CCE43 /* TokenCell.swift */,
+			);
+			path = TokenCell;
+			sourceTree = "<group>";
+		};
+		1F6092672D0F13D7001CCE43 /* BlockchainCell */ = {
+			isa = PBXGroup;
+			children = (
+				1F6092682D0F13E1001CCE43 /* BlockchainCell.swift */,
+			);
+			path = BlockchainCell;
+			sourceTree = "<group>";
+		};
+		1F60926A2D0F2C8C001CCE43 /* Metrics */ = {
+			isa = PBXGroup;
+			children = (
+				1F60926B2D0F2C94001CCE43 /* Model */,
+				1F60926C2D0F2C99001CCE43 /* View */,
+				1F60926D2D0F2CA6001CCE43 /* ViewModel */,
+			);
+			path = Metrics;
+			sourceTree = "<group>";
+		};
+		1F60926B2D0F2C94001CCE43 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1F60926C2D0F2C99001CCE43 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1F6092762D10456B001CCE43 /* MetricsChart */,
+				1F6092702D102511001CCE43 /* MetricsCard */,
+				1F60926E2D0F2CC3001CCE43 /* MetricsViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1F60926D2D0F2CA6001CCE43 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		1F6092702D102511001CCE43 /* MetricsCard */ = {
+			isa = PBXGroup;
+			children = (
+				1F6092712D102533001CCE43 /* MetricsCardView.swift */,
+			);
+			path = MetricsCard;
+			sourceTree = "<group>";
+		};
+		1F6092762D10456B001CCE43 /* MetricsChart */ = {
+			isa = PBXGroup;
+			children = (
+				1F6092772D10457E001CCE43 /* MetricsChart.swift */,
+			);
+			path = MetricsChart;
+			sourceTree = "<group>";
+		};
+		1F6092792D106021001CCE43 /* Chart */ = {
+			isa = PBXGroup;
+			children = (
+				1F60927A2D10602D001CCE43 /* LineChartView.swift */,
+				1F42931D2CFCC7BD000CFA9E /* ChartMarkerView.swift */,
+			);
+			path = Chart;
 			sourceTree = "<group>";
 		};
 		1FB9E5D02D099D2A00128526 /* Root */ = {
@@ -309,6 +427,22 @@
 				1F4CCAF92D02A283003F9D99 /* RootViewController.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		1FB9E5D22D09B9A700128526 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				1FB9E5D32D09B9BA00128526 /* Helpers.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		1FB9E5D72D0AB26000128526 /* PoolCell */ = {
+			isa = PBXGroup;
+			children = (
+				1FB9E5D82D0AB2A400128526 /* PoolCell.swift */,
+			);
+			path = PoolCell;
 			sourceTree = "<group>";
 		};
 		1FBDD1B72CF71CA800223819 = {
@@ -366,6 +500,7 @@
 				1F42931C2CFCC723000CFA9E /* Components */,
 				1FBDD1F32CF71EBA00223819 /* Controllers */,
 				1FBDD1F02CF71E7200223819 /* Extensions */,
+				1FB9E5D22D09B9A700128526 /* Helpers */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -373,6 +508,8 @@
 		1FBDD1F02CF71E7200223819 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				1FB9E5DE2D0C392900128526 /* UILabel+Extensions.swift */,
+				1FB9E5DC2D0AF01900128526 /* UICollectionViewCell+Extensions.swift */,
 				1F4293492D00AFB8000CFA9E /* UIImage+Extension.swift */,
 				1F4293102CF9EB4C000CFA9E /* UIView+Extension.swift */,
 				1FBDD1F12CF71E8100223819 /* Data+Extension.swift */,
@@ -408,13 +545,14 @@
 		1FBDD20E2CF7802D00223819 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				1FB9E5D02D099D2A00128526 /* Root */,
-				1F42933F2D008D2E000CFA9E /* Blockchains */,
-				1F4293392D008D06000CFA9E /* Tokens */,
-				1F4293332D008CB4000CFA9E /* Pools */,
-				1F4293272CFE1CD9000CFA9E /* Menu */,
+				1F60926A2D0F2C8C001CCE43 /* Metrics */,
 				1F4293162CF9F8F6000CFA9E /* Overview */,
+				1F4293332D008CB4000CFA9E /* Pools */,
+				1F4293392D008D06000CFA9E /* Tokens */,
+				1F42933F2D008D2E000CFA9E /* Blockchains */,
+				1F4293272CFE1CD9000CFA9E /* Menu */,
 				1FBDD2112CF7880E00223819 /* DeFi */,
+				1FB9E5D02D099D2A00128526 /* Root */,
 				1FBDD20F2CF7809700223819 /* Launch */,
 			);
 			path = Screens;
@@ -489,6 +627,7 @@
 			name = Cryptex;
 			packageProductDependencies = (
 				1FBDD1F92CF72AAB00223819 /* SDWebImage */,
+				1F6092742D104473001CCE43 /* DGCharts */,
 			);
 			productName = Cryptex;
 			productReference = 1FBDD1C02CF71CA800223819 /* Cryptex.app */;
@@ -521,6 +660,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				1FBDD1F82CF72AAB00223819 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				1F6092732D104473001CCE43 /* XCRemoteSwiftPackageReference "Charts" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 1FBDD1C12CF71CA800223819 /* Products */;
@@ -561,27 +701,43 @@
 				1FBDD21A2CF8903500223819 /* DeFiItemViewController.swift in Sources */,
 				1FBDD1F72CF71EE000223819 /* BaseViewController.swift in Sources */,
 				1F4293112CF9EB54000CFA9E /* UIView+Extension.swift in Sources */,
+				1FB9E5DB2D0AC62200128526 /* PoolsDTOModel.swift in Sources */,
+				1FB9E5DD2D0AF02000128526 /* UICollectionViewCell+Extensions.swift in Sources */,
+				1F6092622D0F0C2E001CCE43 /* TokenCell.swift in Sources */,
 				1F42934C2D00D03E000CFA9E /* SocialUIModel.swift in Sources */,
 				1F4293442D008D53000CFA9E /* BlockchainsViewController.swift in Sources */,
+				1FB9E5D42D09B9C100128526 /* Helpers.swift in Sources */,
 				1F4293322CFE64AE000CFA9E /* SlideRightPresenter.swift in Sources */,
 				1F4293202CFDA9D9000CFA9E /* AppState.swift in Sources */,
-				1F42931E2CFCC7BD000CFA9E /* ListItemCell.swift in Sources */,
+				1F42931E2CFCC7BD000CFA9E /* ChartMarkerView.swift in Sources */,
 				1F42934A2D00AFC1000CFA9E /* UIImage+Extension.swift in Sources */,
 				1FBDD1E62CF71CAF00223819 /* AppDelegate.swift in Sources */,
+				1F6092782D10457E001CCE43 /* MetricsChart.swift in Sources */,
+				1F60927B2D106031001CCE43 /* LineChartView.swift in Sources */,
 				1F4293552D0173DB000CFA9E /* CustomTransitionViewController.swift in Sources */,
 				1F4293462D008D90000CFA9E /* MenuViewModel.swift in Sources */,
+				1F6092642D0F1276001CCE43 /* BlockchainsDTOModel.swift in Sources */,
 				1F42934F2D00F50D000CFA9E /* NavigationController.swift in Sources */,
+				1F60926F2D0F2CC3001CCE43 /* MetricsViewController.swift in Sources */,
 				1F4CCAFA2D02A283003F9D99 /* RootViewController.swift in Sources */,
+				1FB9E5D92D0AB2A400128526 /* PoolCell.swift in Sources */,
 				1F4293152CF9F8C3000CFA9E /* DeFiUIModel.swift in Sources */,
 				1F42933E2D008D23000CFA9E /* TokensViewController.swift in Sources */,
+				1FB9E5DF2D0C393200128526 /* UILabel+Extensions.swift in Sources */,
+				1F6092662D0F12C8001CCE43 /* BlockchainsUIModel.swift in Sources */,
 				1F4293512D00FA66000CFA9E /* FadeTransition.swift in Sources */,
 				1F42932D2CFE4976000CFA9E /* MenuViewController.swift in Sources */,
 				1FBDD1F22CF71E8400223819 /* Data+Extension.swift in Sources */,
+				1F6092722D102533001CCE43 /* MetricsCardView.swift in Sources */,
+				1F6092692D0F13E4001CCE43 /* BlockchainCell.swift in Sources */,
 				1FBDD1E72CF71CAF00223819 /* SceneDelegate.swift in Sources */,
 				1F4293482D008DCC000CFA9E /* MenuUIModel.swift in Sources */,
+				1F60925F2D0F058C001CCE43 /* TokensUIModel.swift in Sources */,
 				1F42931B2CF9F955000CFA9E /* OverviewViewController.swift in Sources */,
+				1F60925D2D0F0585001CCE43 /* TokensDTOModel.swift in Sources */,
 				1F4293382D008CF1000CFA9E /* PoolsViewController.swift in Sources */,
 				1FBDD21C2CF894A700223819 /* DeFiViewModel.swift in Sources */,
+				1FB9E5D62D09BC8E00128526 /* PoolsUIModel.swift in Sources */,
 				1FBDD1E82CF71CAF00223819 /* DeFiViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -809,6 +965,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		1F6092732D104473001CCE43 /* XCRemoteSwiftPackageReference "Charts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ChartsOrg/Charts.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.1.0;
+			};
+		};
 		1FBDD1F82CF72AAB00223819 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
@@ -820,6 +984,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		1F6092742D104473001CCE43 /* DGCharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1F6092732D104473001CCE43 /* XCRemoteSwiftPackageReference "Charts" */;
+			productName = DGCharts;
+		};
 		1FBDD1F92CF72AAB00223819 /* SDWebImage */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 1FBDD1F82CF72AAB00223819 /* XCRemoteSwiftPackageReference "SDWebImage" */;

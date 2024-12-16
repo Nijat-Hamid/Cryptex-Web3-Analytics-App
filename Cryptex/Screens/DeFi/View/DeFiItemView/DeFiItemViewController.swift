@@ -70,10 +70,10 @@ class DeFiItemViewController: UIView {
         self.addGestureRecognizer(gesture)
     }
     
-    func configure(with viewModel:DeFiUIModel){
-        image.image = UIImage(named: viewModel.imageName)
-        text.text = viewModel.description
-        protocolID = viewModel.id
+    func configure(with data:DeFiUIModel){
+        image.image = UIImage(named: data.imageName)
+        text.text = data.description
+        protocolID = data.id
     }
     
     @objc private func didTap (_ sender:UITapGestureRecognizer){
