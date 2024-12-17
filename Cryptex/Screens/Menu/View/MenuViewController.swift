@@ -229,7 +229,6 @@ class MenuViewController: UIViewController {
             
             if let currentPage = AppState.shared.currentPage, currentPage.rawValue == item.name {
                 button.backgroundColor = .brandForeground
-                
             }
                   
             

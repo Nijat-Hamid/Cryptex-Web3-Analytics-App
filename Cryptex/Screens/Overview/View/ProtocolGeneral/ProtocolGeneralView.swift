@@ -1,27 +1,26 @@
 //
-//  TokenCell.swift
+//  ProtocolGeneralView.swift
 //  Cryptex
 //
-//  Created by Nijat Hamid on 12/15/24.
+//  Created by Nijat Hamid on 12/17/24.
 //  Copyright © 2024 Nijat Hamid. All rights reserved.
 //
 
 import UIKit
-import SDWebImage
 
-class TokenCell: UICollectionViewCell {
-    
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-    }
+class ProtocolGeneralView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupUI()
     }
     
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        setupUI()
+    }
     
-    private lazy var tokenStack:UIStackView = {
+    private lazy var poolStack:UIStackView = {
         let stack = UIStackView()
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .vertical
@@ -31,7 +30,7 @@ class TokenCell: UICollectionViewCell {
         return stack
     }()
     
-    private lazy var tokenInfoStack:UIStackView = {
+    private lazy var poolInfoStack:UIStackView = {
         let stack = UIStackView()
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .vertical
@@ -42,35 +41,73 @@ class TokenCell: UICollectionViewCell {
     }()
     
     
-    private lazy var tokenImage:UIImageView = {
+    private lazy var poolImageContainer:UIView = {
+        let container = UIView()
+        container.translatesAutoresizingMaskIntoConstraints = false
+        container.backgroundColor = .clear
+        
+        container.addSubview(poolImage)
+        if !poolImageOther.isHidden {
+            container.addSubview(poolImageOther)
+            
+            NSLayoutConstraint.activate([
+                container.heightAnchor.constraint(equalToConstant: 70),
+                poolImage.centerXAnchor.constraint(equalTo: container.centerXAnchor, constant: -20),
+                poolImageOther.centerXAnchor.constraint(equalTo: container.centerXAnchor, constant: 20),
+            ])
+        } else {
+            NSLayoutConstraint.activate([
+                container.heightAnchor.constraint(equalToConstant: 70),
+                poolImage.centerXAnchor.constraint(equalTo: container.centerXAnchor),
+            ])
+        }
+        
+        return container
+    }()
+    private lazy var poolImage:UIImageView = {
         let image = UIImageView(image: UIImage(named: "poolDemo"))
         image.translatesAutoresizingMaskIntoConstraints = false
         image.backgroundColor = .cardBackgroundDark
         image.layer.borderWidth = 3
         image.layer.borderColor = UIColor.border.cgColor
-        image.layer.cornerRadius = 25
+        image.layer.cornerRadius = 35
         image.clipsToBounds = true
         NSLayoutConstraint.activate([
-            image.heightAnchor.constraint(equalToConstant: 50),
-            image.widthAnchor.constraint(equalToConstant: 50)
+            image.heightAnchor.constraint(equalToConstant: 70),
+            image.widthAnchor.constraint(equalToConstant: 70)
         ])
         
         return image
     }()
     
+    private lazy var poolImageOther:UIImageView = {
+        let image = UIImageView(image: UIImage(named: "retDemo"))
+        image.translatesAutoresizingMaskIntoConstraints = false
+        image.backgroundColor = .cardBackgroundDark
+        image.layer.borderWidth = 3
+        image.layer.borderColor = UIColor.border.cgColor
+        image.layer.cornerRadius = 35
+        image.isHidden = true
+        image.clipsToBounds = true
+        NSLayoutConstraint.activate([
+            image.heightAnchor.constraint(equalToConstant: 70),
+            image.widthAnchor.constraint(equalToConstant: 70)
+        ])
+        return image
+    }()
     
-    private lazy var tokenName:UILabel = {
+    private lazy var poolName:UILabel = {
         let label = UILabel()
         label.text = "WSTETH"
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = .zero
         label.textAlignment = .center
-        label.font = UIFont(name: "Geist-semibold", size: 14)
+        label.font = UIFont(name: "Geist-semibold", size: 16)
         label.textColor = .foreground
         return label
     }()
     
-    private lazy var tokenSecondInfo:UILabel = {
+    private lazy var poolSecondInfo:UILabel = {
         let label = UILabel()
         label.text = "37483$"
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -118,21 +155,68 @@ class TokenCell: UICollectionViewCell {
         return label
     }()
     
+    private lazy var protocolStack:UIStackView = {
+        let stack = UIStackView()
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        stack.axis = .vertical
+        stack.spacing = 8
+        stack.distribution = .fill
+        stack.alignment = .center
+        return stack
+    }()
+    
+    private lazy var protocolImage:UIImageView = {
+        let image = UIImageView(image: UIImage(named: "protocolDemo"))
+        image.translatesAutoresizingMaskIntoConstraints = false
+        image.backgroundColor = .cardBackgroundDark
+        image.layer.borderWidth = 3
+        image.layer.borderColor = UIColor.border.cgColor
+        image.layer.cornerRadius = 25
+        image.clipsToBounds = true
+        NSLayoutConstraint.activate([
+            image.heightAnchor.constraint(equalToConstant: 50),
+            image.widthAnchor.constraint(equalToConstant: 50)
+        ])
+        return image
+    }()
+    
+    private lazy var protocolName:UILabel = {
+        let label = UILabel()
+        label.text = "Aave V3"
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = .zero
+        label.textAlignment = .center
+        label.font = UIFont(name: "Geist-medium", size: 14)
+        label.textColor = .foreground
+        return label
+    }()
+    
+    
     private lazy var primaryStack:UIStackView = {
         let stack = UIStackView()
         stack.axis = .horizontal
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.spacing = 8
-        stack.alignment = .top
+        stack.alignment = .center
         stack.distribution = .fillEqually
         return stack
     }()
     
     private lazy var primaryHeader:UIStackView = {
         let stack = UIStackView(arrangedSubviews: [
-           {
+            {
                 let label = UILabel()
-                label.text = "Token:"
+                label.text = "Protocol:"
+                label.translatesAutoresizingMaskIntoConstraints = false
+                label.numberOfLines = .zero
+                label.textAlignment = .center
+                label.font = UIFont(name: "Geist-medium", size: 14)
+                label.textColor = .foreground
+                return label
+                
+            }(),{
+                let label = UILabel()
+                label.text = "Pool:"
                 label.translatesAutoresizingMaskIntoConstraints = false
                 label.numberOfLines = .zero
                 label.textAlignment = .center
@@ -169,7 +253,7 @@ class TokenCell: UICollectionViewCell {
         let stack = UIStackView(arrangedSubviews: [
             {
                 let label = UILabel()
-                label.text = "Daily:"
+                label.text = "Supplied:"
                 label.translatesAutoresizingMaskIntoConstraints = false
                 label.numberOfLines = .zero
                 label.textAlignment = .center
@@ -179,7 +263,7 @@ class TokenCell: UICollectionViewCell {
                 
             }(),{
                 let label = UILabel()
-                label.text = "Weekly:"
+                label.text = "Borrowed:"
                 label.translatesAutoresizingMaskIntoConstraints = false
                 label.numberOfLines = .zero
                 label.textAlignment = .center
@@ -189,7 +273,7 @@ class TokenCell: UICollectionViewCell {
                 
             }(),{
                 let label = UILabel()
-                label.text = "Monthly:"
+                label.text = "Liquidity:"
                 label.translatesAutoresizingMaskIntoConstraints = false
                 label.numberOfLines = .zero
                 label.textAlignment = .center
@@ -222,7 +306,7 @@ class TokenCell: UICollectionViewCell {
         return stack
     }()
     
-    private lazy var daily:UILabel = {
+    private lazy var supplied:UILabel = {
         let label = UILabel()
         label.text = "3848B"
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -233,7 +317,7 @@ class TokenCell: UICollectionViewCell {
         return label
     }()
     
-    private lazy var weekly:UILabel = {
+    private lazy var borrowed:UILabel = {
         let label = UILabel()
         label.text = "199K"
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -244,7 +328,7 @@ class TokenCell: UICollectionViewCell {
         return label
     }()
     
-    private lazy var monthly:UILabel = {
+    private lazy var liquidity:UILabel = {
         let label = UILabel()
         label.text = "35K"
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -259,7 +343,7 @@ class TokenCell: UICollectionViewCell {
         let stack = UIStackView(arrangedSubviews: [
             {
                 let label = UILabel()
-                label.text = "Volume:"
+                label.text = "Utilization:"
                 label.translatesAutoresizingMaskIntoConstraints = false
                 label.numberOfLines = .zero
                 label.textAlignment = .center
@@ -269,7 +353,7 @@ class TokenCell: UICollectionViewCell {
                 
             }(),{
                 let label = UILabel()
-                label.text = "MarketCap:"
+                label.text = "APY:"
                 label.translatesAutoresizingMaskIntoConstraints = false
                 label.numberOfLines = .zero
                 label.textAlignment = .center
@@ -311,7 +395,7 @@ class TokenCell: UICollectionViewCell {
         return stack
     }()
     
-    private lazy var volume:UILabel = {
+    private lazy var utilization:UILabel = {
         let label = UILabel()
         label.text = "9.56%"
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -322,7 +406,7 @@ class TokenCell: UICollectionViewCell {
         return label
     }()
     
-    private lazy var marketCap:UILabel = {
+    private lazy var apy:UILabel = {
         let label = UILabel()
         label.text = "1.58%"
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -364,93 +448,68 @@ class TokenCell: UICollectionViewCell {
         return view
     }()
     
-    private lazy var clickText:UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Click to Details"
-        label.numberOfLines = .zero
-        label.textAlignment = .center
-        label.font = UIFont(name: "Geist-medium", size: 10)
-        label.textColor = .mutedForeground
-        return label
-    }()
-    
-    private lazy var background:UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .cardBackgroundDark
-        view.applyCornerRadiusWithShadow()
-        return view
-    }()
-    
-    func configure(with token:TokensUIModel){
-        print(token)
-        
-    }
-    
     private func setupUI(){
+        backgroundColor = .cardBackgroundDark
+        self.applyCornerRadiusWithShadow()
+        translatesAutoresizingMaskIntoConstraints = false
         
-        tokenInfoStack.addArrangedSubview(tokenName)
-        tokenInfoStack.addArrangedSubview(tokenSecondInfo)
+        poolInfoStack.addArrangedSubview(poolName)
+        poolInfoStack.addArrangedSubview(poolSecondInfo)
         
-        tokenStack.addArrangedSubview(tokenImage)
-        tokenStack.addArrangedSubview(tokenInfoStack)
+        
+        poolStack.addArrangedSubview(poolImageContainer)
+        poolStack.addArrangedSubview(poolInfoStack)
         
         chainStack.addArrangedSubview(chainImage)
         chainStack.addArrangedSubview(chainName)
         
-        primaryStack.addArrangedSubview(tokenStack)
+        protocolStack.addArrangedSubview(protocolImage)
+        protocolStack.addArrangedSubview(protocolName)
+        
+        
+        primaryStack.addArrangedSubview(protocolStack)
+        primaryStack.addArrangedSubview(poolStack)
         primaryStack.addArrangedSubview(chainStack)
         
-        secondaryStack.addArrangedSubview(daily)
-        secondaryStack.addArrangedSubview(weekly)
-        secondaryStack.addArrangedSubview(monthly)
+        secondaryStack.addArrangedSubview(supplied)
+        secondaryStack.addArrangedSubview(borrowed)
+        secondaryStack.addArrangedSubview(liquidity)
         
-        tertiaryStack.addArrangedSubview(volume)
-        tertiaryStack.addArrangedSubview(marketCap)
+        tertiaryStack.addArrangedSubview(utilization)
+        tertiaryStack.addArrangedSubview(apy)
         tertiaryStack.addArrangedSubview(riskContainer)
         
-        background.addSubview(primaryHeader)
-        background.addSubview(primaryStack)
-        background.addSubview(secondaryHeader)
-        background.addSubview(secondaryStack)
-        background.addSubview(tertiaryHeader)
-        background.addSubview(tertiaryStack)
-        background.addSubview(clickText)
-        addSubview(background)
+        addSubview(primaryHeader)
+        addSubview(primaryStack)
+        addSubview(secondaryHeader)
+        addSubview(secondaryStack)
+        addSubview(tertiaryHeader)
+        addSubview(tertiaryStack)
+        
         NSLayoutConstraint.activate([
-            primaryHeader.topAnchor.constraint(equalTo: topAnchor,constant: 12),
-            primaryHeader.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
-            primaryHeader.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8),
+            primaryHeader.topAnchor.constraint(equalTo: topAnchor,constant: 10),
+            primaryHeader.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 6),
+            primaryHeader.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -6),
             
             primaryStack.topAnchor.constraint(equalTo: primaryHeader.bottomAnchor,constant: 12),
-            primaryStack.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
-            primaryStack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8),
+            primaryStack.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 6),
+            primaryStack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -6),
             
             secondaryHeader.topAnchor.constraint(equalTo: primaryStack.bottomAnchor, constant: 14),
-            secondaryHeader.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
-            secondaryHeader.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8),
+            secondaryHeader.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 6),
+            secondaryHeader.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -6),
             
             secondaryStack.topAnchor.constraint(equalTo: secondaryHeader.bottomAnchor, constant: 10),
-            secondaryStack.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
-            secondaryStack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8),
+            secondaryStack.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 6),
+            secondaryStack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -6),
             
             tertiaryHeader.topAnchor.constraint(equalTo: secondaryStack.bottomAnchor, constant: 10),
-            tertiaryHeader.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
-            tertiaryHeader.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8),
+            tertiaryHeader.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 6),
+            tertiaryHeader.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -6),
             
             tertiaryStack.topAnchor.constraint(equalTo: tertiaryHeader.bottomAnchor, constant: 10),
-            tertiaryStack.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
-            tertiaryStack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8),
-            
-            clickText.topAnchor.constraint(equalTo: tertiaryStack.bottomAnchor, constant: 10),
-            clickText.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8),
-            clickText.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
-            
-            background.topAnchor.constraint(equalTo: topAnchor,constant: 2),
-            background.trailingAnchor.constraint(equalTo: trailingAnchor,constant: -2),
-            background.leadingAnchor.constraint(equalTo: leadingAnchor,constant: 2),
-            background.bottomAnchor.constraint(equalTo: bottomAnchor,constant: -2)
+            tertiaryStack.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 6),
+            tertiaryStack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -6),
             
         ])
     }

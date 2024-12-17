@@ -72,8 +72,8 @@ class ChartMarkerView: MarkerView {
         let size = stack.frame.size
         let width = size.width
         let height = size.height
-        var xPoint = point.x
-        var yPoint = point.y
+        let xPoint = point.x
+        let yPoint = point.y
         
         var offset = CGPoint(x: -width/2, y: -(height + (height / 3)))
         

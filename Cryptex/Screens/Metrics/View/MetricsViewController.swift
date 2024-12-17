@@ -24,23 +24,29 @@ class MetricsViewController: BaseViewController {
         view.safeAreaLayoutGuide
     }
     
-    private lazy var metricsCardView = MetricsCardView()
+    private lazy var metricsGeneralView = MetricsGeneralView()
     private lazy var metricsChart = MetricsChart()
+    private lazy var metricsStatistics = MetricsStatisticsView()
     
     private func setupUI(){
         navigationItem.title = "Metrics"
-        view.addSubview(metricsCardView)
+        view.addSubview(metricsGeneralView)
         view.addSubview(metricsChart)
+        view.addSubview(metricsStatistics)
         NSLayoutConstraint.activate([
-            metricsChart.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor,constant: 0),
-            metricsChart.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor,constant: 12),
-            metricsChart.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -12),
+            metricsChart.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor,constant: 2),
+            metricsChart.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor,constant: 14),
+            metricsChart.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -14),
             metricsChart.heightAnchor.constraint(equalToConstant: 250),
             
-            metricsCardView.topAnchor.constraint(equalTo: metricsChart.bottomAnchor, constant: 12),
-            metricsCardView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor,constant: 12),
-            metricsCardView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -12),
-
+            metricsGeneralView.topAnchor.constraint(equalTo: metricsChart.bottomAnchor, constant: 12),
+            metricsGeneralView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor,constant: 14),
+            metricsGeneralView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -14),
+            
+            metricsStatistics.topAnchor.constraint(equalTo: metricsGeneralView.bottomAnchor, constant: 12),
+            metricsStatistics.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 14),
+            metricsStatistics.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -14),
+            
         ])
     }
 }

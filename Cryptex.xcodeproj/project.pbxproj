@@ -32,10 +32,12 @@
 		1F6092662D0F12C8001CCE43 /* BlockchainsUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6092652D0F12C3001CCE43 /* BlockchainsUIModel.swift */; };
 		1F6092692D0F13E4001CCE43 /* BlockchainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6092682D0F13E1001CCE43 /* BlockchainCell.swift */; };
 		1F60926F2D0F2CC3001CCE43 /* MetricsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F60926E2D0F2CC3001CCE43 /* MetricsViewController.swift */; };
-		1F6092722D102533001CCE43 /* MetricsCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6092712D102533001CCE43 /* MetricsCardView.swift */; };
+		1F6092722D102533001CCE43 /* MetricsGeneralView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6092712D102533001CCE43 /* MetricsGeneralView.swift */; };
 		1F6092752D104473001CCE43 /* DGCharts in Frameworks */ = {isa = PBXBuildFile; productRef = 1F6092742D104473001CCE43 /* DGCharts */; };
 		1F6092782D10457E001CCE43 /* MetricsChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6092772D10457E001CCE43 /* MetricsChart.swift */; };
 		1F60927D2D109466001CCE43 /* LineChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F60927C2D109466001CCE43 /* LineChart.swift */; };
+		1F6092802D11A086001CCE43 /* MetricsStatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F60927F2D11A086001CCE43 /* MetricsStatisticsView.swift */; };
+		1F6092832D11D824001CCE43 /* ProtocolGeneralView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6092822D11D824001CCE43 /* ProtocolGeneralView.swift */; };
 		1FB9E5D42D09B9C100128526 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB9E5D32D09B9BA00128526 /* Helpers.swift */; };
 		1FB9E5D62D09BC8E00128526 /* PoolsUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB9E5D52D09BC8800128526 /* PoolsUIModel.swift */; };
 		1FB9E5D92D0AB2A400128526 /* PoolCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB9E5D82D0AB2A400128526 /* PoolCell.swift */; };
@@ -89,9 +91,11 @@
 		1F6092652D0F12C3001CCE43 /* BlockchainsUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockchainsUIModel.swift; sourceTree = "<group>"; };
 		1F6092682D0F13E1001CCE43 /* BlockchainCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockchainCell.swift; sourceTree = "<group>"; };
 		1F60926E2D0F2CC3001CCE43 /* MetricsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricsViewController.swift; sourceTree = "<group>"; };
-		1F6092712D102533001CCE43 /* MetricsCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricsCardView.swift; sourceTree = "<group>"; };
+		1F6092712D102533001CCE43 /* MetricsGeneralView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricsGeneralView.swift; sourceTree = "<group>"; };
 		1F6092772D10457E001CCE43 /* MetricsChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricsChart.swift; sourceTree = "<group>"; };
 		1F60927C2D109466001CCE43 /* LineChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChart.swift; sourceTree = "<group>"; };
+		1F60927F2D11A086001CCE43 /* MetricsStatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricsStatisticsView.swift; sourceTree = "<group>"; };
+		1F6092822D11D824001CCE43 /* ProtocolGeneralView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolGeneralView.swift; sourceTree = "<group>"; };
 		1FB9E5D32D09B9BA00128526 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		1FB9E5D52D09BC8800128526 /* PoolsUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoolsUIModel.swift; sourceTree = "<group>"; };
 		1FB9E5D82D0AB2A400128526 /* PoolCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoolCell.swift; sourceTree = "<group>"; };
@@ -161,6 +165,7 @@
 		1F4293182CF9F908000CFA9E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				1F6092812D11D7DE001CCE43 /* ProtocolGeneral */,
 				1F42931A2CF9F955000CFA9E /* OverviewViewController.swift */,
 			);
 			path = View;
@@ -374,8 +379,9 @@
 		1F60926C2D0F2C99001CCE43 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				1F60927E2D11A04E001CCE43 /* MetricsStatistics */,
 				1F6092762D10456B001CCE43 /* MetricsChart */,
-				1F6092702D102511001CCE43 /* MetricsCard */,
+				1F6092702D102511001CCE43 /* MetricsGeneral */,
 				1F60926E2D0F2CC3001CCE43 /* MetricsViewController.swift */,
 			);
 			path = View;
@@ -388,12 +394,12 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		1F6092702D102511001CCE43 /* MetricsCard */ = {
+		1F6092702D102511001CCE43 /* MetricsGeneral */ = {
 			isa = PBXGroup;
 			children = (
-				1F6092712D102533001CCE43 /* MetricsCardView.swift */,
+				1F6092712D102533001CCE43 /* MetricsGeneralView.swift */,
 			);
-			path = MetricsCard;
+			path = MetricsGeneral;
 			sourceTree = "<group>";
 		};
 		1F6092762D10456B001CCE43 /* MetricsChart */ = {
@@ -411,6 +417,22 @@
 				1F60927C2D109466001CCE43 /* LineChart.swift */,
 			);
 			path = Chart;
+			sourceTree = "<group>";
+		};
+		1F60927E2D11A04E001CCE43 /* MetricsStatistics */ = {
+			isa = PBXGroup;
+			children = (
+				1F60927F2D11A086001CCE43 /* MetricsStatisticsView.swift */,
+			);
+			path = MetricsStatistics;
+			sourceTree = "<group>";
+		};
+		1F6092812D11D7DE001CCE43 /* ProtocolGeneral */ = {
+			isa = PBXGroup;
+			children = (
+				1F6092822D11D824001CCE43 /* ProtocolGeneralView.swift */,
+			);
+			path = ProtocolGeneral;
 			sourceTree = "<group>";
 		};
 		1FB9E5D02D099D2A00128526 /* Root */ = {
@@ -725,10 +747,11 @@
 				1F42933E2D008D23000CFA9E /* TokensViewController.swift in Sources */,
 				1FB9E5DF2D0C393200128526 /* UILabel+Extensions.swift in Sources */,
 				1F6092662D0F12C8001CCE43 /* BlockchainsUIModel.swift in Sources */,
+				1F6092802D11A086001CCE43 /* MetricsStatisticsView.swift in Sources */,
 				1F4293512D00FA66000CFA9E /* FadeTransition.swift in Sources */,
 				1F42932D2CFE4976000CFA9E /* MenuViewController.swift in Sources */,
 				1FBDD1F22CF71E8400223819 /* Data+Extension.swift in Sources */,
-				1F6092722D102533001CCE43 /* MetricsCardView.swift in Sources */,
+				1F6092722D102533001CCE43 /* MetricsGeneralView.swift in Sources */,
 				1F6092692D0F13E4001CCE43 /* BlockchainCell.swift in Sources */,
 				1FBDD1E72CF71CAF00223819 /* SceneDelegate.swift in Sources */,
 				1F4293482D008DCC000CFA9E /* MenuUIModel.swift in Sources */,
@@ -738,6 +761,7 @@
 				1F4293382D008CF1000CFA9E /* PoolsViewController.swift in Sources */,
 				1FBDD21C2CF894A700223819 /* DeFiViewModel.swift in Sources */,
 				1FB9E5D62D09BC8E00128526 /* PoolsUIModel.swift in Sources */,
+				1F6092832D11D824001CCE43 /* ProtocolGeneralView.swift in Sources */,
 				1FBDD1E82CF71CAF00223819 /* DeFiViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

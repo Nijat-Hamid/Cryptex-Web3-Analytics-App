@@ -13,6 +13,7 @@ class PoolCell: UICollectionViewCell {
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
+        setupUI()
     }
     
     override init(frame: CGRect) {
@@ -465,14 +466,18 @@ class PoolCell: UICollectionViewCell {
         
     }
     
+    private lazy var background:UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .cardBackgroundDark
+        view.applyCornerRadiusWithShadow()
+        return view
+    }()
     
     private func setupUI(){
-        backgroundColor = .cardBackgroundDark
-        setupCornerRadiusWithShadow()
         
         poolInfoStack.addArrangedSubview(poolName)
         poolInfoStack.addArrangedSubview(poolSecondInfo)
-        
         
         poolStack.addArrangedSubview(poolImageContainer)
         poolStack.addArrangedSubview(poolInfoStack)
@@ -496,13 +501,14 @@ class PoolCell: UICollectionViewCell {
         tertiaryStack.addArrangedSubview(apy)
         tertiaryStack.addArrangedSubview(riskContainer)
         
-        addSubview(primaryHeader)
-        addSubview(primaryStack)
-        addSubview(secondaryHeader)
-        addSubview(secondaryStack)
-        addSubview(tertiaryHeader)
-        addSubview(tertiaryStack)
-        addSubview(clickText)
+        background.addSubview(primaryHeader)
+        background.addSubview(primaryStack)
+        background.addSubview(secondaryHeader)
+        background.addSubview(secondaryStack)
+        background.addSubview(tertiaryHeader)
+        background.addSubview(tertiaryStack)
+        background.addSubview(clickText)
+        addSubview(background)
         NSLayoutConstraint.activate([
             primaryHeader.topAnchor.constraint(equalTo: topAnchor,constant: 12),
             primaryHeader.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
@@ -531,8 +537,11 @@ class PoolCell: UICollectionViewCell {
             clickText.topAnchor.constraint(equalTo: tertiaryStack.bottomAnchor, constant: 10),
             clickText.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8),
             clickText.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
-            
-            
+
+            background.topAnchor.constraint(equalTo: topAnchor,constant: 2),
+            background.trailingAnchor.constraint(equalTo: trailingAnchor,constant: -2),
+            background.leadingAnchor.constraint(equalTo: leadingAnchor,constant: 2),
+            background.bottomAnchor.constraint(equalTo: bottomAnchor,constant: -2)
         ])
     }
 }

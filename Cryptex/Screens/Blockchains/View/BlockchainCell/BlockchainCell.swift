@@ -305,15 +305,20 @@ class BlockchainCell: UICollectionViewCell {
         return label
     }()
     
+    private lazy var background:UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .cardBackgroundDark
+        view.applyCornerRadiusWithShadow()
+        return view
+    }()
+    
     func configure(with blockchain:BlockchainsUIModel){
         print(blockchain)
         
     }
     
     private func setupUI(){
-        backgroundColor = .cardBackgroundDark
-        setupCornerRadiusWithShadow()
-        
         chainStack.addArrangedSubview(chainImage)
         chainStack.addArrangedSubview(chainName)
         
@@ -327,13 +332,14 @@ class BlockchainCell: UICollectionViewCell {
         tertiaryStack.addArrangedSubview(marketShare)
         tertiaryStack.addArrangedSubview(riskContainer)
         
-        addSubview(primaryHeader)
-        addSubview(primaryStack)
-        addSubview(secondaryHeader)
-        addSubview(secondaryStack)
-        addSubview(tertiaryHeader)
-        addSubview(tertiaryStack)
-        addSubview(clickText)
+        background.addSubview(primaryHeader)
+        background.addSubview(primaryStack)
+        background.addSubview(secondaryHeader)
+        background.addSubview(secondaryStack)
+        background.addSubview(tertiaryHeader)
+        background.addSubview(tertiaryStack)
+        background.addSubview(clickText)
+        addSubview(background)
         NSLayoutConstraint.activate([
             primaryHeader.topAnchor.constraint(equalTo: topAnchor,constant: 12),
             primaryHeader.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
@@ -363,7 +369,10 @@ class BlockchainCell: UICollectionViewCell {
             clickText.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8),
             clickText.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
             
-            
+            background.topAnchor.constraint(equalTo: topAnchor,constant: 2),
+            background.trailingAnchor.constraint(equalTo: trailingAnchor,constant: -2),
+            background.leadingAnchor.constraint(equalTo: leadingAnchor,constant: 2),
+            background.bottomAnchor.constraint(equalTo: bottomAnchor,constant: -2)
         ])
     }
 }

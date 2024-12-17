@@ -24,7 +24,7 @@ extension UICollectionViewCell {
         layer.shadowRadius = shadowRadius
         layer.masksToBounds = false
 
-        contentView.layer.cornerRadius = cornerRadius
+//        contentView.layer.cornerRadius = cornerRadius
         contentView.layer.masksToBounds = false
     }
 }

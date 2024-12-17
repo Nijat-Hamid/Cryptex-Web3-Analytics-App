@@ -19,8 +19,21 @@ class OverviewViewController: BaseViewController {
         setupUI()
     }
     
+    private var safeAreaLayoutGuide:UILayoutGuide{
+        view.safeAreaLayoutGuide
+    }
+    
+    private lazy var protocolGeneralView = ProtocolGeneralView()
+    
     private func setupUI(){
         navigationItem.title = "Overview"
+        view.addSubview(protocolGeneralView)
+        NSLayoutConstraint.activate([
+            protocolGeneralView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor,constant: 2),
+            protocolGeneralView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor,constant: 14),
+            protocolGeneralView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor,constant: -14),
+            protocolGeneralView.heightAnchor.constraint(equalToConstant: 300)
+        ])
     }
 
 }
