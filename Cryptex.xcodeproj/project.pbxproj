@@ -10,7 +10,7 @@
 		1F4293112CF9EB54000CFA9E /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4293102CF9EB4C000CFA9E /* UIView+Extension.swift */; };
 		1F4293152CF9F8C3000CFA9E /* DeFiUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4293142CF9F8AA000CFA9E /* DeFiUIModel.swift */; };
 		1F42931B2CF9F955000CFA9E /* OverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F42931A2CF9F955000CFA9E /* OverviewViewController.swift */; };
-		1F42931E2CFCC7BD000CFA9E /* ChartMarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F42931D2CFCC7BD000CFA9E /* ChartMarkerView.swift */; };
+		1F42931E2CFCC7BD000CFA9E /* ChartMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F42931D2CFCC7BD000CFA9E /* ChartMarker.swift */; };
 		1F4293202CFDA9D9000CFA9E /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F42931F2CFDA9D7000CFA9E /* AppState.swift */; };
 		1F42932D2CFE4976000CFA9E /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F42932C2CFE4976000CFA9E /* MenuViewController.swift */; };
 		1F4293322CFE64AE000CFA9E /* SlideRightPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4293312CFE64A8000CFA9E /* SlideRightPresenter.swift */; };
@@ -35,7 +35,7 @@
 		1F6092722D102533001CCE43 /* MetricsCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6092712D102533001CCE43 /* MetricsCardView.swift */; };
 		1F6092752D104473001CCE43 /* DGCharts in Frameworks */ = {isa = PBXBuildFile; productRef = 1F6092742D104473001CCE43 /* DGCharts */; };
 		1F6092782D10457E001CCE43 /* MetricsChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6092772D10457E001CCE43 /* MetricsChart.swift */; };
-		1F60927B2D106031001CCE43 /* LineChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F60927A2D10602D001CCE43 /* LineChartView.swift */; };
+		1F60927D2D109466001CCE43 /* LineChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F60927C2D109466001CCE43 /* LineChart.swift */; };
 		1FB9E5D42D09B9C100128526 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB9E5D32D09B9BA00128526 /* Helpers.swift */; };
 		1FB9E5D62D09BC8E00128526 /* PoolsUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB9E5D52D09BC8800128526 /* PoolsUIModel.swift */; };
 		1FB9E5D92D0AB2A400128526 /* PoolCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB9E5D82D0AB2A400128526 /* PoolCell.swift */; };
@@ -67,7 +67,7 @@
 		1F4293102CF9EB4C000CFA9E /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		1F4293142CF9F8AA000CFA9E /* DeFiUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeFiUIModel.swift; sourceTree = "<group>"; };
 		1F42931A2CF9F955000CFA9E /* OverviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewViewController.swift; sourceTree = "<group>"; };
-		1F42931D2CFCC7BD000CFA9E /* ChartMarkerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartMarkerView.swift; sourceTree = "<group>"; };
+		1F42931D2CFCC7BD000CFA9E /* ChartMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartMarker.swift; sourceTree = "<group>"; };
 		1F42931F2CFDA9D7000CFA9E /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		1F42932C2CFE4976000CFA9E /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		1F4293312CFE64A8000CFA9E /* SlideRightPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideRightPresenter.swift; sourceTree = "<group>"; };
@@ -91,7 +91,7 @@
 		1F60926E2D0F2CC3001CCE43 /* MetricsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricsViewController.swift; sourceTree = "<group>"; };
 		1F6092712D102533001CCE43 /* MetricsCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricsCardView.swift; sourceTree = "<group>"; };
 		1F6092772D10457E001CCE43 /* MetricsChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricsChart.swift; sourceTree = "<group>"; };
-		1F60927A2D10602D001CCE43 /* LineChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChartView.swift; sourceTree = "<group>"; };
+		1F60927C2D109466001CCE43 /* LineChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChart.swift; sourceTree = "<group>"; };
 		1FB9E5D32D09B9BA00128526 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		1FB9E5D52D09BC8800128526 /* PoolsUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoolsUIModel.swift; sourceTree = "<group>"; };
 		1FB9E5D82D0AB2A400128526 /* PoolCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoolCell.swift; sourceTree = "<group>"; };
@@ -407,8 +407,8 @@
 		1F6092792D106021001CCE43 /* Chart */ = {
 			isa = PBXGroup;
 			children = (
-				1F60927A2D10602D001CCE43 /* LineChartView.swift */,
-				1F42931D2CFCC7BD000CFA9E /* ChartMarkerView.swift */,
+				1F42931D2CFCC7BD000CFA9E /* ChartMarker.swift */,
+				1F60927C2D109466001CCE43 /* LineChart.swift */,
 			);
 			path = Chart;
 			sourceTree = "<group>";
@@ -709,11 +709,10 @@
 				1FB9E5D42D09B9C100128526 /* Helpers.swift in Sources */,
 				1F4293322CFE64AE000CFA9E /* SlideRightPresenter.swift in Sources */,
 				1F4293202CFDA9D9000CFA9E /* AppState.swift in Sources */,
-				1F42931E2CFCC7BD000CFA9E /* ChartMarkerView.swift in Sources */,
+				1F42931E2CFCC7BD000CFA9E /* ChartMarker.swift in Sources */,
 				1F42934A2D00AFC1000CFA9E /* UIImage+Extension.swift in Sources */,
 				1FBDD1E62CF71CAF00223819 /* AppDelegate.swift in Sources */,
 				1F6092782D10457E001CCE43 /* MetricsChart.swift in Sources */,
-				1F60927B2D106031001CCE43 /* LineChartView.swift in Sources */,
 				1F4293552D0173DB000CFA9E /* CustomTransitionViewController.swift in Sources */,
 				1F4293462D008D90000CFA9E /* MenuViewModel.swift in Sources */,
 				1F6092642D0F1276001CCE43 /* BlockchainsDTOModel.swift in Sources */,
@@ -722,6 +721,7 @@
 				1F4CCAFA2D02A283003F9D99 /* RootViewController.swift in Sources */,
 				1FB9E5D92D0AB2A400128526 /* PoolCell.swift in Sources */,
 				1F4293152CF9F8C3000CFA9E /* DeFiUIModel.swift in Sources */,
+				1F60927D2D109466001CCE43 /* LineChart.swift in Sources */,
 				1F42933E2D008D23000CFA9E /* TokensViewController.swift in Sources */,
 				1FB9E5DF2D0C393200128526 /* UILabel+Extensions.swift in Sources */,
 				1F6092662D0F12C8001CCE43 /* BlockchainsUIModel.swift in Sources */,

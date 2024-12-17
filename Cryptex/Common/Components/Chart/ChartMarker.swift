@@ -22,22 +22,74 @@ class ChartMarkerView: MarkerView {
         setupUI()
     }
     
-    private lazy var label:UILabel = {
+    private lazy var xLabel:UILabel = {
         let label = UILabel()
-        label.frame = CGRect(x: 0, y: 0, width: 100, height: 30)
-        label.textAlignment = .center
-        label.font = UIFont(name: "Geist-medium", size: 10)!
+        label.font = UIFont(name: "Geist-medium", size: 12)!
+        label.textAlignment = .left
+        label.numberOfLines = 1
         label.textColor = .foreground
-        label.backgroundColor = .background
         return label
     }()
     
+    private lazy var yLabel:UILabel = {
+        let label = UILabel()
+        label.font = UIFont(name: "Geist-medium", size: 12)!
+        label.textAlignment = .left
+        label.numberOfLines = 1
+        label.textColor = .foreground
+        return label
+    }()
+    
+    
+    private lazy var stack:UIStackView = {
+        let stack = UIStackView()
+        stack.axis = .vertical
+        stack.frame = CGRect(x: 0, y: 0, width: 100, height: 40)
+        stack.spacing = 4
+        stack.alignment = .fill
+        stack.distribution = .fillEqually
+        stack.backgroundColor = .brandSecondary
+        stack.isLayoutMarginsRelativeArrangement = true
+        stack.layer.cornerRadius = 10
+        stack.layoutMargins = UIEdgeInsets(top: 4, left: 10, bottom: 4, right: 5)
+        return stack
+    }()
+    
+    
     private func setupUI(){
-        addSubview(label)
+        stack.addArrangedSubview(xLabel)
+        stack.addArrangedSubview(yLabel)
+        addSubview(stack)
     }
     
     override func refreshContent(entry: ChartDataEntry, highlight: Highlight) {
-        label.text = "X: \(entry.x), Y: \(entry.y)"
+        xLabel.text = "X: \(entry.x)"
+        yLabel.text = "Y: \(entry.y)"
         super.refreshContent(entry: entry, highlight: highlight)
     }
+
+    override func offsetForDrawing(atPoint point: CGPoint) -> CGPoint {
+        let size = stack.frame.size
+        let width = size.width
+        let height = size.height
+        var xPoint = point.x
+        var yPoint = point.y
+        
+        var offset = CGPoint(x: -width/2, y: -(height + (height / 3)))
+        
+        if width + xPoint > UIScreen.main.bounds.width {
+            offset.x -= width/2
+        } else if xPoint - width / 2 < 10 {
+            offset.x += width/2
+        }
+        
+        if  height + xPoint > UIScreen.main.bounds.height {
+            offset.y -= height
+        } else if yPoint - height / 2 < 10 {
+            offset.y += height
+        }
+
+        return offset
+    }
+
 }
