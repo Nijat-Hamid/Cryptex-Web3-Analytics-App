@@ -8,16 +8,19 @@
 
 import UIKit
 
-class TokensDetailViewController: UIViewController {
+class TokensDetailViewController: BaseLoadingViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
     }
-    
+    override func loadView() {
+        super.loadView()
+        setupUI()
+    }
     
     private func setupUI(){
-        
+        navigationItem.title = "Details"
     }
 
 }

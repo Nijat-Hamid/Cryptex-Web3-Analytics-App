@@ -20,6 +20,11 @@ class TokenCell: UICollectionViewCell {
         setupUI()
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        background.applyCornerRadiusWithShadow()
+    }
+
     
     private lazy var tokenStack:UIStackView = {
         let stack = UIStackView()
@@ -379,7 +384,6 @@ class TokenCell: UICollectionViewCell {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .cardBackgroundDark
-        view.applyCornerRadiusWithShadow()
         return view
     }()
     

@@ -21,6 +21,12 @@ extension UIView {
         layer.shadowOpacity = shadowOpacity
         layer.shadowOffset = shadowOffset
         layer.shadowRadius = shadowRadius
+        
+        layer.shadowPath = UIBezierPath(
+                   roundedRect: bounds,
+                   cornerRadius: cornerRadius
+               ).cgPath
+        
         layer.masksToBounds = false
     }
 }

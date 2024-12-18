@@ -20,7 +20,12 @@ class MetricsChart: UIView {
         super.init(coder: coder)
         setupUI()
     }
-        
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        applyCornerRadiusWithShadow()
+    }
+    
     private lazy var chart = LineChart()
     
     private func setupUI() {

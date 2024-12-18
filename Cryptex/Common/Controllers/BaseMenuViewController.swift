@@ -38,7 +38,6 @@ class BaseMenuViewController: BaseLoadingViewController {
     private func setupUI(){
         let customMenuButtonItem = UIBarButtonItem(customView: menuButton)
         navigationItem.leftBarButtonItem = customMenuButtonItem
-        view.backgroundColor = .background
         NSLayoutConstraint.activate([
             menuButton.widthAnchor.constraint(equalToConstant: 24),
             menuButton.heightAnchor.constraint(equalToConstant: 24)

@@ -20,6 +20,11 @@ class BlockchainCell: UICollectionViewCell {
         setupUI()
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        background.applyCornerRadiusWithShadow()
+    }
+
     
     private lazy var chainStack:UIStackView = {
         let stack = UIStackView()
@@ -309,7 +314,6 @@ class BlockchainCell: UICollectionViewCell {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .cardBackgroundDark
-        view.applyCornerRadiusWithShadow()
         return view
     }()
     

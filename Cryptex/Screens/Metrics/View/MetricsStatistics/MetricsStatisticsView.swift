@@ -19,7 +19,10 @@ class MetricsStatisticsView: UIView {
         super.init(coder: coder)
         setupUI()
     }
-    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        applyCornerRadiusWithShadow()
+    }
     private lazy var primaryHeader:UIStackView = {
         let stack = UIStackView(arrangedSubviews: [
           {

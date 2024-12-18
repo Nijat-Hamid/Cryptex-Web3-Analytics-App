@@ -21,6 +21,10 @@ class PoolCell: UICollectionViewCell {
         setupUI()
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        background.applyCornerRadiusWithShadow()
+    }
     
     private lazy var poolStack:UIStackView = {
         let stack = UIStackView()
@@ -470,7 +474,6 @@ class PoolCell: UICollectionViewCell {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .cardBackgroundDark
-        view.applyCornerRadiusWithShadow()
         return view
     }()
     

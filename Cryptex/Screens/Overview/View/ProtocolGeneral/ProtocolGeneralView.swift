@@ -20,6 +20,11 @@ class ProtocolGeneralView: UIView {
         setupUI()
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        applyCornerRadiusWithShadow()
+    }
+    
     private lazy var poolStack:UIStackView = {
         let stack = UIStackView()
         stack.translatesAutoresizingMaskIntoConstraints = false
@@ -450,7 +455,6 @@ class ProtocolGeneralView: UIView {
     
     private func setupUI(){
         backgroundColor = .cardBackgroundDark
-        self.applyCornerRadiusWithShadow()
         translatesAutoresizingMaskIntoConstraints = false
         
         poolInfoStack.addArrangedSubview(poolName)

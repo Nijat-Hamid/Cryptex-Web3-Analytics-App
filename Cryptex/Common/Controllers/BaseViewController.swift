@@ -14,6 +14,14 @@ class BaseViewController: UIViewController {
         super.viewDidLoad()
         navigationController?.delegate = self
     }
+    override func loadView() {
+        super.loadView()
+        setupUI()
+    }
+    
+    private func setupUI(){
+        view.backgroundColor = .background
+    }
 }
 
 extension BaseViewController:UINavigationControllerDelegate{
