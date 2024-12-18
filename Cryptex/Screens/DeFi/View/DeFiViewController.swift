@@ -8,7 +8,7 @@
 import UIKit
 import Combine
 
-class DeFiViewController: CustomTransitionViewController {
+class DeFiViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()

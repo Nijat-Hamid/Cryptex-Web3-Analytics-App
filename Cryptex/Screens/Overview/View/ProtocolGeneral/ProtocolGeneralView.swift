@@ -206,7 +206,7 @@ class ProtocolGeneralView: UIView {
         let stack = UIStackView(arrangedSubviews: [
             {
                 let label = UILabel()
-                label.text = "Protocol:"
+                label.text = "Version:"
                 label.translatesAutoresizingMaskIntoConstraints = false
                 label.numberOfLines = .zero
                 label.textAlignment = .center
@@ -216,7 +216,7 @@ class ProtocolGeneralView: UIView {
                 
             }(),{
                 let label = UILabel()
-                label.text = "Pool:"
+                label.text = "Name:"
                 label.translatesAutoresizingMaskIntoConstraints = false
                 label.numberOfLines = .zero
                 label.textAlignment = .center
@@ -253,7 +253,7 @@ class ProtocolGeneralView: UIView {
         let stack = UIStackView(arrangedSubviews: [
             {
                 let label = UILabel()
-                label.text = "Supplied:"
+                label.text = "TVL:"
                 label.translatesAutoresizingMaskIntoConstraints = false
                 label.numberOfLines = .zero
                 label.textAlignment = .center
@@ -263,7 +263,7 @@ class ProtocolGeneralView: UIView {
                 
             }(),{
                 let label = UILabel()
-                label.text = "Borrowed:"
+                label.text = "Average APY:"
                 label.translatesAutoresizingMaskIntoConstraints = false
                 label.numberOfLines = .zero
                 label.textAlignment = .center
@@ -273,7 +273,7 @@ class ProtocolGeneralView: UIView {
                 
             }(),{
                 let label = UILabel()
-                label.text = "Liquidity:"
+                label.text = "Pools:"
                 label.translatesAutoresizingMaskIntoConstraints = false
                 label.numberOfLines = .zero
                 label.textAlignment = .center
@@ -306,9 +306,9 @@ class ProtocolGeneralView: UIView {
         return stack
     }()
     
-    private lazy var supplied:UILabel = {
+    private lazy var tvl:UILabel = {
         let label = UILabel()
-        label.text = "3848B"
+        label.text = "$2.02B"
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = .zero
         label.textAlignment = .center
@@ -317,9 +317,9 @@ class ProtocolGeneralView: UIView {
         return label
     }()
     
-    private lazy var borrowed:UILabel = {
+    private lazy var averageApy:UILabel = {
         let label = UILabel()
-        label.text = "199K"
+        label.text = "0.3%"
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = .zero
         label.textAlignment = .center
@@ -328,9 +328,9 @@ class ProtocolGeneralView: UIView {
         return label
     }()
     
-    private lazy var liquidity:UILabel = {
+    private lazy var numberOfPools:UILabel = {
         let label = UILabel()
-        label.text = "35K"
+        label.text = "5"
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = .zero
         label.textAlignment = .center
@@ -343,7 +343,7 @@ class ProtocolGeneralView: UIView {
         let stack = UIStackView(arrangedSubviews: [
             {
                 let label = UILabel()
-                label.text = "Utilization:"
+                label.text = "Creation:"
                 label.translatesAutoresizingMaskIntoConstraints = false
                 label.numberOfLines = .zero
                 label.textAlignment = .center
@@ -353,7 +353,7 @@ class ProtocolGeneralView: UIView {
                 
             }(),{
                 let label = UILabel()
-                label.text = "APY:"
+                label.text = "Contract:"
                 label.translatesAutoresizingMaskIntoConstraints = false
                 label.numberOfLines = .zero
                 label.textAlignment = .center
@@ -395,9 +395,9 @@ class ProtocolGeneralView: UIView {
         return stack
     }()
     
-    private lazy var utilization:UILabel = {
+    private lazy var creationDate:UILabel = {
         let label = UILabel()
-        label.text = "9.56%"
+        label.text = "04 May 2021"
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = .zero
         label.textAlignment = .center
@@ -406,11 +406,11 @@ class ProtocolGeneralView: UIView {
         return label
     }()
     
-    private lazy var apy:UILabel = {
+    private lazy var contractAddress:UILabel = {
         let label = UILabel()
-        label.text = "1.58%"
+        label.text = "0x1F98431c8aD98523631AE4a59f267346ea31F984".truncateMiddle(maxLength: 12)
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.numberOfLines = .zero
+        label.numberOfLines = 1
         label.textAlignment = .center
         label.font = UIFont(name: "Geist-medium", size: 14)
         label.textColor = .foreground
@@ -419,7 +419,7 @@ class ProtocolGeneralView: UIView {
     
     private lazy var riskLabel:UILabel = {
         let label = UILabel()
-        label.text = "F"
+        label.text = "B"
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = .zero
         label.textAlignment = .center
@@ -471,12 +471,12 @@ class ProtocolGeneralView: UIView {
         primaryStack.addArrangedSubview(poolStack)
         primaryStack.addArrangedSubview(chainStack)
         
-        secondaryStack.addArrangedSubview(supplied)
-        secondaryStack.addArrangedSubview(borrowed)
-        secondaryStack.addArrangedSubview(liquidity)
+        secondaryStack.addArrangedSubview(tvl)
+        secondaryStack.addArrangedSubview(averageApy)
+        secondaryStack.addArrangedSubview(numberOfPools)
         
-        tertiaryStack.addArrangedSubview(utilization)
-        tertiaryStack.addArrangedSubview(apy)
+        tertiaryStack.addArrangedSubview(creationDate)
+        tertiaryStack.addArrangedSubview(contractAddress)
         tertiaryStack.addArrangedSubview(riskContainer)
         
         addSubview(primaryHeader)

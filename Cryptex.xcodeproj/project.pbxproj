@@ -23,7 +23,7 @@
 		1F42934C2D00D03E000CFA9E /* SocialUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F42934B2D00D03A000CFA9E /* SocialUIModel.swift */; };
 		1F42934F2D00F50D000CFA9E /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F42934E2D00F50D000CFA9E /* NavigationController.swift */; };
 		1F4293512D00FA66000CFA9E /* FadeTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4293502D00FA61000CFA9E /* FadeTransition.swift */; };
-		1F4293552D0173DB000CFA9E /* CustomTransitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4293542D0173DB000CFA9E /* CustomTransitionViewController.swift */; };
+		1F4293552D0173DB000CFA9E /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4293542D0173DB000CFA9E /* BaseViewController.swift */; };
 		1F4CCAFA2D02A283003F9D99 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4CCAF92D02A283003F9D99 /* RootViewController.swift */; };
 		1F60925D2D0F0585001CCE43 /* TokensDTOModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F60925C2D0F0580001CCE43 /* TokensDTOModel.swift */; };
 		1F60925F2D0F058C001CCE43 /* TokensUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F60925E2D0F0589001CCE43 /* TokensUIModel.swift */; };
@@ -38,6 +38,9 @@
 		1F60927D2D109466001CCE43 /* LineChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F60927C2D109466001CCE43 /* LineChart.swift */; };
 		1F6092802D11A086001CCE43 /* MetricsStatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F60927F2D11A086001CCE43 /* MetricsStatisticsView.swift */; };
 		1F6092832D11D824001CCE43 /* ProtocolGeneralView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6092822D11D824001CCE43 /* ProtocolGeneralView.swift */; };
+		1F6092852D11F1F5001CCE43 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6092842D11F1EE001CCE43 /* String+Extensions.swift */; };
+		1F934D312D12DC86002085DD /* TokensDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F934D302D12DC86002085DD /* TokensDetailViewController.swift */; };
+		1F934D332D12DE6A002085DD /* BaseLoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F934D322D12DE6A002085DD /* BaseLoadingViewController.swift */; };
 		1FB9E5D42D09B9C100128526 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB9E5D32D09B9BA00128526 /* Helpers.swift */; };
 		1FB9E5D62D09BC8E00128526 /* PoolsUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB9E5D52D09BC8800128526 /* PoolsUIModel.swift */; };
 		1FB9E5D92D0AB2A400128526 /* PoolCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB9E5D82D0AB2A400128526 /* PoolCell.swift */; };
@@ -50,7 +53,7 @@
 		1FBDD1E72CF71CAF00223819 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBDD1DF2CF71CAF00223819 /* SceneDelegate.swift */; };
 		1FBDD1E82CF71CAF00223819 /* DeFiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBDD1E02CF71CAF00223819 /* DeFiViewController.swift */; };
 		1FBDD1F22CF71E8400223819 /* Data+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBDD1F12CF71E8100223819 /* Data+Extension.swift */; };
-		1FBDD1F72CF71EE000223819 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBDD1F62CF71EE000223819 /* BaseViewController.swift */; };
+		1FBDD1F72CF71EE000223819 /* BaseMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBDD1F62CF71EE000223819 /* BaseMenuViewController.swift */; };
 		1FBDD1FA2CF72AAB00223819 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 1FBDD1F92CF72AAB00223819 /* SDWebImage */; };
 		1FBDD2052CF76BA300223819 /* geist-sans-latin-600-normal.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1FBDD2012CF76BA300223819 /* geist-sans-latin-600-normal.ttf */; };
 		1FBDD2062CF76BA300223819 /* geist-sans-latin-700-normal.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1FBDD2022CF76BA300223819 /* geist-sans-latin-700-normal.ttf */; };
@@ -82,7 +85,7 @@
 		1F42934B2D00D03A000CFA9E /* SocialUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialUIModel.swift; sourceTree = "<group>"; };
 		1F42934E2D00F50D000CFA9E /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		1F4293502D00FA61000CFA9E /* FadeTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadeTransition.swift; sourceTree = "<group>"; };
-		1F4293542D0173DB000CFA9E /* CustomTransitionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTransitionViewController.swift; sourceTree = "<group>"; };
+		1F4293542D0173DB000CFA9E /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		1F4CCAF92D02A283003F9D99 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		1F60925C2D0F0580001CCE43 /* TokensDTOModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokensDTOModel.swift; sourceTree = "<group>"; };
 		1F60925E2D0F0589001CCE43 /* TokensUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokensUIModel.swift; sourceTree = "<group>"; };
@@ -96,6 +99,9 @@
 		1F60927C2D109466001CCE43 /* LineChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChart.swift; sourceTree = "<group>"; };
 		1F60927F2D11A086001CCE43 /* MetricsStatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricsStatisticsView.swift; sourceTree = "<group>"; };
 		1F6092822D11D824001CCE43 /* ProtocolGeneralView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolGeneralView.swift; sourceTree = "<group>"; };
+		1F6092842D11F1EE001CCE43 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
+		1F934D302D12DC86002085DD /* TokensDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokensDetailViewController.swift; sourceTree = "<group>"; };
+		1F934D322D12DE6A002085DD /* BaseLoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseLoadingViewController.swift; sourceTree = "<group>"; };
 		1FB9E5D32D09B9BA00128526 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		1FB9E5D52D09BC8800128526 /* PoolsUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoolsUIModel.swift; sourceTree = "<group>"; };
 		1FB9E5D82D0AB2A400128526 /* PoolCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoolCell.swift; sourceTree = "<group>"; };
@@ -110,7 +116,7 @@
 		1FBDD1DF2CF71CAF00223819 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		1FBDD1E02CF71CAF00223819 /* DeFiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeFiViewController.swift; sourceTree = "<group>"; };
 		1FBDD1F12CF71E8100223819 /* Data+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Extension.swift"; sourceTree = "<group>"; };
-		1FBDD1F62CF71EE000223819 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		1FBDD1F62CF71EE000223819 /* BaseMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseMenuViewController.swift; sourceTree = "<group>"; };
 		1FBDD1FC2CF76BA300223819 /* geist-sans-latin-100-normal.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "geist-sans-latin-100-normal.ttf"; sourceTree = "<group>"; };
 		1FBDD1FD2CF76BA300223819 /* geist-sans-latin-200-normal.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "geist-sans-latin-200-normal.ttf"; sourceTree = "<group>"; };
 		1FBDD1FE2CF76BA300223819 /* geist-sans-latin-300-normal.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "geist-sans-latin-300-normal.ttf"; sourceTree = "<group>"; };
@@ -435,6 +441,100 @@
 			path = ProtocolGeneral;
 			sourceTree = "<group>";
 		};
+		1F934D242D12DC02002085DD /* Tokens Detail */ = {
+			isa = PBXGroup;
+			children = (
+				1F934D292D12DC48002085DD /* Model */,
+				1F934D282D12DC43002085DD /* View */,
+				1F934D272D12DC3C002085DD /* ViewModel */,
+			);
+			path = "Tokens Detail";
+			sourceTree = "<group>";
+		};
+		1F934D252D12DC1F002085DD /* Blockchains Detail */ = {
+			isa = PBXGroup;
+			children = (
+				1F934D2F2D12DC6B002085DD /* Model */,
+				1F934D2E2D12DC66002085DD /* View */,
+				1F934D2D2D12DC61002085DD /* ViewModel */,
+			);
+			path = "Blockchains Detail";
+			sourceTree = "<group>";
+		};
+		1F934D262D12DC29002085DD /* Pools Detail */ = {
+			isa = PBXGroup;
+			children = (
+				1F934D2C2D12DC5B002085DD /* Model */,
+				1F934D2B2D12DC57002085DD /* View */,
+				1F934D2A2D12DC51002085DD /* ViewModel */,
+			);
+			path = "Pools Detail";
+			sourceTree = "<group>";
+		};
+		1F934D272D12DC3C002085DD /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		1F934D282D12DC43002085DD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1F934D302D12DC86002085DD /* TokensDetailViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1F934D292D12DC48002085DD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1F934D2A2D12DC51002085DD /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		1F934D2B2D12DC57002085DD /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1F934D2C2D12DC5B002085DD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1F934D2D2D12DC61002085DD /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		1F934D2E2D12DC66002085DD /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1F934D2F2D12DC6B002085DD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		1FB9E5D02D099D2A00128526 /* Root */ = {
 			isa = PBXGroup;
 			children = (
@@ -530,6 +630,7 @@
 		1FBDD1F02CF71E7200223819 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				1F6092842D11F1EE001CCE43 /* String+Extensions.swift */,
 				1FB9E5DE2D0C392900128526 /* UILabel+Extensions.swift */,
 				1FB9E5DC2D0AF01900128526 /* UICollectionViewCell+Extensions.swift */,
 				1F4293492D00AFB8000CFA9E /* UIImage+Extension.swift */,
@@ -542,8 +643,9 @@
 		1FBDD1F32CF71EBA00223819 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				1FBDD1F62CF71EE000223819 /* BaseViewController.swift */,
-				1F4293542D0173DB000CFA9E /* CustomTransitionViewController.swift */,
+				1FBDD1F62CF71EE000223819 /* BaseMenuViewController.swift */,
+				1F4293542D0173DB000CFA9E /* BaseViewController.swift */,
+				1F934D322D12DE6A002085DD /* BaseLoadingViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -567,15 +669,18 @@
 		1FBDD20E2CF7802D00223819 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				1F42933F2D008D2E000CFA9E /* Blockchains */,
+				1F934D252D12DC1F002085DD /* Blockchains Detail */,
+				1FBDD2112CF7880E00223819 /* DeFi */,
+				1FBDD20F2CF7809700223819 /* Launch */,
+				1F4293272CFE1CD9000CFA9E /* Menu */,
 				1F60926A2D0F2C8C001CCE43 /* Metrics */,
 				1F4293162CF9F8F6000CFA9E /* Overview */,
 				1F4293332D008CB4000CFA9E /* Pools */,
-				1F4293392D008D06000CFA9E /* Tokens */,
-				1F42933F2D008D2E000CFA9E /* Blockchains */,
-				1F4293272CFE1CD9000CFA9E /* Menu */,
-				1FBDD2112CF7880E00223819 /* DeFi */,
+				1F934D262D12DC29002085DD /* Pools Detail */,
 				1FB9E5D02D099D2A00128526 /* Root */,
-				1FBDD20F2CF7809700223819 /* Launch */,
+				1F4293392D008D06000CFA9E /* Tokens */,
+				1F934D242D12DC02002085DD /* Tokens Detail */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -721,7 +826,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1FBDD21A2CF8903500223819 /* DeFiItemViewController.swift in Sources */,
-				1FBDD1F72CF71EE000223819 /* BaseViewController.swift in Sources */,
+				1FBDD1F72CF71EE000223819 /* BaseMenuViewController.swift in Sources */,
 				1F4293112CF9EB54000CFA9E /* UIView+Extension.swift in Sources */,
 				1FB9E5DB2D0AC62200128526 /* PoolsDTOModel.swift in Sources */,
 				1FB9E5DD2D0AF02000128526 /* UICollectionViewCell+Extensions.swift in Sources */,
@@ -732,10 +837,11 @@
 				1F4293322CFE64AE000CFA9E /* SlideRightPresenter.swift in Sources */,
 				1F4293202CFDA9D9000CFA9E /* AppState.swift in Sources */,
 				1F42931E2CFCC7BD000CFA9E /* ChartMarker.swift in Sources */,
+				1F6092852D11F1F5001CCE43 /* String+Extensions.swift in Sources */,
 				1F42934A2D00AFC1000CFA9E /* UIImage+Extension.swift in Sources */,
 				1FBDD1E62CF71CAF00223819 /* AppDelegate.swift in Sources */,
 				1F6092782D10457E001CCE43 /* MetricsChart.swift in Sources */,
-				1F4293552D0173DB000CFA9E /* CustomTransitionViewController.swift in Sources */,
+				1F4293552D0173DB000CFA9E /* BaseViewController.swift in Sources */,
 				1F4293462D008D90000CFA9E /* MenuViewModel.swift in Sources */,
 				1F6092642D0F1276001CCE43 /* BlockchainsDTOModel.swift in Sources */,
 				1F42934F2D00F50D000CFA9E /* NavigationController.swift in Sources */,
@@ -745,6 +851,7 @@
 				1F4293152CF9F8C3000CFA9E /* DeFiUIModel.swift in Sources */,
 				1F60927D2D109466001CCE43 /* LineChart.swift in Sources */,
 				1F42933E2D008D23000CFA9E /* TokensViewController.swift in Sources */,
+				1F934D332D12DE6A002085DD /* BaseLoadingViewController.swift in Sources */,
 				1FB9E5DF2D0C393200128526 /* UILabel+Extensions.swift in Sources */,
 				1F6092662D0F12C8001CCE43 /* BlockchainsUIModel.swift in Sources */,
 				1F6092802D11A086001CCE43 /* MetricsStatisticsView.swift in Sources */,
@@ -758,6 +865,7 @@
 				1F60925F2D0F058C001CCE43 /* TokensUIModel.swift in Sources */,
 				1F42931B2CF9F955000CFA9E /* OverviewViewController.swift in Sources */,
 				1F60925D2D0F0585001CCE43 /* TokensDTOModel.swift in Sources */,
+				1F934D312D12DC86002085DD /* TokensDetailViewController.swift in Sources */,
 				1F4293382D008CF1000CFA9E /* PoolsViewController.swift in Sources */,
 				1FBDD21C2CF894A700223819 /* DeFiViewModel.swift in Sources */,
 				1FB9E5D62D09BC8E00128526 /* PoolsUIModel.swift in Sources */,

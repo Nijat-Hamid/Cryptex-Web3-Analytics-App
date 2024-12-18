@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TokensViewController: BaseViewController {
+class TokensViewController: BaseMenuViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

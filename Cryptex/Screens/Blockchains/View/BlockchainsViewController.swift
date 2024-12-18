@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BlockchainsViewController: BaseViewController {
+class BlockchainsViewController: BaseMenuViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
