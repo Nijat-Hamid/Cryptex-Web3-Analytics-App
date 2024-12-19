@@ -142,7 +142,7 @@ class TokenCell: UICollectionViewCell {
                 label.numberOfLines = .zero
                 label.textAlignment = .center
                 label.font = UIFont(name: "Geist-medium", size: 14)
-                label.textColor = .foreground
+                label.textColor = .mutedForeground
                 return label
                 
             }(),{
@@ -152,7 +152,7 @@ class TokenCell: UICollectionViewCell {
                 label.numberOfLines = .zero
                 label.textAlignment = .center
                 label.font = UIFont(name: "Geist-medium", size: 14)
-                label.textColor = .foreground
+                label.textColor = .mutedForeground
                 return label
                 
             }(),
@@ -179,7 +179,7 @@ class TokenCell: UICollectionViewCell {
                 label.numberOfLines = .zero
                 label.textAlignment = .center
                 label.font = UIFont(name: "Geist-medium", size: 14)
-                label.textColor = .foreground
+                label.textColor = .mutedForeground
                 return label
                 
             }(),{
@@ -189,7 +189,7 @@ class TokenCell: UICollectionViewCell {
                 label.numberOfLines = .zero
                 label.textAlignment = .center
                 label.font = UIFont(name: "Geist-medium", size: 14)
-                label.textColor = .foreground
+                label.textColor = .mutedForeground
                 return label
                 
             }(),{
@@ -199,7 +199,7 @@ class TokenCell: UICollectionViewCell {
                 label.numberOfLines = .zero
                 label.textAlignment = .center
                 label.font = UIFont(name: "Geist-medium", size: 14)
-                label.textColor = .foreground
+                label.textColor = .mutedForeground
                 return label
                 
             }(),
@@ -269,7 +269,7 @@ class TokenCell: UICollectionViewCell {
                 label.numberOfLines = .zero
                 label.textAlignment = .center
                 label.font = UIFont(name: "Geist-medium", size: 14)
-                label.textColor = .foreground
+                label.textColor = .mutedForeground
                 return label
                 
             }(),{
@@ -279,7 +279,7 @@ class TokenCell: UICollectionViewCell {
                 label.numberOfLines = .zero
                 label.textAlignment = .center
                 label.font = UIFont(name: "Geist-medium", size: 14)
-                label.textColor = .foreground
+                label.textColor = .mutedForeground
                 return label
                 
             }(),{
@@ -289,7 +289,7 @@ class TokenCell: UICollectionViewCell {
                 label.numberOfLines = .zero
                 label.textAlignment = .center
                 label.font = UIFont(name: "Geist-medium", size: 14)
-                label.textColor = .foreground
+                label.textColor = .mutedForeground
                 return label
                 
             }(),
@@ -359,7 +359,6 @@ class TokenCell: UICollectionViewCell {
     private lazy var riskContainer:UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        
         view.addSubview(riskLabel)
         NSLayoutConstraint.activate([
             riskLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),

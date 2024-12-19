@@ -216,7 +216,7 @@ class ProtocolGeneralView: UIView {
                 label.numberOfLines = .zero
                 label.textAlignment = .center
                 label.font = UIFont(name: "Geist-medium", size: 14)
-                label.textColor = .foreground
+                label.textColor = .mutedForeground
                 return label
                 
             }(),{
@@ -226,7 +226,7 @@ class ProtocolGeneralView: UIView {
                 label.numberOfLines = .zero
                 label.textAlignment = .center
                 label.font = UIFont(name: "Geist-medium", size: 14)
-                label.textColor = .foreground
+                label.textColor = .mutedForeground
                 return label
                 
             }(),{
@@ -236,7 +236,7 @@ class ProtocolGeneralView: UIView {
                 label.numberOfLines = .zero
                 label.textAlignment = .center
                 label.font = UIFont(name: "Geist-medium", size: 14)
-                label.textColor = .foreground
+                label.textColor = .mutedForeground
                 return label
                 
             }(),
@@ -263,7 +263,7 @@ class ProtocolGeneralView: UIView {
                 label.numberOfLines = .zero
                 label.textAlignment = .center
                 label.font = UIFont(name: "Geist-medium", size: 14)
-                label.textColor = .foreground
+                label.textColor = .mutedForeground
                 return label
                 
             }(),{
@@ -273,7 +273,7 @@ class ProtocolGeneralView: UIView {
                 label.numberOfLines = .zero
                 label.textAlignment = .center
                 label.font = UIFont(name: "Geist-medium", size: 14)
-                label.textColor = .foreground
+                label.textColor = .mutedForeground
                 return label
                 
             }(),{
@@ -283,7 +283,7 @@ class ProtocolGeneralView: UIView {
                 label.numberOfLines = .zero
                 label.textAlignment = .center
                 label.font = UIFont(name: "Geist-medium", size: 14)
-                label.textColor = .foreground
+                label.textColor = .mutedForeground
                 return label
                 
             }(),
@@ -353,7 +353,7 @@ class ProtocolGeneralView: UIView {
                 label.numberOfLines = .zero
                 label.textAlignment = .center
                 label.font = UIFont(name: "Geist-medium", size: 14)
-                label.textColor = .foreground
+                label.textColor = .mutedForeground
                 return label
                 
             }(),{
@@ -363,7 +363,7 @@ class ProtocolGeneralView: UIView {
                 label.numberOfLines = .zero
                 label.textAlignment = .center
                 label.font = UIFont(name: "Geist-medium", size: 14)
-                label.textColor = .foreground
+                label.textColor = .mutedForeground
                 return label
                 
             }(),{
@@ -373,7 +373,7 @@ class ProtocolGeneralView: UIView {
                 label.numberOfLines = .zero
                 label.textAlignment = .center
                 label.font = UIFont(name: "Geist-medium", size: 14)
-                label.textColor = .foreground
+                label.textColor = .mutedForeground
                 return label
                 
             }(),

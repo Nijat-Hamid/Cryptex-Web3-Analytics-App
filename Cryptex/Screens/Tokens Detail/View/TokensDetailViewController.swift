@@ -18,9 +18,19 @@ class TokensDetailViewController: BaseLoadingViewController {
         super.loadView()
         setupUI()
     }
+    private var safeAreaLayoutGuide:UILayoutGuide{
+        view.safeAreaLayoutGuide
+    }
+    private lazy var tokenInfoView = TokenInfoView()
     
     private func setupUI(){
         navigationItem.title = "Details"
+        view.addSubview(tokenInfoView)
+        NSLayoutConstraint.activate([
+            tokenInfoView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor,constant: 2),
+            tokenInfoView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor,constant: 14),
+            tokenInfoView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -14),
+        ])
     }
 
 }

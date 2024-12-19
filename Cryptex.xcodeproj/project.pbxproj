@@ -41,6 +41,7 @@
 		1F6092852D11F1F5001CCE43 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6092842D11F1EE001CCE43 /* String+Extensions.swift */; };
 		1F934D312D12DC86002085DD /* TokensDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F934D302D12DC86002085DD /* TokensDetailViewController.swift */; };
 		1F934D332D12DE6A002085DD /* BaseLoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F934D322D12DE6A002085DD /* BaseLoadingViewController.swift */; };
+		1F934D362D132F48002085DD /* TokenInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F934D352D132F48002085DD /* TokenInfoView.swift */; };
 		1FB9E5D42D09B9C100128526 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB9E5D32D09B9BA00128526 /* Helpers.swift */; };
 		1FB9E5D62D09BC8E00128526 /* PoolsUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB9E5D52D09BC8800128526 /* PoolsUIModel.swift */; };
 		1FB9E5D92D0AB2A400128526 /* PoolCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB9E5D82D0AB2A400128526 /* PoolCell.swift */; };
@@ -101,6 +102,7 @@
 		1F6092842D11F1EE001CCE43 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		1F934D302D12DC86002085DD /* TokensDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokensDetailViewController.swift; sourceTree = "<group>"; };
 		1F934D322D12DE6A002085DD /* BaseLoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseLoadingViewController.swift; sourceTree = "<group>"; };
+		1F934D352D132F48002085DD /* TokenInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenInfoView.swift; sourceTree = "<group>"; };
 		1FB9E5D32D09B9BA00128526 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		1FB9E5D52D09BC8800128526 /* PoolsUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoolsUIModel.swift; sourceTree = "<group>"; };
 		1FB9E5D82D0AB2A400128526 /* PoolCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoolCell.swift; sourceTree = "<group>"; };
@@ -479,6 +481,7 @@
 		1F934D282D12DC43002085DD /* View */ = {
 			isa = PBXGroup;
 			children = (
+				1F934D342D132D4F002085DD /* TokenInfo */,
 				1F934D302D12DC86002085DD /* TokensDetailViewController.swift */,
 			);
 			path = View;
@@ -531,6 +534,14 @@
 			children = (
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		1F934D342D132D4F002085DD /* TokenInfo */ = {
+			isa = PBXGroup;
+			children = (
+				1F934D352D132F48002085DD /* TokenInfoView.swift */,
+			);
+			path = TokenInfo;
 			sourceTree = "<group>";
 		};
 		1FB9E5D02D099D2A00128526 /* Root */ = {
@@ -846,6 +857,7 @@
 				1FB9E5D92D0AB2A400128526 /* PoolCell.swift in Sources */,
 				1F4293152CF9F8C3000CFA9E /* DeFiUIModel.swift in Sources */,
 				1F60927D2D109466001CCE43 /* LineChart.swift in Sources */,
+				1F934D362D132F48002085DD /* TokenInfoView.swift in Sources */,
 				1F42933E2D008D23000CFA9E /* TokensViewController.swift in Sources */,
 				1F934D332D12DE6A002085DD /* BaseLoadingViewController.swift in Sources */,
 				1FB9E5DF2D0C393200128526 /* UILabel+Extensions.swift in Sources */,
