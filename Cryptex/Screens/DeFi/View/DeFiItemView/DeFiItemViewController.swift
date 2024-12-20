@@ -24,6 +24,11 @@ class DeFiItemViewController: UIView {
         setupUI()
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        applyCornerRadiusWithShadow()
+    }
+    
     var protocolID:String?
     
     weak var delegate: DeFiItemViewDelegate?
@@ -51,7 +56,6 @@ class DeFiItemViewController: UIView {
         addSubview(image)
         addSubview(text)
         backgroundColor = .cardBackground
-        self.applyCornerRadiusWithShadow()
         isUserInteractionEnabled = true
         NSLayoutConstraint.activate([
             image.leadingAnchor.constraint(equalTo: leadingAnchor),

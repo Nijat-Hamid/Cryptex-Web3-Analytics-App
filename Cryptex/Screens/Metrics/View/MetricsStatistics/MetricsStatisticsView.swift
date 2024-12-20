@@ -27,7 +27,7 @@ class MetricsStatisticsView: UIView {
         let stack = UIStackView(arrangedSubviews: [
           {
                 let label = UILabel()
-                label.text = "Fee:"
+                label.text = "Fee"
                 label.translatesAutoresizingMaskIntoConstraints = false
                 label.numberOfLines = .zero
                 label.textAlignment = .center
@@ -37,7 +37,7 @@ class MetricsStatisticsView: UIView {
                 
             }(),{
                 let label = UILabel()
-                label.text = "Revenue:"
+                label.text = "Revenue"
                 label.translatesAutoresizingMaskIntoConstraints = false
                 label.numberOfLines = .zero
                 label.textAlignment = .center
@@ -96,7 +96,7 @@ class MetricsStatisticsView: UIView {
         let stack = UIStackView(arrangedSubviews: [
           {
                 let label = UILabel()
-                label.text = "P/F Ratio:"
+                label.text = "P/F Ratio"
                 label.translatesAutoresizingMaskIntoConstraints = false
                 label.numberOfLines = .zero
                 label.textAlignment = .center
@@ -106,7 +106,7 @@ class MetricsStatisticsView: UIView {
                 
             }(),{
                 let label = UILabel()
-                label.text = "P/S Ratio:"
+                label.text = "P/S Ratio"
                 label.translatesAutoresizingMaskIntoConstraints = false
                 label.numberOfLines = .zero
                 label.textAlignment = .center
@@ -175,7 +175,6 @@ class MetricsStatisticsView: UIView {
     
     private func setupUI(){
         backgroundColor = .cardBackgroundDark
-        self.applyCornerRadiusWithShadow()
         dataContainer.addArrangedSubview(primaryHeader)
         dataContainer.addArrangedSubview(primaryStack)
         dataContainer.addArrangedSubview(secondaryHeader)

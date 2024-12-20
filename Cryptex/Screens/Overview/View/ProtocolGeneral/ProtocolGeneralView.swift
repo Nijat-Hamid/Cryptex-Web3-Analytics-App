@@ -211,7 +211,7 @@ class ProtocolGeneralView: UIView {
         let stack = UIStackView(arrangedSubviews: [
             {
                 let label = UILabel()
-                label.text = "Version:"
+                label.text = "Version"
                 label.translatesAutoresizingMaskIntoConstraints = false
                 label.numberOfLines = .zero
                 label.textAlignment = .center
@@ -221,7 +221,7 @@ class ProtocolGeneralView: UIView {
                 
             }(),{
                 let label = UILabel()
-                label.text = "Name:"
+                label.text = "Name"
                 label.translatesAutoresizingMaskIntoConstraints = false
                 label.numberOfLines = .zero
                 label.textAlignment = .center
@@ -231,7 +231,7 @@ class ProtocolGeneralView: UIView {
                 
             }(),{
                 let label = UILabel()
-                label.text = "Chain:"
+                label.text = "Chain"
                 label.translatesAutoresizingMaskIntoConstraints = false
                 label.numberOfLines = .zero
                 label.textAlignment = .center
@@ -258,7 +258,7 @@ class ProtocolGeneralView: UIView {
         let stack = UIStackView(arrangedSubviews: [
             {
                 let label = UILabel()
-                label.text = "TVL:"
+                label.text = "TVL"
                 label.translatesAutoresizingMaskIntoConstraints = false
                 label.numberOfLines = .zero
                 label.textAlignment = .center
@@ -268,7 +268,7 @@ class ProtocolGeneralView: UIView {
                 
             }(),{
                 let label = UILabel()
-                label.text = "Average APY:"
+                label.text = "Average APY"
                 label.translatesAutoresizingMaskIntoConstraints = false
                 label.numberOfLines = .zero
                 label.textAlignment = .center
@@ -278,7 +278,7 @@ class ProtocolGeneralView: UIView {
                 
             }(),{
                 let label = UILabel()
-                label.text = "Pools:"
+                label.text = "Pools"
                 label.translatesAutoresizingMaskIntoConstraints = false
                 label.numberOfLines = .zero
                 label.textAlignment = .center
@@ -348,7 +348,7 @@ class ProtocolGeneralView: UIView {
         let stack = UIStackView(arrangedSubviews: [
             {
                 let label = UILabel()
-                label.text = "Creation:"
+                label.text = "Creation"
                 label.translatesAutoresizingMaskIntoConstraints = false
                 label.numberOfLines = .zero
                 label.textAlignment = .center
@@ -358,7 +358,7 @@ class ProtocolGeneralView: UIView {
                 
             }(),{
                 let label = UILabel()
-                label.text = "Contract:"
+                label.text = "Contract"
                 label.translatesAutoresizingMaskIntoConstraints = false
                 label.numberOfLines = .zero
                 label.textAlignment = .center
@@ -368,7 +368,7 @@ class ProtocolGeneralView: UIView {
                 
             }(),{
                 let label = UILabel()
-                label.text = "Risk:"
+                label.text = "Risk"
                 label.translatesAutoresizingMaskIntoConstraints = false
                 label.numberOfLines = .zero
                 label.textAlignment = .center

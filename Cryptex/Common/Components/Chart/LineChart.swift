@@ -36,12 +36,11 @@ class LineChart: UIView {
     private lazy var chartMarker = ChartMarkerView()
     
     
-    private lazy var chart:LineChartView = {
+     lazy var chart:LineChartView = {
         let chart = LineChartView()
         chart.translatesAutoresizingMaskIntoConstraints = false
         chart.backgroundColor = .clear
         chart.rightAxis.enabled = false
-        
         chart.xAxis.drawGridLinesEnabled = false
         chart.xAxis.drawAxisLineEnabled = false
         chart.xAxis.labelPosition = .bottom

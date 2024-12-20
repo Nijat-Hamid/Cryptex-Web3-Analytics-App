@@ -212,7 +212,7 @@ class PoolCell: UICollectionViewCell {
         let stack = UIStackView(arrangedSubviews: [
             {
                 let label = UILabel()
-                label.text = "Protocol:"
+                label.text = "Protocol"
                 label.translatesAutoresizingMaskIntoConstraints = false
                 label.numberOfLines = .zero
                 label.textAlignment = .center
@@ -222,7 +222,7 @@ class PoolCell: UICollectionViewCell {
                 
             }(),{
                 let label = UILabel()
-                label.text = "Pool:"
+                label.text = "Pool"
                 label.translatesAutoresizingMaskIntoConstraints = false
                 label.numberOfLines = .zero
                 label.textAlignment = .center
@@ -232,7 +232,7 @@ class PoolCell: UICollectionViewCell {
                 
             }(),{
                 let label = UILabel()
-                label.text = "Chain:"
+                label.text = "Chain"
                 label.translatesAutoresizingMaskIntoConstraints = false
                 label.numberOfLines = .zero
                 label.textAlignment = .center
@@ -259,7 +259,7 @@ class PoolCell: UICollectionViewCell {
         let stack = UIStackView(arrangedSubviews: [
             {
                 let label = UILabel()
-                label.text = "Supplied:"
+                label.text = "Supplied"
                 label.translatesAutoresizingMaskIntoConstraints = false
                 label.numberOfLines = .zero
                 label.textAlignment = .center
@@ -269,7 +269,7 @@ class PoolCell: UICollectionViewCell {
                 
             }(),{
                 let label = UILabel()
-                label.text = "Borrowed:"
+                label.text = "Borrowed"
                 label.translatesAutoresizingMaskIntoConstraints = false
                 label.numberOfLines = .zero
                 label.textAlignment = .center
@@ -279,7 +279,7 @@ class PoolCell: UICollectionViewCell {
                 
             }(),{
                 let label = UILabel()
-                label.text = "Liquidity:"
+                label.text = "Liquidity"
                 label.translatesAutoresizingMaskIntoConstraints = false
                 label.numberOfLines = .zero
                 label.textAlignment = .center
@@ -349,7 +349,7 @@ class PoolCell: UICollectionViewCell {
         let stack = UIStackView(arrangedSubviews: [
             {
                 let label = UILabel()
-                label.text = "Utilization:"
+                label.text = "Utilization"
                 label.translatesAutoresizingMaskIntoConstraints = false
                 label.numberOfLines = .zero
                 label.textAlignment = .center
@@ -359,7 +359,7 @@ class PoolCell: UICollectionViewCell {
                 
             }(),{
                 let label = UILabel()
-                label.text = "APY:"
+                label.text = "APY"
                 label.translatesAutoresizingMaskIntoConstraints = false
                 label.numberOfLines = .zero
                 label.textAlignment = .center
@@ -369,7 +369,7 @@ class PoolCell: UICollectionViewCell {
                 
             }(),{
                 let label = UILabel()
-                label.text = "Risk:"
+                label.text = "Risk"
                 label.translatesAutoresizingMaskIntoConstraints = false
                 label.numberOfLines = .zero
                 label.textAlignment = .center

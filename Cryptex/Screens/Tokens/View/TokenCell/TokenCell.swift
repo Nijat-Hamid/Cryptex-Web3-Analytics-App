@@ -137,7 +137,7 @@ class TokenCell: UICollectionViewCell {
         let stack = UIStackView(arrangedSubviews: [
            {
                 let label = UILabel()
-                label.text = "Token:"
+                label.text = "Token"
                 label.translatesAutoresizingMaskIntoConstraints = false
                 label.numberOfLines = .zero
                 label.textAlignment = .center
@@ -147,7 +147,7 @@ class TokenCell: UICollectionViewCell {
                 
             }(),{
                 let label = UILabel()
-                label.text = "Chain:"
+                label.text = "Chain"
                 label.translatesAutoresizingMaskIntoConstraints = false
                 label.numberOfLines = .zero
                 label.textAlignment = .center
@@ -174,7 +174,7 @@ class TokenCell: UICollectionViewCell {
         let stack = UIStackView(arrangedSubviews: [
             {
                 let label = UILabel()
-                label.text = "Daily:"
+                label.text = "Daily"
                 label.translatesAutoresizingMaskIntoConstraints = false
                 label.numberOfLines = .zero
                 label.textAlignment = .center
@@ -184,7 +184,7 @@ class TokenCell: UICollectionViewCell {
                 
             }(),{
                 let label = UILabel()
-                label.text = "Weekly:"
+                label.text = "Weekly"
                 label.translatesAutoresizingMaskIntoConstraints = false
                 label.numberOfLines = .zero
                 label.textAlignment = .center
@@ -194,7 +194,7 @@ class TokenCell: UICollectionViewCell {
                 
             }(),{
                 let label = UILabel()
-                label.text = "Monthly:"
+                label.text = "Monthly"
                 label.translatesAutoresizingMaskIntoConstraints = false
                 label.numberOfLines = .zero
                 label.textAlignment = .center
@@ -264,7 +264,7 @@ class TokenCell: UICollectionViewCell {
         let stack = UIStackView(arrangedSubviews: [
             {
                 let label = UILabel()
-                label.text = "Volume:"
+                label.text = "Volume"
                 label.translatesAutoresizingMaskIntoConstraints = false
                 label.numberOfLines = .zero
                 label.textAlignment = .center
@@ -274,7 +274,7 @@ class TokenCell: UICollectionViewCell {
                 
             }(),{
                 let label = UILabel()
-                label.text = "MarketCap:"
+                label.text = "MarketCap"
                 label.translatesAutoresizingMaskIntoConstraints = false
                 label.numberOfLines = .zero
                 label.textAlignment = .center
@@ -284,7 +284,7 @@ class TokenCell: UICollectionViewCell {
                 
             }(),{
                 let label = UILabel()
-                label.text = "Risk:"
+                label.text = "Risk"
                 label.translatesAutoresizingMaskIntoConstraints = false
                 label.numberOfLines = .zero
                 label.textAlignment = .center

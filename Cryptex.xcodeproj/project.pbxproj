@@ -42,6 +42,8 @@
 		1F934D312D12DC86002085DD /* TokensDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F934D302D12DC86002085DD /* TokensDetailViewController.swift */; };
 		1F934D332D12DE6A002085DD /* BaseLoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F934D322D12DE6A002085DD /* BaseLoadingViewController.swift */; };
 		1F934D362D132F48002085DD /* TokenInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F934D352D132F48002085DD /* TokenInfoView.swift */; };
+		1F934D392D14B32D002085DD /* TokenChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F934D382D14B32D002085DD /* TokenChartView.swift */; };
+		1F934D3C2D14B664002085DD /* CustomSegmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F934D3B2D14B664002085DD /* CustomSegmentView.swift */; };
 		1FB9E5D42D09B9C100128526 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB9E5D32D09B9BA00128526 /* Helpers.swift */; };
 		1FB9E5D62D09BC8E00128526 /* PoolsUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB9E5D52D09BC8800128526 /* PoolsUIModel.swift */; };
 		1FB9E5D92D0AB2A400128526 /* PoolCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB9E5D82D0AB2A400128526 /* PoolCell.swift */; };
@@ -103,6 +105,8 @@
 		1F934D302D12DC86002085DD /* TokensDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokensDetailViewController.swift; sourceTree = "<group>"; };
 		1F934D322D12DE6A002085DD /* BaseLoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseLoadingViewController.swift; sourceTree = "<group>"; };
 		1F934D352D132F48002085DD /* TokenInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenInfoView.swift; sourceTree = "<group>"; };
+		1F934D382D14B32D002085DD /* TokenChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenChartView.swift; sourceTree = "<group>"; };
+		1F934D3B2D14B664002085DD /* CustomSegmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegmentView.swift; sourceTree = "<group>"; };
 		1FB9E5D32D09B9BA00128526 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		1FB9E5D52D09BC8800128526 /* PoolsUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoolsUIModel.swift; sourceTree = "<group>"; };
 		1FB9E5D82D0AB2A400128526 /* PoolCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoolCell.swift; sourceTree = "<group>"; };
@@ -187,6 +191,7 @@
 		1F42931C2CFCC723000CFA9E /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				1F934D3A2D14B64F002085DD /* Segment */,
 				1F6092792D106021001CCE43 /* Chart */,
 			);
 			path = Components;
@@ -481,6 +486,7 @@
 		1F934D282D12DC43002085DD /* View */ = {
 			isa = PBXGroup;
 			children = (
+				1F934D372D14B310002085DD /* TokenChart */,
 				1F934D342D132D4F002085DD /* TokenInfo */,
 				1F934D302D12DC86002085DD /* TokensDetailViewController.swift */,
 			);
@@ -542,6 +548,22 @@
 				1F934D352D132F48002085DD /* TokenInfoView.swift */,
 			);
 			path = TokenInfo;
+			sourceTree = "<group>";
+		};
+		1F934D372D14B310002085DD /* TokenChart */ = {
+			isa = PBXGroup;
+			children = (
+				1F934D382D14B32D002085DD /* TokenChartView.swift */,
+			);
+			path = TokenChart;
+			sourceTree = "<group>";
+		};
+		1F934D3A2D14B64F002085DD /* Segment */ = {
+			isa = PBXGroup;
+			children = (
+				1F934D3B2D14B664002085DD /* CustomSegmentView.swift */,
+			);
+			path = Segment;
 			sourceTree = "<group>";
 		};
 		1FB9E5D02D099D2A00128526 /* Root */ = {
@@ -872,9 +894,11 @@
 				1F4293482D008DCC000CFA9E /* MenuUIModel.swift in Sources */,
 				1F60925F2D0F058C001CCE43 /* TokensUIModel.swift in Sources */,
 				1F42931B2CF9F955000CFA9E /* OverviewViewController.swift in Sources */,
+				1F934D392D14B32D002085DD /* TokenChartView.swift in Sources */,
 				1F60925D2D0F0585001CCE43 /* TokensDTOModel.swift in Sources */,
 				1F934D312D12DC86002085DD /* TokensDetailViewController.swift in Sources */,
 				1F4293382D008CF1000CFA9E /* PoolsViewController.swift in Sources */,
+				1F934D3C2D14B664002085DD /* CustomSegmentView.swift in Sources */,
 				1FBDD21C2CF894A700223819 /* DeFiViewModel.swift in Sources */,
 				1FB9E5D62D09BC8E00128526 /* PoolsUIModel.swift in Sources */,
 				1F6092832D11D824001CCE43 /* ProtocolGeneralView.swift in Sources */,

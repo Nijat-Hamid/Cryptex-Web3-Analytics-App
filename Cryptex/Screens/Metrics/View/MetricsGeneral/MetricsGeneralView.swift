@@ -27,7 +27,7 @@ class MetricsGeneralView: UIView {
         let stack = UIStackView(arrangedSubviews: [
           {
                 let label = UILabel()
-                label.text = "ATH:"
+                label.text = "ATH"
                 label.translatesAutoresizingMaskIntoConstraints = false
                 label.numberOfLines = .zero
                 label.textAlignment = .center
@@ -37,7 +37,7 @@ class MetricsGeneralView: UIView {
                 
             }(),{
                 let label = UILabel()
-                label.text = "ATL:"
+                label.text = "ATL"
                 label.translatesAutoresizingMaskIntoConstraints = false
                 label.numberOfLines = .zero
                 label.textAlignment = .center
@@ -47,7 +47,7 @@ class MetricsGeneralView: UIView {
                 
             }(),{
                 let label = UILabel()
-                label.text = "ATH Change:"
+                label.text = "ATH Change"
                 label.translatesAutoresizingMaskIntoConstraints = false
                 label.numberOfLines = .zero
                 label.textAlignment = .center
@@ -116,7 +116,7 @@ class MetricsGeneralView: UIView {
         let stack = UIStackView(arrangedSubviews: [
           {
                 let label = UILabel()
-                label.text = "ATL Change:"
+                label.text = "ATL Change"
                 label.translatesAutoresizingMaskIntoConstraints = false
                 label.numberOfLines = .zero
                 label.textAlignment = .center
@@ -126,7 +126,7 @@ class MetricsGeneralView: UIView {
                 
             }(),{
                 let label = UILabel()
-                label.text = "Total Supply:"
+                label.text = "Total Supply"
                 label.translatesAutoresizingMaskIntoConstraints = false
                 label.numberOfLines = .zero
                 label.textAlignment = .center
@@ -136,7 +136,7 @@ class MetricsGeneralView: UIView {
                 
             }(),{
                 let label = UILabel()
-                label.text = "Max Supply:"
+                label.text = "Max Supply"
                 label.translatesAutoresizingMaskIntoConstraints = false
                 label.numberOfLines = .zero
                 label.textAlignment = .center
@@ -205,7 +205,7 @@ class MetricsGeneralView: UIView {
         let stack = UIStackView(arrangedSubviews: [
           {
                 let label = UILabel()
-                label.text = "Circ. Cap:"
+                label.text = "Circ. Cap"
                 label.translatesAutoresizingMaskIntoConstraints = false
                 label.numberOfLines = .zero
                 label.textAlignment = .center
@@ -215,7 +215,7 @@ class MetricsGeneralView: UIView {
                 
             }(),{
                 let label = UILabel()
-                label.text = "Dil. Cap:"
+                label.text = "Dil. Cap"
                 label.translatesAutoresizingMaskIntoConstraints = false
                 label.numberOfLines = .zero
                 label.textAlignment = .center
@@ -225,7 +225,7 @@ class MetricsGeneralView: UIView {
                 
             }(),{
                 let label = UILabel()
-                label.text = "Mar. Share:"
+                label.text = "Mar. Share"
                 label.translatesAutoresizingMaskIntoConstraints = false
                 label.numberOfLines = .zero
                 label.textAlignment = .center
@@ -304,7 +304,6 @@ class MetricsGeneralView: UIView {
     
     private func setupUI(){
         backgroundColor = .cardBackgroundDark
-        self.applyCornerRadiusWithShadow()
         dataContainer.addArrangedSubview(primaryHeader)
         dataContainer.addArrangedSubview(primaryStack)
         dataContainer.addArrangedSubview(secondaryHeader)

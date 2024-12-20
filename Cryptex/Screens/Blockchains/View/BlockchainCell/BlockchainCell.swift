@@ -77,7 +77,7 @@ class BlockchainCell: UICollectionViewCell {
         let stack = UIStackView(arrangedSubviews: [
           {
                 let label = UILabel()
-                label.text = "Blockchain:"
+                label.text = "Blockchain"
                 label.translatesAutoresizingMaskIntoConstraints = false
                 label.numberOfLines = .zero
                 label.textAlignment = .center
@@ -104,7 +104,7 @@ class BlockchainCell: UICollectionViewCell {
         let stack = UIStackView(arrangedSubviews: [
             {
                 let label = UILabel()
-                label.text = "Daily:"
+                label.text = "Daily"
                 label.translatesAutoresizingMaskIntoConstraints = false
                 label.numberOfLines = .zero
                 label.textAlignment = .center
@@ -114,7 +114,7 @@ class BlockchainCell: UICollectionViewCell {
                 
             }(),{
                 let label = UILabel()
-                label.text = "Weekly:"
+                label.text = "Weekly"
                 label.translatesAutoresizingMaskIntoConstraints = false
                 label.numberOfLines = .zero
                 label.textAlignment = .center
@@ -124,7 +124,7 @@ class BlockchainCell: UICollectionViewCell {
                 
             }(),{
                 let label = UILabel()
-                label.text = "Monthly:"
+                label.text = "Monthly"
                 label.translatesAutoresizingMaskIntoConstraints = false
                 label.numberOfLines = .zero
                 label.textAlignment = .center
@@ -194,7 +194,7 @@ class BlockchainCell: UICollectionViewCell {
         let stack = UIStackView(arrangedSubviews: [
             {
                 let label = UILabel()
-                label.text = "TVL:"
+                label.text = "TVL"
                 label.translatesAutoresizingMaskIntoConstraints = false
                 label.numberOfLines = .zero
                 label.textAlignment = .center
@@ -204,7 +204,7 @@ class BlockchainCell: UICollectionViewCell {
                 
             }(),{
                 let label = UILabel()
-                label.text = "Market Share:"
+                label.text = "Market Share"
                 label.translatesAutoresizingMaskIntoConstraints = false
                 label.numberOfLines = .zero
                 label.textAlignment = .center
@@ -214,7 +214,7 @@ class BlockchainCell: UICollectionViewCell {
                 
             }(),{
                 let label = UILabel()
-                label.text = "Risk:"
+                label.text = "Risk"
                 label.translatesAutoresizingMaskIntoConstraints = false
                 label.numberOfLines = .zero
                 label.textAlignment = .center

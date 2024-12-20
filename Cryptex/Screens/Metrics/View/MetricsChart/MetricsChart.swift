@@ -31,7 +31,6 @@ class MetricsChart: UIView {
     private func setupUI() {
         backgroundColor = .cardBackgroundDark
         translatesAutoresizingMaskIntoConstraints = false
-        self.applyCornerRadiusWithShadow()
         addSubview(chart)
         
         NSLayoutConstraint.activate([
