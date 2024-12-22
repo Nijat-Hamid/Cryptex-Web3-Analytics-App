@@ -13,7 +13,7 @@ class AppState {
     // Singleton Pattern
     static let shared = AppState()
     // Weak Connection
-    private weak var navigationController: CustomNavigationController?
+    private weak var navigationController: AppNavigationController?
     // Current Page
     var currentPage: PageName?
     // UserDefaults
@@ -50,7 +50,7 @@ class AppState {
        }
     
     // Coordinator Pattern
-    func setRootNavigationController(_ navController: CustomNavigationController) {
+    func setRootNavigationController(_ navController: AppNavigationController) {
             navigationController = navController
         }
     

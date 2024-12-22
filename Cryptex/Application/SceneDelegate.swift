@@ -20,7 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
         let main = RootViewController()
-        let navC = CustomNavigationController(rootViewController: main)
+        let navC = AppNavigationController(rootViewController: main)
         
         AppState.shared.setRootNavigationController(navC)
         

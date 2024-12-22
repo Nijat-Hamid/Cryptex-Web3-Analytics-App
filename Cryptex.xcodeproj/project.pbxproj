@@ -21,7 +21,7 @@
 		1F4293482D008DCC000CFA9E /* MenuUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4293472D008DCC000CFA9E /* MenuUIModel.swift */; };
 		1F42934A2D00AFC1000CFA9E /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4293492D00AFB8000CFA9E /* UIImage+Extension.swift */; };
 		1F42934C2D00D03E000CFA9E /* SocialUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F42934B2D00D03A000CFA9E /* SocialUIModel.swift */; };
-		1F42934F2D00F50D000CFA9E /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F42934E2D00F50D000CFA9E /* NavigationController.swift */; };
+		1F42934F2D00F50D000CFA9E /* AppNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F42934E2D00F50D000CFA9E /* AppNavigationController.swift */; };
 		1F4293512D00FA66000CFA9E /* FadeTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4293502D00FA61000CFA9E /* FadeTransition.swift */; };
 		1F4293552D0173DB000CFA9E /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4293542D0173DB000CFA9E /* BaseViewController.swift */; };
 		1F4CCAFA2D02A283003F9D99 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4CCAF92D02A283003F9D99 /* RootViewController.swift */; };
@@ -89,7 +89,7 @@
 		1F4293472D008DCC000CFA9E /* MenuUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuUIModel.swift; sourceTree = "<group>"; };
 		1F4293492D00AFB8000CFA9E /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		1F42934B2D00D03A000CFA9E /* SocialUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialUIModel.swift; sourceTree = "<group>"; };
-		1F42934E2D00F50D000CFA9E /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
+		1F42934E2D00F50D000CFA9E /* AppNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNavigationController.swift; sourceTree = "<group>"; };
 		1F4293502D00FA61000CFA9E /* FadeTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadeTransition.swift; sourceTree = "<group>"; };
 		1F4293542D0173DB000CFA9E /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		1F4CCAF92D02A283003F9D99 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
@@ -357,7 +357,7 @@
 		1F42934D2D00F4E9000CFA9E /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
-				1F42934E2D00F50D000CFA9E /* NavigationController.swift */,
+				1F42934E2D00F50D000CFA9E /* AppNavigationController.swift */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -645,7 +645,6 @@
 			isa = PBXGroup;
 			children = (
 				1FBDD1EA2CF71E0300223819 /* Application */,
-				1F42934D2D00F4E9000CFA9E /* Navigation */,
 				1FBDD1EB2CF71E1900223819 /* Resources */,
 				1FBDD1EE2CF71E4F00223819 /* Common */,
 				1FBDD20E2CF7802D00223819 /* Screens */,
@@ -680,6 +679,7 @@
 				1FBDD1F32CF71EBA00223819 /* Controllers */,
 				1FBDD1F02CF71E7200223819 /* Extensions */,
 				1FB9E5D22D09B9A700128526 /* Helpers */,
+				1F42934D2D00F4E9000CFA9E /* Navigation */,
 				1F42932E2CFE645E000CFA9E /* Presentation+Transition */,
 			);
 			path = Common;
@@ -902,7 +902,7 @@
 				1F4293552D0173DB000CFA9E /* BaseViewController.swift in Sources */,
 				1F4293462D008D90000CFA9E /* MenuViewModel.swift in Sources */,
 				1F6092642D0F1276001CCE43 /* BlockchainsDTOModel.swift in Sources */,
-				1F42934F2D00F50D000CFA9E /* NavigationController.swift in Sources */,
+				1F42934F2D00F50D000CFA9E /* AppNavigationController.swift in Sources */,
 				1F60926F2D0F2CC3001CCE43 /* MetricsViewController.swift in Sources */,
 				1F4CCAFA2D02A283003F9D99 /* RootViewController.swift in Sources */,
 				1FB9E5D92D0AB2A400128526 /* PoolCell.swift in Sources */,
