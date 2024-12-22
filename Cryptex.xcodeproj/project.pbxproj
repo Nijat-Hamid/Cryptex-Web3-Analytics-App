@@ -48,7 +48,6 @@
 		1F934D432D15DD45002085DD /* BlockchainInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F934D422D15DD45002085DD /* BlockchainInfoView.swift */; };
 		1F934D452D15DD50002085DD /* BlockchainChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F934D442D15DD50002085DD /* BlockchainChartView.swift */; };
 		1F934D482D16D753002085DD /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 1F934D472D16D753002085DD /* SnapKit */; };
-		1F934D4E2D16D8A7002085DD /* ContainerVIewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F934D4D2D16D8A7002085DD /* ContainerVIewController.swift */; };
 		1FB9E5D42D09B9C100128526 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB9E5D32D09B9BA00128526 /* Helpers.swift */; };
 		1FB9E5D62D09BC8E00128526 /* PoolsUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB9E5D52D09BC8800128526 /* PoolsUIModel.swift */; };
 		1FB9E5D92D0AB2A400128526 /* PoolCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB9E5D82D0AB2A400128526 /* PoolCell.swift */; };
@@ -115,7 +114,6 @@
 		1F934D3D2D15DB9B002085DD /* BlockchainDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockchainDetailViewController.swift; sourceTree = "<group>"; };
 		1F934D422D15DD45002085DD /* BlockchainInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockchainInfoView.swift; sourceTree = "<group>"; };
 		1F934D442D15DD50002085DD /* BlockchainChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockchainChartView.swift; sourceTree = "<group>"; };
-		1F934D4D2D16D8A7002085DD /* ContainerVIewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerVIewController.swift; sourceTree = "<group>"; };
 		1FB9E5D32D09B9BA00128526 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		1FB9E5D52D09BC8800128526 /* PoolsUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoolsUIModel.swift; sourceTree = "<group>"; };
 		1FB9E5D82D0AB2A400128526 /* PoolCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoolCell.swift; sourceTree = "<group>"; };
@@ -595,22 +593,6 @@
 			path = BlockchainChart;
 			sourceTree = "<group>";
 		};
-		1F934D4B2D16D87A002085DD /* Container */ = {
-			isa = PBXGroup;
-			children = (
-				1F934D4C2D16D888002085DD /* View */,
-			);
-			path = Container;
-			sourceTree = "<group>";
-		};
-		1F934D4C2D16D888002085DD /* View */ = {
-			isa = PBXGroup;
-			children = (
-				1F934D4D2D16D8A7002085DD /* ContainerVIewController.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		1FB9E5D02D099D2A00128526 /* Root */ = {
 			isa = PBXGroup;
 			children = (
@@ -744,7 +726,6 @@
 		1FBDD20E2CF7802D00223819 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				1F934D4B2D16D87A002085DD /* Container */,
 				1F42933F2D008D2E000CFA9E /* Blockchains */,
 				1F934D252D12DC1F002085DD /* Blockchains Detail */,
 				1FBDD2112CF7880E00223819 /* DeFi */,
@@ -905,7 +886,6 @@
 			files = (
 				1FBDD21A2CF8903500223819 /* DeFiItemViewController.swift in Sources */,
 				1FBDD1F72CF71EE000223819 /* BaseMenuViewController.swift in Sources */,
-				1F934D4E2D16D8A7002085DD /* ContainerVIewController.swift in Sources */,
 				1F4293112CF9EB54000CFA9E /* UIView+Extension.swift in Sources */,
 				1FB9E5DB2D0AC62200128526 /* PoolsDTOModel.swift in Sources */,
 				1F6092622D0F0C2E001CCE43 /* TokenCell.swift in Sources */,
