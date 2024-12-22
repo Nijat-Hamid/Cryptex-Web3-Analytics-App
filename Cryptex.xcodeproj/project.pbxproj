@@ -646,8 +646,8 @@
 			children = (
 				1FBDD1EA2CF71E0300223819 /* Application */,
 				1FBDD1EB2CF71E1900223819 /* Resources */,
-				1FBDD1EE2CF71E4F00223819 /* Common */,
-				1FBDD20E2CF7802D00223819 /* Screens */,
+				1FBDD1EE2CF71E4F00223819 /* Core */,
+				1FBDD20E2CF7802D00223819 /* Scenes */,
 			);
 			path = Cryptex;
 			sourceTree = "<group>";
@@ -671,7 +671,7 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		1FBDD1EE2CF71E4F00223819 /* Common */ = {
+		1FBDD1EE2CF71E4F00223819 /* Core */ = {
 			isa = PBXGroup;
 			children = (
 				1F42931F2CFDA9D7000CFA9E /* AppState.swift */,
@@ -682,7 +682,7 @@
 				1F42934D2D00F4E9000CFA9E /* Navigation */,
 				1F42932E2CFE645E000CFA9E /* Presentation+Transition */,
 			);
-			path = Common;
+			path = Core;
 			sourceTree = "<group>";
 		};
 		1FBDD1F02CF71E7200223819 /* Extensions */ = {
@@ -723,7 +723,7 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
-		1FBDD20E2CF7802D00223819 /* Screens */ = {
+		1FBDD20E2CF7802D00223819 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
 				1F42933F2D008D2E000CFA9E /* Blockchains */,
@@ -739,7 +739,7 @@
 				1F4293392D008D06000CFA9E /* Tokens */,
 				1F934D242D12DC02002085DD /* Tokens Detail */,
 			);
-			path = Screens;
+			path = Scenes;
 			sourceTree = "<group>";
 		};
 		1FBDD20F2CF7809700223819 /* Launch */ = {
