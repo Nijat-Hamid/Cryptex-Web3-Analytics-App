@@ -36,7 +36,7 @@ class LineChart: UIView {
     private lazy var chartMarker = ChartMarkerView()
     
     
-     lazy var chart:LineChartView = {
+     private lazy var chart:LineChartView = {
         let chart = LineChartView()
         chart.translatesAutoresizingMaskIntoConstraints = false
         chart.backgroundColor = .clear
@@ -78,8 +78,12 @@ class LineChart: UIView {
         dataSet.drawValuesEnabled = false
         dataSet.setCircleColor(.chart)
         let data = LineChartData(dataSet: dataSet)
-        chart.data = data
-                
+    
+        UIView.transition(with: chart, duration: 0.3,options: .transitionCrossDissolve) { [weak self] in
+            guard let self else {return}
+            chart.data = data
+        }
+
     }
     
     private func setupUI(){

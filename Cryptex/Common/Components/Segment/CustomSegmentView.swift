@@ -91,7 +91,7 @@ class CustomSegmentView: UIView {
         labels[selectedSegmentIndex].textColor = .mutedForeground
         view.textColor = .chart
         
-        UIView.animate(withDuration: 0.3,delay: 0,options: .curveEaseInOut) { [weak self] in
+        UIView.animate(withDuration: 0.3,delay: 0,options: .transitionCrossDissolve) { [weak self] in
             guard let self else {return}
               layoutIfNeeded()
         } completion: { [weak self] _ in

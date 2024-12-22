@@ -69,5 +69,9 @@ class BlockchainsViewController: BaseMenuViewController {
 }
 
 extension BlockchainsViewController:UICollectionViewDelegate{
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let vc = BlockchainDetailViewController()
+        vc.navigationItem.title = "Details"
+        navigationController?.pushViewController(vc, animated: true)
+    }
 }

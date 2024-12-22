@@ -25,7 +25,6 @@ class TokensDetailViewController: BaseLoadingViewController {
     private lazy var tokensChart = TokenChartView()
     
     private func setupUI(){
-        navigationItem.title = "Details"
         view.addSubview(tokenInfoView)
         view.addSubview(tokensChart)
         NSLayoutConstraint.activate([

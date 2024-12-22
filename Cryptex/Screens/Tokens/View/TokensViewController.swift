@@ -72,6 +72,7 @@ class TokensViewController: BaseMenuViewController {
 extension TokensViewController:UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let vc = TokensDetailViewController()
+        vc.navigationItem.title = "Details"
         navigationController?.pushViewController(vc, animated: true)
     }
 }
