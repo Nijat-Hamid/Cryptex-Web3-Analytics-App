@@ -8,7 +8,7 @@
 
 import UIKit
 import Combine
-
+import SnapKit
 class BaseMenuViewController: BaseLoadingViewController {
     
     override func viewDidLoad() {
@@ -20,6 +20,12 @@ class BaseMenuViewController: BaseLoadingViewController {
         setupUI()
       
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tabBarController?.setTabBar(hidden: false)
+    }
+    
     private lazy var menuButton:UIButton = {
         let button = UIButton()
         button.setImage(UIImage(named: "menu"), for:.normal)
@@ -38,10 +44,10 @@ class BaseMenuViewController: BaseLoadingViewController {
     private func setupUI(){
         let customMenuButtonItem = UIBarButtonItem(customView: menuButton)
         navigationItem.leftBarButtonItem = customMenuButtonItem
-        NSLayoutConstraint.activate([
-            menuButton.widthAnchor.constraint(equalToConstant: 24),
-            menuButton.heightAnchor.constraint(equalToConstant: 24)
-        ])
+        menuButton.snp.makeConstraints { make in
+            make.size.equalTo(CGSize(width: 24, height: 24))
+        }
+
     }
 }
 

@@ -73,6 +73,7 @@ extension TokensViewController:UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let vc = TokensDetailViewController()
         vc.navigationItem.title = "Details"
+        tabBarController?.setTabBar(hidden: true)
         navigationController?.pushViewController(vc, animated: true)
     }
 }

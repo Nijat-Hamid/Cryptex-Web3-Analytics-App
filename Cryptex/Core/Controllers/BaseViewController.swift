@@ -9,11 +9,11 @@
 import UIKit
 
 class BaseViewController: UIViewController {
-
+    
     override func viewWillAppear(_ animated: Bool) {
-            super.viewWillAppear(animated)
-            navigationController?.delegate = self
-        }
+        super.viewWillAppear(animated)
+        navigationController?.delegate = self
+    }
     
     override func loadView() {
         super.loadView()

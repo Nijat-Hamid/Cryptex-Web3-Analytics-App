@@ -18,7 +18,7 @@ class AppNavigationController: UINavigationController {
     private func setupUI(){
         let appearance = UINavigationBarAppearance()
         let navBar = UINavigationBar.appearance()
-        let backImage = UIImage(named: "backButton")?.resizedImage(Size: .init(width: 14, height: 14))?.withAlignmentRectInsets(UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0))
+        let backImage = UIImage(named: "backButton")?.resizedImage(Size: .init(width: 18, height: 18))?.withAlignmentRectInsets(UIEdgeInsets(top: 0, left: 0, bottom: -0.8, right: 0))
         
         appearance.setBackIndicatorImage(backImage, transitionMaskImage: backImage)
         appearance.configureWithTransparentBackground()

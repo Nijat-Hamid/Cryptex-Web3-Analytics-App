@@ -72,6 +72,7 @@ extension BlockchainsViewController:UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let vc = BlockchainDetailViewController()
         vc.navigationItem.title = "Details"
+        tabBarController?.setTabBar(hidden: true)
         navigationController?.pushViewController(vc, animated: true)
     }
 }
