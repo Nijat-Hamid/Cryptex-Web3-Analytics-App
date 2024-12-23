@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F3C80532D18811300737BED /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3C80522D18811300737BED /* MainTabBarViewController.swift */; };
+		1F3C80572D198DDB00737BED /* MainTabBarUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3C80562D198DDB00737BED /* MainTabBarUIModel.swift */; };
+		1F3C80592D198EBD00737BED /* MainTabBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3C80582D198EBD00737BED /* MainTabBarViewModel.swift */; };
 		1F4293112CF9EB54000CFA9E /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4293102CF9EB4C000CFA9E /* UIView+Extension.swift */; };
 		1F4293152CF9F8C3000CFA9E /* DeFiUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4293142CF9F8AA000CFA9E /* DeFiUIModel.swift */; };
 		1F42931B2CF9F955000CFA9E /* OverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F42931A2CF9F955000CFA9E /* OverviewViewController.swift */; };
@@ -75,6 +78,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1F3C80522D18811300737BED /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
+		1F3C80562D198DDB00737BED /* MainTabBarUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarUIModel.swift; sourceTree = "<group>"; };
+		1F3C80582D198EBD00737BED /* MainTabBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewModel.swift; sourceTree = "<group>"; };
 		1F4293102CF9EB4C000CFA9E /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		1F4293142CF9F8AA000CFA9E /* DeFiUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeFiUIModel.swift; sourceTree = "<group>"; };
 		1F42931A2CF9F955000CFA9E /* OverviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewViewController.swift; sourceTree = "<group>"; };
@@ -155,6 +161,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1F3C80502D1880BC00737BED /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				1F3C80542D198D9100737BED /* Model */,
+				1F3C80512D1880F900737BED /* View */,
+				1F3C80552D198D9A00737BED /* ModelView */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		1F3C80512D1880F900737BED /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1F3C80522D18811300737BED /* MainTabBarViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1F3C80542D198D9100737BED /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1F3C80562D198DDB00737BED /* MainTabBarUIModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1F3C80552D198D9A00737BED /* ModelView */ = {
+			isa = PBXGroup;
+			children = (
+				1F3C80582D198EBD00737BED /* MainTabBarViewModel.swift */,
+			);
+			path = ModelView;
+			sourceTree = "<group>";
+		};
 		1F4293122CF9F883000CFA9E /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -726,6 +766,7 @@
 		1FBDD20E2CF7802D00223819 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				1F3C80502D1880BC00737BED /* TabBar */,
 				1F42933F2D008D2E000CFA9E /* Blockchains */,
 				1F934D252D12DC1F002085DD /* Blockchains Detail */,
 				1FBDD2112CF7880E00223819 /* DeFi */,
@@ -911,11 +952,13 @@
 				1F934D362D132F48002085DD /* TokenInfoView.swift in Sources */,
 				1F42933E2D008D23000CFA9E /* TokensViewController.swift in Sources */,
 				1F934D3E2D15DB9B002085DD /* BlockchainDetailViewController.swift in Sources */,
+				1F3C80592D198EBD00737BED /* MainTabBarViewModel.swift in Sources */,
 				1F934D332D12DE6A002085DD /* BaseLoadingViewController.swift in Sources */,
 				1FB9E5DF2D0C393200128526 /* UILabel+Extensions.swift in Sources */,
 				1F6092662D0F12C8001CCE43 /* BlockchainsUIModel.swift in Sources */,
 				1F6092802D11A086001CCE43 /* MetricsStatisticsView.swift in Sources */,
 				1F934D432D15DD45002085DD /* BlockchainInfoView.swift in Sources */,
+				1F3C80572D198DDB00737BED /* MainTabBarUIModel.swift in Sources */,
 				1F4293512D00FA66000CFA9E /* FadeTransition.swift in Sources */,
 				1F42932D2CFE4976000CFA9E /* MenuViewController.swift in Sources */,
 				1FBDD1F22CF71E8400223819 /* Data+Extension.swift in Sources */,
@@ -930,6 +973,7 @@
 				1F934D312D12DC86002085DD /* TokensDetailViewController.swift in Sources */,
 				1F4293382D008CF1000CFA9E /* PoolsViewController.swift in Sources */,
 				1F934D3C2D14B664002085DD /* CustomSegmentView.swift in Sources */,
+				1F3C80532D18811300737BED /* MainTabBarViewController.swift in Sources */,
 				1FBDD21C2CF894A700223819 /* DeFiViewModel.swift in Sources */,
 				1F934D452D15DD50002085DD /* BlockchainChartView.swift in Sources */,
 				1FB9E5D62D09BC8E00128526 /* PoolsUIModel.swift in Sources */,
