@@ -14,6 +14,7 @@
 		1F3C80622D19FE3900737BED /* UITabBar+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3C80612D19FE3200737BED /* UITabBar+Extensions.swift */; };
 		1F3C80642D1B13F800737BED /* BaseHidesTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3C80632D1B13F800737BED /* BaseHidesTabBarViewController.swift */; };
 		1F3C80682D1B4A6000737BED /* UICollectionViewLayout+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3C80672D1B4A5100737BED /* UICollectionViewLayout+Extensions.swift */; };
+		1F3C806A2D1B5C4800737BED /* Collection+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3C80692D1B5C4200737BED /* Collection+Extensions.swift */; };
 		1F4293112CF9EB54000CFA9E /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4293102CF9EB4C000CFA9E /* UIView+Extension.swift */; };
 		1F4293152CF9F8C3000CFA9E /* DeFiUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4293142CF9F8AA000CFA9E /* DeFiUIModel.swift */; };
 		1F42931B2CF9F955000CFA9E /* OverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F42931A2CF9F955000CFA9E /* OverviewViewController.swift */; };
@@ -87,6 +88,7 @@
 		1F3C80612D19FE3200737BED /* UITabBar+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBar+Extensions.swift"; sourceTree = "<group>"; };
 		1F3C80632D1B13F800737BED /* BaseHidesTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseHidesTabBarViewController.swift; sourceTree = "<group>"; };
 		1F3C80672D1B4A5100737BED /* UICollectionViewLayout+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewLayout+Extensions.swift"; sourceTree = "<group>"; };
+		1F3C80692D1B5C4200737BED /* Collection+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Extensions.swift"; sourceTree = "<group>"; };
 		1F4293102CF9EB4C000CFA9E /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		1F4293142CF9F8AA000CFA9E /* DeFiUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeFiUIModel.swift; sourceTree = "<group>"; };
 		1F42931A2CF9F955000CFA9E /* OverviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewViewController.swift; sourceTree = "<group>"; };
@@ -746,6 +748,7 @@
 		1FBDD1F02CF71E7200223819 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				1F3C80692D1B5C4200737BED /* Collection+Extensions.swift */,
 				1F3C80672D1B4A5100737BED /* UICollectionViewLayout+Extensions.swift */,
 				1F3C80612D19FE3200737BED /* UITabBar+Extensions.swift */,
 				1F6092842D11F1EE001CCE43 /* String+Extensions.swift */,
@@ -958,6 +961,7 @@
 				1F4293322CFE64AE000CFA9E /* SlideRightPresenter.swift in Sources */,
 				1F4293202CFDA9D9000CFA9E /* AppState.swift in Sources */,
 				1F42931E2CFCC7BD000CFA9E /* ChartMarker.swift in Sources */,
+				1F3C806A2D1B5C4800737BED /* Collection+Extensions.swift in Sources */,
 				1F6092852D11F1F5001CCE43 /* String+Extensions.swift in Sources */,
 				1F42934A2D00AFC1000CFA9E /* UIImage+Extension.swift in Sources */,
 				1FBDD1E62CF71CAF00223819 /* AppDelegate.swift in Sources */,

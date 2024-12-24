@@ -317,7 +317,7 @@ class PoolCell: UICollectionViewCell {
         return stack
     }()
     
-    private lazy var supplied:UILabel = {
+    private lazy var primaryItemOne:UILabel = {
         let label = UILabel()
         label.text = "3848B"
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -328,7 +328,7 @@ class PoolCell: UICollectionViewCell {
         return label
     }()
     
-    private lazy var borrowed:UILabel = {
+    private lazy var primaryItemTwo:UILabel = {
         let label = UILabel()
         label.text = "199K"
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -339,7 +339,7 @@ class PoolCell: UICollectionViewCell {
         return label
     }()
     
-    private lazy var liquidity:UILabel = {
+    private lazy var primaryItemThree:UILabel = {
         let label = UILabel()
         label.text = "35K"
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -406,7 +406,7 @@ class PoolCell: UICollectionViewCell {
         return stack
     }()
     
-    private lazy var utilization:UILabel = {
+    private lazy var secondaryItemOne:UILabel = {
         let label = UILabel()
         label.text = "9.56%"
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -417,7 +417,7 @@ class PoolCell: UICollectionViewCell {
         return label
     }()
     
-    private lazy var apy:UILabel = {
+    private lazy var secondaryItemTwo:UILabel = {
         let label = UILabel()
         label.text = "1.58%"
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -428,7 +428,7 @@ class PoolCell: UICollectionViewCell {
         return label
     }()
     
-    private lazy var riskLabel:UILabel = {
+    private lazy var secondaryItemThree:UILabel = {
         let label = UILabel()
         label.text = "F"
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -450,10 +450,10 @@ class PoolCell: UICollectionViewCell {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         
-        view.addSubview(riskLabel)
+        view.addSubview(secondaryItemThree)
         NSLayoutConstraint.activate([
-            riskLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            riskLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+            secondaryItemThree.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            secondaryItemThree.centerYAnchor.constraint(equalTo: view.centerYAnchor)
         ])
         
         return view
@@ -471,18 +471,20 @@ class PoolCell: UICollectionViewCell {
     }()
     
     func configure(with pool:PoolsUIModels){
-        let secondaryHeaderLabelOne = secondaryHeader.arrangedSubviews[0] as! UILabel
-        let secondaryHeaderLabelTwo = secondaryHeader.arrangedSubviews[1] as! UILabel
-        let secondaryHeaderLabelThree = secondaryHeader.arrangedSubviews[2] as! UILabel
-        let tertiaryHeaderLabelOne = tertiaryHeader.arrangedSubviews[0] as! UILabel
+        guard
+            let secondaryHeaderLabelOne = secondaryHeader.arrangedSubviews[safe: 0] as? UILabel,
+            let secondaryHeaderLabelTwo = secondaryHeader.arrangedSubviews[safe: 1] as? UILabel,
+            let secondaryHeaderLabelThree = secondaryHeader.arrangedSubviews[safe: 2] as? UILabel,
+            let tertiaryHeaderLabelOne = tertiaryHeader.arrangedSubviews[safe: 0] as? UILabel
+        else {return}
         
         switch pool {
-        case .lendingUIModel(let lending):
+        case .lendingUIModel:
             secondaryHeaderLabelOne.text = "Supplied"
             secondaryHeaderLabelTwo.text = "Borrowed"
             secondaryHeaderLabelThree.text = "Liquidity"
             tertiaryHeaderLabelOne.text = "Utilization"
-        case .dexUIModel(let dex):
+        case .dexUIModel:
             secondaryHeaderLabelOne.text = "TVL"
             secondaryHeaderLabelTwo.text = "Volume"
             secondaryHeaderLabelThree.text = "Vol/TVL"
@@ -518,12 +520,12 @@ class PoolCell: UICollectionViewCell {
         primaryStack.addArrangedSubview(poolStack)
         primaryStack.addArrangedSubview(chainStack)
         
-        secondaryStack.addArrangedSubview(supplied)
-        secondaryStack.addArrangedSubview(borrowed)
-        secondaryStack.addArrangedSubview(liquidity)
+        secondaryStack.addArrangedSubview(primaryItemOne)
+        secondaryStack.addArrangedSubview(primaryItemTwo)
+        secondaryStack.addArrangedSubview(primaryItemThree)
         
-        tertiaryStack.addArrangedSubview(utilization)
-        tertiaryStack.addArrangedSubview(apy)
+        tertiaryStack.addArrangedSubview(secondaryItemOne)
+        tertiaryStack.addArrangedSubview(secondaryItemTwo)
         tertiaryStack.addArrangedSubview(riskContainer)
         
         background.addSubview(primaryHeader)
