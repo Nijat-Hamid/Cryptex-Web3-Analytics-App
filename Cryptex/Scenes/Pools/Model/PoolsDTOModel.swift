@@ -9,9 +9,15 @@
 
 import Foundation
 
-typealias PoolsDTOModel = [SinglePool]
+enum PoolsDTOModels{
+    case lendingModel(PoolsLendingDTOModel)
+    case dexModel(PoolsDexDTOModel)
+}
 
-struct SinglePool: Codable,Hashable {
+typealias PoolsLendingDTOModel = [LendingModel]
+typealias PoolsDexDTOModel = [DexModel]
+
+struct LendingModel: Codable,Hashable {
     let id: String?
     let project: String?
     let symbol: String?
@@ -37,7 +43,31 @@ struct HistoricalTvlChanges: Codable,Hashable {
     let daily, weekly, monthly: Double?
 }
 
-
+struct DexModel: Codable,Hashable {
+    let id: String?
+    let project: String?
+    let symbol, chain: String?
+    let apyMean30D: Double?
+    let currentFee, currentVolume: String?
+    let feeTier: String?
+    let feeTvl: Double?
+    let historicalTvlChanges: HistoricalTvlChange?
+    let overalRisk: String?
+    let poolContract: String?
+    let poolLogo: [String]?
+    let poolMeta: String?
+    let poolName, protocolChainLogo: String?
+    let protocolFullName: String?
+    let protocolLogo: String?
+    let protocolName: String?
+    let protocolType: String?
+    let tradingFee: Double?
+    let tvlUSD: Int?
+    let volTvl: Double?
+}
+struct HistoricalTvlChange: Codable,Hashable {
+    let daily, weekly, monthly: Double?
+}
 
 
 

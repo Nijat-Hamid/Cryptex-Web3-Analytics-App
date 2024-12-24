@@ -28,7 +28,11 @@ class BlockchainsViewController: BaseSidePageViewController {
     
     
     private lazy var collectionView:UICollectionView = {
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: Helpers.layout(sectionSpacing: 20, height: 276))
+        let layout = UICollectionViewCompositionalLayout.createVerticalListLayout(
+            sectionSpacing: 20,
+            height: 276
+        )
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.delegate = self
         collectionView.backgroundColor = .clear
         collectionView.translatesAutoresizingMaskIntoConstraints = false

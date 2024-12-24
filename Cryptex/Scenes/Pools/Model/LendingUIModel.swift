@@ -7,7 +7,29 @@
 //
 import Foundation
 
-struct PoolsUIModel:Hashable {
+enum PoolsUIModels{
+    case lendingUIModel(LendingUIModel)
+    case dexUIModel(DexUIModel)
+}
+
+struct DexUIModel:Hashable {
+    let id: String
+    let symbol: String
+    let chain: String
+    let apyMean30D: Double
+    let overalRisk: String
+    let poolLogo: [String]
+    let poolPrice: Double
+    let protocolChainLogo: String
+    let protocolFullName: String
+    let protocolLogo: String
+    let protocolType: String
+    let totalBorrowedTokenUSD, totalLiqiudityUSD: Double
+    let tvlUSD: Int
+    let utilizationRate: String
+}
+
+struct LendingUIModel:Hashable {
     let id: String
     let symbol: String
     let chain: String

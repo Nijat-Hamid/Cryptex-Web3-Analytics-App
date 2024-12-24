@@ -27,7 +27,11 @@ class TokensViewController: BaseSidePageViewController {
     private var tokensUIData:[TokensUIModel] = [.init(chainLogo: "ethereum", chain: "Ethereum", currentMCap: 23443, overalRisk: "C", tokenType: "Stablecoin", tokenPrice: 2344, totalVolume: 239483, tokenPriceChanges: .init(daily: 23, weekly: 12, monthly: 23))]
     
     private lazy var collectionView:UICollectionView = {
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: Helpers.layout(sectionSpacing: 20, height: 290))
+        let layout = UICollectionViewCompositionalLayout.createVerticalListLayout(
+            sectionSpacing: 20,
+            height: 290
+        )
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.delegate = self
         collectionView.backgroundColor = .clear
         collectionView.translatesAutoresizingMaskIntoConstraints = false

@@ -1,14 +1,13 @@
 //
-//  Functions.swift
+//  UICollectionViewLayout+Extensions.swift
 //  Cryptex
 //
-//  Created by Nijat Hamid on 12/11/24.
+//  Created by Nijat Hamid on 12/25/24.
 //  Copyright © 2024 Nijat Hamid. All rights reserved.
 //
 import UIKit
-
-class Helpers {
-    static func layout(sectionSpacing:CGFloat = 0,height:CGFloat = 10) ->UICollectionViewCompositionalLayout{
+extension UICollectionViewCompositionalLayout{
+    static func createVerticalListLayout(sectionSpacing:CGFloat = 0,height:CGFloat = 10) ->UICollectionViewCompositionalLayout{
         let sectionProvider:UICollectionViewCompositionalLayoutSectionProvider = { section,enviroment in
             
             let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(height))
@@ -33,4 +32,3 @@ class Helpers {
         return compositionalLayout
     }
 }
-

@@ -476,7 +476,7 @@ class PoolCell: UICollectionViewCell {
         return label
     }()
     
-    func configure(with pool:PoolsUIModel){
+    func configure(with pool:LendingUIModel){
         print(pool)
         
     }
