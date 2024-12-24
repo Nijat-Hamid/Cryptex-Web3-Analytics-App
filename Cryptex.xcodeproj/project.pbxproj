@@ -23,7 +23,6 @@
 		1F42933E2D008D23000CFA9E /* TokensViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F42933D2D008D23000CFA9E /* TokensViewController.swift */; };
 		1F4293442D008D53000CFA9E /* BlockchainsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4293432D008D53000CFA9E /* BlockchainsViewController.swift */; };
 		1F4293462D008D90000CFA9E /* MenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4293452D008D90000CFA9E /* MenuViewModel.swift */; };
-		1F4293482D008DCC000CFA9E /* MenuUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4293472D008DCC000CFA9E /* MenuUIModel.swift */; };
 		1F42934A2D00AFC1000CFA9E /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4293492D00AFB8000CFA9E /* UIImage+Extension.swift */; };
 		1F42934C2D00D03E000CFA9E /* SocialUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F42934B2D00D03A000CFA9E /* SocialUIModel.swift */; };
 		1F42934F2D00F50D000CFA9E /* AppNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F42934E2D00F50D000CFA9E /* AppNavigationController.swift */; };
@@ -96,7 +95,6 @@
 		1F42933D2D008D23000CFA9E /* TokensViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokensViewController.swift; sourceTree = "<group>"; };
 		1F4293432D008D53000CFA9E /* BlockchainsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockchainsViewController.swift; sourceTree = "<group>"; };
 		1F4293452D008D90000CFA9E /* MenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewModel.swift; sourceTree = "<group>"; };
-		1F4293472D008DCC000CFA9E /* MenuUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuUIModel.swift; sourceTree = "<group>"; };
 		1F4293492D00AFB8000CFA9E /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		1F42934B2D00D03A000CFA9E /* SocialUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialUIModel.swift; sourceTree = "<group>"; };
 		1F42934E2D00F50D000CFA9E /* AppNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNavigationController.swift; sourceTree = "<group>"; };
@@ -294,7 +292,6 @@
 			isa = PBXGroup;
 			children = (
 				1F42934B2D00D03A000CFA9E /* SocialUIModel.swift */,
-				1F4293472D008DCC000CFA9E /* MenuUIModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -996,7 +993,6 @@
 				1F6092722D102533001CCE43 /* MetricsGeneralView.swift in Sources */,
 				1F6092692D0F13E4001CCE43 /* BlockchainCell.swift in Sources */,
 				1FBDD1E72CF71CAF00223819 /* SceneDelegate.swift in Sources */,
-				1F4293482D008DCC000CFA9E /* MenuUIModel.swift in Sources */,
 				1F60925F2D0F058C001CCE43 /* TokensUIModel.swift in Sources */,
 				1F42931B2CF9F955000CFA9E /* OverviewViewController.swift in Sources */,
 				1F934D392D14B32D002085DD /* TokenChartView.swift in Sources */,

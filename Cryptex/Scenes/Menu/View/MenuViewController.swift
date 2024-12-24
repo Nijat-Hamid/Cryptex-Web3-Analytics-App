@@ -107,15 +107,6 @@ class MenuViewController: UIViewController {
         return stack
     }()
 
-    private lazy var linkStack:UIStackView = {
-        let stack = UIStackView()
-        stack.axis = .vertical
-        stack.translatesAutoresizingMaskIntoConstraints = false
-        stack.spacing = 6
-        stack.distribution = .fillProportionally
-        stack.alignment = .top
-        return stack
-    }()
     
     private lazy var horizontalLine: UIView = {
         let line = UIView()
@@ -178,67 +169,16 @@ class MenuViewController: UIViewController {
         UIApplication.shared.open(url)
     }
     
-    @objc private func navigateToPage (_ sender:UIButton){
-        let index = sender.tag
-        let selected = viewModel.menuData[index].name
-        
-//        guard let page = PageName(rawValue: selected) else { return }
-        
-//        AppState.shared.navigateToPage(page: page)
-        
-//        if AppState.shared.currentPage != page {
-//            let presentationController = presentationController as? SlideRightPresenter
-//            presentationController?.dismissMenu()
-//        }
-    
-        
-    }
     
     private func setupUI(){
         view.backgroundColor = .cardBackground
         view.addSubview(logoStack)
         view.addSubview(protocolInfoContainer)
-        view.addSubview(linkStack)
         view.addSubview(horizontalLine)
         view.addSubview(socialStack)
         view.addSubview(secondHorizontalLine)
         view.addSubview(logOut)
         
-        viewModel.menuData.enumerated().forEach { index, item in
-            let button = UIButton()
-            button.tag = index
-            button.translatesAutoresizingMaskIntoConstraints = false
-            button.layer.cornerRadius = 10
-            button.contentHorizontalAlignment = .leading
-            button.tintColor = .foreground
-            button.backgroundColor = .background
-            button.setTitleColor(.foreground, for: .normal)
-            button.setTitleColor(.muted, for: .disabled)
-            var config = UIButton.Configuration.plain()
-            config.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 12, bottom: 10, trailing: 12)
-            config.image = UIImage(named: item.image)?.resizedImage(Size: .init(width: 16, height: 16))?.withRenderingMode(.alwaysTemplate)
-            
-            config.imagePlacement = .leading
-            config.imagePadding = 8
-            config.attributedTitle = AttributedString(item.name, attributes: AttributeContainer([
-                .font: UIFont(name: "Geist-medium", size: 14)!,
-              ]))
-            button.configuration = config
-
-            button.addTarget(self, action: #selector(navigateToPage(_:)), for: .touchUpInside)
-            
-//            if let currentPage = AppState.shared.currentPage, currentPage.rawValue == item.name {
-//                button.backgroundColor = .brandForeground
-//            }
-                  
-            
-            linkStack.addArrangedSubview(button)
-            
-            NSLayoutConstraint.activate([
-                button.trailingAnchor.constraint(equalTo: linkStack.trailingAnchor),
-                button.leadingAnchor.constraint(equalTo: linkStack.leadingAnchor),
-            ])
-        }
         
         viewModel.socialData.forEach { item in
             let button = UIButton()
@@ -261,13 +201,9 @@ class MenuViewController: UIViewController {
            
             protocolInfoContainer.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -12),
             protocolInfoContainer.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 12),
-            protocolInfoContainer.bottomAnchor.constraint(equalTo: linkStack.topAnchor, constant: -32),
+            protocolInfoContainer.bottomAnchor.constraint(equalTo: horizontalLine.topAnchor, constant: -32),
             protocolInfoContainer.centerXAnchor.constraint(equalTo: safeAreaLayoutGuide.centerXAnchor),
             
-            linkStack.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -12),
-            linkStack.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 12),
-            linkStack.centerXAnchor.constraint(equalTo: safeAreaLayoutGuide.centerXAnchor),
-            linkStack.bottomAnchor.constraint(equalTo: horizontalLine.topAnchor, constant: -32),
             
             horizontalLine.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 20),
             horizontalLine.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -20),
