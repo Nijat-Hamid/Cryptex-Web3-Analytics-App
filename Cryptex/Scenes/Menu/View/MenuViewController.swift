@@ -170,7 +170,7 @@ class MenuViewController: UIViewController {
         presentationController?.dismissMenu()
         
         AppState.shared.resetProtocolID()
-        AppState.shared.navigateToPage(page: .defi)
+        AppState.shared.setPage(to: .defi)
     }
     
     @objc private func linkOpener (_ sender:UIButton) {
@@ -182,14 +182,14 @@ class MenuViewController: UIViewController {
         let index = sender.tag
         let selected = viewModel.menuData[index].name
         
-        guard let page = PageName(rawValue: selected) else { return }
+//        guard let page = PageName(rawValue: selected) else { return }
         
-        AppState.shared.navigateToPage(page: page)
+//        AppState.shared.navigateToPage(page: page)
         
-        if AppState.shared.currentPage != page {
-            let presentationController = presentationController as? SlideRightPresenter
-            presentationController?.dismissMenu()
-        }
+//        if AppState.shared.currentPage != page {
+//            let presentationController = presentationController as? SlideRightPresenter
+//            presentationController?.dismissMenu()
+//        }
     
         
     }
@@ -227,9 +227,9 @@ class MenuViewController: UIViewController {
 
             button.addTarget(self, action: #selector(navigateToPage(_:)), for: .touchUpInside)
             
-            if let currentPage = AppState.shared.currentPage, currentPage.rawValue == item.name {
-                button.backgroundColor = .brandForeground
-            }
+//            if let currentPage = AppState.shared.currentPage, currentPage.rawValue == item.name {
+//                button.backgroundColor = .brandForeground
+//            }
                   
             
             linkStack.addArrangedSubview(button)

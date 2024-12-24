@@ -12,10 +12,8 @@ import UIKit
 class AppState {
     // Singleton Pattern
     static let shared = AppState()
-    // Weak Connection
-    private weak var navigationController: AppNavigationController?
-    // Current Page
-    var currentPage: PageName?
+    // Container View
+    weak var containerView:ContainerViewController?
     // UserDefaults
     private let userDefault = UserDefaults.standard
     // SelectedProtocolID publisher
@@ -49,69 +47,10 @@ class AppState {
            return ""
        }
     
-    // Coordinator Pattern
-    func setRootNavigationController(_ navController: AppNavigationController) {
-            navigationController = navController
-        }
-    
-    func navigateToPage(page:PageName) {
-        DispatchQueue.main.async { [weak self] in
-            guard let self,
-                  let navigationController = navigationController
-            else {
-                print("Navigation Controller is not set")
-                return
-            }
-            
-            
-            if currentPage == page {
-                print("Already on the \(page.rawValue) page")
-                return
-            }else{
-                currentPage = page
-            }
-            
-            
-            var viewControllers = navigationController.viewControllers
-            
-            switch page {
-            case .overview:
-                let vc = OverviewViewController()
-                viewControllers = viewControllers.filter { !($0 is OverviewViewController) }
-                viewControllers.append(vc)
-            case .pools:
-                let vc = PoolsViewController()
-                viewControllers = viewControllers.filter { !($0 is PoolsViewController) }
-                viewControllers.append(vc)
-            case .tokens:
-                let vc = TokensViewController()
-                viewControllers = viewControllers.filter { !($0 is TokensViewController) }
-                viewControllers.append(vc)
-            case .blockchains:
-                let vc = BlockchainsViewController()
-                viewControllers = viewControllers.filter { !($0 is BlockchainsViewController) }
-                viewControllers.append(vc)
-            case .defi:
-                let vc = DeFiViewController()
-                viewControllers = viewControllers.filter { !($0 is DeFiViewController) }
-                viewControllers.append(vc)
-            case .metrics:
-                let vc = MetricsViewController()
-                viewControllers = viewControllers.filter { !($0 is MetricsViewController) }
-                viewControllers.append(vc)
-            }
-            
-            navigationController.setViewControllers(viewControllers, animated: true)
-        }
-        
+    func setPage(to page: Pages) {
+        containerView?.setPage(to: page)
     }
+    
 }
 
-enum PageName:String{
-    case defi = "defi"
-    case overview = "Overview"
-    case pools = "Pools"
-    case tokens = "Tokens"
-    case blockchains = "Blockchains"
-    case metrics = "Metrics"
-}
+

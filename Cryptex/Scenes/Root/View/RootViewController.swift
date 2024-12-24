@@ -48,9 +48,9 @@ class RootViewController: BaseViewController {
         let protocolID = AppState.shared.getInitialProtocolID()
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             if protocolID.isEmpty {
-                AppState.shared.navigateToPage(page: .defi)
+                AppState.shared.setPage(to: .defi)
             }else{
-                AppState.shared.navigateToPage(page: .overview)
+                AppState.shared.setPage(to: .main)
             }
         }
     }

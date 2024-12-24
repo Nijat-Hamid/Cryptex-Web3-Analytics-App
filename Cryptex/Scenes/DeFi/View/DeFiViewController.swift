@@ -60,7 +60,7 @@ class DeFiViewController: BaseViewController {
     }()
     
     @objc private func nextButtonAction(_ sender: UIButton) {
-        AppState.shared.navigateToPage(page: .overview)
+            AppState.shared.setPage(to: .main)
     }
     
     private func setupUI(){
