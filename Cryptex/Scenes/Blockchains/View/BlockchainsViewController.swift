@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BlockchainsViewController: BaseMenuViewController {
+class BlockchainsViewController: BaseSidePageViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,7 +72,6 @@ extension BlockchainsViewController:UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let vc = BlockchainDetailViewController()
         vc.navigationItem.title = "Details"
-        tabBarController?.setTabBar(hidden: true)
         navigationController?.pushViewController(vc, animated: true)
     }
 }

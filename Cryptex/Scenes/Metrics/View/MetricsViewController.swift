@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MetricsViewController: BaseMenuViewController {
+class MetricsViewController: BaseSidePageViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

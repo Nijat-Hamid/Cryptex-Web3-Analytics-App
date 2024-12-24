@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TokensDetailViewController: BaseLoadingViewController {
+class TokensDetailViewController: BaseHidesTabBarViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

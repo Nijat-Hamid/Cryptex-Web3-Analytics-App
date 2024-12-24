@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PoolsViewController: BaseMenuViewController {
+class PoolsViewController: BaseSidePageViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

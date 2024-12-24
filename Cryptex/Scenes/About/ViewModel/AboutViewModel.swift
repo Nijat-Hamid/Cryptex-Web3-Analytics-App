@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MenuViewModel: NSObject {
+class AboutViewModel: NSObject {
     
     private let social:[SocialUIModel] = [
         SocialUIModel(link: "https://www.facebook.com/nicatorium/", image: "facebook"),

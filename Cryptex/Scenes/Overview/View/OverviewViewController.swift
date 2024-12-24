@@ -8,7 +8,7 @@
 
 import UIKit
 
-class OverviewViewController: BaseMenuViewController {
+class OverviewViewController: BaseSidePageViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

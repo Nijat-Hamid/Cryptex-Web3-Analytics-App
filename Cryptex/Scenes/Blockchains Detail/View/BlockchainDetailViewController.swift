@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BlockchainDetailViewController: BaseLoadingViewController {
+class BlockchainDetailViewController: BaseHidesTabBarViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()

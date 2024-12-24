@@ -45,17 +45,27 @@ class ContainerViewController: BaseViewController {
     
     func setPage(to page: Pages) {
         let animation = CATransition()
-        
         animation.type = .fade
         animation.duration = 0.4
         animation.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
         
-        view.layer.add(animation, forKey: "slideTransition")
         
+        if page != .main, let mainTabBar = viewController[.main] as? MainTabBarViewController {
+            mainTabBar.viewControllers?.forEach { vc in
+                if let navController = vc as? AppNavigationController {
+                    navController.popToRootViewController(animated: true)
+                }
+            }
+            mainTabBar.selectedIndex = 0
+        }
+        
+        
+        view.layer.add(animation, forKey: "slideTransition")
         viewController.forEach { enumPage, vc in
             vc.view.isHidden = enumPage != page
         }
     }
+
 }
 
 enum Pages:Int {

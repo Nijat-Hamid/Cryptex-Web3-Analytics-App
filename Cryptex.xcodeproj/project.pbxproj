@@ -12,17 +12,18 @@
 		1F3C80592D198EBD00737BED /* MainTabBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3C80582D198EBD00737BED /* MainTabBarViewModel.swift */; };
 		1F3C805D2D19B02900737BED /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3C805C2D19B02900737BED /* ContainerViewController.swift */; };
 		1F3C80622D19FE3900737BED /* UITabBar+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3C80612D19FE3200737BED /* UITabBar+Extensions.swift */; };
+		1F3C80642D1B13F800737BED /* BaseHidesTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3C80632D1B13F800737BED /* BaseHidesTabBarViewController.swift */; };
 		1F4293112CF9EB54000CFA9E /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4293102CF9EB4C000CFA9E /* UIView+Extension.swift */; };
 		1F4293152CF9F8C3000CFA9E /* DeFiUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4293142CF9F8AA000CFA9E /* DeFiUIModel.swift */; };
 		1F42931B2CF9F955000CFA9E /* OverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F42931A2CF9F955000CFA9E /* OverviewViewController.swift */; };
 		1F42931E2CFCC7BD000CFA9E /* ChartMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F42931D2CFCC7BD000CFA9E /* ChartMarker.swift */; };
 		1F4293202CFDA9D9000CFA9E /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F42931F2CFDA9D7000CFA9E /* AppState.swift */; };
-		1F42932D2CFE4976000CFA9E /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F42932C2CFE4976000CFA9E /* MenuViewController.swift */; };
+		1F42932D2CFE4976000CFA9E /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F42932C2CFE4976000CFA9E /* AboutViewController.swift */; };
 		1F4293322CFE64AE000CFA9E /* SlideRightPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4293312CFE64A8000CFA9E /* SlideRightPresenter.swift */; };
 		1F4293382D008CF1000CFA9E /* PoolsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4293372D008CF1000CFA9E /* PoolsViewController.swift */; };
 		1F42933E2D008D23000CFA9E /* TokensViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F42933D2D008D23000CFA9E /* TokensViewController.swift */; };
 		1F4293442D008D53000CFA9E /* BlockchainsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4293432D008D53000CFA9E /* BlockchainsViewController.swift */; };
-		1F4293462D008D90000CFA9E /* MenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4293452D008D90000CFA9E /* MenuViewModel.swift */; };
+		1F4293462D008D90000CFA9E /* AboutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4293452D008D90000CFA9E /* AboutViewModel.swift */; };
 		1F42934A2D00AFC1000CFA9E /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4293492D00AFB8000CFA9E /* UIImage+Extension.swift */; };
 		1F42934C2D00D03E000CFA9E /* SocialUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F42934B2D00D03A000CFA9E /* SocialUIModel.swift */; };
 		1F42934F2D00F50D000CFA9E /* AppNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F42934E2D00F50D000CFA9E /* AppNavigationController.swift */; };
@@ -63,7 +64,7 @@
 		1FBDD1E72CF71CAF00223819 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBDD1DF2CF71CAF00223819 /* SceneDelegate.swift */; };
 		1FBDD1E82CF71CAF00223819 /* DeFiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBDD1E02CF71CAF00223819 /* DeFiViewController.swift */; };
 		1FBDD1F22CF71E8400223819 /* Data+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBDD1F12CF71E8100223819 /* Data+Extension.swift */; };
-		1FBDD1F72CF71EE000223819 /* BaseMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBDD1F62CF71EE000223819 /* BaseMenuViewController.swift */; };
+		1FBDD1F72CF71EE000223819 /* BaseSidePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBDD1F62CF71EE000223819 /* BaseSidePageViewController.swift */; };
 		1FBDD1FA2CF72AAB00223819 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 1FBDD1F92CF72AAB00223819 /* SDWebImage */; };
 		1FBDD2052CF76BA300223819 /* geist-sans-latin-600-normal.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1FBDD2012CF76BA300223819 /* geist-sans-latin-600-normal.ttf */; };
 		1FBDD2062CF76BA300223819 /* geist-sans-latin-700-normal.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1FBDD2022CF76BA300223819 /* geist-sans-latin-700-normal.ttf */; };
@@ -84,17 +85,18 @@
 		1F3C80582D198EBD00737BED /* MainTabBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewModel.swift; sourceTree = "<group>"; };
 		1F3C805C2D19B02900737BED /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 		1F3C80612D19FE3200737BED /* UITabBar+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBar+Extensions.swift"; sourceTree = "<group>"; };
+		1F3C80632D1B13F800737BED /* BaseHidesTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseHidesTabBarViewController.swift; sourceTree = "<group>"; };
 		1F4293102CF9EB4C000CFA9E /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		1F4293142CF9F8AA000CFA9E /* DeFiUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeFiUIModel.swift; sourceTree = "<group>"; };
 		1F42931A2CF9F955000CFA9E /* OverviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewViewController.swift; sourceTree = "<group>"; };
 		1F42931D2CFCC7BD000CFA9E /* ChartMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartMarker.swift; sourceTree = "<group>"; };
 		1F42931F2CFDA9D7000CFA9E /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
-		1F42932C2CFE4976000CFA9E /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		1F42932C2CFE4976000CFA9E /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		1F4293312CFE64A8000CFA9E /* SlideRightPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideRightPresenter.swift; sourceTree = "<group>"; };
 		1F4293372D008CF1000CFA9E /* PoolsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoolsViewController.swift; sourceTree = "<group>"; };
 		1F42933D2D008D23000CFA9E /* TokensViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokensViewController.swift; sourceTree = "<group>"; };
 		1F4293432D008D53000CFA9E /* BlockchainsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockchainsViewController.swift; sourceTree = "<group>"; };
-		1F4293452D008D90000CFA9E /* MenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewModel.swift; sourceTree = "<group>"; };
+		1F4293452D008D90000CFA9E /* AboutViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewModel.swift; sourceTree = "<group>"; };
 		1F4293492D00AFB8000CFA9E /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		1F42934B2D00D03A000CFA9E /* SocialUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialUIModel.swift; sourceTree = "<group>"; };
 		1F42934E2D00F50D000CFA9E /* AppNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNavigationController.swift; sourceTree = "<group>"; };
@@ -135,7 +137,7 @@
 		1FBDD1DF2CF71CAF00223819 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		1FBDD1E02CF71CAF00223819 /* DeFiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeFiViewController.swift; sourceTree = "<group>"; };
 		1FBDD1F12CF71E8100223819 /* Data+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Extension.swift"; sourceTree = "<group>"; };
-		1FBDD1F62CF71EE000223819 /* BaseMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseMenuViewController.swift; sourceTree = "<group>"; };
+		1FBDD1F62CF71EE000223819 /* BaseSidePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseSidePageViewController.swift; sourceTree = "<group>"; };
 		1FBDD1FC2CF76BA300223819 /* geist-sans-latin-100-normal.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "geist-sans-latin-100-normal.ttf"; sourceTree = "<group>"; };
 		1FBDD1FD2CF76BA300223819 /* geist-sans-latin-200-normal.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "geist-sans-latin-200-normal.ttf"; sourceTree = "<group>"; };
 		1FBDD1FE2CF76BA300223819 /* geist-sans-latin-300-normal.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "geist-sans-latin-300-normal.ttf"; sourceTree = "<group>"; };
@@ -270,20 +272,20 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
-		1F4293272CFE1CD9000CFA9E /* Menu */ = {
+		1F4293272CFE1CD9000CFA9E /* About */ = {
 			isa = PBXGroup;
 			children = (
 				1F4293292CFE1D12000CFA9E /* Model */,
 				1F4293282CFE1D0D000CFA9E /* View */,
 				1F42932B2CFE4950000CFA9E /* ViewModel */,
 			);
-			path = Menu;
+			path = About;
 			sourceTree = "<group>";
 		};
 		1F4293282CFE1D0D000CFA9E /* View */ = {
 			isa = PBXGroup;
 			children = (
-				1F42932C2CFE4976000CFA9E /* MenuViewController.swift */,
+				1F42932C2CFE4976000CFA9E /* AboutViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -299,7 +301,7 @@
 		1F42932B2CFE4950000CFA9E /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				1F4293452D008D90000CFA9E /* MenuViewModel.swift */,
+				1F4293452D008D90000CFA9E /* AboutViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -766,7 +768,8 @@
 		1FBDD1F32CF71EBA00223819 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				1FBDD1F62CF71EE000223819 /* BaseMenuViewController.swift */,
+				1FBDD1F62CF71EE000223819 /* BaseSidePageViewController.swift */,
+				1F3C80632D1B13F800737BED /* BaseHidesTabBarViewController.swift */,
 				1F934D322D12DE6A002085DD /* BaseLoadingViewController.swift */,
 				1F4293542D0173DB000CFA9E /* BaseViewController.swift */,
 			);
@@ -798,7 +801,7 @@
 				1F934D252D12DC1F002085DD /* Blockchains Detail */,
 				1FBDD2112CF7880E00223819 /* DeFi */,
 				1FBDD20F2CF7809700223819 /* Launch */,
-				1F4293272CFE1CD9000CFA9E /* Menu */,
+				1F4293272CFE1CD9000CFA9E /* About */,
 				1F60926A2D0F2C8C001CCE43 /* Metrics */,
 				1F4293162CF9F8F6000CFA9E /* Overview */,
 				1F4293332D008CB4000CFA9E /* Pools */,
@@ -953,7 +956,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1FBDD21A2CF8903500223819 /* DeFiItemViewController.swift in Sources */,
-				1FBDD1F72CF71EE000223819 /* BaseMenuViewController.swift in Sources */,
+				1FBDD1F72CF71EE000223819 /* BaseSidePageViewController.swift in Sources */,
 				1F4293112CF9EB54000CFA9E /* UIView+Extension.swift in Sources */,
 				1FB9E5DB2D0AC62200128526 /* PoolsDTOModel.swift in Sources */,
 				1F6092622D0F0C2E001CCE43 /* TokenCell.swift in Sources */,
@@ -968,7 +971,8 @@
 				1FBDD1E62CF71CAF00223819 /* AppDelegate.swift in Sources */,
 				1F6092782D10457E001CCE43 /* MetricsChart.swift in Sources */,
 				1F4293552D0173DB000CFA9E /* BaseViewController.swift in Sources */,
-				1F4293462D008D90000CFA9E /* MenuViewModel.swift in Sources */,
+				1F4293462D008D90000CFA9E /* AboutViewModel.swift in Sources */,
+				1F3C80642D1B13F800737BED /* BaseHidesTabBarViewController.swift in Sources */,
 				1F6092642D0F1276001CCE43 /* BlockchainsDTOModel.swift in Sources */,
 				1F42934F2D00F50D000CFA9E /* AppNavigationController.swift in Sources */,
 				1F60926F2D0F2CC3001CCE43 /* MetricsViewController.swift in Sources */,
@@ -988,7 +992,7 @@
 				1F934D432D15DD45002085DD /* BlockchainInfoView.swift in Sources */,
 				1F3C80572D198DDB00737BED /* MainTabBarUIModel.swift in Sources */,
 				1F4293512D00FA66000CFA9E /* FadeTransition.swift in Sources */,
-				1F42932D2CFE4976000CFA9E /* MenuViewController.swift in Sources */,
+				1F42932D2CFE4976000CFA9E /* AboutViewController.swift in Sources */,
 				1FBDD1F22CF71E8400223819 /* Data+Extension.swift in Sources */,
 				1F6092722D102533001CCE43 /* MetricsGeneralView.swift in Sources */,
 				1F6092692D0F13E4001CCE43 /* BlockchainCell.swift in Sources */,
