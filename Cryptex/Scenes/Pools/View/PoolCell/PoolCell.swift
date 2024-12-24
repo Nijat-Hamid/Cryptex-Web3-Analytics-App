@@ -21,12 +21,6 @@ class PoolCell: UICollectionViewCell {
         setupUI()
     }
     
-    init(type:ProtocolType) {
-        super.init(frame: .zero)
-        setupUI()
-        changer(for: .dex)
-    }
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupUI()
@@ -476,8 +470,24 @@ class PoolCell: UICollectionViewCell {
         return label
     }()
     
-    func configure(with pool:LendingUIModel){
-        print(pool)
+    func configure(with pool:PoolsUIModels){
+        let secondaryHeaderLabelOne = secondaryHeader.arrangedSubviews[0] as! UILabel
+        let secondaryHeaderLabelTwo = secondaryHeader.arrangedSubviews[1] as! UILabel
+        let secondaryHeaderLabelThree = secondaryHeader.arrangedSubviews[2] as! UILabel
+        let tertiaryHeaderLabelOne = tertiaryHeader.arrangedSubviews[0] as! UILabel
+        
+        switch pool {
+        case .lendingUIModel(let lending):
+            secondaryHeaderLabelOne.text = "Supplied"
+            secondaryHeaderLabelTwo.text = "Borrowed"
+            secondaryHeaderLabelThree.text = "Liquidity"
+            tertiaryHeaderLabelOne.text = "Utilization"
+        case .dexUIModel(let dex):
+            secondaryHeaderLabelOne.text = "TVL"
+            secondaryHeaderLabelTwo.text = "Volume"
+            secondaryHeaderLabelThree.text = "Vol/TVL"
+            tertiaryHeaderLabelOne.text = "Fees"
+        }
         
     }
     
@@ -488,25 +498,6 @@ class PoolCell: UICollectionViewCell {
         return view
     }()
     
-    private func changer(for cardType:ProtocolType){
-        let secondaryHeaderLabelOne = secondaryHeader.arrangedSubviews[0] as! UILabel
-        let secondaryHeaderLabelTwo = secondaryHeader.arrangedSubviews[1] as! UILabel
-        let secondaryHeaderLabelThree = secondaryHeader.arrangedSubviews[2] as! UILabel
-        let tertiaryHeaderLabelOne = tertiaryHeader.arrangedSubviews[0] as! UILabel
-        switch cardType {
-        case .lending:
-            secondaryHeaderLabelOne.text = "Supplied"
-            secondaryHeaderLabelTwo.text = "Borrowed"
-            secondaryHeaderLabelThree.text = "Liquidity"
-            tertiaryHeaderLabelOne.text = "Utilization"
-        case .dex:
-            secondaryHeaderLabelOne.text = "TVL"
-            secondaryHeaderLabelTwo.text = "Volume"
-            secondaryHeaderLabelThree.text = "Vol/TVL"
-            tertiaryHeaderLabelOne.text = "Fees"
-        }
-        
-    }
     
     private func setupUI(){
         

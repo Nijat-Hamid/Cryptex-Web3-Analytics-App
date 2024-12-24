@@ -35,6 +35,7 @@ class TokensViewController: BaseSidePageViewController {
         collectionView.delegate = self
         collectionView.backgroundColor = .clear
         collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.showsVerticalScrollIndicator = false
         return collectionView
     }()
     

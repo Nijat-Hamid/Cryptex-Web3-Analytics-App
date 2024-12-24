@@ -7,7 +7,7 @@
 //
 import Foundation
 
-enum PoolsUIModels{
+enum PoolsUIModels:Hashable{
     case lendingUIModel(LendingUIModel)
     case dexUIModel(DexUIModel)
 }

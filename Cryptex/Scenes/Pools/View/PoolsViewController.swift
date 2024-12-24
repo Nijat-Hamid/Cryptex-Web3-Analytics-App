@@ -24,28 +24,29 @@ class PoolsViewController: BaseSidePageViewController {
         view.safeAreaLayoutGuide
     }
     
-    private var poolsUIData:[LendingUIModel] = [.init(id: "6570174abe00fb8678eb5008", symbol: "WSTETH", chain: "ethereum", apyMean30D: 0.47477, overalRisk: "C", poolLogo: ["wsteth.svg"], poolPrice: 3639.64, protocolChainLogo: "ethereum", protocolFullName: "AAVE V3", protocolLogo: "aave", protocolType: "Lending", totalBorrowedTokenUSD: 20663069.520870883, totalLiqiudityUSD: 3500273612.6757236, tvlUSD: 3472178808, utilizationRate: "21.35")]
+    private var poolsUIData:[PoolsUIModels] = [.dexUIModel(.init(id: "273", symbol: "Weth", chain: "Ethereum", apyMean30D: 2323.23, overalRisk: "B", poolLogo: [""], poolPrice: 23, protocolChainLogo: "", protocolFullName: "", protocolLogo: "", protocolType: "", totalBorrowedTokenUSD: 2332, totalLiqiudityUSD: 23, tvlUSD: 23, utilizationRate: "")),.lendingUIModel(.init(id: "93je", symbol: "", chain: "", apyMean30D: 2323, overalRisk: "", poolLogo: [""], poolPrice: 2323, protocolChainLogo: "", protocolFullName: "", protocolLogo: "", protocolType: "", totalBorrowedTokenUSD: 233, totalLiqiudityUSD: 23, tvlUSD: 23, utilizationRate: "")),.lendingUIModel(.init(id: "dj203", symbol: "", chain: "", apyMean30D: 2323, overalRisk: "", poolLogo: [""], poolPrice: 2323, protocolChainLogo: "", protocolFullName: "", protocolLogo: "", protocolType: "", totalBorrowedTokenUSD: 233, totalLiqiudityUSD: 23, tvlUSD: 23, utilizationRate: ""))]
     
     
     private lazy var collectionView:UICollectionView = {
         let layout = UICollectionViewCompositionalLayout.createVerticalListLayout(
-            sectionSpacing: 20,
+            sectionSpacing: 16,
             height: 312
         )
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout:layout)
         collectionView.delegate = self
         collectionView.backgroundColor = .clear
         collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.showsVerticalScrollIndicator = false
         return collectionView
     }()
     
-    private lazy var dataSource:UICollectionViewDiffableDataSource<Int, LendingUIModel> = {
-        let cell = UICollectionView.CellRegistration<PoolCell, LendingUIModel> { [unowned self]  cell, indexPath, itemIdentifier in
+    private lazy var dataSource:UICollectionViewDiffableDataSource<Int, PoolsUIModels> = {
+        let cell = UICollectionView.CellRegistration<PoolCell, PoolsUIModels> { [unowned self]  cell, indexPath, itemIdentifier in
             let pool = poolsUIData[indexPath.row]
             cell.configure(with: pool)
         }
         
-        let dataSource = UICollectionViewDiffableDataSource<Int, LendingUIModel>(collectionView: collectionView) { collectionView, indexPath, itemIdentifier in
+        let dataSource = UICollectionViewDiffableDataSource<Int, PoolsUIModels>(collectionView: collectionView) { collectionView, indexPath, itemIdentifier in
             let cell = collectionView.dequeueConfiguredReusableCell(using: cell, for: indexPath, item: itemIdentifier)
             return cell
         }
@@ -54,7 +55,7 @@ class PoolsViewController: BaseSidePageViewController {
     }()
     
     private func reloadData(){
-        var snapshoot = NSDiffableDataSourceSnapshot<Int, LendingUIModel>()
+        var snapshoot = NSDiffableDataSourceSnapshot<Int, PoolsUIModels>()
         snapshoot.appendSections([0])
         snapshoot.appendItems(poolsUIData, toSection: 0)
         dataSource.apply(snapshoot)
