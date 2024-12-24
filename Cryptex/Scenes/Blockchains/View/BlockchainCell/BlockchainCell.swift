@@ -45,10 +45,10 @@ class BlockchainCell: UICollectionViewCell {
         image.layer.borderColor = UIColor.border.cgColor
         image.layer.cornerRadius = 25
         image.clipsToBounds = true
-        NSLayoutConstraint.activate([
-            image.heightAnchor.constraint(equalToConstant: 50),
-            image.widthAnchor.constraint(equalToConstant: 50)
-        ])
+        image.snp.makeConstraints { make in
+            make.size.equalTo(CGSize(width: 50, height: 50))
+        }
+        
         return image
     }()
     
@@ -278,10 +278,9 @@ class BlockchainCell: UICollectionViewCell {
         label.textColor = .foreground
         label.layer.borderWidth = 1
         label.updateColorBasedOnRisk()
-        NSLayoutConstraint.activate([
-            label.heightAnchor.constraint(equalToConstant: 22),
-            label.widthAnchor.constraint(equalToConstant: 24)
-        ])
+        label.snp.makeConstraints { make in
+            make.size.equalTo(CGSize(width: 24, height: 22))
+        }
         
         return label
     }()
