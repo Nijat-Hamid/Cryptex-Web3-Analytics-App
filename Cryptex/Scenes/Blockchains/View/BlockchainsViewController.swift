@@ -7,12 +7,17 @@
 //
 
 import UIKit
+import Combine
 
 class BlockchainsViewController: BaseSidePageViewController {
     
+    private let viewModel = BlockchainViewModel()
+    private var cancellables = Set<AnyCancellable>()
+    private var blockchainsUIData:[BlockchainsUIModel] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        reloadData()
+        setupBindings()
     }
     
     override func loadView() {
@@ -20,17 +25,28 @@ class BlockchainsViewController: BaseSidePageViewController {
         setupUI()
     }
     
+    private func setupBindings(){
+        progress.startAnimating()
+        viewModel.fetchBlockchain()
+        viewModel.data
+            .receive(on: DispatchQueue.main)
+            .sink {[weak self] response in
+                guard let self else {return}
+                blockchainsUIData = response
+                reloadData()
+                progress.stopAnimating()
+            }.store(in: &cancellables)
+}
+
+    
     private var safeAreaLayoutGuide:UILayoutGuide{
         view.safeAreaLayoutGuide
     }
     
-    private var blockchainsUIData:[BlockchainsUIModel] = [.init(id: "2323", blockchainName: "Ethereum", chainTvl: 238232, marketShare: 273273, overalRisk: "A", tvlChanges: .init(daily: 12, weekly: 83, monthly: 283))]
-    
-    
     private lazy var collectionView:UICollectionView = {
         let layout = UICollectionViewCompositionalLayout.createVerticalListLayout(
-            sectionSpacing: 20,
-            height: 276
+            sectionSpacing: 6,
+            height: 290
         )
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.delegate = self
@@ -71,6 +87,7 @@ class BlockchainsViewController: BaseSidePageViewController {
             collectionView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor,constant: 12)
         ])
     }
+    
 }
 
 extension BlockchainsViewController:UICollectionViewDelegate{
@@ -80,3 +97,4 @@ extension BlockchainsViewController:UICollectionViewDelegate{
         navigationController?.pushViewController(vc, animated: true)
     }
 }
+

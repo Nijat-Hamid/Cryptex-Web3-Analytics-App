@@ -15,6 +15,22 @@
 		1F3C80642D1B13F800737BED /* BaseHidesTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3C80632D1B13F800737BED /* BaseHidesTabBarViewController.swift */; };
 		1F3C80682D1B4A6000737BED /* UICollectionViewLayout+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3C80672D1B4A5100737BED /* UICollectionViewLayout+Extensions.swift */; };
 		1F3C806A2D1B5C4800737BED /* Collection+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3C80692D1B5C4200737BED /* Collection+Extensions.swift */; };
+		1F3C806C2D1C441B00737BED /* PoolsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3C806B2D1C441B00737BED /* PoolsDetailViewController.swift */; };
+		1F3C80712D1C45C100737BED /* PoolChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3C806D2D1C45C100737BED /* PoolChartView.swift */; };
+		1F3C80722D1C45C100737BED /* PoolInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3C806F2D1C45C100737BED /* PoolInfoView.swift */; };
+		1F3C80752D1C656E00737BED /* CustomDropdownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3C80742D1C656E00737BED /* CustomDropdownView.swift */; };
+		1F3C80782D1DCAA700737BED /* RequestMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3C80772D1DCAA500737BED /* RequestMethod.swift */; };
+		1F3C807A2D1DCEED00737BED /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3C80792D1DCEE500737BED /* NetworkError.swift */; };
+		1F3C807C2D1DCF0E00737BED /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3C807B2D1DCF0900737BED /* EndPoint.swift */; };
+		1F3C807E2D1DCF3200737BED /* Networkable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3C807D2D1DCF2F00737BED /* Networkable.swift */; };
+		1F3C80822D1DDF5B00737BED /* BlockchainEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3C80812D1DDF5000737BED /* BlockchainEndpoint.swift */; };
+		1F3C80842D1DEABA00737BED /* BlockchainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3C80832D1DEABA00737BED /* BlockchainViewModel.swift */; };
+		1F3C808A2D1F2BCF00737BED /* DTOConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3C80892D1F2BC100737BED /* DTOConvertible.swift */; };
+		1F3C808C2D1F2BE200737BED /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3C808B2D1F2BDD00737BED /* Array+Extensions.swift */; };
+		1F3C808E2D1F855100737BED /* URL+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3C808D2D1F854C00737BED /* URL+Extensions.swift */; };
+		1F3C80912D1F858C00737BED /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3C80902D1F858000737BED /* Constants.swift */; };
+		1F3C80972D219A3D00737BED /* ColorBased.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3C80962D219A3D00737BED /* ColorBased.swift */; };
+		1F3C80992D219E3E00737BED /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3C80982D219E3400737BED /* Formatter.swift */; };
 		1F4293112CF9EB54000CFA9E /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4293102CF9EB4C000CFA9E /* UIView+Extension.swift */; };
 		1F4293152CF9F8C3000CFA9E /* DeFiUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4293142CF9F8AA000CFA9E /* DeFiUIModel.swift */; };
 		1F42931B2CF9F955000CFA9E /* OverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F42931A2CF9F955000CFA9E /* OverviewViewController.swift */; };
@@ -89,6 +105,22 @@
 		1F3C80632D1B13F800737BED /* BaseHidesTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseHidesTabBarViewController.swift; sourceTree = "<group>"; };
 		1F3C80672D1B4A5100737BED /* UICollectionViewLayout+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewLayout+Extensions.swift"; sourceTree = "<group>"; };
 		1F3C80692D1B5C4200737BED /* Collection+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Extensions.swift"; sourceTree = "<group>"; };
+		1F3C806B2D1C441B00737BED /* PoolsDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoolsDetailViewController.swift; sourceTree = "<group>"; };
+		1F3C806D2D1C45C100737BED /* PoolChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoolChartView.swift; sourceTree = "<group>"; };
+		1F3C806F2D1C45C100737BED /* PoolInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoolInfoView.swift; sourceTree = "<group>"; };
+		1F3C80742D1C656E00737BED /* CustomDropdownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDropdownView.swift; sourceTree = "<group>"; };
+		1F3C80772D1DCAA500737BED /* RequestMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestMethod.swift; sourceTree = "<group>"; };
+		1F3C80792D1DCEE500737BED /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		1F3C807B2D1DCF0900737BED /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
+		1F3C807D2D1DCF2F00737BED /* Networkable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networkable.swift; sourceTree = "<group>"; };
+		1F3C80812D1DDF5000737BED /* BlockchainEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockchainEndpoint.swift; sourceTree = "<group>"; };
+		1F3C80832D1DEABA00737BED /* BlockchainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockchainViewModel.swift; sourceTree = "<group>"; };
+		1F3C80892D1F2BC100737BED /* DTOConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTOConvertible.swift; sourceTree = "<group>"; };
+		1F3C808B2D1F2BDD00737BED /* Array+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
+		1F3C808D2D1F854C00737BED /* URL+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extensions.swift"; sourceTree = "<group>"; };
+		1F3C80902D1F858000737BED /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		1F3C80962D219A3D00737BED /* ColorBased.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorBased.swift; sourceTree = "<group>"; };
+		1F3C80982D219E3400737BED /* Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatter.swift; sourceTree = "<group>"; };
 		1F4293102CF9EB4C000CFA9E /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		1F4293142CF9F8AA000CFA9E /* DeFiUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeFiUIModel.swift; sourceTree = "<group>"; };
 		1F42931A2CF9F955000CFA9E /* OverviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewViewController.swift; sourceTree = "<group>"; };
@@ -217,11 +249,81 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		1F3C805E2D19B45B00737BED /* Frameworks */ = {
+		1F3C806E2D1C45C100737BED /* PoolChart */ = {
 			isa = PBXGroup;
 			children = (
+				1F3C806D2D1C45C100737BED /* PoolChartView.swift */,
 			);
-			name = Frameworks;
+			path = PoolChart;
+			sourceTree = "<group>";
+		};
+		1F3C80702D1C45C100737BED /* PoolInfo */ = {
+			isa = PBXGroup;
+			children = (
+				1F3C806F2D1C45C100737BED /* PoolInfoView.swift */,
+			);
+			path = PoolInfo;
+			sourceTree = "<group>";
+		};
+		1F3C80732D1C654D00737BED /* Dropdown */ = {
+			isa = PBXGroup;
+			children = (
+				1F3C80742D1C656E00737BED /* CustomDropdownView.swift */,
+			);
+			path = Dropdown;
+			sourceTree = "<group>";
+		};
+		1F3C80762D1DCA6600737BED /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				1F3C80802D1DDF3E00737BED /* Endpoints */,
+				1F3C807F2D1DDF3200737BED /* Base */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		1F3C807F2D1DDF3200737BED /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				1F3C807B2D1DCF0900737BED /* EndPoint.swift */,
+				1F3C807D2D1DCF2F00737BED /* Networkable.swift */,
+				1F3C80792D1DCEE500737BED /* NetworkError.swift */,
+				1F3C80772D1DCAA500737BED /* RequestMethod.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		1F3C80802D1DDF3E00737BED /* Endpoints */ = {
+			isa = PBXGroup;
+			children = (
+				1F3C80812D1DDF5000737BED /* BlockchainEndpoint.swift */,
+			);
+			path = Endpoints;
+			sourceTree = "<group>";
+		};
+		1F3C80882D1F2BB200737BED /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				1F3C80892D1F2BC100737BED /* DTOConvertible.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		1F3C808F2D1F857700737BED /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				1F3C80902D1F858000737BED /* Constants.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		1F3C80952D21959000737BED /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				1F3C80982D219E3400737BED /* Formatter.swift */,
+				1F3C80962D219A3D00737BED /* ColorBased.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		1F4293122CF9F883000CFA9E /* Model */ = {
@@ -268,6 +370,7 @@
 		1F42931C2CFCC723000CFA9E /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				1F3C80732D1C654D00737BED /* Dropdown */,
 				1F934D3A2D14B64F002085DD /* Segment */,
 				1F6092792D106021001CCE43 /* Chart */,
 			);
@@ -400,6 +503,7 @@
 		1F4293402D008D34000CFA9E /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				1F3C80832D1DEABA00737BED /* BlockchainViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -586,6 +690,9 @@
 		1F934D2B2D12DC57002085DD /* View */ = {
 			isa = PBXGroup;
 			children = (
+				1F3C806E2D1C45C100737BED /* PoolChart */,
+				1F3C80702D1C45C100737BED /* PoolInfo */,
+				1F3C806B2D1C441B00737BED /* PoolsDetailViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -689,7 +796,6 @@
 			isa = PBXGroup;
 			children = (
 				1FBDD1E12CF71CAF00223819 /* Cryptex */,
-				1F3C805E2D19B45B00737BED /* Frameworks */,
 				1FBDD1C12CF71CA800223819 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -737,10 +843,14 @@
 			children = (
 				1F42931F2CFDA9D7000CFA9E /* AppState.swift */,
 				1F42931C2CFCC723000CFA9E /* Components */,
+				1F3C808F2D1F857700737BED /* Constants */,
 				1FBDD1F32CF71EBA00223819 /* Controllers */,
 				1FBDD1F02CF71E7200223819 /* Extensions */,
+				1F3C80952D21959000737BED /* Helpers */,
 				1F42934D2D00F4E9000CFA9E /* Navigation */,
+				1F3C80762D1DCA6600737BED /* Network */,
 				1F42932E2CFE645E000CFA9E /* Presentation+Transition */,
+				1F3C80882D1F2BB200737BED /* Protocols */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -748,6 +858,8 @@
 		1FBDD1F02CF71E7200223819 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				1F3C808D2D1F854C00737BED /* URL+Extensions.swift */,
+				1F3C808B2D1F2BDD00737BED /* Array+Extensions.swift */,
 				1F3C80692D1B5C4200737BED /* Collection+Extensions.swift */,
 				1F3C80672D1B4A5100737BED /* UICollectionViewLayout+Extensions.swift */,
 				1F3C80612D19FE3200737BED /* UITabBar+Extensions.swift */,
@@ -953,6 +1065,7 @@
 				1FBDD21A2CF8903500223819 /* DeFiItemViewController.swift in Sources */,
 				1FBDD1F72CF71EE000223819 /* BaseSidePageViewController.swift in Sources */,
 				1F4293112CF9EB54000CFA9E /* UIView+Extension.swift in Sources */,
+				1F3C807E2D1DCF3200737BED /* Networkable.swift in Sources */,
 				1FB9E5DB2D0AC62200128526 /* PoolsDTOModel.swift in Sources */,
 				1F6092622D0F0C2E001CCE43 /* TokenCell.swift in Sources */,
 				1F42934C2D00D03E000CFA9E /* SocialUIModel.swift in Sources */,
@@ -960,11 +1073,14 @@
 				1F4293442D008D53000CFA9E /* BlockchainsViewController.swift in Sources */,
 				1F4293322CFE64AE000CFA9E /* SlideRightPresenter.swift in Sources */,
 				1F4293202CFDA9D9000CFA9E /* AppState.swift in Sources */,
+				1F3C80912D1F858C00737BED /* Constants.swift in Sources */,
+				1F3C807C2D1DCF0E00737BED /* EndPoint.swift in Sources */,
 				1F42931E2CFCC7BD000CFA9E /* ChartMarker.swift in Sources */,
 				1F3C806A2D1B5C4800737BED /* Collection+Extensions.swift in Sources */,
 				1F6092852D11F1F5001CCE43 /* String+Extensions.swift in Sources */,
 				1F42934A2D00AFC1000CFA9E /* UIImage+Extension.swift in Sources */,
 				1FBDD1E62CF71CAF00223819 /* AppDelegate.swift in Sources */,
+				1F3C807A2D1DCEED00737BED /* NetworkError.swift in Sources */,
 				1F6092782D10457E001CCE43 /* MetricsChart.swift in Sources */,
 				1F4293552D0173DB000CFA9E /* BaseViewController.swift in Sources */,
 				1F4293462D008D90000CFA9E /* AboutViewModel.swift in Sources */,
@@ -976,6 +1092,7 @@
 				1FB9E5D92D0AB2A400128526 /* PoolCell.swift in Sources */,
 				1F4293152CF9F8C3000CFA9E /* DeFiUIModel.swift in Sources */,
 				1F60927D2D109466001CCE43 /* LineChart.swift in Sources */,
+				1F3C80752D1C656E00737BED /* CustomDropdownView.swift in Sources */,
 				1F934D362D132F48002085DD /* TokenInfoView.swift in Sources */,
 				1F3C80622D19FE3900737BED /* UITabBar+Extensions.swift in Sources */,
 				1F42933E2D008D23000CFA9E /* TokensViewController.swift in Sources */,
@@ -985,17 +1102,27 @@
 				1FB9E5DF2D0C393200128526 /* UILabel+Extensions.swift in Sources */,
 				1F6092662D0F12C8001CCE43 /* BlockchainsUIModel.swift in Sources */,
 				1F6092802D11A086001CCE43 /* MetricsStatisticsView.swift in Sources */,
+				1F3C80782D1DCAA700737BED /* RequestMethod.swift in Sources */,
+				1F3C808C2D1F2BE200737BED /* Array+Extensions.swift in Sources */,
+				1F3C80992D219E3E00737BED /* Formatter.swift in Sources */,
 				1F934D432D15DD45002085DD /* BlockchainInfoView.swift in Sources */,
 				1F3C80572D198DDB00737BED /* MainTabBarUIModel.swift in Sources */,
+				1F3C80842D1DEABA00737BED /* BlockchainViewModel.swift in Sources */,
+				1F3C806C2D1C441B00737BED /* PoolsDetailViewController.swift in Sources */,
 				1F4293512D00FA66000CFA9E /* FadeTransition.swift in Sources */,
 				1F42932D2CFE4976000CFA9E /* AboutViewController.swift in Sources */,
 				1FBDD1F22CF71E8400223819 /* Data+Extension.swift in Sources */,
 				1F6092722D102533001CCE43 /* MetricsGeneralView.swift in Sources */,
 				1F6092692D0F13E4001CCE43 /* BlockchainCell.swift in Sources */,
+				1F3C80712D1C45C100737BED /* PoolChartView.swift in Sources */,
+				1F3C80722D1C45C100737BED /* PoolInfoView.swift in Sources */,
 				1FBDD1E72CF71CAF00223819 /* SceneDelegate.swift in Sources */,
 				1F60925F2D0F058C001CCE43 /* TokensUIModel.swift in Sources */,
 				1F42931B2CF9F955000CFA9E /* OverviewViewController.swift in Sources */,
 				1F934D392D14B32D002085DD /* TokenChartView.swift in Sources */,
+				1F3C808A2D1F2BCF00737BED /* DTOConvertible.swift in Sources */,
+				1F3C808E2D1F855100737BED /* URL+Extensions.swift in Sources */,
+				1F3C80822D1DDF5B00737BED /* BlockchainEndpoint.swift in Sources */,
 				1F60925D2D0F0585001CCE43 /* TokensDTOModel.swift in Sources */,
 				1F934D312D12DC86002085DD /* TokensDetailViewController.swift in Sources */,
 				1F4293382D008CF1000CFA9E /* PoolsViewController.swift in Sources */,
@@ -1003,6 +1130,7 @@
 				1F934D3C2D14B664002085DD /* CustomSegmentView.swift in Sources */,
 				1F3C80532D18811300737BED /* MainTabBarViewController.swift in Sources */,
 				1FBDD21C2CF894A700223819 /* DeFiViewModel.swift in Sources */,
+				1F3C80972D219A3D00737BED /* ColorBased.swift in Sources */,
 				1F934D452D15DD50002085DD /* BlockchainChartView.swift in Sources */,
 				1FB9E5D62D09BC8E00128526 /* LendingUIModel.swift in Sources */,
 				1F6092832D11D824001CCE43 /* ProtocolGeneralView.swift in Sources */,

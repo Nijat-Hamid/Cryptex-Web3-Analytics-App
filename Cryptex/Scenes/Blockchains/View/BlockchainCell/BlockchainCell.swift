@@ -38,18 +38,29 @@ class BlockchainCell: UICollectionViewCell {
     }()
     
     private lazy var chainImage:UIImageView = {
-        let image = UIImageView(image: UIImage(named: "chainDemo"))
+        let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
-        image.backgroundColor = .cardBackgroundDark
-        image.layer.borderWidth = 3
-        image.layer.borderColor = UIColor.border.cgColor
-        image.layer.cornerRadius = 25
+        image.contentMode = .scaleAspectFit
         image.clipsToBounds = true
-        image.snp.makeConstraints { make in
+        return image
+    }()
+    
+    private lazy var chainImageContainer:UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.layer.cornerRadius = 29
+        view.layer.borderWidth = 3
+        view.layer.borderColor = UIColor.border.cgColor
+        view.clipsToBounds = true
+        view.backgroundColor = .cardBackgroundDark
+        
+        view.addSubview(chainImage)
+        chainImage.snp.makeConstraints { make in
+            make.edges.equalTo(view).inset(5)
+            make.center.equalToSuperview()
             make.size.equalTo(CGSize(width: 50, height: 50))
         }
-        
-        return image
+        return view
     }()
     
     private lazy var chainName:UILabel = {
@@ -250,7 +261,7 @@ class BlockchainCell: UICollectionViewCell {
         let label = UILabel()
         label.text = "9.56%"
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.numberOfLines = .zero
+        label.numberOfLines = 1
         label.textAlignment = .center
         label.font = UIFont(name: "Geist-medium", size: 14)
         label.textColor = .foreground
@@ -261,7 +272,7 @@ class BlockchainCell: UICollectionViewCell {
         let label = UILabel()
         label.text = "1.58%"
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.numberOfLines = .zero
+        label.numberOfLines = 1
         label.textAlignment = .center
         label.font = UIFont(name: "Geist-medium", size: 14)
         label.textColor = .foreground
@@ -270,14 +281,12 @@ class BlockchainCell: UICollectionViewCell {
     
     private lazy var riskLabel:UILabel = {
         let label = UILabel()
-        label.text = "F"
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = .zero
         label.textAlignment = .center
         label.font = UIFont(name: "Geist-medium", size: 14)
         label.textColor = .foreground
         label.layer.borderWidth = 1
-        label.updateColorBasedOnRisk()
         label.snp.makeConstraints { make in
             make.size.equalTo(CGSize(width: 24, height: 22))
         }
@@ -317,12 +326,23 @@ class BlockchainCell: UICollectionViewCell {
     }()
     
     func configure(with blockchain:BlockchainsUIModel){
-        print(blockchain)
+        let formattedMarketShare = Formatter.format(blockchain.marketShare, as: .percentage)
+        let formattedTvl = Formatter.format(blockchain.chainTvl, as: .currency)
+        marketShare.text = formattedMarketShare
+        tvl.text = formattedTvl
         
+        daily.updateColorBasedOnChanges(blockchain.tvlChange.daily)
+        weekly.updateColorBasedOnChanges(blockchain.tvlChange.weekly)
+        monthly.updateColorBasedOnChanges(blockchain.tvlChange.monthly)
+        riskLabel.updateColorBasedOnRisk(rating: blockchain.overalRisk)
+        
+        chainName.text = blockchain.blockchainName
+
+        chainImage.sd_setImage(with: URL.fromBase(blockchain.logo))
     }
     
     private func setupUI(){
-        chainStack.addArrangedSubview(chainImage)
+        chainStack.addArrangedSubview(chainImageContainer)
         chainStack.addArrangedSubview(chainName)
         
         primaryStack.addArrangedSubview(chainStack)

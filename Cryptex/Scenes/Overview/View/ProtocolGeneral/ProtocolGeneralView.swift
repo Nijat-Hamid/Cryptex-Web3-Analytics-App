@@ -10,7 +10,6 @@ import UIKit
 import SnapKit
 class ProtocolGeneralView: UIView {
     
-    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         setupUI()
@@ -26,7 +25,7 @@ class ProtocolGeneralView: UIView {
         background.applyCornerRadiusWithShadow()
     }
     
-    private lazy var poolStack:UIStackView = {
+    private lazy var protocolStack:UIStackView = {
         let stack = UIStackView()
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .vertical
@@ -36,7 +35,7 @@ class ProtocolGeneralView: UIView {
         return stack
     }()
     
-    private lazy var poolInfoStack:UIStackView = {
+    private lazy var protocolInfoStack:UIStackView = {
         let stack = UIStackView()
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .vertical
@@ -46,66 +45,25 @@ class ProtocolGeneralView: UIView {
         return stack
     }()
     
-    
-    private lazy var poolImageContainer:UIView = {
-        let container = UIView()
-        container.translatesAutoresizingMaskIntoConstraints = false
-        container.backgroundColor = .clear
-        
-        container.addSubview(poolImage)
-        if !poolImageOther.isHidden {
-            container.addSubview(poolImageOther)
-            
-            NSLayoutConstraint.activate([
-                container.heightAnchor.constraint(equalToConstant: 70),
-                poolImage.centerXAnchor.constraint(equalTo: container.centerXAnchor, constant: -20),
-                poolImageOther.centerXAnchor.constraint(equalTo: container.centerXAnchor, constant: 20),
-            ])
-        } else {
-            NSLayoutConstraint.activate([
-                container.heightAnchor.constraint(equalToConstant: 70),
-                poolImage.centerXAnchor.constraint(equalTo: container.centerXAnchor),
-            ])
+    private lazy var protocolImage:UIImageView = {
+        let image = UIImageView(image: UIImage(named: "protocolDemo"))
+        image.translatesAutoresizingMaskIntoConstraints = false
+        image.backgroundColor = .cardBackgroundDark
+        image.layer.borderWidth = 3
+        image.layer.borderColor = UIColor.border.cgColor
+        image.layer.cornerRadius = 35
+        image.clipsToBounds = true
+        image.snp.makeConstraints { make in
+            make.size.equalTo(CGSize(width: 70, height: 70))
         }
         
-        return container
-    }()
-    
-    private lazy var poolImage:UIImageView = {
-        let image = UIImageView(image: UIImage(named: "poolDemo"))
-        image.translatesAutoresizingMaskIntoConstraints = false
-        image.backgroundColor = .cardBackgroundDark
-        image.layer.borderWidth = 3
-        image.layer.borderColor = UIColor.border.cgColor
-        image.layer.cornerRadius = 35
-        image.clipsToBounds = true
-        NSLayoutConstraint.activate([
-            image.heightAnchor.constraint(equalToConstant: 70),
-            image.widthAnchor.constraint(equalToConstant: 70)
-        ])
-        
         return image
     }()
+ 
     
-    private lazy var poolImageOther:UIImageView = {
-        let image = UIImageView(image: UIImage(named: "retDemo"))
-        image.translatesAutoresizingMaskIntoConstraints = false
-        image.backgroundColor = .cardBackgroundDark
-        image.layer.borderWidth = 3
-        image.layer.borderColor = UIColor.border.cgColor
-        image.layer.cornerRadius = 35
-        image.isHidden = true
-        image.clipsToBounds = true
-        NSLayoutConstraint.activate([
-            image.heightAnchor.constraint(equalToConstant: 70),
-            image.widthAnchor.constraint(equalToConstant: 70)
-        ])
-        return image
-    }()
-    
-    private lazy var poolName:UILabel = {
+    private lazy var protocolName:UILabel = {
         let label = UILabel()
-        label.text = "WSTETH"
+        label.text = "Aave"
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = .zero
         label.textAlignment = .center
@@ -114,9 +72,9 @@ class ProtocolGeneralView: UIView {
         return label
     }()
     
-    private lazy var poolSecondInfo:UILabel = {
+    private lazy var protocolSecondInfo:UILabel = {
         let label = UILabel()
-        label.text = "37483$"
+        label.text = "Lending"
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = .zero
         label.textAlignment = .center
@@ -144,10 +102,9 @@ class ProtocolGeneralView: UIView {
         image.layer.borderColor = UIColor.border.cgColor
         image.layer.cornerRadius = 25
         image.clipsToBounds = true
-        NSLayoutConstraint.activate([
-            image.heightAnchor.constraint(equalToConstant: 50),
-            image.widthAnchor.constraint(equalToConstant: 50)
-        ])
+        image.snp.makeConstraints { make in
+            make.size.equalTo(CGSize(width: 50, height: 50))
+        }
         return image
     }()
     
@@ -162,7 +119,7 @@ class ProtocolGeneralView: UIView {
         return label
     }()
     
-    private lazy var protocolStack:UIStackView = {
+    private lazy var versionStack:UIStackView = {
         let stack = UIStackView()
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .vertical
@@ -172,7 +129,7 @@ class ProtocolGeneralView: UIView {
         return stack
     }()
     
-    private lazy var protocolImage:UIImageView = {
+    private lazy var versionImage:UIImageView = {
         let image = UIImageView(image: UIImage(named: "protocolDemo"))
         image.translatesAutoresizingMaskIntoConstraints = false
         image.backgroundColor = .cardBackgroundDark
@@ -180,14 +137,13 @@ class ProtocolGeneralView: UIView {
         image.layer.borderColor = UIColor.border.cgColor
         image.layer.cornerRadius = 25
         image.clipsToBounds = true
-        NSLayoutConstraint.activate([
-            image.heightAnchor.constraint(equalToConstant: 50),
-            image.widthAnchor.constraint(equalToConstant: 50)
-        ])
+        image.snp.makeConstraints { make in
+            make.size.equalTo(CGSize(width: 50, height: 50))
+        }
         return image
     }()
     
-    private lazy var protocolName:UILabel = {
+    private lazy var versionName:UILabel = {
         let label = UILabel()
         label.text = "Aave V3"
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -213,7 +169,7 @@ class ProtocolGeneralView: UIView {
         let stack = UIStackView(arrangedSubviews: [
             {
                 let label = UILabel()
-                label.text = "Protocol"
+                label.text = "Version"
                 label.translatesAutoresizingMaskIntoConstraints = false
                 label.numberOfLines = .zero
                 label.textAlignment = .center
@@ -223,7 +179,7 @@ class ProtocolGeneralView: UIView {
                 
             }(),{
                 let label = UILabel()
-                label.text = "Pool"
+                label.text = "Protocol"
                 label.translatesAutoresizingMaskIntoConstraints = false
                 label.numberOfLines = .zero
                 label.textAlignment = .center
@@ -433,12 +389,9 @@ class ProtocolGeneralView: UIView {
         label.font = UIFont(name: "Geist-medium", size: 14)
         label.textColor = .foreground
         label.layer.borderWidth = 1
-        label.updateColorBasedOnRisk()
-        NSLayoutConstraint.activate([
-            label.heightAnchor.constraint(equalToConstant: 22),
-            label.widthAnchor.constraint(equalToConstant: 24)
-        ])
-        
+        label.snp.makeConstraints { make in
+            make.size.equalTo(CGSize(width: 24, height: 22))
+        }
         return label
     }()
     
@@ -455,39 +408,28 @@ class ProtocolGeneralView: UIView {
         return view
     }()
     
-    private lazy var clickText:UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Click to Details"
-        label.numberOfLines = .zero
-        label.textAlignment = .center
-        label.font = UIFont(name: "Geist-medium", size: 10)
-        label.textColor = .mutedForeground
-        return label
-    }()
     
-    func configure(with pool:PoolsUIModels){
-        guard
-            let secondaryHeaderLabelOne = secondaryHeader.arrangedSubviews[safe: 0] as? UILabel,
-            let secondaryHeaderLabelTwo = secondaryHeader.arrangedSubviews[safe: 1] as? UILabel,
-            let secondaryHeaderLabelThree = secondaryHeader.arrangedSubviews[safe: 2] as? UILabel,
-            let tertiaryHeaderLabelOne = tertiaryHeader.arrangedSubviews[safe: 0] as? UILabel
-        else {return}
-        
-        switch pool {
-        case .lendingUIModel:
-            secondaryHeaderLabelOne.text = "Supplied"
-            secondaryHeaderLabelTwo.text = "Borrowed"
-            secondaryHeaderLabelThree.text = "Liquidity"
-            tertiaryHeaderLabelOne.text = "Utilization"
-        case .dexUIModel:
-            secondaryHeaderLabelOne.text = "TVL"
-            secondaryHeaderLabelTwo.text = "Volume"
-            secondaryHeaderLabelThree.text = "Vol/TVL"
-            tertiaryHeaderLabelOne.text = "Fees"
-        }
-        
-    }
+//    func configure(with pool:PoolsUIModels){
+//        guard
+//            let secondaryHeaderLabelOne = secondaryHeader.arrangedSubviews[safe: 0] as? UILabel,
+//            let secondaryHeaderLabelTwo = secondaryHeader.arrangedSubviews[safe: 1] as? UILabel,
+//            let secondaryHeaderLabelThree = secondaryHeader.arrangedSubviews[safe: 2] as? UILabel,
+//            let tertiaryHeaderLabelOne = tertiaryHeader.arrangedSubviews[safe: 0] as? UILabel
+//        else {return}
+//        
+//        switch pool {
+//        case .lendingUIModel:
+//            secondaryHeaderLabelOne.text = "Supplied"
+//            secondaryHeaderLabelTwo.text = "Borrowed"
+//            secondaryHeaderLabelThree.text = "Liquidity"
+//            tertiaryHeaderLabelOne.text = "Utilization"
+//        case .dexUIModel:
+//            secondaryHeaderLabelOne.text = "TVL"
+//            secondaryHeaderLabelTwo.text = "Volume"
+//            secondaryHeaderLabelThree.text = "Vol/TVL"
+//            tertiaryHeaderLabelOne.text = "Fees"
+//        }
+//    }
     
     private lazy var background:UIView = {
         let view = UIView()
@@ -498,22 +440,22 @@ class ProtocolGeneralView: UIView {
     
     
     private func setupUI(){
+        translatesAutoresizingMaskIntoConstraints = false
+        protocolInfoStack.addArrangedSubview(protocolName)
+        protocolInfoStack.addArrangedSubview(protocolSecondInfo)
         
-        poolInfoStack.addArrangedSubview(poolName)
-        poolInfoStack.addArrangedSubview(poolSecondInfo)
-        
-        poolStack.addArrangedSubview(poolImageContainer)
-        poolStack.addArrangedSubview(poolInfoStack)
+        protocolStack.addArrangedSubview(protocolImage)
+        protocolStack.addArrangedSubview(protocolInfoStack)
         
         chainStack.addArrangedSubview(chainImage)
         chainStack.addArrangedSubview(chainName)
         
-        protocolStack.addArrangedSubview(protocolImage)
-        protocolStack.addArrangedSubview(protocolName)
+        versionStack.addArrangedSubview(versionImage)
+        versionStack.addArrangedSubview(versionName)
         
         
+        primaryStack.addArrangedSubview(versionStack)
         primaryStack.addArrangedSubview(protocolStack)
-        primaryStack.addArrangedSubview(poolStack)
         primaryStack.addArrangedSubview(chainStack)
         
         secondaryStack.addArrangedSubview(primaryItemOne)
@@ -530,7 +472,6 @@ class ProtocolGeneralView: UIView {
         background.addSubview(secondaryStack)
         background.addSubview(tertiaryHeader)
         background.addSubview(tertiaryStack)
-        background.addSubview(clickText)
         addSubview(background)
         NSLayoutConstraint.activate([
             primaryHeader.topAnchor.constraint(equalTo: topAnchor,constant: 12),
@@ -556,10 +497,6 @@ class ProtocolGeneralView: UIView {
             tertiaryStack.topAnchor.constraint(equalTo: tertiaryHeader.bottomAnchor, constant: 10),
             tertiaryStack.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
             tertiaryStack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8),
-            
-            clickText.topAnchor.constraint(equalTo: tertiaryStack.bottomAnchor, constant: 10),
-            clickText.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8),
-            clickText.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
             
             background.topAnchor.constraint(equalTo: topAnchor,constant: 2),
             background.trailingAnchor.constraint(equalTo: trailingAnchor,constant: -2),

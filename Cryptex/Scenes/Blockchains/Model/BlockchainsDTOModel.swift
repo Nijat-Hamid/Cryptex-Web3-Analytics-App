@@ -12,18 +12,14 @@ import Foundation
 typealias BlockchainsDTOModel = [SingleBlockchain]
 
 struct SingleBlockchain: Codable {
-    let id, chain: String?
-    let protocolName: [String]?
+    let _id: String?
     let blockchainName: String?
     let chainTvl: Double?
-    let logo: String?
     let marketShare: Double?
     let overalRisk: String?
     let tvlChanges: TvlChanges?
-    let protocolSlugs: [String]?
-    let explorer: String?
-    let tvlByProtocols: [String: [[Double]]]?
-
+    let logo: String?
+    let chain: String?
 }
 
 struct TvlChanges: Codable {

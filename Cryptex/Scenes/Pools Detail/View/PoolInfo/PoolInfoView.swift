@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TokenInfoView: UIView {
+class PoolInfoView: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -216,28 +216,71 @@ class TokenInfoView: UIView {
         return stack
     }()
     
-    private lazy var tokenImage:UIImageView = {
-        let tokenImage = UIImageView(image: .poolDemo)
-        tokenImage.translatesAutoresizingMaskIntoConstraints = false
-        tokenImage.contentMode = .scaleAspectFit
-        tokenImage.backgroundColor = .cardBackgroundDark
-        tokenImage.layer.borderWidth = 3
-        tokenImage.layer.borderColor = UIColor.border.cgColor
-        tokenImage.layer.cornerRadius = 25
+    private lazy var poolImageContainer:UIView = {
+        let container = UIView()
+        container.translatesAutoresizingMaskIntoConstraints = false
+        container.backgroundColor = .clear
         
-        tokenImage.addSubview(tokenChainImage)
-        NSLayoutConstraint.activate([
-            tokenImage.widthAnchor.constraint(equalToConstant: 50),
-            tokenImage.heightAnchor.constraint(equalToConstant: 50),
-            tokenChainImage.widthAnchor.constraint(equalToConstant: 16),
-            tokenChainImage.heightAnchor.constraint(equalToConstant: 16),
-            tokenChainImage.centerXAnchor.constraint(equalTo: tokenImage.centerXAnchor),
-            tokenChainImage.bottomAnchor.constraint(equalTo: tokenImage.bottomAnchor,constant: -2),
-        ])
-        return tokenImage
+        container.addSubview(poolImage)
+        container.addSubview(poolChainImage)
+        if !poolImageOther.isHidden {
+            container.addSubview(poolImageOther)
+            
+            NSLayoutConstraint.activate([
+                container.heightAnchor.constraint(equalToConstant: 50),
+                poolImage.centerXAnchor.constraint(equalTo: container.centerXAnchor, constant: -20),
+                poolImageOther.centerXAnchor.constraint(equalTo: container.centerXAnchor, constant: 20),
+                poolChainImage.widthAnchor.constraint(equalToConstant: 16),
+                poolChainImage.heightAnchor.constraint(equalToConstant: 16),
+                poolChainImage.centerXAnchor.constraint(equalTo: container.centerXAnchor),
+                poolChainImage.bottomAnchor.constraint(equalTo: container.bottomAnchor,constant: -2),
+            ])
+        } else {
+            NSLayoutConstraint.activate([
+                container.heightAnchor.constraint(equalToConstant: 50),
+                poolImage.centerXAnchor.constraint(equalTo: container.centerXAnchor),
+                poolChainImage.widthAnchor.constraint(equalToConstant: 16),
+                poolChainImage.heightAnchor.constraint(equalToConstant: 16),
+                poolChainImage.centerXAnchor.constraint(equalTo: container.centerXAnchor),
+                poolChainImage.bottomAnchor.constraint(equalTo: container.bottomAnchor,constant: -2),
+            ])
+        }
+        
+        return container
+    }()
+    private lazy var poolImage:UIImageView = {
+        let image = UIImageView(image: UIImage(named: "poolDemo"))
+        image.translatesAutoresizingMaskIntoConstraints = false
+        image.backgroundColor = .cardBackgroundDark
+        image.layer.borderWidth = 3
+        image.layer.borderColor = UIColor.border.cgColor
+        image.layer.cornerRadius = 25
+        image.clipsToBounds = true
+        image.snp.makeConstraints { make in
+            make.size.equalTo(CGSize(width: 50, height: 50))
+        }
+        
+        return image
     }()
     
-    private lazy var tokenChainImage:UIImageView = {
+    private lazy var poolImageOther:UIImageView = {
+        let image = UIImageView(image: UIImage(named: "retDemo"))
+        image.translatesAutoresizingMaskIntoConstraints = false
+        image.backgroundColor = .cardBackgroundDark
+        image.layer.borderWidth = 3
+        image.layer.borderColor = UIColor.border.cgColor
+        image.layer.cornerRadius = 25
+        image.isHidden = false
+        image.clipsToBounds = true
+        
+        image.snp.makeConstraints { make in
+            make.size.equalTo(CGSize(width: 50, height: 50))
+        }
+        return image
+    }()
+    
+    
+    private lazy var poolChainImage:UIImageView = {
         let image = UIImageView(image: .chainDemo)
         image.translatesAutoresizingMaskIntoConstraints = false
         image.contentMode = .scaleAspectFit
@@ -251,7 +294,7 @@ class TokenInfoView: UIView {
     }()
     
     
-    private lazy var tokenNameContainer:UIStackView = {
+    private lazy var poolNameContainer:UIStackView = {
         let stack = UIStackView()
         stack.axis = .vertical
         stack.spacing = 4
@@ -260,7 +303,7 @@ class TokenInfoView: UIView {
         return stack
     }()
     
-    private lazy var tokenName:UILabel = {
+    private lazy var poolName:UILabel = {
         let label = UILabel()
         label.text = "Wrapped BTC"
         label.numberOfLines = 3
@@ -269,7 +312,7 @@ class TokenInfoView: UIView {
         return label
     }()
     
-    private lazy var tokenType:UILabel = {
+    private lazy var poolType:UILabel = {
         let label = UILabel()
         label.text = "Token"
         label.numberOfLines = 1
@@ -278,7 +321,7 @@ class TokenInfoView: UIView {
         return label
     }()
     
-    private lazy var contractAddress:UILabel = {
+    private lazy var secondaryItemOne:UILabel = {
         let label = UILabel()
         label.text = "0x2f2a2543B76A4166549F7aaB2e75Bef0aefC5B0f".truncateMiddle(maxLength: 14)
         label.font = UIFont(name: "Geist-medium", size: 14)
@@ -288,7 +331,7 @@ class TokenInfoView: UIView {
     }()
     
 
-    private lazy var price:UILabel = {
+    private lazy var primaryItemOne:UILabel = {
         let label = UILabel()
         label.text = "$64,896"
         label.numberOfLines = 1
@@ -298,7 +341,7 @@ class TokenInfoView: UIView {
         return label
     }()
     
-    private lazy var priceChanges:UILabel = {
+    private lazy var primaryItemTwo:UILabel = {
         let label = UILabel()
         label.text = "33%"
         label.numberOfLines = 1
@@ -308,7 +351,7 @@ class TokenInfoView: UIView {
         return label
     }()
     
-    private lazy var creationDate:UILabel = {
+    private lazy var secondaryItemTwo:UILabel = {
         let label = UILabel()
         label.text = "16 Jun 2021"
         label.font = UIFont(name: "Geist-medium", size: 14)
@@ -318,8 +361,7 @@ class TokenInfoView: UIView {
     }()
     
     
-    
-    private lazy var holders:UILabel = {
+    private lazy var primaryItemThree:UILabel = {
         let label = UILabel()
         label.text = "80.97K"
         label.numberOfLines = 1
@@ -330,7 +372,7 @@ class TokenInfoView: UIView {
     }()
     
     
-    private lazy var totalTX:UILabel = {
+    private lazy var secondaryItemThree:UILabel = {
         let label = UILabel()
         label.text = "4.54M"
         label.numberOfLines = 1
@@ -341,7 +383,7 @@ class TokenInfoView: UIView {
     }()
     
    
-    private lazy var marketCap:UILabel = {
+    private lazy var tertiaryItemOne:UILabel = {
         let label = UILabel()
         label.text = "$10.07B"
         label.numberOfLines = 1
@@ -351,7 +393,7 @@ class TokenInfoView: UIView {
         return label
     }()
     
-    private lazy var mCapChanges:UILabel = {
+    private lazy var tertiaryItemTwo:UILabel = {
         let label = UILabel()
         label.text = "1.42%"
         label.numberOfLines = 1
@@ -361,7 +403,7 @@ class TokenInfoView: UIView {
         return label
     }()
     
-    private lazy var riskLabel:UILabel = {
+    private lazy var tertiaryItemThree:UILabel = {
         let label = UILabel()
         label.text = "F"
         label.numberOfLines = .zero
@@ -381,10 +423,10 @@ class TokenInfoView: UIView {
     private lazy var riskContainer:UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(riskLabel)
+        view.addSubview(tertiaryItemThree)
         NSLayoutConstraint.activate([
-            riskLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            riskLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+            tertiaryItemThree.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            tertiaryItemThree.centerYAnchor.constraint(equalTo: view.centerYAnchor)
         ])
         
         return view
@@ -394,23 +436,23 @@ class TokenInfoView: UIView {
     private func setupUI(){
         backgroundColor = .cardBackgroundDark
         translatesAutoresizingMaskIntoConstraints = false
-        tokenNameContainer.addArrangedSubview(tokenName)
-        tokenNameContainer.addArrangedSubview(tokenType)
+        poolNameContainer.addArrangedSubview(poolName)
+        poolNameContainer.addArrangedSubview(poolType)
         
-        leftInfoStack.addArrangedSubview(tokenImage)
-        leftInfoStack.addArrangedSubview(tokenNameContainer)
+        leftInfoStack.addArrangedSubview(poolImageContainer)
+        leftInfoStack.addArrangedSubview(poolNameContainer)
         
         
-        primaryStack.addArrangedSubview(price)
-        primaryStack.addArrangedSubview(priceChanges)
-        primaryStack.addArrangedSubview(holders)
+        primaryStack.addArrangedSubview(primaryItemOne)
+        primaryStack.addArrangedSubview(primaryItemTwo)
+        primaryStack.addArrangedSubview(primaryItemThree)
         
-        secondaryStack.addArrangedSubview(contractAddress)
-        secondaryStack.addArrangedSubview(creationDate)
-        secondaryStack.addArrangedSubview(totalTX)
+        secondaryStack.addArrangedSubview(secondaryItemOne)
+        secondaryStack.addArrangedSubview(secondaryItemTwo)
+        secondaryStack.addArrangedSubview(secondaryItemThree)
         
-        tetriaryStack.addArrangedSubview(marketCap)
-        tetriaryStack.addArrangedSubview(mCapChanges)
+        tetriaryStack.addArrangedSubview(tertiaryItemOne)
+        tetriaryStack.addArrangedSubview(tertiaryItemTwo)
         tetriaryStack.addArrangedSubview(riskContainer)
         
         addSubview(leftInfoStack)

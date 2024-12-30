@@ -334,7 +334,6 @@ class BlockchainInfoView: UIView {
         label.textColor = .foreground
         label.layer.borderWidth = 1
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.updateColorBasedOnRisk()
         NSLayoutConstraint.activate([
             label.heightAnchor.constraint(equalToConstant: 22),
             label.widthAnchor.constraint(equalToConstant: 24)

@@ -12,11 +12,11 @@ class BaseLoadingViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
     
     override func loadView() {
         super.loadView()
+        setupUI()
     }
     
     lazy var progress: UIActivityIndicatorView = {
@@ -32,6 +32,7 @@ class BaseLoadingViewController: BaseViewController {
     
     private func setupUI(){
         view.addSubview(progress)
+        view.bringSubviewToFront(progress)
         NSLayoutConstraint.activate([
             progress.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             progress.centerYAnchor.constraint(equalTo: view.centerYAnchor),

@@ -429,7 +429,6 @@ class PoolCell: UICollectionViewCell {
         label.font = UIFont(name: "Geist-medium", size: 14)
         label.textColor = .foreground
         label.layer.borderWidth = 1
-        label.updateColorBasedOnRisk()
         label.snp.makeConstraints { make in
             make.size.equalTo(CGSize(width: 24, height: 22))
         }
@@ -480,7 +479,6 @@ class PoolCell: UICollectionViewCell {
             secondaryHeaderLabelThree.text = "Vol/TVL"
             tertiaryHeaderLabelOne.text = "Fees"
         }
-        
     }
     
     private lazy var background:UIView = {
