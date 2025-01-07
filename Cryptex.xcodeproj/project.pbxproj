@@ -31,6 +31,11 @@
 		1F3C80912D1F858C00737BED /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3C80902D1F858000737BED /* Constants.swift */; };
 		1F3C80972D219A3D00737BED /* ColorBased.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3C80962D219A3D00737BED /* ColorBased.swift */; };
 		1F3C80992D219E3E00737BED /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3C80982D219E3400737BED /* Formatter.swift */; };
+		1F3C809B2D22673600737BED /* BlockchainDetailDTOModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3C809A2D22672E00737BED /* BlockchainDetailDTOModel.swift */; };
+		1F3C809D2D226E6700737BED /* BlockchainDetailUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3C809C2D226E5A00737BED /* BlockchainDetailUIModel.swift */; };
+		1F3C809F2D22752300737BED /* BlockchainDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3C809E2D22752300737BED /* BlockchainDetailViewModel.swift */; };
+		1F3C80A12D22E20B00737BED /* ChartFormatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3C80A02D22E20600737BED /* ChartFormatters.swift */; };
+		1F3C80A52D22EC0200737BED /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3C80A42D22EC0200737BED /* BaseViewController.swift */; };
 		1F4293112CF9EB54000CFA9E /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4293102CF9EB4C000CFA9E /* UIView+Extension.swift */; };
 		1F4293152CF9F8C3000CFA9E /* DeFiUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4293142CF9F8AA000CFA9E /* DeFiUIModel.swift */; };
 		1F42931B2CF9F955000CFA9E /* OverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F42931A2CF9F955000CFA9E /* OverviewViewController.swift */; };
@@ -46,7 +51,7 @@
 		1F42934C2D00D03E000CFA9E /* SocialUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F42934B2D00D03A000CFA9E /* SocialUIModel.swift */; };
 		1F42934F2D00F50D000CFA9E /* AppNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F42934E2D00F50D000CFA9E /* AppNavigationController.swift */; };
 		1F4293512D00FA66000CFA9E /* FadeTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4293502D00FA61000CFA9E /* FadeTransition.swift */; };
-		1F4293552D0173DB000CFA9E /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4293542D0173DB000CFA9E /* BaseViewController.swift */; };
+		1F4293552D0173DB000CFA9E /* BaseBackgroundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4293542D0173DB000CFA9E /* BaseBackgroundViewController.swift */; };
 		1F4CCAFA2D02A283003F9D99 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4CCAF92D02A283003F9D99 /* RootViewController.swift */; };
 		1F60925D2D0F0585001CCE43 /* TokensDTOModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F60925C2D0F0580001CCE43 /* TokensDTOModel.swift */; };
 		1F60925F2D0F058C001CCE43 /* TokensUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F60925E2D0F0589001CCE43 /* TokensUIModel.swift */; };
@@ -121,6 +126,11 @@
 		1F3C80902D1F858000737BED /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		1F3C80962D219A3D00737BED /* ColorBased.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorBased.swift; sourceTree = "<group>"; };
 		1F3C80982D219E3400737BED /* Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatter.swift; sourceTree = "<group>"; };
+		1F3C809A2D22672E00737BED /* BlockchainDetailDTOModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockchainDetailDTOModel.swift; sourceTree = "<group>"; };
+		1F3C809C2D226E5A00737BED /* BlockchainDetailUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockchainDetailUIModel.swift; sourceTree = "<group>"; };
+		1F3C809E2D22752300737BED /* BlockchainDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockchainDetailViewModel.swift; sourceTree = "<group>"; };
+		1F3C80A02D22E20600737BED /* ChartFormatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartFormatters.swift; sourceTree = "<group>"; };
+		1F3C80A42D22EC0200737BED /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		1F4293102CF9EB4C000CFA9E /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		1F4293142CF9F8AA000CFA9E /* DeFiUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeFiUIModel.swift; sourceTree = "<group>"; };
 		1F42931A2CF9F955000CFA9E /* OverviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewViewController.swift; sourceTree = "<group>"; };
@@ -136,7 +146,7 @@
 		1F42934B2D00D03A000CFA9E /* SocialUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialUIModel.swift; sourceTree = "<group>"; };
 		1F42934E2D00F50D000CFA9E /* AppNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNavigationController.swift; sourceTree = "<group>"; };
 		1F4293502D00FA61000CFA9E /* FadeTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadeTransition.swift; sourceTree = "<group>"; };
-		1F4293542D0173DB000CFA9E /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		1F4293542D0173DB000CFA9E /* BaseBackgroundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseBackgroundViewController.swift; sourceTree = "<group>"; };
 		1F4CCAF92D02A283003F9D99 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		1F60925C2D0F0580001CCE43 /* TokensDTOModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokensDTOModel.swift; sourceTree = "<group>"; };
 		1F60925E2D0F0589001CCE43 /* TokensUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokensUIModel.swift; sourceTree = "<group>"; };
@@ -604,6 +614,7 @@
 		1F6092792D106021001CCE43 /* Chart */ = {
 			isa = PBXGroup;
 			children = (
+				1F3C80A02D22E20600737BED /* ChartFormatters.swift */,
 				1F42931D2CFCC7BD000CFA9E /* ChartMarker.swift */,
 				1F60927C2D109466001CCE43 /* LineChart.swift */,
 			);
@@ -707,6 +718,7 @@
 		1F934D2D2D12DC61002085DD /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				1F3C809E2D22752300737BED /* BlockchainDetailViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -724,6 +736,8 @@
 		1F934D2F2D12DC6B002085DD /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				1F3C809C2D226E5A00737BED /* BlockchainDetailUIModel.swift */,
+				1F3C809A2D22672E00737BED /* BlockchainDetailDTOModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -878,7 +892,8 @@
 				1FBDD1F62CF71EE000223819 /* BaseSidePageViewController.swift */,
 				1F3C80632D1B13F800737BED /* BaseHidesTabBarViewController.swift */,
 				1F934D322D12DE6A002085DD /* BaseLoadingViewController.swift */,
-				1F4293542D0173DB000CFA9E /* BaseViewController.swift */,
+				1F4293542D0173DB000CFA9E /* BaseBackgroundViewController.swift */,
+				1F3C80A42D22EC0200737BED /* BaseViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -1082,13 +1097,14 @@
 				1FBDD1E62CF71CAF00223819 /* AppDelegate.swift in Sources */,
 				1F3C807A2D1DCEED00737BED /* NetworkError.swift in Sources */,
 				1F6092782D10457E001CCE43 /* MetricsChart.swift in Sources */,
-				1F4293552D0173DB000CFA9E /* BaseViewController.swift in Sources */,
+				1F4293552D0173DB000CFA9E /* BaseBackgroundViewController.swift in Sources */,
 				1F4293462D008D90000CFA9E /* AboutViewModel.swift in Sources */,
 				1F3C80642D1B13F800737BED /* BaseHidesTabBarViewController.swift in Sources */,
 				1F6092642D0F1276001CCE43 /* BlockchainsDTOModel.swift in Sources */,
 				1F42934F2D00F50D000CFA9E /* AppNavigationController.swift in Sources */,
 				1F60926F2D0F2CC3001CCE43 /* MetricsViewController.swift in Sources */,
 				1F4CCAFA2D02A283003F9D99 /* RootViewController.swift in Sources */,
+				1F3C809F2D22752300737BED /* BlockchainDetailViewModel.swift in Sources */,
 				1FB9E5D92D0AB2A400128526 /* PoolCell.swift in Sources */,
 				1F4293152CF9F8C3000CFA9E /* DeFiUIModel.swift in Sources */,
 				1F60927D2D109466001CCE43 /* LineChart.swift in Sources */,
@@ -1103,6 +1119,7 @@
 				1F6092662D0F12C8001CCE43 /* BlockchainsUIModel.swift in Sources */,
 				1F6092802D11A086001CCE43 /* MetricsStatisticsView.swift in Sources */,
 				1F3C80782D1DCAA700737BED /* RequestMethod.swift in Sources */,
+				1F3C80A12D22E20B00737BED /* ChartFormatters.swift in Sources */,
 				1F3C808C2D1F2BE200737BED /* Array+Extensions.swift in Sources */,
 				1F3C80992D219E3E00737BED /* Formatter.swift in Sources */,
 				1F934D432D15DD45002085DD /* BlockchainInfoView.swift in Sources */,
@@ -1110,6 +1127,7 @@
 				1F3C80842D1DEABA00737BED /* BlockchainViewModel.swift in Sources */,
 				1F3C806C2D1C441B00737BED /* PoolsDetailViewController.swift in Sources */,
 				1F4293512D00FA66000CFA9E /* FadeTransition.swift in Sources */,
+				1F3C809D2D226E6700737BED /* BlockchainDetailUIModel.swift in Sources */,
 				1F42932D2CFE4976000CFA9E /* AboutViewController.swift in Sources */,
 				1FBDD1F22CF71E8400223819 /* Data+Extension.swift in Sources */,
 				1F6092722D102533001CCE43 /* MetricsGeneralView.swift in Sources */,
@@ -1124,6 +1142,7 @@
 				1F3C808E2D1F855100737BED /* URL+Extensions.swift in Sources */,
 				1F3C80822D1DDF5B00737BED /* BlockchainEndpoint.swift in Sources */,
 				1F60925D2D0F0585001CCE43 /* TokensDTOModel.swift in Sources */,
+				1F3C80A52D22EC0200737BED /* BaseViewController.swift in Sources */,
 				1F934D312D12DC86002085DD /* TokensDetailViewController.swift in Sources */,
 				1F4293382D008CF1000CFA9E /* PoolsViewController.swift in Sources */,
 				1F3C805D2D19B02900737BED /* ContainerViewController.swift in Sources */,
@@ -1134,6 +1153,7 @@
 				1F934D452D15DD50002085DD /* BlockchainChartView.swift in Sources */,
 				1FB9E5D62D09BC8E00128526 /* LendingUIModel.swift in Sources */,
 				1F6092832D11D824001CCE43 /* ProtocolGeneralView.swift in Sources */,
+				1F3C809B2D22673600737BED /* BlockchainDetailDTOModel.swift in Sources */,
 				1FBDD1E82CF71CAF00223819 /* DeFiViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

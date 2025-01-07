@@ -26,7 +26,7 @@ class BlockchainsViewController: BaseSidePageViewController {
     }
     
     private func setupBindings(){
-        progress.startAnimating()
+        showLoading()
         viewModel.fetchBlockchain()
         viewModel.data
             .receive(on: DispatchQueue.main)
@@ -34,9 +34,10 @@ class BlockchainsViewController: BaseSidePageViewController {
                 guard let self else {return}
                 blockchainsUIData = response
                 reloadData()
-                progress.stopAnimating()
+                hideLoading()
             }.store(in: &cancellables)
-}
+        
+    }
 
     
     private var safeAreaLayoutGuide:UILayoutGuide{
@@ -53,6 +54,7 @@ class BlockchainsViewController: BaseSidePageViewController {
         collectionView.backgroundColor = .clear
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.showsVerticalScrollIndicator = false
+        collectionView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom:8, right: 0)
         return collectionView
     }()
     
@@ -82,7 +84,7 @@ class BlockchainsViewController: BaseSidePageViewController {
         view.addSubview(collectionView)
         NSLayoutConstraint.activate([
             collectionView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor,constant: -8),
+            collectionView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor,constant: 0),
             collectionView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor,constant: -12),
             collectionView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor,constant: 12)
         ])
@@ -93,7 +95,8 @@ class BlockchainsViewController: BaseSidePageViewController {
 extension BlockchainsViewController:UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let vc = BlockchainDetailViewController()
-        vc.navigationItem.title = "Details"
+        vc.navigationItem.title = blockchainsUIData[indexPath.row].blockchainName
+        vc.blockchainName = blockchainsUIData[indexPath.row].chain
         navigationController?.pushViewController(vc, animated: true)
     }
 }

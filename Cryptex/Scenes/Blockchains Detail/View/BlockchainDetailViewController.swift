@@ -7,20 +7,46 @@
 //
 
 import UIKit
+import Combine
 
 class BlockchainDetailViewController: BaseHidesTabBarViewController {
     
+    private let viewModel = BlockchainDetailViewModel()
+    private var cancellables = Set<AnyCancellable>()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupBindings()
     }
     
     override func loadView() {
         super.loadView()
         setupUI()
     }
+    
+    var blockchainName:String?
+    
     private var safeAreaLayoutGuide:UILayoutGuide{
         view.safeAreaLayoutGuide
     }
+    
+    private func setupBindings(){
+        guard let blockchainName = blockchainName else {return}
+        showLoading()
+        
+        viewModel.fetchBlockchainDetail(name: blockchainName )
+        viewModel.data
+            .receive(on: DispatchQueue.main)
+            .sink {[weak self] response in
+                guard let self else {return}
+                blockchainChart.updateChart(with: response.chartData)
+                blockchainInfoView.configure(with: response.uiModel)
+                
+                hideLoading()
+                
+            }.store(in: &cancellables)
+    }
+    
     private lazy var blockchainInfoView = BlockchainInfoView()
     private lazy var blockchainChart = BlockchainChartView()
     

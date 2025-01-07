@@ -8,7 +8,7 @@
 import UIKit
 import Combine
 
-class DeFiViewController: BaseViewController {
+class DeFiViewController: BaseBackgroundViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,7 +64,6 @@ class DeFiViewController: BaseViewController {
     }
     
     private func setupUI(){
-        view.backgroundColor = .background
         view.addSubview(stackContainer)
         navigationItem.title = "Choose Protocol"
         navigationController?.interactivePopGestureRecognizer?.isEnabled = false

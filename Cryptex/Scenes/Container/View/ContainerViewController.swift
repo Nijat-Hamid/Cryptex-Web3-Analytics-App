@@ -26,6 +26,7 @@ class ContainerViewController: BaseViewController {
     private let initialPage:Pages = .root
     
     private func setupUI(){
+        
         viewController.forEach { _,vc in
             addChild(vc)
             view.addSubview(vc.view)

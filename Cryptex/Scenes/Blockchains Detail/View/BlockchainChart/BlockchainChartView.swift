@@ -26,48 +26,45 @@ class BlockchainChartView: UIView {
         applyCornerRadiusWithShadow()
     }
     
+    private var tvlData: [ChartDataEntry] = []
+    private var marketCapData: [ChartDataEntry] = []
+    private var capTvlData: [ChartDataEntry] = []
+    
     private lazy var chart = LineChart()
     private lazy var segments = CustomSegmentView(segments: ["TVL","Market Cap","Cap/TVL"])
     
-
-    private let tvlData: [ChartDataEntry] = [
-           ChartDataEntry(x: 1, y: 2),
-           ChartDataEntry(x: 2, y: 4),
-           ChartDataEntry(x: 3, y: 3),
-           ChartDataEntry(x: 4, y: 5),
-           ChartDataEntry(x: 5, y: 6)
-       ]
-       
-       private let marketCapData: [ChartDataEntry] = [
-           ChartDataEntry(x: 1, y: 20),
-           ChartDataEntry(x: 2, y: 25),
-           ChartDataEntry(x: 3, y: 23),
-           ChartDataEntry(x: 4, y: 30),
-           ChartDataEntry(x: 5, y: 28)
-       ]
     
-    private let capTvlData: [ChartDataEntry] = [
-           ChartDataEntry(x: 1, y: 5),
-           ChartDataEntry(x: 2, y: 9),
-           ChartDataEntry(x: 3, y: 18),
-           ChartDataEntry(x: 4, y: 29),
-           ChartDataEntry(x: 5, y: 20)
-       ]
+    func updateChart(with data: BlockchainChartDataModel) {
+
+        tvlData = data.historicalTvl
+        marketCapData = data.historicalMcap
+        capTvlData = data.historicalMcapTvl
+        
+        updateChartData(for: 0)
+    }
+
     
     private func updateChartData(for index: Int) {
         switch index {
         case 0:
             chart.chartData = tvlData
             chart.chartDataLabel = "TVL"
+            chart.configureYAxisFormatter(type: .currency)
+            chart.chartMarker.yMarkerFormatter = .currency
         case 1:
             chart.chartData = marketCapData
             chart.chartDataLabel = "Market Cap"
+            chart.configureYAxisFormatter(type: .currency)
+            chart.chartMarker.yMarkerFormatter = .currency
         case 2:
             chart.chartData = capTvlData
             chart.chartDataLabel = "Cap/TVL"
+            chart.configureYAxisFormatter(type: .decimal)
+            chart.chartMarker.yMarkerFormatter = .decimal
         default:
             break
         }
+        
     }
     
     private func setupUI() {
@@ -83,9 +80,9 @@ class BlockchainChartView: UIView {
             segments.topAnchor.constraint(equalTo: topAnchor,constant: 8),
             segments.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
             
-            chart.topAnchor.constraint(equalTo: segments.bottomAnchor,constant: 10),
-            chart.leadingAnchor.constraint(equalTo: leadingAnchor,constant: 8),
-            chart.trailingAnchor.constraint(equalTo: trailingAnchor,constant: -8),
+            chart.topAnchor.constraint(equalTo: segments.bottomAnchor,constant: 8),
+            chart.leadingAnchor.constraint(equalTo: leadingAnchor,constant: 4),
+            chart.trailingAnchor.constraint(equalTo: trailingAnchor,constant: -4),
             chart.bottomAnchor.constraint(equalTo: bottomAnchor,constant: -8)
         ])
         

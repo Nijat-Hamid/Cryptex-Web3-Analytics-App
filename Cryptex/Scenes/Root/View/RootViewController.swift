@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RootViewController: BaseViewController {
+class RootViewController: BaseBackgroundViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,7 +56,6 @@ class RootViewController: BaseViewController {
     }
     
     private func setupUI(){
-        view.backgroundColor = .background
         view.addSubview(animatedLogo)
         NSLayoutConstraint.activate([
             animatedLogo.centerXAnchor.constraint(equalTo: view.centerXAnchor),

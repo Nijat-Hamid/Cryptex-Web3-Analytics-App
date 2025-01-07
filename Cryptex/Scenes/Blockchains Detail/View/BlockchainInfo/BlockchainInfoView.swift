@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import SnapKit
 class BlockchainInfoView: UIView {
 
     override init(frame: CGRect) {
@@ -217,19 +217,29 @@ class BlockchainInfoView: UIView {
     }()
     
     private lazy var blockchainImage:UIImageView = {
-        let tokenImage = UIImageView(image: .chainDemo)
-        tokenImage.translatesAutoresizingMaskIntoConstraints = false
-        tokenImage.contentMode = .scaleAspectFit
-        tokenImage.backgroundColor = .cardBackgroundDark
-        tokenImage.layer.borderWidth = 3
-        tokenImage.layer.borderColor = UIColor.border.cgColor
-        tokenImage.layer.cornerRadius = 25
+        let image = UIImageView()
+        image.translatesAutoresizingMaskIntoConstraints = false
+        image.contentMode = .scaleAspectFit
+        image.clipsToBounds = true
+        return image
+    }()
+    
+    private lazy var chainImageContainer:UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.layer.cornerRadius = 29
+        view.layer.borderWidth = 3
+        view.layer.borderColor = UIColor.border.cgColor
+        view.clipsToBounds = true
+        view.backgroundColor = .cardBackgroundDark
         
-        NSLayoutConstraint.activate([
-            tokenImage.widthAnchor.constraint(equalToConstant: 50),
-            tokenImage.heightAnchor.constraint(equalToConstant: 50),
-        ])
-        return tokenImage
+        view.addSubview(blockchainImage)
+        blockchainImage.snp.makeConstraints { make in
+            make.edges.equalTo(view).inset(5)
+            make.center.equalToSuperview()
+            make.size.equalTo(CGSize(width: 50, height: 50))
+        }
+        return view
     }()
     
     
@@ -245,7 +255,7 @@ class BlockchainInfoView: UIView {
     
     private lazy var contractAddress:UILabel = {
         let label = UILabel()
-        label.text = "0x2f2a2543B76A4166549F7aaB2e75Bef0aefC5B0f".truncateMiddle(maxLength: 14)
+        label.text = ""
         label.font = UIFont(name: "Geist-medium", size: 14)
         label.textAlignment = .center
         label.textColor = .foreground
@@ -354,14 +364,32 @@ class BlockchainInfoView: UIView {
         return view
     }()
     
+    func configure(with data:BlockchainDetailUIModel){
+        
+        let formattedMarketShare = Formatter.number(data.marketShare, as: .percentage)
+        let formattedTvl = Formatter.number(data.chainTvl, as: .currency)
+        let formattedMarketCap = Formatter.number(data.currentMcap, as: .currency)
+        let formattedCapTvl = Formatter.number(data.currentMcapTvl, as: .decimal)
+        marketShare.text = formattedMarketShare
+        tvl.text = formattedTvl
+        marketCap.text = formattedMarketCap
+        capTvl.text = formattedCapTvl
+        
+        blockchainName.text = data.blockchainName
+        tvlChanges.updateColorBasedOnChanges(data.tvlChanges.daily)
+        contractAddress.text = data.address.truncateMiddle(maxLength: 12)
+        creationDate.text = data.creationDate
+        
+        riskLabel.updateColorBasedOnRisk(rating: data.overalRisk)
+        blockchainImage.sd_setImage(with: URL.fromBase(data.logo))
+    }
     
     private func setupUI(){
         backgroundColor = .cardBackgroundDark
         translatesAutoresizingMaskIntoConstraints = false
        
-        leftInfoStack.addArrangedSubview(blockchainImage)
+        leftInfoStack.addArrangedSubview(chainImageContainer)
         leftInfoStack.addArrangedSubview(blockchainName)
-        
         
         primaryStack.addArrangedSubview(tvl)
         primaryStack.addArrangedSubview(tvlChanges)

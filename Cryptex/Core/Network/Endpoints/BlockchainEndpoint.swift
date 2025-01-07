@@ -8,16 +8,19 @@
 
 enum BlockchainEndpoint:EndPoint {
     case getBlockchains(name:String)
+    case getSingleBlockchain(name:String)
     
     var path: String {
         switch self {
         case .getBlockchains(let name): return "/chainlist/\(name)"
+        case .getSingleBlockchain(let name): return "/chaindetail/\(name)"
         }
     }
     
     var method: RequestMethod {
         switch self {
         case .getBlockchains( _): return .get
+        case .getSingleBlockchain( _): return .get
         }
     }
     
@@ -36,8 +39,4 @@ enum BlockchainEndpoint:EndPoint {
     var pathParams: [String : String]? {
         return nil
     }
-    
-   
-    
-    
 }

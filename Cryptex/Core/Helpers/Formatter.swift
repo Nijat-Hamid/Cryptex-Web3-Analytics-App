@@ -13,8 +13,18 @@ enum FormatType {
     case decimal
 }
 
+enum DateFormatType {
+    case full
+    case long
+    case medium
+    case short
+    case custom(String)
+    case monthOnly
+    case yearOnly
+}
+
 struct Formatter {
-    static func format(_ number: Double, as type: FormatType,absolute:Bool = false) -> String {
+    static func number(_ number: Double, as type: FormatType,absolute:Bool = false) -> String {
         let absNumber = abs(number)
         let sign = number < 0 ? "-" : ""
         let formattedNumber: String
@@ -54,6 +64,42 @@ struct Formatter {
         }
         
         return formatter.string(for: value) ?? "N/A"
+    }
+    
+    static func date(_ input: Any, as type: DateFormatType, includeTime: Bool = false) -> String {
+        let formatter = DateFormatter()
+        var date: Date
+        
+        if let timestamp = input as? TimeInterval {
+            let isMilliseconds = timestamp > 1_000_000_000_000
+            date = Date(timeIntervalSince1970: isMilliseconds ? timestamp / 1000 : timestamp)
+        } else if let inputDate = input as? Date {
+            date = inputDate
+        } else {
+            return "Invalid input"
+        }
+        
+        switch type {
+        case .full:
+            formatter.dateStyle = .full
+            formatter.timeStyle = includeTime ? .full : .none
+        case .long:
+            formatter.dateStyle = .long
+            formatter.timeStyle = includeTime ? .long : .none
+        case .medium:
+            formatter.dateStyle = .medium
+            formatter.timeStyle = includeTime ? .medium : .none
+        case .short:
+            formatter.dateStyle = .short
+            formatter.timeStyle = includeTime ? .short : .none
+        case .monthOnly:
+            formatter.dateFormat = "MMMM yyyy"
+        case .yearOnly:
+            formatter.dateFormat = "yyyy"
+        case .custom(let format):
+            formatter.dateFormat = format
+        }
+        return formatter.string(from: date)
     }
 }
 

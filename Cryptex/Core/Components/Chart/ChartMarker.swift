@@ -22,6 +22,8 @@ class ChartMarkerView: MarkerView {
         setupUI()
     }
     
+    var yMarkerFormatter:FormatType = .decimal
+    
     private lazy var xLabel:UILabel = {
         let label = UILabel()
         label.font = UIFont(name: "Geist-medium", size: 12)!
@@ -63,8 +65,8 @@ class ChartMarkerView: MarkerView {
     }
     
     override func refreshContent(entry: ChartDataEntry, highlight: Highlight) {
-        xLabel.text = "X: \(entry.x)"
-        yLabel.text = "Y: \(entry.y)"
+        xLabel.text = Formatter.date(entry.x, as: .medium)
+        yLabel.text = Formatter.number(entry.y, as: yMarkerFormatter)
         super.refreshContent(entry: entry, highlight: highlight)
     }
 

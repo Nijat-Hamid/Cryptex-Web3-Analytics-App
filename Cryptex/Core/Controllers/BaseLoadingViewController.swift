@@ -8,16 +8,22 @@
 
 import UIKit
 
-class BaseLoadingViewController: BaseViewController {
+class BaseLoadingViewController: BaseBackgroundViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-    
-    override func loadView() {
-        super.loadView()
         setupUI()
     }
+    
+    lazy var overlayView: UIView = {
+        let overlay = UIView()
+        overlay.translatesAutoresizingMaskIntoConstraints = false
+        overlay.backgroundColor = .background
+        overlay.isHidden = true
+        return overlay
+    }()
+    
+    
     
     lazy var progress: UIActivityIndicatorView = {
         let progress = UIActivityIndicatorView()
@@ -30,14 +36,29 @@ class BaseLoadingViewController: BaseViewController {
     }()
     
     
-    private func setupUI(){
-        view.addSubview(progress)
-        view.bringSubviewToFront(progress)
+    
+    private func setupUI() {
+        view.addSubview(overlayView)
+        overlayView.addSubview(progress)
+        
         NSLayoutConstraint.activate([
-            progress.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            progress.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            overlayView.topAnchor.constraint(equalTo: view.topAnchor),
+            overlayView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            overlayView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            overlayView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            
+            progress.centerXAnchor.constraint(equalTo: overlayView.centerXAnchor),
+            progress.centerYAnchor.constraint(equalTo: overlayView.centerYAnchor)
         ])
     }
-
-
+    
+    func showLoading() {
+        overlayView.isHidden = false
+        progress.startAnimating()
+    }
+    
+    func hideLoading() {
+        overlayView.isHidden = true
+        progress.stopAnimating()
+    }
 }

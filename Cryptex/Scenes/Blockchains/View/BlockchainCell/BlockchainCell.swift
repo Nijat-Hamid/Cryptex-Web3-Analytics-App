@@ -326,8 +326,8 @@ class BlockchainCell: UICollectionViewCell {
     }()
     
     func configure(with blockchain:BlockchainsUIModel){
-        let formattedMarketShare = Formatter.format(blockchain.marketShare, as: .percentage)
-        let formattedTvl = Formatter.format(blockchain.chainTvl, as: .currency)
+        let formattedMarketShare = Formatter.number(blockchain.marketShare, as: .percentage)
+        let formattedTvl = Formatter.number(blockchain.chainTvl, as: .currency)
         marketShare.text = formattedMarketShare
         tvl.text = formattedTvl
         

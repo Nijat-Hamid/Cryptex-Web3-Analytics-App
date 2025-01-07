@@ -33,10 +33,10 @@ class LineChart: UIView {
         }
     }
     
-    private lazy var chartMarker = ChartMarkerView()
+     lazy var chartMarker = ChartMarkerView()
     
     
-     private lazy var chart:LineChartView = {
+     lazy var chart:LineChartView = {
         let chart = LineChartView()
         chart.translatesAutoresizingMaskIntoConstraints = false
         chart.backgroundColor = .clear
@@ -59,7 +59,11 @@ class LineChart: UIView {
         chart.highlightPerTapEnabled = true
         
         chart.marker = chartMarker
-        
+
+        chart.scaleXEnabled = false
+        chart.scaleYEnabled = false
+         
+        chart.xAxis.valueFormatter = XAxisDateFormatter(formatType: .yearOnly)
         return chart
     }()
     
@@ -68,21 +72,25 @@ class LineChart: UIView {
             chart.data = nil
             return
         }
+        
         let dataSet = LineChartDataSet(entries: chartData, label: chartDataLabel)
         dataSet.colors = [.chart]
-        dataSet.lineWidth = 2
+        dataSet.lineWidth = 1
         dataSet.drawFilledEnabled = true
         dataSet.fillColor = .chart
         dataSet.fillAlpha = 0.3
-        dataSet.circleRadius = 4
+        dataSet.circleRadius = 0.5
         dataSet.drawValuesEnabled = false
         dataSet.setCircleColor(.chart)
+        
+        let yMin = chartData.min { $0.y < $1.y }?.y ?? 0
+        let yMax = chartData.max { $0.y < $1.y }?.y ?? 1
+        chart.leftAxis.axisMinimum = yMin * 1 
+        chart.leftAxis.axisMaximum = yMax * 1.2
+        
         let data = LineChartData(dataSet: dataSet)
     
-        UIView.transition(with: chart, duration: 0.3,options: .transitionCrossDissolve) { [weak self] in
-            guard let self else {return}
-            chart.data = data
-        }
+        chart.data = data
 
     }
     
