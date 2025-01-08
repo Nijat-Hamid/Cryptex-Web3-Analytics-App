@@ -49,20 +49,17 @@ class TokenCell: UICollectionViewCell {
     
     
     private lazy var tokenImage:UIImageView = {
-        let image = UIImageView(image: UIImage(named: "poolDemo"))
+        let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
-        image.backgroundColor = .cardBackgroundDark
-        image.layer.borderWidth = 3
-        image.layer.borderColor = UIColor.border.cgColor
-        image.layer.cornerRadius = 25
+        image.contentMode = .scaleAspectFill
         image.clipsToBounds = true
+        image.layer.cornerRadius = 25
+        image.backgroundColor = .cardBackgroundDark
         image.snp.makeConstraints { make in
             make.size.equalTo(CGSize(width: 50, height: 50))
         }
-       
         return image
     }()
-    
     
     private lazy var tokenName:UILabel = {
         let label = UILabel()
@@ -97,20 +94,21 @@ class TokenCell: UICollectionViewCell {
         return stack
     }()
     
+    
     private lazy var chainImage:UIImageView = {
-        let image = UIImageView(image: UIImage(named: "chainDemo"))
+        let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
-        image.backgroundColor = .cardBackgroundDark
-        image.layer.borderWidth = 3
-        image.layer.borderColor = UIColor.border.cgColor
-        image.layer.cornerRadius = 25
+        image.contentMode = .scaleAspectFill
         image.clipsToBounds = true
+        image.layer.cornerRadius = 25
+        image.backgroundColor = .cardBackgroundDark
         image.snp.makeConstraints { make in
             make.size.equalTo(CGSize(width: 50, height: 50))
         }
         return image
     }()
     
+   
     private lazy var chainName:UILabel = {
         let label = UILabel()
         label.text = "Ethereum"
@@ -384,7 +382,25 @@ class TokenCell: UICollectionViewCell {
     }()
     
     func configure(with token:TokensUIModel){
-        print(token)
+        let formattedPrice = Formatter.number(token.tokenPrice, as: .currency)
+        let formattedVolume = Formatter.number(token.totalVolume, as: .currency)
+        let formattedMarketCap = Formatter.number(token.currentMCap, as: .currency)
+        tokenSecondInfo.text = formattedPrice
+        volume.text = formattedVolume
+        marketCap.text = formattedMarketCap
+        
+        
+        chainName.text = token.chain
+        tokenName.text = token.tokenName
+        
+        daily.updateColorBasedOnChanges(token.tokenPriceChanges.daily)
+        weekly.updateColorBasedOnChanges(token.tokenPriceChanges.weekly)
+        monthly.updateColorBasedOnChanges(token.tokenPriceChanges.monthly)
+        
+        riskLabel.updateColorBasedOnRisk(rating: token.overalRisk)
+        
+        chainImage.sd_setImage(with: URL.fromBase(token.chainLogo))
+        tokenImage.sd_setImage(with: URL.fromBase(token.tokenLogo))
         
     }
     

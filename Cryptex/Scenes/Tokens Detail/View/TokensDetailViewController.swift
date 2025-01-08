@@ -18,6 +18,11 @@ class TokensDetailViewController: BaseHidesTabBarViewController {
         super.loadView()
         setupUI()
     }
+    
+    var protocolName:String?
+    var tokenChain:String?
+    var tokenContract:String?
+    
     private var safeAreaLayoutGuide:UILayoutGuide{
         view.safeAreaLayoutGuide
     }

@@ -7,12 +7,17 @@
 //
 
 import UIKit
+import Combine
 
 class TokensViewController: BaseSidePageViewController {
 
+    private let viewModel = TokensViewModel()
+    private var cancellables = Set<AnyCancellable>()
+    private var tokensUIData:[TokensUIModel] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        reloadData()
+        setupBindings()
     }
     
     override func loadView() {
@@ -20,16 +25,28 @@ class TokensViewController: BaseSidePageViewController {
         setupUI()
     }
 
+    private func setupBindings(){
+        showLoading()
+        viewModel.fetchTokens()
+        viewModel.data
+            .receive(on: DispatchQueue.main)
+            .sink {[weak self] response in
+                guard let self else {return}
+                tokensUIData = response
+                reloadData()
+                hideLoading()
+            }.store(in: &cancellables)
+    }
+    
     private var safeAreaLayoutGuide:UILayoutGuide{
         view.safeAreaLayoutGuide
     }
     
-    private var tokensUIData:[TokensUIModel] = [.init(chainLogo: "ethereum", chain: "Ethereum", currentMCap: 23443, overalRisk: "C", tokenType: "Stablecoin", tokenPrice: 2344, totalVolume: 239483, tokenPriceChanges: .init(daily: 23, weekly: 12, monthly: 23))]
     
     private lazy var collectionView:UICollectionView = {
         let layout = UICollectionViewCompositionalLayout.createVerticalListLayout(
-            sectionSpacing: 20,
-            height: 290
+            sectionSpacing: 6,
+            height: 294
         )
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.delegate = self
@@ -78,7 +95,10 @@ class TokensViewController: BaseSidePageViewController {
 extension TokensViewController:UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let vc = TokensDetailViewController()
-        vc.navigationItem.title = "Details"
+        vc.navigationItem.title = tokensUIData[indexPath.row].tokenName
+        vc.protocolName = tokensUIData[indexPath.row].protocolName
+        vc.tokenChain = tokensUIData[indexPath.row].chain.lowercased()
+        vc.tokenContract = tokensUIData[indexPath.row].tokenContract
         navigationController?.pushViewController(vc, animated: true)
     }
 }

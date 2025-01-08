@@ -53,6 +53,10 @@
 		1F4293512D00FA66000CFA9E /* FadeTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4293502D00FA61000CFA9E /* FadeTransition.swift */; };
 		1F4293552D0173DB000CFA9E /* BaseBackgroundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4293542D0173DB000CFA9E /* BaseBackgroundViewController.swift */; };
 		1F4CCAFA2D02A283003F9D99 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4CCAF92D02A283003F9D99 /* RootViewController.swift */; };
+		1F53EBC42D2D645E008EDDB0 /* TokensViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F53EBC32D2D645E008EDDB0 /* TokensViewModel.swift */; };
+		1F53EBC62D2D65C5008EDDB0 /* TokenEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F53EBC52D2D65BD008EDDB0 /* TokenEndpoint.swift */; };
+		1F53EBC82D2E94F5008EDDB0 /* TokenDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F53EBC72D2E94F5008EDDB0 /* TokenDetailViewModel.swift */; };
+		1F53EBCA2D2EC01C008EDDB0 /* MetricsEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F53EBC92D2EC015008EDDB0 /* MetricsEndpoint.swift */; };
 		1F60925D2D0F0585001CCE43 /* TokensDTOModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F60925C2D0F0580001CCE43 /* TokensDTOModel.swift */; };
 		1F60925F2D0F058C001CCE43 /* TokensUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F60925E2D0F0589001CCE43 /* TokensUIModel.swift */; };
 		1F6092622D0F0C2E001CCE43 /* TokenCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6092612D0F0C2B001CCE43 /* TokenCell.swift */; };
@@ -148,6 +152,10 @@
 		1F4293502D00FA61000CFA9E /* FadeTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadeTransition.swift; sourceTree = "<group>"; };
 		1F4293542D0173DB000CFA9E /* BaseBackgroundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseBackgroundViewController.swift; sourceTree = "<group>"; };
 		1F4CCAF92D02A283003F9D99 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		1F53EBC32D2D645E008EDDB0 /* TokensViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokensViewModel.swift; sourceTree = "<group>"; };
+		1F53EBC52D2D65BD008EDDB0 /* TokenEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenEndpoint.swift; sourceTree = "<group>"; };
+		1F53EBC72D2E94F5008EDDB0 /* TokenDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenDetailViewModel.swift; sourceTree = "<group>"; };
+		1F53EBC92D2EC015008EDDB0 /* MetricsEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricsEndpoint.swift; sourceTree = "<group>"; };
 		1F60925C2D0F0580001CCE43 /* TokensDTOModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokensDTOModel.swift; sourceTree = "<group>"; };
 		1F60925E2D0F0589001CCE43 /* TokensUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokensUIModel.swift; sourceTree = "<group>"; };
 		1F6092612D0F0C2B001CCE43 /* TokenCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenCell.swift; sourceTree = "<group>"; };
@@ -306,6 +314,8 @@
 		1F3C80802D1DDF3E00737BED /* Endpoints */ = {
 			isa = PBXGroup;
 			children = (
+				1F53EBC92D2EC015008EDDB0 /* MetricsEndpoint.swift */,
+				1F53EBC52D2D65BD008EDDB0 /* TokenEndpoint.swift */,
 				1F3C80812D1DDF5000737BED /* BlockchainEndpoint.swift */,
 			);
 			path = Endpoints;
@@ -478,6 +488,7 @@
 		1F42933A2D008D0B000CFA9E /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				1F53EBC32D2D645E008EDDB0 /* TokensViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -670,6 +681,7 @@
 		1F934D272D12DC3C002085DD /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				1F53EBC72D2E94F5008EDDB0 /* TokenDetailViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1077,7 +1089,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F53EBC62D2D65C5008EDDB0 /* TokenEndpoint.swift in Sources */,
 				1FBDD21A2CF8903500223819 /* DeFiItemViewController.swift in Sources */,
+				1F53EBC82D2E94F5008EDDB0 /* TokenDetailViewModel.swift in Sources */,
 				1FBDD1F72CF71EE000223819 /* BaseSidePageViewController.swift in Sources */,
 				1F4293112CF9EB54000CFA9E /* UIView+Extension.swift in Sources */,
 				1F3C807E2D1DCF3200737BED /* Networkable.swift in Sources */,
@@ -1100,6 +1114,7 @@
 				1F4293552D0173DB000CFA9E /* BaseBackgroundViewController.swift in Sources */,
 				1F4293462D008D90000CFA9E /* AboutViewModel.swift in Sources */,
 				1F3C80642D1B13F800737BED /* BaseHidesTabBarViewController.swift in Sources */,
+				1F53EBC42D2D645E008EDDB0 /* TokensViewModel.swift in Sources */,
 				1F6092642D0F1276001CCE43 /* BlockchainsDTOModel.swift in Sources */,
 				1F42934F2D00F50D000CFA9E /* AppNavigationController.swift in Sources */,
 				1F60926F2D0F2CC3001CCE43 /* MetricsViewController.swift in Sources */,
@@ -1140,6 +1155,7 @@
 				1F934D392D14B32D002085DD /* TokenChartView.swift in Sources */,
 				1F3C808A2D1F2BCF00737BED /* DTOConvertible.swift in Sources */,
 				1F3C808E2D1F855100737BED /* URL+Extensions.swift in Sources */,
+				1F53EBCA2D2EC01C008EDDB0 /* MetricsEndpoint.swift in Sources */,
 				1F3C80822D1DDF5B00737BED /* BlockchainEndpoint.swift in Sources */,
 				1F60925D2D0F0585001CCE43 /* TokensDTOModel.swift in Sources */,
 				1F3C80A52D22EC0200737BED /* BaseViewController.swift in Sources */,

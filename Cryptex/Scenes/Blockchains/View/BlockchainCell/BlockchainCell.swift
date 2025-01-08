@@ -40,28 +40,16 @@ class BlockchainCell: UICollectionViewCell {
     private lazy var chainImage:UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
-        image.contentMode = .scaleAspectFit
+        image.contentMode = .scaleAspectFill
         image.clipsToBounds = true
+        image.layer.cornerRadius = 25
+        image.backgroundColor = .cardBackgroundDark
+        image.snp.makeConstraints { make in
+            make.size.equalTo(CGSize(width: 50, height: 50))
+        }
         return image
     }()
     
-    private lazy var chainImageContainer:UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.layer.cornerRadius = 29
-        view.layer.borderWidth = 3
-        view.layer.borderColor = UIColor.border.cgColor
-        view.clipsToBounds = true
-        view.backgroundColor = .cardBackgroundDark
-        
-        view.addSubview(chainImage)
-        chainImage.snp.makeConstraints { make in
-            make.edges.equalTo(view).inset(5)
-            make.center.equalToSuperview()
-            make.size.equalTo(CGSize(width: 50, height: 50))
-        }
-        return view
-    }()
     
     private lazy var chainName:UILabel = {
         let label = UILabel()
@@ -342,7 +330,7 @@ class BlockchainCell: UICollectionViewCell {
     }
     
     private func setupUI(){
-        chainStack.addArrangedSubview(chainImageContainer)
+        chainStack.addArrangedSubview(chainImage)
         chainStack.addArrangedSubview(chainName)
         
         primaryStack.addArrangedSubview(chainStack)

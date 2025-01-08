@@ -221,27 +221,14 @@ class BlockchainInfoView: UIView {
         image.translatesAutoresizingMaskIntoConstraints = false
         image.contentMode = .scaleAspectFit
         image.clipsToBounds = true
-        return image
-    }()
-    
-    private lazy var chainImageContainer:UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.layer.cornerRadius = 29
-        view.layer.borderWidth = 3
-        view.layer.borderColor = UIColor.border.cgColor
-        view.clipsToBounds = true
-        view.backgroundColor = .cardBackgroundDark
-        
-        view.addSubview(blockchainImage)
-        blockchainImage.snp.makeConstraints { make in
-            make.edges.equalTo(view).inset(5)
-            make.center.equalToSuperview()
+        image.layer.cornerRadius = 25
+        image.backgroundColor = .cardBackgroundDark
+        image.snp.makeConstraints { make in
             make.size.equalTo(CGSize(width: 50, height: 50))
         }
-        return view
+        return image
     }()
-    
+        
     
     private lazy var blockchainName:UILabel = {
         let label = UILabel()
@@ -388,7 +375,7 @@ class BlockchainInfoView: UIView {
         backgroundColor = .cardBackgroundDark
         translatesAutoresizingMaskIntoConstraints = false
        
-        leftInfoStack.addArrangedSubview(chainImageContainer)
+        leftInfoStack.addArrangedSubview(blockchainImage)
         leftInfoStack.addArrangedSubview(blockchainName)
         
         primaryStack.addArrangedSubview(tvl)
