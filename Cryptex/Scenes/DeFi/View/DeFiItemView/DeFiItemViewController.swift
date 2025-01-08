@@ -36,11 +36,9 @@ class DeFiItemViewController: UIView {
     private lazy var image:UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
-        image.contentMode = .scaleAspectFit
+        image.contentMode = .scaleAspectFill
         return image
     }()
-    
-    
     
     private lazy var text:UILabel = {
         let text = UILabel()

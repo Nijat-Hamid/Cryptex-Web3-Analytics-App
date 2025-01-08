@@ -34,7 +34,7 @@ class BlockchainDetailViewModel: NSObject {
             }
         } receiveValue: { dto in
             guard let uiModel = BlockchainDetailUIModel(dto: dto),
-                  let chartDataModel = BlockchainChartDataModel(dto: dto) else {
+                  let chartDataModel = BlockchainDetailChartDataModel(dto: dto) else {
                 self.error.send(.decode)
                 return
             }

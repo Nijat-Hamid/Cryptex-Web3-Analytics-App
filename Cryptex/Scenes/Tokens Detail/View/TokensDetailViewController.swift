@@ -7,11 +7,16 @@
 //
 
 import UIKit
+import Combine
 
 class TokensDetailViewController: BaseHidesTabBarViewController {
+    
+    private let viewModel = TokenDetailViewModel()
+    private var cancellables = Set<AnyCancellable>()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupBindings()
 
     }
     override func loadView() {
@@ -26,6 +31,27 @@ class TokensDetailViewController: BaseHidesTabBarViewController {
     private var safeAreaLayoutGuide:UILayoutGuide{
         view.safeAreaLayoutGuide
     }
+    
+    private func setupBindings(){
+        guard let protocolName = protocolName,
+              let tokenChain = tokenChain,
+              let tokenContract = tokenContract
+        else {return}
+        
+        showLoading()
+        
+        viewModel.fetchTokenDetail(name: protocolName, contract: tokenContract, chain: tokenChain)
+        viewModel.data
+            .receive(on: DispatchQueue.main)
+            .sink {[weak self] response in
+                guard let self else {return}
+                tokensChart.updateChart(with: response.chartData)
+                tokenInfoView.configure(with: response.uiModel)
+                hideLoading()
+                
+            }.store(in: &cancellables)
+    }
+    
     private lazy var tokenInfoView = TokenInfoView()
     private lazy var tokensChart = TokenChartView()
     

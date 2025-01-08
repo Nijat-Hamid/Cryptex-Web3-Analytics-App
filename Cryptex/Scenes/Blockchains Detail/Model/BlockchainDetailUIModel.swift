@@ -10,10 +10,10 @@ import DGCharts
 
 struct BlockchainCombinedModel:Hashable{
     let uiModel: BlockchainDetailUIModel
-    let chartData: BlockchainChartDataModel
+    let chartData: BlockchainDetailChartDataModel
 }
 
-struct BlockchainChartDataModel:Hashable,DTOConvertible{
+struct BlockchainDetailChartDataModel:Hashable,DTOConvertible{
     let historicalTvl: [ChartDataEntry]
     let historicalMcap: [ChartDataEntry]
     let historicalMcapTvl: [ChartDataEntry]

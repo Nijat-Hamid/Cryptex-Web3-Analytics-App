@@ -57,6 +57,8 @@
 		1F53EBC62D2D65C5008EDDB0 /* TokenEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F53EBC52D2D65BD008EDDB0 /* TokenEndpoint.swift */; };
 		1F53EBC82D2E94F5008EDDB0 /* TokenDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F53EBC72D2E94F5008EDDB0 /* TokenDetailViewModel.swift */; };
 		1F53EBCA2D2EC01C008EDDB0 /* MetricsEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F53EBC92D2EC015008EDDB0 /* MetricsEndpoint.swift */; };
+		1F53EBCC2D2ED48C008EDDB0 /* TokenDetailDTOModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F53EBCB2D2ED483008EDDB0 /* TokenDetailDTOModel.swift */; };
+		1F53EBCE2D2ED60D008EDDB0 /* TokenDetailUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F53EBCD2D2ED607008EDDB0 /* TokenDetailUIModel.swift */; };
 		1F60925D2D0F0585001CCE43 /* TokensDTOModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F60925C2D0F0580001CCE43 /* TokensDTOModel.swift */; };
 		1F60925F2D0F058C001CCE43 /* TokensUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F60925E2D0F0589001CCE43 /* TokensUIModel.swift */; };
 		1F6092622D0F0C2E001CCE43 /* TokenCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6092612D0F0C2B001CCE43 /* TokenCell.swift */; };
@@ -156,6 +158,8 @@
 		1F53EBC52D2D65BD008EDDB0 /* TokenEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenEndpoint.swift; sourceTree = "<group>"; };
 		1F53EBC72D2E94F5008EDDB0 /* TokenDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenDetailViewModel.swift; sourceTree = "<group>"; };
 		1F53EBC92D2EC015008EDDB0 /* MetricsEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricsEndpoint.swift; sourceTree = "<group>"; };
+		1F53EBCB2D2ED483008EDDB0 /* TokenDetailDTOModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenDetailDTOModel.swift; sourceTree = "<group>"; };
+		1F53EBCD2D2ED607008EDDB0 /* TokenDetailUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenDetailUIModel.swift; sourceTree = "<group>"; };
 		1F60925C2D0F0580001CCE43 /* TokensDTOModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokensDTOModel.swift; sourceTree = "<group>"; };
 		1F60925E2D0F0589001CCE43 /* TokensUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokensUIModel.swift; sourceTree = "<group>"; };
 		1F6092612D0F0C2B001CCE43 /* TokenCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenCell.swift; sourceTree = "<group>"; };
@@ -699,6 +703,8 @@
 		1F934D292D12DC48002085DD /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				1F53EBCD2D2ED607008EDDB0 /* TokenDetailUIModel.swift */,
+				1F53EBCB2D2ED483008EDDB0 /* TokenDetailDTOModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1109,6 +1115,7 @@
 				1F6092852D11F1F5001CCE43 /* String+Extensions.swift in Sources */,
 				1F42934A2D00AFC1000CFA9E /* UIImage+Extension.swift in Sources */,
 				1FBDD1E62CF71CAF00223819 /* AppDelegate.swift in Sources */,
+				1F53EBCC2D2ED48C008EDDB0 /* TokenDetailDTOModel.swift in Sources */,
 				1F3C807A2D1DCEED00737BED /* NetworkError.swift in Sources */,
 				1F6092782D10457E001CCE43 /* MetricsChart.swift in Sources */,
 				1F4293552D0173DB000CFA9E /* BaseBackgroundViewController.swift in Sources */,
@@ -1162,6 +1169,7 @@
 				1F934D312D12DC86002085DD /* TokensDetailViewController.swift in Sources */,
 				1F4293382D008CF1000CFA9E /* PoolsViewController.swift in Sources */,
 				1F3C805D2D19B02900737BED /* ContainerViewController.swift in Sources */,
+				1F53EBCE2D2ED60D008EDDB0 /* TokenDetailUIModel.swift in Sources */,
 				1F934D3C2D14B664002085DD /* CustomSegmentView.swift in Sources */,
 				1F3C80532D18811300737BED /* MainTabBarViewController.swift in Sources */,
 				1FBDD21C2CF894A700223819 /* DeFiViewModel.swift in Sources */,

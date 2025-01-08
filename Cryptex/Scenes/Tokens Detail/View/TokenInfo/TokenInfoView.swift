@@ -219,9 +219,8 @@ class TokenInfoView: UIView {
     private lazy var tokenImage:UIImageView = {
         let tokenImage = UIImageView(image: .poolDemo)
         tokenImage.translatesAutoresizingMaskIntoConstraints = false
-        tokenImage.contentMode = .scaleAspectFit
+        tokenImage.contentMode = .scaleAspectFill
         tokenImage.backgroundColor = .cardBackgroundDark
-        tokenImage.layer.borderWidth = 3
         tokenImage.layer.borderColor = UIColor.border.cgColor
         tokenImage.layer.cornerRadius = 25
         
@@ -232,7 +231,7 @@ class TokenInfoView: UIView {
             tokenChainImage.widthAnchor.constraint(equalToConstant: 16),
             tokenChainImage.heightAnchor.constraint(equalToConstant: 16),
             tokenChainImage.centerXAnchor.constraint(equalTo: tokenImage.centerXAnchor),
-            tokenChainImage.bottomAnchor.constraint(equalTo: tokenImage.bottomAnchor,constant: -2),
+            tokenChainImage.bottomAnchor.constraint(equalTo: tokenImage.bottomAnchor,constant: 0),
         ])
         return tokenImage
     }()
@@ -240,7 +239,7 @@ class TokenInfoView: UIView {
     private lazy var tokenChainImage:UIImageView = {
         let image = UIImageView(image: .chainDemo)
         image.translatesAutoresizingMaskIntoConstraints = false
-        image.contentMode = .scaleAspectFit
+        image.contentMode = .scaleAspectFill
         image.backgroundColor = .cardBackgroundDark
         image.layer.borderWidth = 1
         image.layer.borderColor = UIColor.clear.cgColor
@@ -262,7 +261,6 @@ class TokenInfoView: UIView {
     
     private lazy var tokenName:UILabel = {
         let label = UILabel()
-        label.text = "Wrapped BTC"
         label.numberOfLines = 3
         label.font = UIFont(name: "Geist-medium", size: 16)
         label.textColor = .foreground
@@ -280,7 +278,6 @@ class TokenInfoView: UIView {
     
     private lazy var contractAddress:UILabel = {
         let label = UILabel()
-        label.text = "0x2f2a2543B76A4166549F7aaB2e75Bef0aefC5B0f".truncateMiddle(maxLength: 14)
         label.font = UIFont(name: "Geist-medium", size: 14)
         label.textAlignment = .center
         label.textColor = .foreground
@@ -290,7 +287,6 @@ class TokenInfoView: UIView {
 
     private lazy var price:UILabel = {
         let label = UILabel()
-        label.text = "$64,896"
         label.numberOfLines = 1
         label.textAlignment = .center
         label.font = UIFont(name: "Geist-medium", size: 14)
@@ -300,7 +296,6 @@ class TokenInfoView: UIView {
     
     private lazy var priceChanges:UILabel = {
         let label = UILabel()
-        label.text = "33%"
         label.numberOfLines = 1
         label.textAlignment = .center
         label.font = UIFont(name: "Geist-medium", size: 14)
@@ -310,7 +305,6 @@ class TokenInfoView: UIView {
     
     private lazy var creationDate:UILabel = {
         let label = UILabel()
-        label.text = "16 Jun 2021"
         label.font = UIFont(name: "Geist-medium", size: 14)
         label.textColor = .foreground
         label.textAlignment = .center
@@ -321,7 +315,6 @@ class TokenInfoView: UIView {
     
     private lazy var holders:UILabel = {
         let label = UILabel()
-        label.text = "80.97K"
         label.numberOfLines = 1
         label.textAlignment = .center
         label.font = UIFont(name: "Geist-medium", size: 14)
@@ -332,7 +325,6 @@ class TokenInfoView: UIView {
     
     private lazy var totalTX:UILabel = {
         let label = UILabel()
-        label.text = "4.54M"
         label.numberOfLines = 1
         label.font = UIFont(name: "Geist-medium", size: 14)
         label.textColor = .foreground
@@ -343,7 +335,6 @@ class TokenInfoView: UIView {
    
     private lazy var marketCap:UILabel = {
         let label = UILabel()
-        label.text = "$10.07B"
         label.numberOfLines = 1
         label.font = UIFont(name: "Geist-medium", size: 14)
         label.textColor = .foreground
@@ -353,7 +344,6 @@ class TokenInfoView: UIView {
     
     private lazy var mCapChanges:UILabel = {
         let label = UILabel()
-        label.text = "1.42%"
         label.numberOfLines = 1
         label.font = UIFont(name: "Geist-medium", size: 14)
         label.textColor = .foreground
@@ -363,7 +353,6 @@ class TokenInfoView: UIView {
     
     private lazy var riskLabel:UILabel = {
         let label = UILabel()
-        label.text = "F"
         label.numberOfLines = .zero
         label.textAlignment = .center
         label.font = UIFont(name: "Geist-medium", size: 14)
@@ -389,6 +378,28 @@ class TokenInfoView: UIView {
         
         return view
     }()
+    
+    func configure(with data:TokenDetailUIModel){
+        let formattedPrice = Formatter.number(data.tokenPrice, as: .currency)
+        let formattedHolders = Formatter.number(data.holders, as: .decimal)
+        let formattedTX = Formatter.number(data.totalTx, as: .decimal)
+        let formattedMarketCap = Formatter.number(data.currentMCap, as: .currency)
+        price.text = formattedPrice
+        holders.text = formattedHolders
+        totalTX.text = formattedTX
+        marketCap.text = formattedMarketCap
+        
+        riskLabel.updateColorBasedOnRisk(rating: data.overalRisk)
+        contractAddress.text = data.tokenContract.truncateMiddle(maxLength: 12)
+        creationDate.text = data.date
+        priceChanges.updateColorBasedOnChanges(data.tokenPriceChanges.daily)
+        mCapChanges.updateColorBasedOnChanges(data.currentMCapChanges.daily)
+        
+        tokenName.text = data.tokenName
+        tokenImage.sd_setImage(with: URL.fromBase(data.tokenLogo))
+        tokenChainImage.sd_setImage(with: URL.fromBase(data.chainLogo))
+
+    }
     
     
     private func setupUI(){

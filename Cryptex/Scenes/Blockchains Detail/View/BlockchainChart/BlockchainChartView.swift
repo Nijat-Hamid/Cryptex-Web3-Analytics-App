@@ -34,7 +34,7 @@ class BlockchainChartView: UIView {
     private lazy var segments = CustomSegmentView(segments: ["TVL","Market Cap","Cap/TVL"])
     
     
-    func updateChart(with data: BlockchainChartDataModel) {
+    func updateChart(with data: BlockchainDetailChartDataModel) {
 
         tvlData = data.historicalTvl
         marketCapData = data.historicalMcap

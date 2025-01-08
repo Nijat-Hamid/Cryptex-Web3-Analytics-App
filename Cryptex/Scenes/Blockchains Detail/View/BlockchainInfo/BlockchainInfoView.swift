@@ -219,7 +219,7 @@ class BlockchainInfoView: UIView {
     private lazy var blockchainImage:UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
-        image.contentMode = .scaleAspectFit
+        image.contentMode = .scaleAspectFill
         image.clipsToBounds = true
         image.layer.cornerRadius = 25
         image.backgroundColor = .cardBackgroundDark

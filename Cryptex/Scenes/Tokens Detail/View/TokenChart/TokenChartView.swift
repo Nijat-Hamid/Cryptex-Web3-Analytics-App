@@ -26,27 +26,25 @@ class TokenChartView: UIView {
         applyCornerRadiusWithShadow()
     }
     
+    private var priceData: [ChartDataEntry] = []
+    private var marketCapData: [ChartDataEntry] = []
+    
     private lazy var chart = LineChart()
     private lazy var segments = CustomSegmentView(segments: ["Price","Market Cap"])
     
-
-    private let priceData: [ChartDataEntry] = [
-           ChartDataEntry(x: 1, y: 2),
-           ChartDataEntry(x: 2, y: 4),
-           ChartDataEntry(x: 3, y: 3),
-           ChartDataEntry(x: 4, y: 5),
-           ChartDataEntry(x: 5, y: 6)
-       ]
-       
-       private let marketCapData: [ChartDataEntry] = [
-           ChartDataEntry(x: 1, y: 20),
-           ChartDataEntry(x: 2, y: 25),
-           ChartDataEntry(x: 3, y: 23),
-           ChartDataEntry(x: 4, y: 30),
-           ChartDataEntry(x: 5, y: 28)
-       ]
+    func updateChart(with data: TokenDetailChartDataModel) {
+        
+        priceData = data.historicalPrice
+        marketCapData = data.historicalMCap
+        
+        updateChartData(for: 0)
+    }
     
     private func updateChartData(for index: Int) {
+        
+        chart.configureYAxisFormatter(type: .currency)
+        chart.chartMarker.yMarkerFormatter = .currency
+        
         switch index {
         case 0:
             chart.chartData = priceData

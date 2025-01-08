@@ -283,7 +283,7 @@ class PoolInfoView: UIView {
     private lazy var poolChainImage:UIImageView = {
         let image = UIImageView(image: .chainDemo)
         image.translatesAutoresizingMaskIntoConstraints = false
-        image.contentMode = .scaleAspectFit
+        image.contentMode = .scaleAspectFill
         image.backgroundColor = .cardBackgroundDark
         image.layer.borderWidth = 1
         image.layer.borderColor = UIColor.clear.cgColor

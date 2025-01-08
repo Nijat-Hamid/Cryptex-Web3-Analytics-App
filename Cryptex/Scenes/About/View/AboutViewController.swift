@@ -29,7 +29,7 @@ class AboutViewController: BaseHidesTabBarViewController {
             {
                 let image = UIImageView(image: UIImage(named: "launch"))
                 image.translatesAutoresizingMaskIntoConstraints = false
-                image.contentMode = .scaleToFill
+                image.contentMode = .scaleAspectFill
                 image.snp.makeConstraints { make in
                     make.size.equalTo(CGSize(width: 110, height: 105))
                 }
@@ -59,7 +59,7 @@ class AboutViewController: BaseHidesTabBarViewController {
             {
                 let image = UIImageView(image: UIImage(named: "aaveLogo"))
                 image.translatesAutoresizingMaskIntoConstraints = false
-                image.contentMode = .scaleAspectFit
+                image.contentMode = .scaleAspectFill
                 image.snp.makeConstraints { make in
                     make.size.equalTo(CGSize(width: 28, height: 28))
                 }
