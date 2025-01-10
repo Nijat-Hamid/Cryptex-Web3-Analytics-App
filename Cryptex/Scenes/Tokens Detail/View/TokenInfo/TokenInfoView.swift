@@ -223,7 +223,7 @@ class TokenInfoView: UIView {
         tokenImage.backgroundColor = .cardBackgroundDark
         tokenImage.layer.borderColor = UIColor.border.cgColor
         tokenImage.layer.cornerRadius = 25
-        
+        tokenImage.clipsToBounds = true
         tokenImage.addSubview(tokenChainImage)
         NSLayoutConstraint.activate([
             tokenImage.widthAnchor.constraint(equalToConstant: 50),

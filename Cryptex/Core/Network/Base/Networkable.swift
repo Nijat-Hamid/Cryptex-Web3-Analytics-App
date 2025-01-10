@@ -29,6 +29,7 @@ public final class NetworkService: Networkable {
             }
             .decode(type: T.self, decoder: JSONDecoder())
             .mapError { error -> NetworkError in
+                print(error)
                 if error is DecodingError {
                     return NetworkError.decode
                 } else if let error = error as? NetworkError {

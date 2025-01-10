@@ -51,70 +51,46 @@ class PoolCell: UICollectionViewCell {
         let container = UIView()
         container.translatesAutoresizingMaskIntoConstraints = false
         container.backgroundColor = .clear
-        
-        container.addSubview(poolImage)
-        if !poolImageOther.isHidden {
-            container.addSubview(poolImageOther)
-            
-            NSLayoutConstraint.activate([
-                container.heightAnchor.constraint(equalToConstant: 70),
-                poolImage.centerXAnchor.constraint(equalTo: container.centerXAnchor, constant: -20),
-                poolImageOther.centerXAnchor.constraint(equalTo: container.centerXAnchor, constant: 20),
-            ])
-        } else {
-            NSLayoutConstraint.activate([
-                container.heightAnchor.constraint(equalToConstant: 70),
-                poolImage.centerXAnchor.constraint(equalTo: container.centerXAnchor),
-            ])
-        }
-        
         return container
     }()
     private lazy var poolImage:UIImageView = {
-        let image = UIImageView(image: UIImage(named: "poolDemo"))
+        let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
         image.backgroundColor = .cardBackgroundDark
-        image.layer.borderWidth = 3
-        image.layer.borderColor = UIColor.border.cgColor
-        image.layer.cornerRadius = 35
+        image.layer.cornerRadius = 25
+        image.contentMode = .scaleAspectFill
         image.clipsToBounds = true
         image.snp.makeConstraints { make in
-            make.size.equalTo(CGSize(width: 70, height: 70))
+            make.size.equalTo(CGSize(width: 50, height: 50))
         }
-        
         return image
     }()
     
     private lazy var poolImageOther:UIImageView = {
-        let image = UIImageView(image: UIImage(named: "retDemo"))
+        let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
         image.backgroundColor = .cardBackgroundDark
-        image.layer.borderWidth = 3
-        image.layer.borderColor = UIColor.border.cgColor
-        image.layer.cornerRadius = 35
-        image.isHidden = true
+        image.layer.cornerRadius = 25
+        image.contentMode = .scaleAspectFill
         image.clipsToBounds = true
-        
         image.snp.makeConstraints { make in
-            make.size.equalTo(CGSize(width: 70, height: 70))
+            make.size.equalTo(CGSize(width: 50, height: 50))
         }
         return image
     }()
     
     private lazy var poolName:UILabel = {
         let label = UILabel()
-        label.text = "WSTETH"
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = .zero
         label.textAlignment = .center
-        label.font = UIFont(name: "Geist-semibold", size: 16)
+        label.font = UIFont(name: "Geist-semibold", size: 14)
         label.textColor = .foreground
         return label
     }()
     
     private lazy var poolSecondInfo:UILabel = {
         let label = UILabel()
-        label.text = "37483$"
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = .zero
         label.textAlignment = .center
@@ -135,12 +111,11 @@ class PoolCell: UICollectionViewCell {
     }()
     
     private lazy var chainImage:UIImageView = {
-        let image = UIImageView(image: UIImage(named: "chainDemo"))
+        let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
         image.backgroundColor = .cardBackgroundDark
-        image.layer.borderWidth = 3
-        image.layer.borderColor = UIColor.border.cgColor
         image.layer.cornerRadius = 25
+        image.contentMode = .scaleAspectFill
         image.clipsToBounds = true
         image.snp.makeConstraints { make in
             make.size.equalTo(CGSize(width: 50, height: 50))
@@ -150,7 +125,6 @@ class PoolCell: UICollectionViewCell {
     
     private lazy var chainName:UILabel = {
         let label = UILabel()
-        label.text = "Ethereum"
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = .zero
         label.textAlignment = .center
@@ -170,11 +144,9 @@ class PoolCell: UICollectionViewCell {
     }()
     
     private lazy var protocolImage:UIImageView = {
-        let image = UIImageView(image: UIImage(named: "protocolDemo"))
+        let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
         image.backgroundColor = .cardBackgroundDark
-        image.layer.borderWidth = 3
-        image.layer.borderColor = UIColor.border.cgColor
         image.layer.cornerRadius = 25
         image.clipsToBounds = true
         image.snp.makeConstraints { make in
@@ -185,7 +157,6 @@ class PoolCell: UICollectionViewCell {
     
     private lazy var protocolName:UILabel = {
         let label = UILabel()
-        label.text = "Aave V3"
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = .zero
         label.textAlignment = .center
@@ -200,7 +171,7 @@ class PoolCell: UICollectionViewCell {
         stack.axis = .horizontal
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.spacing = 8
-        stack.alignment = .center
+        stack.alignment = .top
         stack.distribution = .fillEqually
         return stack
     }()
@@ -251,41 +222,38 @@ class PoolCell: UICollectionViewCell {
         return stack
     }()
     
+    private lazy var secondaryHeaderItemOne:UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = .zero
+        label.textAlignment = .center
+        label.font = UIFont(name: "Geist-medium", size: 14)
+        label.textColor = .mutedForeground
+        return label
+    }()
+    
+    private lazy var secondaryHeaderItemTwo:UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = .zero
+        label.textAlignment = .center
+        label.font = UIFont(name: "Geist-medium", size: 14)
+        label.textColor = .mutedForeground
+        return label
+    }()
+    
+    private lazy var secondaryHeaderItemThree:UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = .zero
+        label.textAlignment = .center
+        label.font = UIFont(name: "Geist-medium", size: 14)
+        label.textColor = .mutedForeground
+        return label
+    }()
     
     private lazy var secondaryHeader:UIStackView = {
-        let stack = UIStackView(arrangedSubviews: [
-            {
-                let label = UILabel()
-                label.text = "Supplied"
-                label.translatesAutoresizingMaskIntoConstraints = false
-                label.numberOfLines = .zero
-                label.textAlignment = .center
-                label.font = UIFont(name: "Geist-medium", size: 14)
-                label.textColor = .mutedForeground
-                return label
-                
-            }(),{
-                let label = UILabel()
-                label.text = "Borrowed"
-                label.translatesAutoresizingMaskIntoConstraints = false
-                label.numberOfLines = .zero
-                label.textAlignment = .center
-                label.font = UIFont(name: "Geist-medium", size: 14)
-                label.textColor = .mutedForeground
-                return label
-                
-            }(),{
-                let label = UILabel()
-                label.text = "Liquidity"
-                label.translatesAutoresizingMaskIntoConstraints = false
-                label.numberOfLines = .zero
-                label.textAlignment = .center
-                label.font = UIFont(name: "Geist-medium", size: 14)
-                label.textColor = .mutedForeground
-                return label
-                
-            }(),
-        ])
+        let stack = UIStackView()
         stack.layer.cornerRadius = 10
         stack.backgroundColor = .brandSecondary
         stack.axis = .horizontal
@@ -311,7 +279,6 @@ class PoolCell: UICollectionViewCell {
     
     private lazy var primaryItemOne:UILabel = {
         let label = UILabel()
-        label.text = "3848B"
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = .zero
         label.textAlignment = .center
@@ -322,7 +289,6 @@ class PoolCell: UICollectionViewCell {
     
     private lazy var primaryItemTwo:UILabel = {
         let label = UILabel()
-        label.text = "199K"
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = .zero
         label.textAlignment = .center
@@ -333,7 +299,6 @@ class PoolCell: UICollectionViewCell {
     
     private lazy var primaryItemThree:UILabel = {
         let label = UILabel()
-        label.text = "35K"
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = .zero
         label.textAlignment = .center
@@ -342,40 +307,41 @@ class PoolCell: UICollectionViewCell {
         return label
     }()
     
+    
+    private lazy var tertiaryHeaderItemOne:UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = .zero
+        label.textAlignment = .center
+        label.font = UIFont(name: "Geist-medium", size: 14)
+        label.textColor = .mutedForeground
+        return label
+    }()
+    
+    private lazy var tertiaryHeaderItemTwo:UILabel = {
+        let label = UILabel()
+        label.text = "APY"
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = .zero
+        label.textAlignment = .center
+        label.font = UIFont(name: "Geist-medium", size: 14)
+        label.textColor = .mutedForeground
+        return label
+    }()
+    
+    private lazy var tertiaryHeaderItemThree:UILabel = {
+        let label = UILabel()
+        label.text = "Risk"
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = .zero
+        label.textAlignment = .center
+        label.font = UIFont(name: "Geist-medium", size: 14)
+        label.textColor = .mutedForeground
+        return label
+    }()
+    
     private lazy var tertiaryHeader:UIStackView = {
-        let stack = UIStackView(arrangedSubviews: [
-            {
-                let label = UILabel()
-                label.text = "Utilization"
-                label.translatesAutoresizingMaskIntoConstraints = false
-                label.numberOfLines = .zero
-                label.textAlignment = .center
-                label.font = UIFont(name: "Geist-medium", size: 14)
-                label.textColor = .mutedForeground
-                return label
-                
-            }(),{
-                let label = UILabel()
-                label.text = "APY"
-                label.translatesAutoresizingMaskIntoConstraints = false
-                label.numberOfLines = .zero
-                label.textAlignment = .center
-                label.font = UIFont(name: "Geist-medium", size: 14)
-                label.textColor = .mutedForeground
-                return label
-                
-            }(),{
-                let label = UILabel()
-                label.text = "Risk"
-                label.translatesAutoresizingMaskIntoConstraints = false
-                label.numberOfLines = .zero
-                label.textAlignment = .center
-                label.font = UIFont(name: "Geist-medium", size: 14)
-                label.textColor = .mutedForeground
-                return label
-                
-            }(),
-        ])
+        let stack = UIStackView()
         stack.layer.cornerRadius = 10
         stack.backgroundColor = .brandSecondary
         stack.axis = .horizontal
@@ -400,7 +366,6 @@ class PoolCell: UICollectionViewCell {
     
     private lazy var secondaryItemOne:UILabel = {
         let label = UILabel()
-        label.text = "9.56%"
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = .zero
         label.textAlignment = .center
@@ -411,7 +376,6 @@ class PoolCell: UICollectionViewCell {
     
     private lazy var secondaryItemTwo:UILabel = {
         let label = UILabel()
-        label.text = "1.58%"
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = .zero
         label.textAlignment = .center
@@ -422,7 +386,6 @@ class PoolCell: UICollectionViewCell {
     
     private lazy var secondaryItemThree:UILabel = {
         let label = UILabel()
-        label.text = "F"
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = .zero
         label.textAlignment = .center
@@ -459,34 +422,82 @@ class PoolCell: UICollectionViewCell {
         return label
     }()
     
-    func configure(with pool:PoolsUIModels){
-        guard
-            let secondaryHeaderLabelOne = secondaryHeader.arrangedSubviews[safe: 0] as? UILabel,
-            let secondaryHeaderLabelTwo = secondaryHeader.arrangedSubviews[safe: 1] as? UILabel,
-            let secondaryHeaderLabelThree = secondaryHeader.arrangedSubviews[safe: 2] as? UILabel,
-            let tertiaryHeaderLabelOne = tertiaryHeader.arrangedSubviews[safe: 0] as? UILabel
-        else {return}
-        
-        switch pool {
-        case .lendingUIModel:
-            secondaryHeaderLabelOne.text = "Supplied"
-            secondaryHeaderLabelTwo.text = "Borrowed"
-            secondaryHeaderLabelThree.text = "Liquidity"
-            tertiaryHeaderLabelOne.text = "Utilization"
-        case .dexUIModel:
-            secondaryHeaderLabelOne.text = "TVL"
-            secondaryHeaderLabelTwo.text = "Volume"
-            secondaryHeaderLabelThree.text = "Vol/TVL"
-            tertiaryHeaderLabelOne.text = "Fees"
-        }
-    }
-    
     private lazy var background:UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .cardBackgroundDark
         return view
     }()
+    
+    
+    
+    func configure(with pool:PoolsCombinedSingleUIModel){
+        
+        switch pool {
+        case .lendingUIModel(let lending):
+            secondaryHeaderItemOne.text = "Supplied"
+            secondaryHeaderItemTwo.text = "Borrowed"
+            secondaryHeaderItemThree.text = "Liquidity"
+            tertiaryHeaderItemOne.text = "Utilization"
+            
+            poolImageContainer.poolImageArranger(with: [poolImage], isSingle: true)
+            
+            let formattedSupplied = Formatter.number(lending.totalLiqiudityUSD, as: .currency)
+            let formattedBorrowed = Formatter.number(lending.totalBorrowedTokenUSD, as: .currency)
+            let formattedLiquidity = Formatter.number(lending.tvlUSD, as: .currency)
+            let formattedUtilization = Formatter.number(lending.utilizationRate, as: .percentage)
+            let formattedApy = Formatter.number(lending.apyMean30d, as: .percentage)
+            let formattedPrice = Formatter.number(lending.poolPrice, as: .currency)
+            primaryItemOne.text = formattedSupplied
+            primaryItemTwo.text = formattedBorrowed
+            primaryItemThree.text = formattedLiquidity
+            secondaryItemOne.text = formattedUtilization
+            secondaryItemTwo.text = formattedApy
+            poolSecondInfo.text = formattedPrice
+            
+            chainName.text = lending.chain.capitalized
+            poolName.text = lending.symbol
+            protocolName.text = lending.protocolFullName
+            
+            secondaryItemThree.updateColorBasedOnRisk(rating: lending.overalRisk )
+            chainImage.sd_setImage(with: URL.fromBase(lending.protocolChainLogo))
+            protocolImage.sd_setImage(with: URL.fromBase(lending.protocolLogo))
+            poolImage.sd_setImage(with: URL.fromBase(lending.poolLogo[0]))
+            
+        case .dexUIModel(let dex):
+            secondaryHeaderItemOne.text = "TVL"
+            secondaryHeaderItemTwo.text = "Volume"
+            secondaryHeaderItemThree.text = "Vol/TVL"
+            tertiaryHeaderItemOne.text = "Fees"
+            
+            poolImageContainer.poolImageArranger(with: [poolImage,poolImageOther], isSingle: false)
+            
+            let formattedTvl = Formatter.number(dex.tvlUSD, as: .currency)
+            let formattedVolume = Formatter.number(dex.currentVolume, as: .currency)
+            let formattedVolTvl = Formatter.number(dex.volTvl, as: .decimal)
+            let formattedFees = Formatter.number(dex.currentFee, as: .currency)
+            let formattedTradingFee = Formatter.number(dex.tradingFee, as: .percentage)
+            let formattedApy = Formatter.number(dex.apyMean30d, as: .percentage)
+            primaryItemOne.text = formattedTvl
+            primaryItemTwo.text = formattedVolume
+            primaryItemThree.text = formattedVolTvl
+            secondaryItemOne.text = formattedFees
+            secondaryItemTwo.text = formattedApy
+            poolSecondInfo.text = formattedTradingFee
+            
+            
+            chainName.text = dex.chain.capitalized
+            poolName.text = dex.poolName
+            protocolName.text = dex.protocolFullName
+            
+            
+            secondaryItemThree.updateColorBasedOnRisk(rating: dex.overalRisk)
+            chainImage.sd_setImage(with: URL.fromBase(dex.protocolChainLogo))
+            protocolImage.sd_setImage(with: URL.fromBase(dex.protocolLogo))
+            poolImage.sd_setImage(with: URL.fromBase(dex.poolLogo[0]))
+            poolImageOther.sd_setImage(with: URL.fromBase(dex.poolLogo[1]))
+        }
+    }
     
     
     private func setupUI(){
@@ -503,14 +514,21 @@ class PoolCell: UICollectionViewCell {
         protocolStack.addArrangedSubview(protocolImage)
         protocolStack.addArrangedSubview(protocolName)
         
-
         primaryStack.addArrangedSubview(protocolStack)
         primaryStack.addArrangedSubview(poolStack)
         primaryStack.addArrangedSubview(chainStack)
         
+        secondaryHeader.addArrangedSubview(secondaryHeaderItemOne)
+        secondaryHeader.addArrangedSubview(secondaryHeaderItemTwo)
+        secondaryHeader.addArrangedSubview(secondaryHeaderItemThree)
+        
         secondaryStack.addArrangedSubview(primaryItemOne)
         secondaryStack.addArrangedSubview(primaryItemTwo)
         secondaryStack.addArrangedSubview(primaryItemThree)
+        
+        tertiaryHeader.addArrangedSubview(tertiaryHeaderItemOne)
+        tertiaryHeader.addArrangedSubview(tertiaryHeaderItemTwo)
+        tertiaryHeader.addArrangedSubview(tertiaryHeaderItemThree)
         
         tertiaryStack.addArrangedSubview(secondaryItemOne)
         tertiaryStack.addArrangedSubview(secondaryItemTwo)

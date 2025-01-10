@@ -24,10 +24,25 @@ enum DateFormatType {
 }
 
 struct Formatter {
-    static func number(_ number: Double, as type: FormatType,absolute:Bool = false) -> String {
-        let absNumber = abs(number)
-        let sign = number < 0 ? "-" : ""
+    static func number(_ number: Any, as type: FormatType,absolute:Bool = false) -> String {
+        
+        let doubleValue: Double?
+        
+        if let num = number as? Double {
+            doubleValue = num
+        } else if let str = number as? String, let num = Double(str) {
+            doubleValue = num
+        } else {
+            return "N/A"
+        }
+        
+        guard let doubleValueCheck = doubleValue,let absNumber = doubleValue.map(abs) else {
+            return "N/A"
+        }
+        
+        let sign = doubleValueCheck < 0 ? "-" : ""
         let formattedNumber: String
+       
         
         switch absNumber {
         case 1_000_000_000_000...:

@@ -7,12 +7,17 @@
 //
 
 import UIKit
+import Combine
 
 class PoolsViewController: BaseSidePageViewController {
 
+    private let viewModel = PoolsViewModel()
+    private var cancellables = Set<AnyCancellable>()
+    private var poolsUIData:PoolsCombinedUIModel?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        reloadData()
+        setupBindings()
     }
     
     override func loadView() {
@@ -20,17 +25,34 @@ class PoolsViewController: BaseSidePageViewController {
         setupUI()
     }
     
+    private func setupBindings(){
+        showLoading()
+        viewModel.fetchPools()
+        viewModel.data
+            .receive(on: DispatchQueue.main)
+            .sink {[weak self] response in
+                guard let self else {return}
+                switch response {
+                case .lendingUIModel(let lending):
+                    poolsUIData = .lendingUIModel(lending)
+                    
+                case .dexUIModel(let dex):
+                    poolsUIData = .dexUIModel(dex)
+                }
+                reloadData()
+                hideLoading()
+            }.store(in: &cancellables)
+        
+    }
+    
     private var safeAreaLayoutGuide:UILayoutGuide{
         view.safeAreaLayoutGuide
     }
     
-    private var poolsUIData:[PoolsUIModels] = [.dexUIModel(.init(id: "273", symbol: "Weth", chain: "Ethereum", apyMean30D: 2323.23, overalRisk: "B", poolLogo: [""], poolPrice: 23, protocolChainLogo: "", protocolFullName: "", protocolLogo: "", protocolType: "", totalBorrowedTokenUSD: 2332, totalLiqiudityUSD: 23, tvlUSD: 23, utilizationRate: "")),.lendingUIModel(.init(id: "93je", symbol: "", chain: "", apyMean30D: 2323, overalRisk: "", poolLogo: [""], poolPrice: 2323, protocolChainLogo: "", protocolFullName: "", protocolLogo: "", protocolType: "", totalBorrowedTokenUSD: 233, totalLiqiudityUSD: 23, tvlUSD: 23, utilizationRate: "")),.lendingUIModel(.init(id: "dj203", symbol: "", chain: "", apyMean30D: 2323, overalRisk: "", poolLogo: [""], poolPrice: 2323, protocolChainLogo: "", protocolFullName: "", protocolLogo: "", protocolType: "", totalBorrowedTokenUSD: 233, totalLiqiudityUSD: 23, tvlUSD: 23, utilizationRate: ""))]
-    
-    
     private lazy var collectionView:UICollectionView = {
         let layout = UICollectionViewCompositionalLayout.createVerticalListLayout(
-            sectionSpacing: 16,
-            height: 312
+            sectionSpacing: 6,
+            height: 294
         )
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout:layout)
         collectionView.delegate = self
@@ -41,13 +63,24 @@ class PoolsViewController: BaseSidePageViewController {
         return collectionView
     }()
     
-    private lazy var dataSource:UICollectionViewDiffableDataSource<Int, PoolsUIModels> = {
-        let cell = UICollectionView.CellRegistration<PoolCell, PoolsUIModels> { [unowned self]  cell, indexPath, itemIdentifier in
-            let pool = poolsUIData[indexPath.row]
-            cell.configure(with: pool)
+    private lazy var dataSource:UICollectionViewDiffableDataSource<Int, PoolsCombinedUIModel> = {
+        let cell = UICollectionView.CellRegistration<PoolCell, PoolsCombinedUIModel> { [unowned self]  cell, indexPath, itemIdentifier in
+            
+            switch poolsUIData {
+            case .lendingUIModel(let lending):
+                let pool = lending[indexPath.row]
+                let combinedModel = PoolsCombinedSingleUIModel.lendingUIModel(pool)
+                cell.configure(with: combinedModel)
+            case .dexUIModel(let dex):
+                let pool = dex[indexPath.row]
+                let combinedModel = PoolsCombinedSingleUIModel.dexUIModel(pool)
+                cell.configure(with: combinedModel)
+            default:
+                break
+            }
         }
         
-        let dataSource = UICollectionViewDiffableDataSource<Int, PoolsUIModels>(collectionView: collectionView) { collectionView, indexPath, itemIdentifier in
+        let dataSource = UICollectionViewDiffableDataSource<Int, PoolsCombinedUIModel>(collectionView: collectionView) { collectionView, indexPath, itemIdentifier in
             let cell = collectionView.dequeueConfiguredReusableCell(using: cell, for: indexPath, item: itemIdentifier)
             return cell
         }
@@ -56,9 +89,20 @@ class PoolsViewController: BaseSidePageViewController {
     }()
     
     private func reloadData(){
-        var snapshoot = NSDiffableDataSourceSnapshot<Int, PoolsUIModels>()
+        var snapshoot = NSDiffableDataSourceSnapshot<Int, PoolsCombinedUIModel>()
         snapshoot.appendSections([0])
-        snapshoot.appendItems(poolsUIData, toSection: 0)
+        
+        switch poolsUIData {
+        case .lendingUIModel(let lending):
+            let items = lending.map { PoolsCombinedUIModel.lendingUIModel([$0]) }
+            snapshoot.appendItems(items, toSection: 0)
+        case .dexUIModel(let dex):
+            let items = dex.map { PoolsCombinedUIModel.dexUIModel([$0]) }
+            snapshoot.appendItems(items, toSection: 0)
+        default:
+            break
+        }
+        
         dataSource.apply(snapshoot)
     }
     
