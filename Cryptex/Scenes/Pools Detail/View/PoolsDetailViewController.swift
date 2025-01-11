@@ -21,6 +21,11 @@ class PoolsDetailViewController: BaseHidesTabBarViewController {
     private var safeAreaLayoutGuide:UILayoutGuide{
         view.safeAreaLayoutGuide
     }
+    
+    var protocolName:String?
+    var poolChain:String?
+    var poolContract:String?
+    
     private lazy var poolInfoView = PoolInfoView()
     private lazy var poolsChart = PoolChartView()
     

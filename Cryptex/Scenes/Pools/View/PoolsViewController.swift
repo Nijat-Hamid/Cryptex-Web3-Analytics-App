@@ -122,7 +122,24 @@ class PoolsViewController: BaseSidePageViewController {
 extension PoolsViewController:UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let vc = PoolsDetailViewController()
-        vc.navigationItem.title = "Details"
+        
+        switch poolsUIData {
+        case .lendingUIModel(let lending):
+            let lendingModel = lending[indexPath.row]
+            vc.navigationItem.title = lendingModel.symbol
+            vc.protocolName = lendingModel.project
+            vc.poolChain = lendingModel.chain
+            vc.poolContract = lendingModel.poolContract
+        case .dexUIModel(let dex):
+            let dexModel = dex[indexPath.row]
+            vc.navigationItem.title = dexModel.poolName
+            vc.protocolName = dexModel.project
+            vc.poolChain = dexModel.chain
+            vc.poolContract = dexModel.poolContract
+        default:
+            break
+        }
+        
         navigationController?.pushViewController(vc, animated: true)
     }
 }

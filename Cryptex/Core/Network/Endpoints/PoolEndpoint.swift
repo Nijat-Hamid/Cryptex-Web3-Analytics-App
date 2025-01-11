@@ -8,16 +8,19 @@
 
 enum PoolEndpoint:EndPoint{
     case getPools(name:String)
+    case getSinglePool(contract:String,name:String,chain:String)
     
     var path: String {
         switch self {
         case .getPools(let name): return "/poollist/\(name)"
+        case .getSinglePool(let contract,let name,let chain): return "/pooldetail/\(name)/\(chain)/\(contract)"
         }
     }
     
     var method: RequestMethod {
         switch self {
         case .getPools( _): return .get
+        case .getSinglePool(_, _, _): return .get
         }
     }
     
