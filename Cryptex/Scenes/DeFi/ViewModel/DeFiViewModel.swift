@@ -5,7 +5,7 @@
 //  Created by Nijat Hamid on 11/28/24.
 //  Copyright © 2024 Nijat Hamid. All rights reserved.
 //
-import UIKit
+import Foundation
 
 class DeFiViewModel:NSObject {
     private let data: [DeFiUIModel] = [

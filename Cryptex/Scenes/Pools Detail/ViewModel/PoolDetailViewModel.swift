@@ -6,7 +6,7 @@
 //  Copyright © 2025 Nijat Hamid. All rights reserved.
 //
 
-import UIKit
+import Foundation
 import Combine
 
 class PoolDetailViewModel: NSObject {
