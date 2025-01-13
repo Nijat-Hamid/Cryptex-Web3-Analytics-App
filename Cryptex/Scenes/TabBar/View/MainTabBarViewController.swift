@@ -52,7 +52,7 @@ class MainTabBarViewController: UITabBarController {
     private func configureTabBar() {
         viewControllers = viewModel.data.map { model in
             createNavController(
-                for: model.viewController,
+                for: Router.tabbarViewController(for: model.viewControllerType),
                 title: model.title,
                 imageName: model.image,
                 id: model.id

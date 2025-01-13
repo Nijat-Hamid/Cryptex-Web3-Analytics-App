@@ -86,6 +86,7 @@
 		1F934D432D15DD45002085DD /* BlockchainInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F934D422D15DD45002085DD /* BlockchainInfoView.swift */; };
 		1F934D452D15DD50002085DD /* BlockchainChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F934D442D15DD50002085DD /* BlockchainChartView.swift */; };
 		1F934D482D16D753002085DD /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 1F934D472D16D753002085DD /* SnapKit */; settings = {ATTRIBUTES = (Required, ); }; };
+		1FA38BE12D3552EA00611800 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA38BE02D3552E800611800 /* Router.swift */; };
 		1FB9E5D92D0AB2A400128526 /* PoolCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB9E5D82D0AB2A400128526 /* PoolCell.swift */; };
 		1FB9E5DB2D0AC62200128526 /* PoolsDTOModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB9E5DA2D0AC61C00128526 /* PoolsDTOModel.swift */; };
 		1FB9E5DF2D0C393200128526 /* UILabel+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB9E5DE2D0C392900128526 /* UILabel+Extensions.swift */; };
@@ -188,6 +189,7 @@
 		1F934D3D2D15DB9B002085DD /* BlockchainDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockchainDetailViewController.swift; sourceTree = "<group>"; };
 		1F934D422D15DD45002085DD /* BlockchainInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockchainInfoView.swift; sourceTree = "<group>"; };
 		1F934D442D15DD50002085DD /* BlockchainChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockchainChartView.swift; sourceTree = "<group>"; };
+		1FA38BE02D3552E800611800 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		1FB9E5D82D0AB2A400128526 /* PoolCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoolCell.swift; sourceTree = "<group>"; };
 		1FB9E5DA2D0AC61C00128526 /* PoolsDTOModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoolsDTOModel.swift; sourceTree = "<group>"; };
 		1FB9E5DE2D0C392900128526 /* UILabel+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extensions.swift"; sourceTree = "<group>"; };
@@ -351,6 +353,7 @@
 		1F3C80952D21959000737BED /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				1FA38BE02D3552E800611800 /* Router.swift */,
 				1F3C80982D219E3400737BED /* Formatter.swift */,
 				1F3C80962D219A3D00737BED /* ColorBased.swift */,
 			);
@@ -1104,6 +1107,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1FA38BE12D3552EA00611800 /* Router.swift in Sources */,
 				1F53EBC62D2D65C5008EDDB0 /* TokenEndpoint.swift in Sources */,
 				1FBDD21A2CF8903500223819 /* DeFiItemViewController.swift in Sources */,
 				1F53EBC82D2E94F5008EDDB0 /* TokenDetailViewModel.swift in Sources */,
