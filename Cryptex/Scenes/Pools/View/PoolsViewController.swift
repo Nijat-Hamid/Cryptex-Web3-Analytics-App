@@ -18,6 +18,8 @@ class PoolsViewController: BaseSidePageViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupBindings()
+        fetch()
+        errorDelegate = self
     }
     
     override func loadView() {
@@ -25,24 +27,39 @@ class PoolsViewController: BaseSidePageViewController {
         setupUI()
     }
     
-    private func setupBindings(){
-        showLoading()
+    private func fetch(){
         viewModel.fetchPools()
-        viewModel.data
+    }
+    
+    private func setupBindings(){
+        viewModel.state
             .receive(on: DispatchQueue.main)
-            .sink {[weak self] response in
+            .sink {[weak self] state in
                 guard let self else {return}
-                switch response {
-                case .lendingUIModel(let lending):
-                    poolsUIData = .lendingUIModel(lending)
+                
+                switch state {
+                case .idle:break
+                case .loading:
+                    hideError()
+                    showLoading()
+                case .loaded(let data):
+                    hideError()
+                    hideLoading()
                     
-                case .dexUIModel(let dex):
-                    poolsUIData = .dexUIModel(dex)
+                    switch data {
+                    case .lendingUIModel(let lending):
+                        poolsUIData = .lendingUIModel(lending)
+                    case .dexUIModel(let dex):
+                        poolsUIData = .dexUIModel(dex)
+                    }
+                    
+                    reloadData()
+                case .error(let error):
+                    hideLoading()
+                    showError(for: error)
                 }
-                reloadData()
-                hideLoading()
-            }.store(in: &cancellables)
-        
+            }
+            .store(in: &cancellables)
     }
     
     private var safeAreaLayoutGuide:UILayoutGuide{
@@ -119,7 +136,7 @@ class PoolsViewController: BaseSidePageViewController {
     }
 }
 
-extension PoolsViewController:UICollectionViewDelegate{
+extension PoolsViewController:UICollectionViewDelegate,ErrorStateDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let vc = PoolsDetailViewController()
         
@@ -141,5 +158,9 @@ extension PoolsViewController:UICollectionViewDelegate{
         }
         
         navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func didTapTryAgain() {
+        fetch()
     }
 }

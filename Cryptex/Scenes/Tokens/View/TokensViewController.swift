@@ -18,6 +18,8 @@ class TokensViewController: BaseSidePageViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupBindings()
+        fetch()
+        errorDelegate = self
     }
     
     override func loadView() {
@@ -25,17 +27,32 @@ class TokensViewController: BaseSidePageViewController {
         setupUI()
     }
 
-    private func setupBindings(){
-        showLoading()
+    private func fetch(){
         viewModel.fetchTokens()
-        viewModel.data
+    }
+    
+    private func setupBindings(){
+        viewModel.state
             .receive(on: DispatchQueue.main)
-            .sink {[weak self] response in
+            .sink {[weak self] state in
                 guard let self else {return}
-                tokensUIData = response
-                reloadData()
-                hideLoading()
-            }.store(in: &cancellables)
+                
+                switch state {
+                case .idle:break
+                case .loading:
+                    hideError()
+                    showLoading()
+                case .loaded(let data):
+                    hideError()
+                    hideLoading()
+                    tokensUIData = data
+                    reloadData()
+                case .error(let error):
+                    hideLoading()
+                    showError(for: error)
+                }
+            }
+            .store(in: &cancellables)
     }
     
     private var safeAreaLayoutGuide:UILayoutGuide{
@@ -100,5 +117,11 @@ extension TokensViewController:UICollectionViewDelegate{
         vc.tokenChain = tokensUIData[indexPath.row].chain.lowercased()
         vc.tokenContract = tokensUIData[indexPath.row].tokenContract
         navigationController?.pushViewController(vc, animated: true)
+    }
+}
+
+extension TokensViewController:ErrorStateDelegate{
+    func didTapTryAgain() {
+        fetch()
     }
 }

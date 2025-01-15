@@ -9,19 +9,17 @@
 import Foundation
 import Combine
 
-class TokensViewModel: NSObject {
+class TokensViewModel: BaseViewModel<[TokensUIModel]> {
     
     private let networkService: Networkable
-    private var cancellables = Set<AnyCancellable>()
-    
-    let data = PassthroughSubject<[TokensUIModel], Never>()
-    let error = PassthroughSubject<NetworkError, Never>()
-    
+  
     init(networkService: Networkable = NetworkService()) {
         self.networkService = networkService
     }
     
     func fetchTokens(){
+        stateSubject.send(.loading)
+        
         AppState.shared.protocolIDPublisher
             .filter { !$0.isEmpty }
             .removeDuplicates()
@@ -31,16 +29,20 @@ class TokensViewModel: NSObject {
                     type: TokensDTOModel.self
                 )
             }
-            .sink { completion in
+            .sink { [weak self] completion in
+                guard let self else {return}
+                
                 switch completion {
                 case .finished:
                     break
                 case .failure(let error):
-                    self.error.send(error)
+                    stateSubject.send(.error(error))
                 }
-            } receiveValue: { data in
+            } receiveValue: { [weak self] data in
+                guard let self else {return}
+                
                 let uiData = data.toUIModels() as [TokensUIModel]
-                self.data.send(uiData)
+                stateSubject.send(.loaded(uiData))
             }
             .store(in: &cancellables)
     }

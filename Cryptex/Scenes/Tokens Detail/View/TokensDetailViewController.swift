@@ -17,6 +17,8 @@ class TokensDetailViewController: BaseHidesTabBarViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupBindings()
+        fetch()
+        errorDelegate = self
 
     }
     override func loadView() {
@@ -24,32 +26,40 @@ class TokensDetailViewController: BaseHidesTabBarViewController {
         setupUI()
     }
     
-    var protocolName:String?
-    var tokenChain:String?
-    var tokenContract:String?
+    var protocolName:String = ""
+    var tokenChain:String = ""
+    var tokenContract:String = ""
     
     private var safeAreaLayoutGuide:UILayoutGuide{
         view.safeAreaLayoutGuide
     }
     
-    private func setupBindings(){
-        guard let protocolName = protocolName,
-              let tokenChain = tokenChain,
-              let tokenContract = tokenContract
-        else {return}
-        
-        showLoading()
-        
+    private func fetch(){
         viewModel.fetchTokenDetail(name: protocolName, contract: tokenContract, chain: tokenChain)
-        viewModel.data
+    }
+    
+    private func setupBindings(){
+        viewModel.state
             .receive(on: DispatchQueue.main)
-            .sink {[weak self] response in
+            .sink {[weak self] state in
                 guard let self else {return}
-                tokensChart.updateChart(with: response.chartData)
-                tokenInfoView.configure(with: response.uiModel)
-                hideLoading()
                 
-            }.store(in: &cancellables)
+                switch state {
+                case .idle: break
+                case .loading:
+                    hideError()
+                    showLoading()
+                case .loaded(let data):
+                    hideError()
+                    hideLoading()
+                    tokensChart.updateChart(with: data.chartData)
+                    tokenInfoView.configure(with: data.uiModel)
+                case .error(let error):
+                    hideLoading()
+                    showError(for: error)
+                }
+            }
+            .store(in: &cancellables)
     }
     
     private lazy var tokenInfoView = TokenInfoView()
@@ -70,4 +80,12 @@ class TokensDetailViewController: BaseHidesTabBarViewController {
         ])
     }
 
+}
+
+extension TokensDetailViewController:ErrorStateDelegate{
+    func didTapTryAgain() {
+        fetch()
+    }
+    
+    
 }

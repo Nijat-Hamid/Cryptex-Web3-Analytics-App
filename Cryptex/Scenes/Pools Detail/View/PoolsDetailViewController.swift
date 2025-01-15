@@ -22,9 +22,36 @@ class PoolsDetailViewController: BaseHidesTabBarViewController {
         view.safeAreaLayoutGuide
     }
     
-    var protocolName:String?
-    var poolChain:String?
-    var poolContract:String?
+    var protocolName:String = ""
+    var poolChain:String = ""
+    var poolContract:String = ""
+    
+    private func fetch(){
+//        viewModel.fetchTokenDetail(name: protocolName, contract: tokenContract, chain: tokenChain)
+    }
+    
+//    private func setupBindings(){
+//        viewModel.state
+//            .receive(on: DispatchQueue.main)
+//            .sink {[weak self] state in
+//                guard let self else {return}
+//                
+//                switch state {
+//                case .idle: break
+//                case .loading:
+//                    showLoading()
+//                case .loaded(let data):
+//                    hideLoading()
+//                    tokensChart.updateChart(with: data.chartData)
+//                    tokenInfoView.configure(with: data.uiModel)
+//                case .error(let error):
+//                    hideLoading()
+//                    showError(for: error)
+//                }
+//            }
+//            .store(in: &cancellables)
+//    }
+    
     
     private lazy var poolInfoView = PoolInfoView()
     private lazy var poolsChart = PoolChartView()

@@ -9,39 +9,40 @@
 import Foundation
 import Combine
 
-class PoolDetailViewModel: NSObject {
+class PoolDetailViewModel: BaseViewModel<TokenCombinedModel> {
 
     private let networkService: Networkable
-    private var cancellables = Set<AnyCancellable>()
-    
-    let data = PassthroughSubject<TokenCombinedModel, Never>()
-    let error = PassthroughSubject<NetworkError, Never>()
     
     init(networkService: Networkable = NetworkService()) {
         self.networkService = networkService
     }
     
     func fetchPoolDetail(name:String,contract:String,chain:String){
-        guard !name.isEmpty,!contract.isEmpty,!chain.isEmpty else {return}
+        stateSubject.send(.loading)
         networkService.sendRequest(
             endpoint: PoolEndpoint.getSinglePool(contract: contract, name: name, chain: chain),
             type: TokenDetailDTOModel.self
-        ).sink { completion in
+        ).sink { [weak self] completion in
+            guard let self else {return}
+            
             switch completion {
             case .finished:
                 break
             case .failure(let error):
-                self.error.send(error)
+                stateSubject.send(.error(error))
             }
-        } receiveValue: { dto in
+        } receiveValue: { [weak self] dto in
+            guard let self else {return}
+            
             guard let uiModel = TokenDetailUIModel(dto: dto),
-                  let chartDataModel = TokenDetailChartDataModel(dto: dto) else {
-                self.error.send(.decode)
+                  let chartDataModel = TokenDetailChartDataModel(dto: dto)
+            else {
+                stateSubject.send(.error(.decode))
                 return
             }
             
             let combinedModel = TokenCombinedModel(uiModel: uiModel, chartData: chartDataModel)
-            self.data.send(combinedModel)
+            stateSubject.send(.loaded(combinedModel))
         }.store(in: &cancellables)
     }
 }

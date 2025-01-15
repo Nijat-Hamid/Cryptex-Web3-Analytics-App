@@ -9,19 +9,17 @@
 import Foundation
 import Combine
 
-class PoolsViewModel: NSObject {
+class PoolsViewModel: BaseViewModel<PoolsCombinedUIModel> {
 
     private let networkService: Networkable
-    private var cancellables = Set<AnyCancellable>()
-    
-    let data = PassthroughSubject<PoolsCombinedUIModel, Never>()
-    let error = PassthroughSubject<NetworkError, Never>()
-    
+ 
     init(networkService: Networkable = NetworkService()) {
         self.networkService = networkService
     }
     
     func fetchPools(){
+        stateSubject.send(.loading)
+        
         AppState.shared.protocolIDPublisher
             .filter { !$0.isEmpty }
             .removeDuplicates()
@@ -31,23 +29,26 @@ class PoolsViewModel: NSObject {
                     type: PoolsCombinedDTOModel.self
                 )
             }
-            .sink { completion in
+            .sink { [weak self] completion in
+                guard let self else {return}
+                
                 switch completion {
                 case .finished:
                     break
                 case .failure(let error):
-                    print(error)
-                    self.error.send(error)
+                    stateSubject.send(.error(error))
                 }
-            } receiveValue: { combinedDTO in
+            } receiveValue: { [weak self] combinedDTO in
+                guard let self else {return}
+            
                 switch combinedDTO {
                 case .lendingModel(let lending):
                     let uiModels = lending.toUIModels() as [PoolsLendingUIModel]
-                    self.data.send(.lendingUIModel(uiModels))
+                    stateSubject.send(.loaded(.lendingUIModel(uiModels)))
                     
                 case .dexModel(let dex):
                     let uiModels = dex.toUIModels() as [PoolsDexUIModel]
-                    self.data.send(.dexUIModel(uiModels))
+                    stateSubject.send(.loaded(.dexUIModel(uiModels)))
                 }
             }
             .store(in: &cancellables)

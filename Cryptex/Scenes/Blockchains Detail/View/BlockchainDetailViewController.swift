@@ -17,6 +17,8 @@ class BlockchainDetailViewController: BaseHidesTabBarViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupBindings()
+        fetch()
+        errorDelegate = self
     }
     
     override func loadView() {
@@ -24,27 +26,38 @@ class BlockchainDetailViewController: BaseHidesTabBarViewController {
         setupUI()
     }
     
-    var blockchainName:String?
+    var blockchainName:String = ""
     
     private var safeAreaLayoutGuide:UILayoutGuide{
         view.safeAreaLayoutGuide
     }
     
+    private func fetch() {
+        viewModel.fetchBlockchainDetail(name: blockchainName)
+    }
+    
     private func setupBindings(){
-        guard let blockchainName = blockchainName else {return}
-        showLoading()
-        
-        viewModel.fetchBlockchainDetail(name: blockchainName )
-        viewModel.data
+        viewModel.state
             .receive(on: DispatchQueue.main)
-            .sink {[weak self] response in
+            .sink { [weak self] state in
                 guard let self else {return}
-                blockchainChart.updateChart(with: response.chartData)
-                blockchainInfoView.configure(with: response.uiModel)
                 
-                hideLoading()
-                
-            }.store(in: &cancellables)
+                switch state {
+                case .idle: break
+                case .loading:
+                    hideError()
+                    showLoading()
+                case .loaded(let data):
+                    hideError()
+                    hideLoading()
+                    blockchainChart.updateChart(with:data.chartData)
+                    blockchainInfoView.configure(with: data.uiModel)
+                case .error(let error):
+                    hideLoading()
+                    showError(for: error)
+                }
+            }
+            .store(in: &cancellables)
     }
     
     private lazy var blockchainInfoView = BlockchainInfoView()
@@ -65,4 +78,10 @@ class BlockchainDetailViewController: BaseHidesTabBarViewController {
         ])
     }
 
+}
+
+extension BlockchainDetailViewController:ErrorStateDelegate{
+    func didTapTryAgain() {
+        fetch()        
+    }
 }

@@ -9,38 +9,39 @@
 import Foundation
 import Combine
 
-class BlockchainDetailViewModel: NSObject {
+class BlockchainDetailViewModel: BaseViewModel<BlockchainCombinedModel> {
     private let networkService: Networkable
-    private var cancellables = Set<AnyCancellable>()
-    
-    let data = PassthroughSubject<BlockchainCombinedModel, Never>()
-    let error = PassthroughSubject<NetworkError, Never>()
-    
+   
     init(networkService: Networkable = NetworkService()) {
         self.networkService = networkService
     }
     
     func fetchBlockchainDetail(name:String){
-        guard !name.isEmpty else {return}
+        stateSubject.send(.loading)
         networkService.sendRequest(
             endpoint: BlockchainEndpoint.getSingleBlockchain(name: name),
             type: BlockchainDetailDTOModel.self
-        ).sink { completion in
+        ).sink {[weak self] completion in
+            guard let self else {return}
+            
             switch completion {
             case .finished:
                 break
             case .failure(let error):
-                self.error.send(error)
+                stateSubject.send(.error(error))
             }
-        } receiveValue: { dto in
+        } receiveValue: {[weak self] dto in
+            guard let self else {return}
+            
             guard let uiModel = BlockchainDetailUIModel(dto: dto),
-                  let chartDataModel = BlockchainDetailChartDataModel(dto: dto) else {
-                self.error.send(.decode)
+                  let chartDataModel = BlockchainDetailChartDataModel(dto: dto)
+            else {
+                stateSubject.send(.error(.decode))
                 return
             }
             
             let combinedModel = BlockchainCombinedModel(uiModel: uiModel, chartData: chartDataModel)
-            self.data.send(combinedModel)
+            stateSubject.send(.loaded(combinedModel))
         }.store(in: &cancellables)
     }
 }

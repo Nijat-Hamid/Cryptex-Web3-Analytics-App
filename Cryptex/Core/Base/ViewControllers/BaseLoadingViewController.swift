@@ -8,14 +8,14 @@
 
 import UIKit
 
-class BaseLoadingViewController: BaseBackgroundViewController {
+class BaseLoadingViewController: BaseErrorViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
     }
     
-    lazy var overlayView: UIView = {
+    private lazy var overlayView: UIView = {
         let overlay = UIView()
         overlay.translatesAutoresizingMaskIntoConstraints = false
         overlay.backgroundColor = .background
@@ -25,7 +25,7 @@ class BaseLoadingViewController: BaseBackgroundViewController {
     
     
     
-    lazy var progress: UIActivityIndicatorView = {
+    private lazy var progress: UIActivityIndicatorView = {
         let progress = UIActivityIndicatorView()
         progress.translatesAutoresizingMaskIntoConstraints = false
         progress.hidesWhenStopped = true

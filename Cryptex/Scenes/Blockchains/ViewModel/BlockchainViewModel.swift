@@ -9,18 +9,17 @@
 import Foundation
 import Combine
 
-class BlockchainViewModel: NSObject {
+class BlockchainViewModel: BaseViewModel<[BlockchainsUIModel]> {
+    
     private let networkService: Networkable
-    private var cancellables = Set<AnyCancellable>()
-    
-    let data = PassthroughSubject<[BlockchainsUIModel], Never>()
-    let error = PassthroughSubject<NetworkError, Never>()
-    
+   
     init(networkService: Networkable = NetworkService()) {
         self.networkService = networkService
     }
     
     func fetchBlockchain(){
+        stateSubject.send(.loading)
+        
         AppState.shared.protocolIDPublisher
             .filter { !$0.isEmpty }
             .removeDuplicates()
@@ -30,16 +29,20 @@ class BlockchainViewModel: NSObject {
                     type: BlockchainsDTOModel.self
                 )
             }
-            .sink { completion in
+            .sink { [weak self] completion in
+                guard let self else {return}
+                
                 switch completion {
                 case .finished:
                     break
                 case .failure(let error):
-                    self.error.send(error)
+                    stateSubject.send(.error(error))
                 }
-            } receiveValue: { data in
+            } receiveValue: { [weak self] data in
+                guard let self else {return}
+                
                 let uiData = data.toUIModels() as [BlockchainsUIModel]
-                self.data.send(uiData)
+                stateSubject.send(.loaded(uiData))
             }
             .store(in: &cancellables)
     }

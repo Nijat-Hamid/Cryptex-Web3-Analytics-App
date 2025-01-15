@@ -18,6 +18,8 @@ class BlockchainsViewController: BaseSidePageViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupBindings()
+        fetch()
+        errorDelegate = self
     }
     
     override func loadView() {
@@ -25,18 +27,32 @@ class BlockchainsViewController: BaseSidePageViewController {
         setupUI()
     }
     
-    private func setupBindings(){
-        showLoading()
+    private func fetch(){
         viewModel.fetchBlockchain()
-        viewModel.data
+    }
+    
+    private func setupBindings(){
+        viewModel.state
             .receive(on: DispatchQueue.main)
-            .sink {[weak self] response in
+            .sink {[weak self] state in
                 guard let self else {return}
-                blockchainsUIData = response
-                reloadData()
-                hideLoading()
-            }.store(in: &cancellables)
-        
+                
+                switch state {
+                case .idle:break
+                case .loading:
+                    hideError()
+                    showLoading()
+                case .loaded(let data):
+                    hideError()
+                    hideLoading()
+                    blockchainsUIData = data
+                    reloadData()
+                case .error(let error):
+                    hideLoading()
+                    showError(for: error)
+                }
+            }
+            .store(in: &cancellables)
     }
 
     
@@ -92,12 +108,16 @@ class BlockchainsViewController: BaseSidePageViewController {
     
 }
 
-extension BlockchainsViewController:UICollectionViewDelegate{
+extension BlockchainsViewController:UICollectionViewDelegate,ErrorStateDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let vc = BlockchainDetailViewController()
         vc.navigationItem.title = blockchainsUIData[indexPath.row].blockchainName
         vc.blockchainName = blockchainsUIData[indexPath.row].chain
         navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func didTapTryAgain() {
+        fetch()
     }
 }
 
