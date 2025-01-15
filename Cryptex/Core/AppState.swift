@@ -12,8 +12,6 @@ import UIKit
 class AppState {
     // Singleton Pattern
     static let shared = AppState()
-    // Container View
-    weak var containerView:ContainerViewController?
     // UserDefaults
     private let userDefault = UserDefaults.standard
     // SelectedProtocolID publisher
@@ -46,11 +44,6 @@ class AppState {
            }
            return ""
        }
-    
-    func setPage(to page: Pages) {
-        containerView?.setPage(to: page)
-    }
-    
 }
 
 

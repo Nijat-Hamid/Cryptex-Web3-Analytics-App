@@ -14,7 +14,6 @@ class ContainerViewController: BaseViewController {
         super.viewDidLoad()
         setupUI()
         setInitialPage()
-        AppState.shared.containerView = self
     }
     
     private let viewController:[Pages:UIViewController] = [

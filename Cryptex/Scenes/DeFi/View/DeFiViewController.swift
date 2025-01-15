@@ -60,7 +60,7 @@ class DeFiViewController: BaseBackgroundViewController {
     }()
     
     @objc private func nextButtonAction(_ sender: UIButton) {
-            AppState.shared.setPage(to: .main)
+            ContainerState.shared.setPage(to: .main)
     }
     
     private func setupUI(){

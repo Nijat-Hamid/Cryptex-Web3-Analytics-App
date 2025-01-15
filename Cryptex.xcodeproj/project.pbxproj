@@ -89,6 +89,7 @@
 		1FA38BE12D3552EA00611800 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA38BE02D3552E800611800 /* Router.swift */; };
 		1FA38BE62D3695CD00611800 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA38BE52D3695CD00611800 /* BaseViewModel.swift */; };
 		1FA38BE82D369F0B00611800 /* BaseErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA38BE72D369F0B00611800 /* BaseErrorViewController.swift */; };
+		1FA38BEA2D37CFD900611800 /* ContainerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA38BE92D37CFD300611800 /* ContainerState.swift */; };
 		1FB9E5D92D0AB2A400128526 /* PoolCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB9E5D82D0AB2A400128526 /* PoolCell.swift */; };
 		1FB9E5DB2D0AC62200128526 /* PoolsDTOModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB9E5DA2D0AC61C00128526 /* PoolsDTOModel.swift */; };
 		1FB9E5DF2D0C393200128526 /* UILabel+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB9E5DE2D0C392900128526 /* UILabel+Extensions.swift */; };
@@ -194,6 +195,7 @@
 		1FA38BE02D3552E800611800 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		1FA38BE52D3695CD00611800 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		1FA38BE72D369F0B00611800 /* BaseErrorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseErrorViewController.swift; sourceTree = "<group>"; };
+		1FA38BE92D37CFD300611800 /* ContainerState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerState.swift; sourceTree = "<group>"; };
 		1FB9E5D82D0AB2A400128526 /* PoolCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoolCell.swift; sourceTree = "<group>"; };
 		1FB9E5DA2D0AC61C00128526 /* PoolsDTOModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoolsDTOModel.swift; sourceTree = "<group>"; };
 		1FB9E5DE2D0C392900128526 /* UILabel+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extensions.swift"; sourceTree = "<group>"; };
@@ -910,6 +912,7 @@
 		1FBDD1EE2CF71E4F00223819 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				1FA38BE92D37CFD300611800 /* ContainerState.swift */,
 				1F42931F2CFDA9D7000CFA9E /* AppState.swift */,
 				1F42931C2CFCC723000CFA9E /* Components */,
 				1F3C808F2D1F857700737BED /* Constants */,
@@ -1167,6 +1170,7 @@
 				1F3C809F2D22752300737BED /* BlockchainDetailViewModel.swift in Sources */,
 				1FB9E5D92D0AB2A400128526 /* PoolCell.swift in Sources */,
 				1F4293152CF9F8C3000CFA9E /* DeFiUIModel.swift in Sources */,
+				1FA38BEA2D37CFD900611800 /* ContainerState.swift in Sources */,
 				1F60927D2D109466001CCE43 /* LineChart.swift in Sources */,
 				1F3C80752D1C656E00737BED /* CustomDropdownView.swift in Sources */,
 				1F934D362D132F48002085DD /* TokenInfoView.swift in Sources */,
