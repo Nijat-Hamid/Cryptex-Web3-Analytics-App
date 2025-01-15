@@ -131,8 +131,8 @@ class AboutViewController: BaseHidesTabBarViewController {
     
     @objc private func logOutAction(_ sender:UIButton){
         AppState.shared.resetProtocolID()
-        AppState.shared.setPage(to: .defi)
-//        tabBarController?.selectedIndex = 0
+        ContainerState.shared.setPage(to: .defi)
+
     }
     
     @objc private func linkOpener (_ sender:UIButton) {
