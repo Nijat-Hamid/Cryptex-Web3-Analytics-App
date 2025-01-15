@@ -8,6 +8,14 @@
 
 import UIKit
 import SnapKit
+
+enum Pages:Int {
+    case main
+    case defi
+    case root
+}
+
+
 class ContainerViewController: BaseViewController {
 
     override func viewDidLoad() {
@@ -16,16 +24,15 @@ class ContainerViewController: BaseViewController {
         setInitialPage()
     }
     
-    private let viewController:[Pages:UIViewController] = [
+      let viewController:[Pages:UIViewController] = [
         .main:MainTabBarViewController(),
         .defi:DeFiViewController(),
         .root:RootViewController()
     ]
     
-    private let initialPage:Pages = .root
+    var initialPage:Pages?
     
     private func setupUI(){
-        
         viewController.forEach { _,vc in
             addChild(vc)
             view.addSubview(vc.view)
@@ -43,33 +50,4 @@ class ContainerViewController: BaseViewController {
         }
     }
     
-    func setPage(to page: Pages) {
-        let animation = CATransition()
-        animation.type = .fade
-        animation.duration = 0.4
-        animation.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
-        
-        
-        if page != .main, let mainTabBar = viewController[.main] as? MainTabBarViewController {
-            mainTabBar.viewControllers?.forEach { vc in
-                if let navController = vc as? AppNavigationController {
-                    navController.popToRootViewController(animated: true)
-                }
-            }
-            mainTabBar.selectedIndex = 0
-        }
-        
-        
-        view.layer.add(animation, forKey: "slideTransition")
-        viewController.forEach { enumPage, vc in
-            vc.view.isHidden = enumPage != page
-        }
-    }
-
-}
-
-enum Pages:Int {
-    case main
-    case defi
-    case root
 }

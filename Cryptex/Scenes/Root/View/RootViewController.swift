@@ -36,14 +36,7 @@ class RootViewController: BaseBackgroundViewController {
         rotation.isRemovedOnCompletion = false
         view.layer.add(rotation, forKey: "infiniteRotateAnimation")
     }
-    
-    private func pauseAnimation(on view: UIView) {
-        guard let layer = view.layer.presentation() else { return }
-        let pausedTime = layer.convertTime(CACurrentMediaTime(), from: nil)
-        view.layer.speed = 0
-        view.layer.timeOffset = pausedTime
-    }
-    
+        
     private func performInitialCheck (){
         let protocolID = AppState.shared.getInitialProtocolID()
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {

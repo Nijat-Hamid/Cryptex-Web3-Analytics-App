@@ -41,8 +41,10 @@ class AppState {
     func getInitialProtocolID() -> String {
            if let savedProtocolID = userDefault.string(forKey: "selectedProtocolID") {
                return savedProtocolID
+           }else {
+               return ""
            }
-           return ""
+           
        }
 }
 

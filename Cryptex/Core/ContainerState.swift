@@ -6,15 +6,42 @@
 //  Copyright © 2025 Nijat Hamid. All rights reserved.
 //
 
+import UIKit
+
 class ContainerState {
-    static let shared = ContainerState()
     
+    static let shared = ContainerState()
     private init(){}
     
-    private lazy var containerView:ContainerViewController = ContainerViewController()
-    
-    func setPage(to page: Pages) {
-        containerView.setPage(to: page)
+    var container:UIViewController{
+        return containerView
     }
     
+    private lazy var containerView:ContainerViewController = {
+        let vc = ContainerViewController()
+        vc.initialPage = .root
+        return vc
+    }()
+    
+    func setPage(to page: Pages) {
+        let animation = CATransition()
+        animation.type = .fade
+        animation.duration = 0.4
+        animation.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
+        
+        
+        if page != .main, let mainTabBar = containerView.viewController[.main] as? MainTabBarViewController {
+            mainTabBar.viewControllers?.forEach { vc in
+                if let navController = vc as? AppNavigationController {
+                    navController.popToRootViewController(animated: true)
+                }
+            }
+            mainTabBar.selectedIndex = 0
+        }
+        
+        containerView.view.layer.add(animation, forKey: "slideTransition")
+        containerView.viewController.forEach { enumPage, vc in
+            vc.view.isHidden = enumPage != page
+        }
+    }
 }
