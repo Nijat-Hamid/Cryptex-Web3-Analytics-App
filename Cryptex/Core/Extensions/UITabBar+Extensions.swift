@@ -10,11 +10,7 @@ import UIKit
 
 extension UITabBarController {
     func setTabBar(hidden: Bool, duration: TimeInterval = 0.4) {
-        let animation = CATransition()
-        
-        animation.type = .fade
-        animation.duration = duration
-        animation.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
+        let animation = Transitions.fade(duration: duration)
         
         UIView.animate(withDuration: duration, delay: 0, options: .curveEaseInOut) { [weak self] in
             guard let self,

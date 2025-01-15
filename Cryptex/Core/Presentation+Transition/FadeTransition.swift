@@ -27,12 +27,8 @@ class FadeTransition: NSObject, UIViewControllerAnimatedTransitioning {
         let containerView = transitionContext.containerView
         
         containerView.addSubview(toView)
-        let animation = CATransition()
-        animation.type = .fade
-        animation.duration = transitionDuration(using: transitionContext)
-        animation.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
+        let animation = Transitions.fade(duration: transitionDuration(using: transitionContext))
         containerView.layer.add(animation, forKey: "fadeAnimation")
-        
         transitionContext.completeTransition(true)
     }
 }

@@ -24,11 +24,7 @@ class ContainerState {
     }()
     
     func setPage(to page: Pages) {
-        let animation = CATransition()
-        animation.type = .fade
-        animation.duration = 0.4
-        animation.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
-        
+        let animation = Transitions.fade(duration: 0.4)
         
         if page != .main, let mainTabBar = containerView.viewController[.main] as? MainTabBarViewController {
             mainTabBar.viewControllers?.forEach { vc in
