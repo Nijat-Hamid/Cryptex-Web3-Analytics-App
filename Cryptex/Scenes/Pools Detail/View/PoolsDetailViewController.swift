@@ -7,12 +7,18 @@
 //
 
 import UIKit
+import Combine
 
 class PoolsDetailViewController: BaseHidesTabBarViewController {
 
+    private let viewModel = PoolDetailViewModel()
+    private var cancellables = Set<AnyCancellable>()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setupBindings()
+        fetch()
+        errorDelegate = self
     }
     override func loadView() {
         super.loadView()
@@ -27,30 +33,39 @@ class PoolsDetailViewController: BaseHidesTabBarViewController {
     var poolContract:String = ""
     
     private func fetch(){
-//        viewModel.fetchTokenDetail(name: protocolName, contract: tokenContract, chain: tokenChain)
+        viewModel.fetchPoolDetail(name: protocolName, contract: poolContract, chain: poolChain)
     }
     
-//    private func setupBindings(){
-//        viewModel.state
-//            .receive(on: DispatchQueue.main)
-//            .sink {[weak self] state in
-//                guard let self else {return}
-//                
-//                switch state {
-//                case .idle: break
-//                case .loading:
-//                    showLoading()
-//                case .loaded(let data):
-//                    hideLoading()
-//                    tokensChart.updateChart(with: data.chartData)
-//                    tokenInfoView.configure(with: data.uiModel)
-//                case .error(let error):
-//                    hideLoading()
-//                    showError(for: error)
-//                }
-//            }
-//            .store(in: &cancellables)
-//    }
+    private func setupBindings(){
+        viewModel.state
+            .receive(on: DispatchQueue.main)
+            .sink {[weak self] state in
+                guard let self else {return}
+                
+                switch state {
+                case .idle: break
+                case .loading:
+                    hideError()
+                    showLoading()
+                case .loaded(let data):
+                    hideError()
+                    hideLoading()
+                    
+                    switch data {
+                    case .detailLendingModel(let lending):
+                        poolsChart.updateChart(with: lending.chartData)
+                        poolInfoView.configure(with: .lending(lending.uiData))
+                    case .detailDexModel(let dex):
+                        poolsChart.updateChart(with: dex.chartData)
+                        poolInfoView.configure(with: .dex(dex.uiData))
+                    }
+                case .error(let error):
+                    hideLoading()
+                    showError(for: error)
+                }
+            }
+            .store(in: &cancellables)
+    }
     
     
     private lazy var poolInfoView = PoolInfoView()
@@ -71,4 +86,10 @@ class PoolsDetailViewController: BaseHidesTabBarViewController {
         ])
     }
     
+}
+
+extension PoolsDetailViewController:ErrorStateDelegate{
+    func didTapTryAgain() {
+        fetch()
+    }
 }

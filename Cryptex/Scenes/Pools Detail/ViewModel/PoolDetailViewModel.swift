@@ -9,7 +9,7 @@
 import Foundation
 import Combine
 
-class PoolDetailViewModel: BaseViewModel<TokenCombinedModel> {
+class PoolDetailViewModel: BaseViewModel<PoolsDetailCombinedUIModel> {
 
     private let networkService: Networkable
     
@@ -19,9 +19,10 @@ class PoolDetailViewModel: BaseViewModel<TokenCombinedModel> {
     
     func fetchPoolDetail(name:String,contract:String,chain:String){
         stateSubject.send(.loading)
+        
         networkService.sendRequest(
             endpoint: PoolEndpoint.getSinglePool(contract: contract, name: name, chain: chain),
-            type: TokenDetailDTOModel.self
+            type: PoolsDetailCombinedDTOModel.self
         ).sink { [weak self] completion in
             guard let self else {return}
             
@@ -31,18 +32,32 @@ class PoolDetailViewModel: BaseViewModel<TokenCombinedModel> {
             case .failure(let error):
                 stateSubject.send(.error(error))
             }
-        } receiveValue: { [weak self] dto in
+        } receiveValue: { [weak self] combinedDto in
             guard let self else {return}
             
-            guard let uiModel = TokenDetailUIModel(dto: dto),
-                  let chartDataModel = TokenDetailChartDataModel(dto: dto)
-            else {
-                stateSubject.send(.error(.decode))
-                return
+            switch combinedDto {
+            case .detailLendingModel(let lending):
+                guard let uiData = DetailLendingUIModel(dto: lending),
+                      let chartData = DetailChartModel(dto: .detailLendingModel(lending))
+                else {
+                    stateSubject.send(.error(.decode))
+                    return
+                }
+                
+                let combinedModel = DetailLendingCombinedModel(uiData: uiData, chartData: chartData)
+                stateSubject.send(.loaded(.detailLendingModel(combinedModel)))
+            case .detailDexModel(let dex):
+                guard let uiData = DetailDexUIModel(dto: dex),
+                      let chartData = DetailChartModel(dto: .detailDexModel(dex))
+                else {
+                    stateSubject.send(.error(.decode))
+                    return
+                }
+                
+                let combinedModel = DetailDexCombinedModel(uiData: uiData, chartData: chartData)
+                stateSubject.send(.loaded(.detailDexModel(combinedModel)))
             }
-            
-            let combinedModel = TokenCombinedModel(uiModel: uiModel, chartData: chartDataModel)
-            stateSubject.send(.loaded(combinedModel))
-        }.store(in: &cancellables)
+        }
+        .store(in: &cancellables)
     }
 }

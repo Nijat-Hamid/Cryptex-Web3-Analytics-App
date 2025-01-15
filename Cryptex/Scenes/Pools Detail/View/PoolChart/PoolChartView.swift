@@ -26,34 +26,32 @@ class PoolChartView: UIView {
         applyCornerRadiusWithShadow()
     }
     
+    private var tvlData: [ChartDataEntry] = []
+    private var apyData: [ChartDataEntry] = []
+    
     private lazy var chart = LineChart()
-    private lazy var segments = CustomSegmentView(segments: ["Supply Apy","Borrow APR","TVL"])
+    private lazy var segments = CustomSegmentView(segments: ["TVL","APY"])
     
+    func updateChart(with data: DetailChartModel) {
+        
+        tvlData = data.historicalTvl
+        apyData = data.historicalApy
+        
+        updateChartData(for: 0)
+    }
 
-    private let priceData: [ChartDataEntry] = [
-           ChartDataEntry(x: 1, y: 2),
-           ChartDataEntry(x: 2, y: 4),
-           ChartDataEntry(x: 3, y: 3),
-           ChartDataEntry(x: 4, y: 5),
-           ChartDataEntry(x: 5, y: 6)
-       ]
-       
-       private let marketCapData: [ChartDataEntry] = [
-           ChartDataEntry(x: 1, y: 20),
-           ChartDataEntry(x: 2, y: 25),
-           ChartDataEntry(x: 3, y: 23),
-           ChartDataEntry(x: 4, y: 30),
-           ChartDataEntry(x: 5, y: 28)
-       ]
-    
     private func updateChartData(for index: Int) {
         switch index {
         case 0:
-            chart.chartData = priceData
-            chart.chartDataLabel = "Price"
+            chart.chartData = tvlData
+            chart.chartDataLabel = "TVL"
+            chart.configureYAxisFormatter(type: .currency)
+            chart.chartMarker.yMarkerFormatter = .currency
         case 1:
-            chart.chartData = marketCapData
-            chart.chartDataLabel = "Market Cap"
+            chart.chartData = apyData
+            chart.chartDataLabel = "APY"
+            chart.configureYAxisFormatter(type: .percentage)
+            chart.chartMarker.yMarkerFormatter = .percentage
         default:
             break
         }

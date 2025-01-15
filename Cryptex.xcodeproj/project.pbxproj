@@ -91,6 +91,8 @@
 		1FA38BE82D369F0B00611800 /* BaseErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA38BE72D369F0B00611800 /* BaseErrorViewController.swift */; };
 		1FA38BEA2D37CFD900611800 /* ContainerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA38BE92D37CFD300611800 /* ContainerState.swift */; };
 		1FA38BEC2D37E3E300611800 /* Transitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA38BEB2D37E3D500611800 /* Transitions.swift */; };
+		1FA38BEE2D38320B00611800 /* PoolDetailDTOModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA38BED2D38320100611800 /* PoolDetailDTOModel.swift */; };
+		1FA38BF02D383B9B00611800 /* PoolDetailUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA38BEF2D383B9400611800 /* PoolDetailUIModel.swift */; };
 		1FB9E5D92D0AB2A400128526 /* PoolCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB9E5D82D0AB2A400128526 /* PoolCell.swift */; };
 		1FB9E5DB2D0AC62200128526 /* PoolsDTOModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB9E5DA2D0AC61C00128526 /* PoolsDTOModel.swift */; };
 		1FB9E5DF2D0C393200128526 /* UILabel+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB9E5DE2D0C392900128526 /* UILabel+Extensions.swift */; };
@@ -198,6 +200,8 @@
 		1FA38BE72D369F0B00611800 /* BaseErrorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseErrorViewController.swift; sourceTree = "<group>"; };
 		1FA38BE92D37CFD300611800 /* ContainerState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerState.swift; sourceTree = "<group>"; };
 		1FA38BEB2D37E3D500611800 /* Transitions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transitions.swift; sourceTree = "<group>"; };
+		1FA38BED2D38320100611800 /* PoolDetailDTOModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoolDetailDTOModel.swift; sourceTree = "<group>"; };
+		1FA38BEF2D383B9400611800 /* PoolDetailUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoolDetailUIModel.swift; sourceTree = "<group>"; };
 		1FB9E5D82D0AB2A400128526 /* PoolCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoolCell.swift; sourceTree = "<group>"; };
 		1FB9E5DA2D0AC61C00128526 /* PoolsDTOModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoolsDTOModel.swift; sourceTree = "<group>"; };
 		1FB9E5DE2D0C392900128526 /* UILabel+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extensions.swift"; sourceTree = "<group>"; };
@@ -750,6 +754,8 @@
 		1F934D2C2D12DC5B002085DD /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				1FA38BEF2D383B9400611800 /* PoolDetailUIModel.swift */,
+				1FA38BED2D38320100611800 /* PoolDetailDTOModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1153,6 +1159,7 @@
 				1F3C80912D1F858C00737BED /* Constants.swift in Sources */,
 				1F3C807C2D1DCF0E00737BED /* EndPoint.swift in Sources */,
 				1F42931E2CFCC7BD000CFA9E /* ChartMarker.swift in Sources */,
+				1FA38BF02D383B9B00611800 /* PoolDetailUIModel.swift in Sources */,
 				1F3C806A2D1B5C4800737BED /* Collection+Extensions.swift in Sources */,
 				1F6092852D11F1F5001CCE43 /* String+Extensions.swift in Sources */,
 				1F42934A2D00AFC1000CFA9E /* UIImage+Extension.swift in Sources */,
@@ -1160,6 +1167,7 @@
 				1FA38BEC2D37E3E300611800 /* Transitions.swift in Sources */,
 				1F53EBCC2D2ED48C008EDDB0 /* TokenDetailDTOModel.swift in Sources */,
 				1F3C807A2D1DCEED00737BED /* NetworkError.swift in Sources */,
+				1FA38BEE2D38320B00611800 /* PoolDetailDTOModel.swift in Sources */,
 				1F6092782D10457E001CCE43 /* MetricsChart.swift in Sources */,
 				1F4293552D0173DB000CFA9E /* BaseBackgroundViewController.swift in Sources */,
 				1F4293462D008D90000CFA9E /* AboutViewModel.swift in Sources */,

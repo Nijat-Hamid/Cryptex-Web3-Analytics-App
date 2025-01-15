@@ -16,11 +16,15 @@ enum PoolsCombinedDTOModel:Codable{
         let container = try decoder.singleValueContainer()
         
         if let lendingModels = try? container.decode(PoolsLendingDTOModel.self),
-           lendingModels.contains(where: {$0.utilizationRate != nil}) {
+           lendingModels.contains(where: { $0.utilizationRate != nil }) {
             self = .lendingModel(lendingModels)
-        } else {
-            let dexModels = try! container.decode(PoolsDexDTOModel.self)
+        } else if let dexModels = try? container.decode(PoolsDexDTOModel.self) {
             self = .dexModel(dexModels)
+        } else {
+            throw DecodingError.dataCorruptedError(
+                in: container,
+                debugDescription: "Data matches neither lending nor dex model format"
+            )
         }
     }
     
