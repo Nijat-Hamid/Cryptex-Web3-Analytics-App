@@ -157,7 +157,6 @@ class BlockchainCell: UICollectionViewCell {
     
     private lazy var daily:UILabel = {
         let label = UILabel()
-        label.text = "3848B"
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = .zero
         label.textAlignment = .center
@@ -168,7 +167,6 @@ class BlockchainCell: UICollectionViewCell {
     
     private lazy var weekly:UILabel = {
         let label = UILabel()
-        label.text = "199K"
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = .zero
         label.textAlignment = .center
@@ -179,7 +177,6 @@ class BlockchainCell: UICollectionViewCell {
     
     private lazy var monthly:UILabel = {
         let label = UILabel()
-        label.text = "35K"
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = .zero
         label.textAlignment = .center
@@ -246,7 +243,6 @@ class BlockchainCell: UICollectionViewCell {
     
     private lazy var tvl:UILabel = {
         let label = UILabel()
-        label.text = "9.56%"
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 1
         label.textAlignment = .center
@@ -257,7 +253,6 @@ class BlockchainCell: UICollectionViewCell {
     
     private lazy var marketShare:UILabel = {
         let label = UILabel()
-        label.text = "1.58%"
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 1
         label.textAlignment = .center

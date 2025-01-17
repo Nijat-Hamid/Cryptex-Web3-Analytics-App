@@ -63,7 +63,6 @@ class TokenCell: UICollectionViewCell {
     
     private lazy var tokenName:UILabel = {
         let label = UILabel()
-        label.text = "WSTETH"
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = .zero
         label.textAlignment = .center
@@ -74,7 +73,6 @@ class TokenCell: UICollectionViewCell {
     
     private lazy var tokenSecondInfo:UILabel = {
         let label = UILabel()
-        label.text = "37483$"
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = .zero
         label.textAlignment = .center
@@ -225,7 +223,6 @@ class TokenCell: UICollectionViewCell {
     
     private lazy var daily:UILabel = {
         let label = UILabel()
-        label.text = "3848B"
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = .zero
         label.textAlignment = .center
@@ -236,7 +233,6 @@ class TokenCell: UICollectionViewCell {
     
     private lazy var weekly:UILabel = {
         let label = UILabel()
-        label.text = "199K"
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = .zero
         label.textAlignment = .center
@@ -247,7 +243,6 @@ class TokenCell: UICollectionViewCell {
     
     private lazy var monthly:UILabel = {
         let label = UILabel()
-        label.text = "35K"
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = .zero
         label.textAlignment = .center
@@ -314,7 +309,6 @@ class TokenCell: UICollectionViewCell {
     
     private lazy var volume:UILabel = {
         let label = UILabel()
-        label.text = "9.56%"
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = .zero
         label.textAlignment = .center
@@ -325,7 +319,6 @@ class TokenCell: UICollectionViewCell {
     
     private lazy var marketCap:UILabel = {
         let label = UILabel()
-        label.text = "1.58%"
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = .zero
         label.textAlignment = .center
@@ -336,7 +329,6 @@ class TokenCell: UICollectionViewCell {
     
     private lazy var riskLabel:UILabel = {
         let label = UILabel()
-        label.text = "F"
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = .zero
         label.textAlignment = .center

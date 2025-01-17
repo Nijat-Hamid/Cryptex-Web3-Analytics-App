@@ -251,7 +251,6 @@ class BlockchainInfoView: UIView {
 
     private lazy var tvl:UILabel = {
         let label = UILabel()
-        label.text = "$53.44B"
         label.numberOfLines = 1
         label.textAlignment = .center
         label.font = UIFont(name: "Geist-medium", size: 14)
@@ -261,7 +260,6 @@ class BlockchainInfoView: UIView {
     
     private lazy var tvlChanges:UILabel = {
         let label = UILabel()
-        label.text = "1.09%"
         label.numberOfLines = 1
         label.textAlignment = .center
         label.font = UIFont(name: "Geist-medium", size: 14)
@@ -271,7 +269,6 @@ class BlockchainInfoView: UIView {
     
     private lazy var creationDate:UILabel = {
         let label = UILabel()
-        label.text = "3 May 2021"
         label.font = UIFont(name: "Geist-medium", size: 14)
         label.textColor = .foreground
         label.textAlignment = .center
@@ -292,7 +289,6 @@ class BlockchainInfoView: UIView {
     
     private lazy var capTvl:UILabel = {
         let label = UILabel()
-        label.text = "1.11"
         label.numberOfLines = 1
         label.font = UIFont(name: "Geist-medium", size: 14)
         label.textColor = .foreground
@@ -303,7 +299,6 @@ class BlockchainInfoView: UIView {
    
     private lazy var marketShare:UILabel = {
         let label = UILabel()
-        label.text = "2.88%"
         label.numberOfLines = 1
         label.font = UIFont(name: "Geist-medium", size: 14)
         label.textColor = .foreground
@@ -313,7 +308,6 @@ class BlockchainInfoView: UIView {
     
     private lazy var marketCap:UILabel = {
         let label = UILabel()
-        label.text = "$2.96B"
         label.numberOfLines = 1
         label.font = UIFont(name: "Geist-medium", size: 14)
         label.textColor = .foreground
@@ -323,7 +317,6 @@ class BlockchainInfoView: UIView {
     
     private lazy var riskLabel:UILabel = {
         let label = UILabel()
-        label.text = "F"
         label.numberOfLines = .zero
         label.textAlignment = .center
         label.font = UIFont(name: "Geist-medium", size: 14)
