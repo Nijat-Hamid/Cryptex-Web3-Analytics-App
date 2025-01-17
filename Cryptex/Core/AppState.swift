@@ -16,6 +16,7 @@ class AppState {
     private let userDefault = UserDefaults.standard
     // SelectedProtocolID publisher
     private let selectedProtocolID = CurrentValueSubject<String,Never>("")
+    
     // Encapsulation for our publisher
     var protocolIDPublisher: AnyPublisher<String, Never> {
            selectedProtocolID.eraseToAnyPublisher()

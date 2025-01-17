@@ -25,6 +25,7 @@ class ProtocolGeneralView: UIView {
         background.applyCornerRadiusWithShadow()
     }
     
+    
     private lazy var protocolStack:UIStackView = {
         let stack = UIStackView()
         stack.translatesAutoresizingMaskIntoConstraints = false
@@ -49,12 +50,11 @@ class ProtocolGeneralView: UIView {
         let image = UIImageView(image: UIImage(named: "protocolDemo"))
         image.translatesAutoresizingMaskIntoConstraints = false
         image.backgroundColor = .cardBackgroundDark
-        image.layer.borderWidth = 3
-        image.layer.borderColor = UIColor.border.cgColor
-        image.layer.cornerRadius = 35
+        image.layer.cornerRadius = 30
+        image.contentMode = .scaleAspectFill
         image.clipsToBounds = true
         image.snp.makeConstraints { make in
-            make.size.equalTo(CGSize(width: 70, height: 70))
+            make.size.equalTo(CGSize(width: 60, height: 60))
         }
         
         return image
@@ -81,6 +81,13 @@ class ProtocolGeneralView: UIView {
         label.font = UIFont(name: "Geist-semibold", size: 12)
         label.textColor = .mutedForeground
         return label
+    }()
+    
+    
+    private lazy var chainPicker:PickerButton = {
+        let picker = PickerButton()
+        picker.sheetType = .chain
+        return picker
     }()
     
     private lazy var chainStack:UIStackView = {
@@ -160,7 +167,7 @@ class ProtocolGeneralView: UIView {
         stack.axis = .horizontal
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.spacing = 8
-        stack.alignment = .center
+        stack.alignment = .top
         stack.distribution = .fillEqually
         return stack
     }()
@@ -456,7 +463,7 @@ class ProtocolGeneralView: UIView {
         
         primaryStack.addArrangedSubview(versionStack)
         primaryStack.addArrangedSubview(protocolStack)
-        primaryStack.addArrangedSubview(chainStack)
+        primaryStack.addArrangedSubview(chainPicker)
         
         secondaryStack.addArrangedSubview(primaryItemOne)
         secondaryStack.addArrangedSubview(primaryItemTwo)

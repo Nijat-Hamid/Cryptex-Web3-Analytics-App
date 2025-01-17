@@ -6,7 +6,7 @@
 //  Copyright © 2025 Nijat Hamid. All rights reserved.
 //
 import UIKit
-struct Transitions{
+struct Transitions {
     static func fade(duration: TimeInterval = 0.4, timing:CAMediaTimingFunctionName = .easeInEaseOut) -> CATransition {
         let transition = CATransition()
         transition.type = .fade

@@ -111,7 +111,6 @@ class TokenCell: UICollectionViewCell {
    
     private lazy var chainName:UILabel = {
         let label = UILabel()
-        label.text = "Ethereum"
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = .zero
         label.textAlignment = .center

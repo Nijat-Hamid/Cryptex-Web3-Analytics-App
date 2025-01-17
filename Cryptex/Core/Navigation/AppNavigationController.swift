@@ -32,6 +32,11 @@ class AppNavigationController: UINavigationController {
             .font: UIFont(name: "Geist-semibold", size: 16)!
         ]
         
+        appearance.doneButtonAppearance.normal.titleTextAttributes = [
+            .foregroundColor: UIColor.foreground,
+            .font: UIFont(name: "Geist-semibold", size: 16)!
+        ]
+        
         navBar.standardAppearance = appearance
         navBar.scrollEdgeAppearance = appearance
         navBar.compactAppearance = appearance

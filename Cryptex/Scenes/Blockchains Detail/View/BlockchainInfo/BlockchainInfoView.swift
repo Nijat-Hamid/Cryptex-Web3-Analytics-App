@@ -232,7 +232,6 @@ class BlockchainInfoView: UIView {
     
     private lazy var blockchainName:UILabel = {
         let label = UILabel()
-        label.text = "Ethereum"
         label.numberOfLines = 3
         label.font = UIFont(name: "Geist-medium", size: 16)
         label.textColor = .foreground
