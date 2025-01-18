@@ -1,23 +1,23 @@
 //
-//  PoolsViewModel.swift
+//  MetricsViewModel.swift
 //  Cryptex
 //
-//  Created by Nijat Hamid on 1/9/25.
+//  Created by Nijat Hamid on 1/18/25.
 //  Copyright © 2025 Nijat Hamid. All rights reserved.
 //
 
 import Foundation
 import Combine
 
-class PoolsViewModel: BaseViewModel<PoolsCombinedUIModel> {
-
+class MetricsViewModel: BaseViewModel<MetricsCombinedModel> {
+    
     private let networkService: Networkable
- 
+    
     init(networkService: Networkable = NetworkService()) {
         self.networkService = networkService
     }
     
-    func fetchPools(){
+    func fetchMetrics(){
         stateSubject.send(.loading)
         
         AppState.shared.selectedProtocolPublisher
@@ -25,8 +25,8 @@ class PoolsViewModel: BaseViewModel<PoolsCombinedUIModel> {
             .removeDuplicates()
             .flatMap { name in
                 return self.networkService.sendRequest(
-                    endpoint: PoolEndpoint.getPools(name: name.id),
-                    type: PoolsCombinedDTOModel.self
+                    endpoint: MetricsEndpoint.getMetrics(name: name.subID),
+                    type: MetricsDTOModel.self
                 )
             }
             .sink { [weak self] completion in
@@ -38,18 +38,20 @@ class PoolsViewModel: BaseViewModel<PoolsCombinedUIModel> {
                 case .failure(let error):
                     stateSubject.send(.error(error))
                 }
-            } receiveValue: { [weak self] combinedDTO in
+            } receiveValue: { [weak self] dto in
                 guard let self else {return}
-            
-                switch combinedDTO {
-                case .lendingModel(let lending):
-                    let uiModels = lending.toUIModels() as [PoolsLendingUIModel]
-                    stateSubject.send(.loaded(.lendingUIModel(uiModels)))
-                    
-                case .dexModel(let dex):
-                    let uiModels = dex.toUIModels() as [PoolsDexUIModel]
-                    stateSubject.send(.loaded(.dexUIModel(uiModels)))
+                
+                guard let generalData = MetricsGeneralModel(dto: dto),
+                      let chartData = MetricsChartModel(dto: dto),
+                      let statisticsData = MetricsStatisticsModel(dto: dto)
+                else {
+                    stateSubject.send(.error(.decode))
+                    return
                 }
+
+                
+                let combinedData = MetricsCombinedModel(generalData: generalData, chartData: chartData,statisticsData: statisticsData)
+                stateSubject.send(.loaded(combinedData))
             }
             .store(in: &cancellables)
     }

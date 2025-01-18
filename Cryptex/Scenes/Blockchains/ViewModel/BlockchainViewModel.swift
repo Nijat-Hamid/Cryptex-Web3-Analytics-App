@@ -20,12 +20,12 @@ class BlockchainViewModel: BaseViewModel<[BlockchainsUIModel]> {
     func fetchBlockchain(){
         stateSubject.send(.loading)
         
-        AppState.shared.protocolIDPublisher
-            .filter { !$0.isEmpty }
+        AppState.shared.selectedProtocolPublisher
+            .filter { !$0.id.isEmpty }
             .removeDuplicates()
             .flatMap { name in
                 return self.networkService.sendRequest(
-                    endpoint: BlockchainEndpoint.getBlockchains(name: name),
+                    endpoint: BlockchainEndpoint.getBlockchains(name: name.id),
                     type: BlockchainsDTOModel.self
                 )
             }

@@ -24,35 +24,43 @@ enum DateFormatType {
 }
 
 struct Formatter {
-    static func number(_ number: Any, as type: FormatType,absolute:Bool = false) -> String {
+    static func number(_ number: Any, as type: FormatType, absolute: Bool = false) -> String {
+        let decimalValue: Decimal?
         
-        let doubleValue: Double?
-        
-        if let num = number as? Double {
-            doubleValue = num
-        } else if let str = number as? String, let num = Double(str) {
-            doubleValue = num
-        } else {
+        switch number {
+        case let num as Decimal:
+            decimalValue = num
+        case let num as Double:
+            decimalValue = Decimal(num)
+        case let num as Int:
+            decimalValue = Decimal(num)
+        case let num as Float:
+            decimalValue = Decimal(Double(num))
+        case let num as NSNumber:
+            decimalValue = Decimal(num.doubleValue)
+        case let str as String:
+            decimalValue = Decimal(string: str)
+        default:
             return "N/A"
         }
         
-        guard let doubleValueCheck = doubleValue,let absNumber = doubleValue.map(abs) else {
+        guard let decimalValueCheck = decimalValue,
+              let absNumber = decimalValue.map({ abs($0) }) else {
             return "N/A"
         }
         
-        let sign = doubleValueCheck < 0 ? "-" : ""
+        let sign = decimalValueCheck < 0 ? "-" : ""
         let formattedNumber: String
-       
         
         switch absNumber {
-        case 1_000_000_000_000...:
-            formattedNumber = formatValue(absNumber / 1_000_000_000_000, as: type) + "T"
-        case 1_000_000_000...:
-            formattedNumber = formatValue(absNumber / 1_000_000_000, as: type) + "B"
-        case 1_000_000...:
-            formattedNumber = formatValue(absNumber / 1_000_000, as: type) + "M"
-        case 1_000...:
-            formattedNumber = formatValue(absNumber / 1_000, as: type) + "K"
+        case Decimal(1_000_000_000_000)...:
+            formattedNumber = formatValue(absNumber / Decimal(1_000_000_000_000), as: type) + "T"
+        case Decimal(1_000_000_000)...:
+            formattedNumber = formatValue(absNumber / Decimal(1_000_000_000), as: type) + "B"
+        case Decimal(1_000_000)...:
+            formattedNumber = formatValue(absNumber / Decimal(1_000_000), as: type) + "M"
+        case Decimal(1_000)...:
+            formattedNumber = formatValue(absNumber / Decimal(1_000), as: type) + "K"
         default:
             formattedNumber = formatValue(absNumber, as: type)
         }
@@ -61,7 +69,7 @@ struct Formatter {
         return finalReturn
     }
     
-    private static func formatValue(_ value: Double, as type: FormatType) -> String {
+    private static func formatValue(_ value: Decimal, as type: FormatType) -> String {
         let formatter = NumberFormatter()
         formatter.maximumFractionDigits = 2
         formatter.minimumFractionDigits = 0

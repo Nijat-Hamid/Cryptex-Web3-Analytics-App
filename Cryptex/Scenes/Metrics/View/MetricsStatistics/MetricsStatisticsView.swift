@@ -23,7 +23,8 @@ class MetricsStatisticsView: UIView {
         super.layoutSubviews()
         applyCornerRadiusWithShadow()
     }
-    private lazy var primaryHeader:UIStackView = {
+    
+    private lazy var feeRevenueHeader:UIStackView = {
         let stack = UIStackView(arrangedSubviews: [
           {
                 let label = UILabel()
@@ -59,30 +60,28 @@ class MetricsStatisticsView: UIView {
         return stack
     }()
     
-    private lazy var primaryStack:UIStackView = {
-        let stack = UIStackView(arrangedSubviews: [
-          {
-                let label = UILabel()
-                label.text = "$11.35M"
-                label.translatesAutoresizingMaskIntoConstraints = false
-                label.numberOfLines = .zero
-                label.textAlignment = .center
-                label.font = UIFont(name: "Geist-medium", size: 14)
-                label.textColor = .foreground
-                return label
-                
-            }(),{
-                let label = UILabel()
-                label.text = "$0.0"
-                label.translatesAutoresizingMaskIntoConstraints = false
-                label.numberOfLines = .zero
-                label.textAlignment = .center
-                label.font = UIFont(name: "Geist-medium", size: 14)
-                label.textColor = .foreground
-                return label
-                
-            }()
-        ])
+    private lazy var feeValue:UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = 1
+        label.textAlignment = .center
+        label.font = UIFont(name: "Geist-medium", size: 14)
+        label.textColor = .foreground
+        return label
+    }()
+    
+    private lazy var revenueValue:UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = 1
+        label.textAlignment = .center
+        label.font = UIFont(name: "Geist-medium", size: 14)
+        label.textColor = .foreground
+        return label
+    }()
+    
+    private lazy var feeRevenueStack:UIStackView = {
+        let stack = UIStackView()
         stack.layer.cornerRadius = 10
         stack.axis = .horizontal
         stack.translatesAutoresizingMaskIntoConstraints = false
@@ -92,7 +91,7 @@ class MetricsStatisticsView: UIView {
         return stack
     }()
     
-    private lazy var secondaryHeader:UIStackView = {
+    private lazy var pfpsRatioHeader:UIStackView = {
         let stack = UIStackView(arrangedSubviews: [
           {
                 let label = UILabel()
@@ -128,30 +127,28 @@ class MetricsStatisticsView: UIView {
         return stack
     }()
     
-    private lazy var secondaryStack:UIStackView = {
-        let stack = UIStackView(arrangedSubviews: [
-          {
-                let label = UILabel()
-                label.text = "6.44"
-                label.translatesAutoresizingMaskIntoConstraints = false
-                label.numberOfLines = .zero
-                label.textAlignment = .center
-                label.font = UIFont(name: "Geist-medium", size: 14)
-                label.textColor = .foreground
-                return label
-                
-            }(),{
-                let label = UILabel()
-                label.text = "N/A"
-                label.translatesAutoresizingMaskIntoConstraints = false
-                label.numberOfLines = .zero
-                label.textAlignment = .center
-                label.font = UIFont(name: "Geist-medium", size: 14)
-                label.textColor = .foreground
-                return label
-                
-            }()
-        ])
+    private lazy var pfRatio:UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = 1
+        label.textAlignment = .center
+        label.font = UIFont(name: "Geist-medium", size: 14)
+        label.textColor = .foreground
+        return label
+    }()
+    
+    private lazy var psRatio:UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = 1
+        label.textAlignment = .center
+        label.font = UIFont(name: "Geist-medium", size: 14)
+        label.textColor = .foreground
+        return label
+    }()
+    
+    private lazy var pfpsRatioStack:UIStackView = {
+        let stack = UIStackView()
         stack.layer.cornerRadius = 10
         stack.axis = .horizontal
         stack.translatesAutoresizingMaskIntoConstraints = false
@@ -161,7 +158,7 @@ class MetricsStatisticsView: UIView {
         return stack
     }()
     
-    private lazy var dataContainer:UIStackView = {
+    private lazy var statisticsContainer:UIStackView = {
         let stack = UIStackView()
         stack.axis = .vertical
         stack.translatesAutoresizingMaskIntoConstraints = false
@@ -173,19 +170,40 @@ class MetricsStatisticsView: UIView {
         return stack
     }()
     
+    func configure(with data:MetricsStatisticsModel){
+        let formattedFeeValue = Formatter.number(data.fee.total7d, as: .currency)
+        let formattedRevenueValue = Formatter.number(data.revenue.total7d, as: .currency)
+        let formattedPFRatio = Formatter.number(data.pfRatio, as: .decimal)
+        let formattedPSRatio = Formatter.number(data.psRatio, as: .decimal)
+        
+        feeValue.text = formattedFeeValue
+        revenueValue.text = formattedRevenueValue
+        pfRatio.text = formattedPFRatio
+        psRatio.text = formattedPSRatio
+    }
+    
     private func setupUI(){
         backgroundColor = .cardBackgroundDark
-        dataContainer.addArrangedSubview(primaryHeader)
-        dataContainer.addArrangedSubview(primaryStack)
-        dataContainer.addArrangedSubview(secondaryHeader)
-        dataContainer.addArrangedSubview(secondaryStack)
-        addSubview(dataContainer)
+        
+        feeRevenueStack.addArrangedSubview(feeValue)
+        feeRevenueStack.addArrangedSubview(revenueValue)
+        
+        pfpsRatioStack.addArrangedSubview(pfRatio)
+        pfpsRatioStack.addArrangedSubview(psRatio)
+        
+        statisticsContainer.addArrangedSubview(feeRevenueHeader)
+        statisticsContainer.addArrangedSubview(feeRevenueStack)
+        statisticsContainer.addArrangedSubview(pfpsRatioHeader)
+        statisticsContainer.addArrangedSubview(pfpsRatioStack)
+        
+        addSubview(statisticsContainer)
+        
         translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            dataContainer.topAnchor.constraint(equalTo: topAnchor),
-            dataContainer.leadingAnchor.constraint(equalTo: leadingAnchor),
-            dataContainer.trailingAnchor.constraint(equalTo: trailingAnchor),
-            dataContainer.bottomAnchor.constraint(equalTo: bottomAnchor),
+            statisticsContainer.topAnchor.constraint(equalTo: topAnchor),
+            statisticsContainer.leadingAnchor.constraint(equalTo: leadingAnchor),
+            statisticsContainer.trailingAnchor.constraint(equalTo: trailingAnchor),
+            statisticsContainer.bottomAnchor.constraint(equalTo: bottomAnchor),
         ])
     }
 }

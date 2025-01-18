@@ -9,44 +9,69 @@ import Combine
 import Foundation
 import UIKit
 
-class AppState {
-    // Singleton Pattern
-    static let shared = AppState()
-    // UserDefaults
-    private let userDefault = UserDefaults.standard
-    // SelectedProtocolID publisher
-    private let selectedProtocolID = CurrentValueSubject<String,Never>("")
+enum ProtocolTypes: String {
+    case aaveV2 = "aave-v2"
+    case aaveV3 = "aave-v3"
+    case uniswapV2 = "uniswap-v2"
+    case uniswapV3 = "uniswap-v3"
+    case unknown = ""
     
-    // Encapsulation for our publisher
-    var protocolIDPublisher: AnyPublisher<String, Never> {
-           selectedProtocolID.eraseToAnyPublisher()
-       }
+    var id: String {
+        switch self {
+        case .aaveV2, .aaveV3:
+            return "aave"
+        case .uniswapV2, .uniswapV3:
+            return "uniswap"
+        case .unknown:
+            return ""
+        }
+    }
+    
+    var subID: String {
+        return self.rawValue
+    }
+}
+
+
+class AppState {
+    
+    static let shared = AppState()
+    private let userDefault = UserDefaults.standard
+    
+    private let selectedProtocol = CurrentValueSubject<ProtocolTypes,Never>(.unknown)
+    var selectedProtocolPublisher: AnyPublisher<ProtocolTypes, Never> {
+        selectedProtocol.eraseToAnyPublisher()
+    }
     
     private init() {
-        if let savedProtocolID = userDefault.string(forKey: "selectedProtocolID") {
-                   selectedProtocolID.send(savedProtocolID)
-               }
+        if let savedProtocol = userDefault.string(forKey: "selectedProtocol"),
+           let protocolType = ProtocolTypes(rawValue: savedProtocol){
+            selectedProtocol.send(protocolType)
+        }else {
+            selectedProtocol.send(.unknown)
+        }
+    }
+        
+    func setProtocolID (with protocolType: ProtocolTypes) {
+        selectedProtocol.send(protocolType)
+        userDefault.set(protocolType.rawValue, forKey: "selectedProtocol")
     }
     
-    // State Functions
-    func setProtocolID (with id:String) {
-        selectedProtocolID.send(id)
-        userDefault.set(id, forKey: "selectedProtocolID")
-    }
     
     func resetProtocolID (){
-        userDefault.removeObject(forKey: "selectedProtocolID")
-        selectedProtocolID.send("")
+        userDefault.removeObject(forKey: "selectedProtocol")
+        selectedProtocol.send(.unknown)
     }
     
-    func getInitialProtocolID() -> String {
-           if let savedProtocolID = userDefault.string(forKey: "selectedProtocolID") {
-               return savedProtocolID
-           }else {
-               return ""
-           }
-           
-       }
+    func getInitialProtocolID() -> ProtocolTypes {
+        if let savedProtocolID = userDefault.string(forKey: "selectedProtocol"),
+           let protocolType = ProtocolTypes(rawValue: savedProtocolID){
+            return protocolType
+        }else {
+            return .unknown
+        }
+        
+    }
 }
 
 

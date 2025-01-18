@@ -38,9 +38,9 @@ class RootViewController: BaseBackgroundViewController {
     }
         
     private func performInitialCheck (){
-        let protocolID = AppState.shared.getInitialProtocolID()
+        let protocolTypes = AppState.shared.getInitialProtocolID()
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            if protocolID.isEmpty {
+            if protocolTypes.id.isEmpty {
                 ContainerState.shared.setPage(to: .defi)
             }else{
                 ContainerState.shared.setPage(to: .main)

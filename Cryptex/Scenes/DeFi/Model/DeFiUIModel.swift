@@ -7,7 +7,7 @@
 //
 
 struct DeFiUIModel {
-    let id:String
+    let id:ProtocolTypes
     let imageName: String
     let description: String
 }

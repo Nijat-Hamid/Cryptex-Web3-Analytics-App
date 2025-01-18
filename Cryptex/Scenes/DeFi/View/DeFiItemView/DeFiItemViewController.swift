@@ -9,7 +9,7 @@
 import UIKit
 
 protocol DeFiItemViewDelegate:AnyObject {
-    func didSelectProtocol (withID id:String)
+    func didSelectProtocol (withProtocol id:ProtocolTypes)
 }
 
 class DeFiItemViewController: UIView {
@@ -29,7 +29,7 @@ class DeFiItemViewController: UIView {
         applyCornerRadiusWithShadow()
     }
     
-    var protocolID:String?
+    var selectedProtocol:ProtocolTypes?
     
     weak var delegate: DeFiItemViewDelegate?
     
@@ -75,12 +75,12 @@ class DeFiItemViewController: UIView {
     func configure(with data:DeFiUIModel){
         image.image = UIImage(named: data.imageName)
         text.text = data.description
-        protocolID = data.id
+        selectedProtocol = data.id
     }
     
     @objc private func didTap (_ sender:UITapGestureRecognizer){
-        guard let id = protocolID else { return }
-        delegate?.didSelectProtocol(withID: id)
+        guard let id = selectedProtocol else { return }
+        delegate?.didSelectProtocol(withProtocol: id)
     }
     
     func setSelected(_ isSelected: Bool) {

@@ -118,6 +118,9 @@
 		1FDE0E082D393F1E00D5F932 /* CustomPickerUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDE0E072D393F1500D5F932 /* CustomPickerUIModel.swift */; };
 		1FDE0E0A2D39539A00D5F932 /* PickerSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDE0E092D39539A00D5F932 /* PickerSheetViewController.swift */; };
 		1FDE0E132D3962B400D5F932 /* PickerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDE0E122D3962B400D5F932 /* PickerButton.swift */; };
+		1FDE0E162D3BE3B800D5F932 /* MetricsDTOModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDE0E152D3BE3B400D5F932 /* MetricsDTOModel.swift */; };
+		1FDE0E182D3BE3F600D5F932 /* MetricsUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDE0E172D3BE3F100D5F932 /* MetricsUIModel.swift */; };
+		1FDE0E1A2D3BE96A00D5F932 /* MetricsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDE0E192D3BE96300D5F932 /* MetricsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -231,6 +234,9 @@
 		1FDE0E072D393F1500D5F932 /* CustomPickerUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPickerUIModel.swift; sourceTree = "<group>"; };
 		1FDE0E092D39539A00D5F932 /* PickerSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerSheetViewController.swift; sourceTree = "<group>"; };
 		1FDE0E122D3962B400D5F932 /* PickerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerButton.swift; sourceTree = "<group>"; };
+		1FDE0E152D3BE3B400D5F932 /* MetricsDTOModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricsDTOModel.swift; sourceTree = "<group>"; };
+		1FDE0E172D3BE3F100D5F932 /* MetricsUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricsUIModel.swift; sourceTree = "<group>"; };
+		1FDE0E192D3BE96300D5F932 /* MetricsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -619,6 +625,8 @@
 		1F60926B2D0F2C94001CCE43 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				1FDE0E172D3BE3F100D5F932 /* MetricsUIModel.swift */,
+				1FDE0E152D3BE3B400D5F932 /* MetricsDTOModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -637,6 +645,7 @@
 		1F60926D2D0F2CA6001CCE43 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				1FDE0E192D3BE96300D5F932 /* MetricsViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1238,6 +1247,7 @@
 				1F4CCAFA2D02A283003F9D99 /* RootViewController.swift in Sources */,
 				1F3C809F2D22752300737BED /* BlockchainDetailViewModel.swift in Sources */,
 				1FB9E5D92D0AB2A400128526 /* PoolCell.swift in Sources */,
+				1FDE0E182D3BE3F600D5F932 /* MetricsUIModel.swift in Sources */,
 				1F4293152CF9F8C3000CFA9E /* DeFiUIModel.swift in Sources */,
 				1FA38BEA2D37CFD900611800 /* ContainerState.swift in Sources */,
 				1F60927D2D109466001CCE43 /* LineChart.swift in Sources */,
@@ -1265,6 +1275,7 @@
 				1F3C809D2D226E6700737BED /* BlockchainDetailUIModel.swift in Sources */,
 				1F42932D2CFE4976000CFA9E /* AboutViewController.swift in Sources */,
 				1FBDD1F22CF71E8400223819 /* Data+Extension.swift in Sources */,
+				1FDE0E1A2D3BE96A00D5F932 /* MetricsViewModel.swift in Sources */,
 				1F6092722D102533001CCE43 /* MetricsGeneralView.swift in Sources */,
 				1F6092692D0F13E4001CCE43 /* BlockchainCell.swift in Sources */,
 				1F3C80712D1C45C100737BED /* PoolChartView.swift in Sources */,
@@ -1279,6 +1290,7 @@
 				1F3C80822D1DDF5B00737BED /* BlockchainEndpoint.swift in Sources */,
 				1FDE0E0A2D39539A00D5F932 /* PickerSheetViewController.swift in Sources */,
 				1F60925D2D0F0585001CCE43 /* TokensDTOModel.swift in Sources */,
+				1FDE0E162D3BE3B800D5F932 /* MetricsDTOModel.swift in Sources */,
 				1F3C80A52D22EC0200737BED /* BaseViewController.swift in Sources */,
 				1F934D312D12DC86002085DD /* TokensDetailViewController.swift in Sources */,
 				1F4293382D008CF1000CFA9E /* PoolsViewController.swift in Sources */,

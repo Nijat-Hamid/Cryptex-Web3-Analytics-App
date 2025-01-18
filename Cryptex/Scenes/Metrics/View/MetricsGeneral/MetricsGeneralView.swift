@@ -69,40 +69,38 @@ class MetricsGeneralView: UIView {
         return stack
     }()
     
+    private lazy var athValue:UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = 1
+        label.textAlignment = .center
+        label.font = UIFont(name: "Geist-medium", size: 14)
+        label.textColor = .foreground
+        return label
+    }()
+    
+    private lazy var atlValue:UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = 1
+        label.textAlignment = .center
+        label.font = UIFont(name: "Geist-medium", size: 14)
+        label.textColor = .foreground
+        return label
+    }()
+    
+    private lazy var athChange:UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = 1
+        label.textAlignment = .center
+        label.font = UIFont(name: "Geist-medium", size: 14)
+        label.textColor = .foreground
+        return label
+    }()
+    
     private lazy var primaryStack:UIStackView = {
-        let stack = UIStackView(arrangedSubviews: [
-          {
-                let label = UILabel()
-                label.text = "$661.69"
-                label.translatesAutoresizingMaskIntoConstraints = false
-                label.numberOfLines = .zero
-                label.textAlignment = .center
-                label.font = UIFont(name: "Geist-medium", size: 14)
-                label.textColor = .foreground
-                return label
-                
-            }(),{
-                let label = UILabel()
-                label.text = "$26.02"
-                label.translatesAutoresizingMaskIntoConstraints = false
-                label.numberOfLines = .zero
-                label.textAlignment = .center
-                label.font = UIFont(name: "Geist-medium", size: 14)
-                label.textColor = .foreground
-                return label
-                
-            }(),{
-                let label = UILabel()
-                label.text = "-86.16%"
-                label.translatesAutoresizingMaskIntoConstraints = false
-                label.numberOfLines = .zero
-                label.textAlignment = .center
-                label.font = UIFont(name: "Geist-medium", size: 14)
-                label.textColor = .foreground
-                return label
-                
-            }(),
-        ])
+        let stack = UIStackView()
         stack.layer.cornerRadius = 10
         stack.axis = .horizontal
         stack.translatesAutoresizingMaskIntoConstraints = false
@@ -158,40 +156,38 @@ class MetricsGeneralView: UIView {
         return stack
     }()
     
+    private lazy var atlChange:UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = .zero
+        label.textAlignment = .center
+        label.font = UIFont(name: "Geist-medium", size: 14)
+        label.textColor = .foreground
+        return label
+    }()
+    
+    private lazy var totalSupply:UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = 1
+        label.textAlignment = .center
+        label.font = UIFont(name: "Geist-medium", size: 14)
+        label.textColor = .foreground
+        return label
+    }()
+    
+    private lazy var maxSupply:UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = 1
+        label.textAlignment = .center
+        label.font = UIFont(name: "Geist-medium", size: 14)
+        label.textColor = .foreground
+        return label
+    }()
+    
     private lazy var secondaryStack:UIStackView = {
-        let stack = UIStackView(arrangedSubviews: [
-          {
-                let label = UILabel()
-                label.text = "252.02%"
-                label.translatesAutoresizingMaskIntoConstraints = false
-                label.numberOfLines = .zero
-                label.textAlignment = .center
-                label.font = UIFont(name: "Geist-medium", size: 14)
-                label.textColor = .foreground
-                return label
-                
-            }(),{
-                let label = UILabel()
-                label.text = "16.0M"
-                label.translatesAutoresizingMaskIntoConstraints = false
-                label.numberOfLines = .zero
-                label.textAlignment = .center
-                label.font = UIFont(name: "Geist-medium", size: 14)
-                label.textColor = .foreground
-                return label
-                
-            }(),{
-                let label = UILabel()
-                label.text = "16.0M"
-                label.translatesAutoresizingMaskIntoConstraints = false
-                label.numberOfLines = .zero
-                label.textAlignment = .center
-                label.font = UIFont(name: "Geist-medium", size: 14)
-                label.textColor = .foreground
-                return label
-                
-            }(),
-        ])
+        let stack = UIStackView()
         stack.layer.cornerRadius = 10
         stack.axis = .horizontal
         stack.translatesAutoresizingMaskIntoConstraints = false
@@ -247,40 +243,39 @@ class MetricsGeneralView: UIView {
         return stack
     }()
     
+    private lazy var circulatingCap:UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = 1
+        label.textAlignment = .center
+        label.font = UIFont(name: "Geist-medium", size: 14)
+        label.textColor = .foreground
+        return label
+    }()
+    
+    private lazy var diliuatingCap:UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = 1
+        label.textAlignment = .center
+        label.font = UIFont(name: "Geist-medium", size: 14)
+        label.textColor = .foreground
+        return label
+    }()
+    
+    private lazy var marketShare:UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = 1
+        label.textAlignment = .center
+        label.font = UIFont(name: "Geist-medium", size: 14)
+        label.textColor = .foreground
+        return label
+    }()
+    
+    
     private lazy var tetriaryStack:UIStackView = {
-        let stack = UIStackView(arrangedSubviews: [
-          {
-                let label = UILabel()
-                label.text = "$1.35B"
-                label.translatesAutoresizingMaskIntoConstraints = false
-                label.numberOfLines = .zero
-                label.textAlignment = .center
-                label.font = UIFont(name: "Geist-medium", size: 14)
-                label.textColor = .foreground
-                return label
-                
-            }(),{
-                let label = UILabel()
-                label.text = "$1.46B"
-                label.translatesAutoresizingMaskIntoConstraints = false
-                label.numberOfLines = .zero
-                label.textAlignment = .center
-                label.font = UIFont(name: "Geist-medium", size: 14)
-                label.textColor = .foreground
-                return label
-                
-            }(),{
-                let label = UILabel()
-                label.text = "0.11%"
-                label.translatesAutoresizingMaskIntoConstraints = false
-                label.numberOfLines = .zero
-                label.textAlignment = .center
-                label.font = UIFont(name: "Geist-medium", size: 14)
-                label.textColor = .foreground
-                return label
-                
-            }(),
-        ])
+        let stack = UIStackView()
         stack.layer.cornerRadius = 10
         stack.axis = .horizontal
         stack.translatesAutoresizingMaskIntoConstraints = false
@@ -290,7 +285,7 @@ class MetricsGeneralView: UIView {
         return stack
     }()
     
-    private lazy var dataContainer:UIStackView = {
+    private lazy var generalContainer:UIStackView = {
         let stack = UIStackView()
         stack.axis = .vertical
         stack.translatesAutoresizingMaskIntoConstraints = false
@@ -302,21 +297,59 @@ class MetricsGeneralView: UIView {
         return stack
     }()
     
+    func configure(with data:MetricsGeneralModel){
+        let formattedAth = Formatter.number(data.currentAth, as: .currency)
+        let formattedAtl = Formatter.number(data.currentAtl, as: .currency)
+        let formattedAthChange = Formatter.number(data.athChange, as: .percentage)
+        let formattedAtlChange = Formatter.number(data.atlChange, as: .percentage)
+        let formattedTotalSupply = Formatter.number(data.currentMaxSuply, as: .decimal)
+        let formattedMaxSupply = Formatter.number(data.currentMarketSupply, as: .decimal)
+        let formattedCirculatingCap = Formatter.number(data.circulatingMarketCap, as: .currency)
+        let formattedDiliuatingCap = Formatter.number(data.dulitedMarketCap, as: .currency)
+        let formattedMarketShare = Formatter.number(data.marketShare, as: .percentage)
+        
+        
+        athValue.text = formattedAth
+        atlValue.text = formattedAtl
+        athChange.text = formattedAthChange
+        atlChange.text = formattedAtlChange
+        totalSupply.text = formattedTotalSupply
+        maxSupply.text = formattedMaxSupply
+        circulatingCap.text = formattedCirculatingCap
+        diliuatingCap.text = formattedDiliuatingCap
+        marketShare.text = formattedMarketShare
+    }
+    
     private func setupUI(){
         backgroundColor = .cardBackgroundDark
-        dataContainer.addArrangedSubview(primaryHeader)
-        dataContainer.addArrangedSubview(primaryStack)
-        dataContainer.addArrangedSubview(secondaryHeader)
-        dataContainer.addArrangedSubview(secondaryStack)
-        dataContainer.addArrangedSubview(tetriaryHeader)
-        dataContainer.addArrangedSubview(tetriaryStack)
-        addSubview(dataContainer)
+        
+        primaryStack.addArrangedSubview(athValue)
+        primaryStack.addArrangedSubview(atlValue)
+        primaryStack.addArrangedSubview(athChange)
+        
+        secondaryStack.addArrangedSubview(atlChange)
+        secondaryStack.addArrangedSubview(totalSupply)
+        secondaryStack.addArrangedSubview(maxSupply)
+        
+        tetriaryStack.addArrangedSubview(circulatingCap)
+        tetriaryStack.addArrangedSubview(diliuatingCap)
+        tetriaryStack.addArrangedSubview(marketShare)
+        
+        generalContainer.addArrangedSubview(primaryHeader)
+        generalContainer.addArrangedSubview(primaryStack)
+        generalContainer.addArrangedSubview(secondaryHeader)
+        generalContainer.addArrangedSubview(secondaryStack)
+        generalContainer.addArrangedSubview(tetriaryHeader)
+        generalContainer.addArrangedSubview(tetriaryStack)
+        
+        addSubview(generalContainer)
+        
         translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            dataContainer.topAnchor.constraint(equalTo: topAnchor),
-            dataContainer.leadingAnchor.constraint(equalTo: leadingAnchor),
-            dataContainer.trailingAnchor.constraint(equalTo: trailingAnchor),
-            dataContainer.bottomAnchor.constraint(equalTo: bottomAnchor),
+            generalContainer.topAnchor.constraint(equalTo: topAnchor),
+            generalContainer.leadingAnchor.constraint(equalTo: leadingAnchor),
+            generalContainer.trailingAnchor.constraint(equalTo: trailingAnchor),
+            generalContainer.bottomAnchor.constraint(equalTo: bottomAnchor),
             
         ])
     }

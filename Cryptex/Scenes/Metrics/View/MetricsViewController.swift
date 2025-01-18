@@ -7,12 +7,15 @@
 //
 
 import UIKit
+import Combine
 
 class MetricsViewController: BaseSidePageViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        setupBindings()
+        fetch()
+        errorDelegate = self
     }
 
     override func loadView() {
@@ -23,10 +26,41 @@ class MetricsViewController: BaseSidePageViewController {
     private var safeAreaLayoutGuide:UILayoutGuide{
         view.safeAreaLayoutGuide
     }
+    private let viewModel = MetricsViewModel()
+    private var cancellables = Set<AnyCancellable>()
     
     private lazy var metricsGeneralView = MetricsGeneralView()
     private lazy var metricsChart = MetricsChart()
     private lazy var metricsStatistics = MetricsStatisticsView()
+    
+    private func fetch(){
+        viewModel.fetchMetrics()
+    }
+    
+    private func setupBindings(){
+        viewModel.state
+            .receive(on: DispatchQueue.main)
+            .sink {[weak self] state in
+                guard let self else {return}
+                
+                switch state {
+                case .idle: break
+                case .loading:
+                    hideError()
+                    showLoading()
+                case .loaded(let data):
+                    hideError()
+                    hideLoading()
+                    metricsChart.updateChart(with: data.chartData)
+                    metricsStatistics.configure(with: data.statisticsData)
+                    metricsGeneralView.configure(with: data.generalData)
+                case .error(let error):
+                    hideLoading()
+                    showError(for: error)
+                }
+            }
+            .store(in: &cancellables)
+    }
     
     private func setupUI(){
         navigationItem.title = "Metrics"
@@ -48,5 +82,11 @@ class MetricsViewController: BaseSidePageViewController {
             metricsStatistics.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -14),
             
         ])
+    }
+}
+
+extension MetricsViewController:ErrorStateDelegate{
+    func didTapTryAgain() {
+        fetch()
     }
 }

@@ -15,7 +15,6 @@ class DeFiViewController: BaseBackgroundViewController {
         nextButtonAccess()
     }
     
-    
     override func loadView() {
         super.loadView()
         setupUI()
@@ -27,7 +26,7 @@ class DeFiViewController: BaseBackgroundViewController {
         view.safeAreaLayoutGuide
     }
     private var cancellables = Set<AnyCancellable>()
-    private var selectedProtocolID: String? {
+    private var selectedProtocol: ProtocolTypes? {
            didSet { updateSelection() }
        }
     
@@ -94,15 +93,15 @@ class DeFiViewController: BaseBackgroundViewController {
     
     private func updateSelection() {
           itemViews.forEach { itemView in
-              let isSelected = itemView.protocolID == selectedProtocolID
+              let isSelected = itemView.selectedProtocol == selectedProtocol
               itemView.setSelected(isSelected)
           }
       }
     
     private func nextButtonAccess(){
-        AppState.shared.protocolIDPublisher.sink { [weak self] value in
+        AppState.shared.selectedProtocolPublisher.sink { [weak self] value in
             guard let self else {return}
-            if value.isEmpty {
+            if value.id.isEmpty {
                 nextButton.isEnabled = false
             }else{
                 nextButton.isEnabled = true
@@ -113,9 +112,9 @@ class DeFiViewController: BaseBackgroundViewController {
 }
 
 extension DeFiViewController:DeFiItemViewDelegate{
-    func didSelectProtocol(withID id: String) {
-        selectedProtocolID = id
-        AppState.shared.setProtocolID(with: id)
+    func didSelectProtocol(withProtocol protocolType: ProtocolTypes) {
+        selectedProtocol = protocolType
+        AppState.shared.setProtocolID(with: protocolType)
     }
 }
 

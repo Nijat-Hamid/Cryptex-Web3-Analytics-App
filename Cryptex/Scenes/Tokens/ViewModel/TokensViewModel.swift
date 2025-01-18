@@ -20,12 +20,12 @@ class TokensViewModel: BaseViewModel<[TokensUIModel]> {
     func fetchTokens(){
         stateSubject.send(.loading)
         
-        AppState.shared.protocolIDPublisher
-            .filter { !$0.isEmpty }
+        AppState.shared.selectedProtocolPublisher
+            .filter { !$0.id.isEmpty }
             .removeDuplicates()
             .flatMap { name in
                 return self.networkService.sendRequest(
-                    endpoint: TokenEndpoint.getTokens(name: name),
+                    endpoint: TokenEndpoint.getTokens(name: name.id),
                     type: TokensDTOModel.self
                 )
             }
