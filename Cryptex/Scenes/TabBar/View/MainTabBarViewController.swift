@@ -67,4 +67,16 @@ extension MainTabBarViewController:UITabBarControllerDelegate{
     func tabBarController(_ tabBarController: UITabBarController, animationControllerForTransitionFrom fromVC: UIViewController, to toVC: UIViewController) -> (any UIViewControllerAnimatedTransitioning)? {
         return FadeTransition()
     }
+    
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        guard let navController = viewController as? AppNavigationController else { return }
+        
+        let rootViewController = navController.viewControllers.first
+        
+        if let collectionViewController = rootViewController as? BaseSidePageViewController {
+            if let collectionView = collectionViewController.view.subviews.first(where: { $0 is UICollectionView }) as? UICollectionView {
+                collectionView.setContentOffset(.zero, animated: false)
+            }
+        }
+    }
 }
