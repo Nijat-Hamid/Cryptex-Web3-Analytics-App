@@ -22,7 +22,7 @@ class ProtocolGeneralView: UIView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        background.applyCornerRadiusWithShadow()
+        applyCornerRadiusWithShadow()
     }
     
     
@@ -88,42 +88,6 @@ class ProtocolGeneralView: UIView {
         let picker = PickerButton()
         picker.sheetType = .chain
         return picker
-    }()
-    
-    private lazy var chainStack:UIStackView = {
-        let stack = UIStackView()
-        stack.translatesAutoresizingMaskIntoConstraints = false
-        stack.axis = .vertical
-        stack.spacing = 8
-        stack.distribution = .fill
-        stack.alignment = .center
-        
-        return stack
-    }()
-    
-    private lazy var chainImage:UIImageView = {
-        let image = UIImageView(image: UIImage(named: "chainDemo"))
-        image.translatesAutoresizingMaskIntoConstraints = false
-        image.backgroundColor = .cardBackgroundDark
-        image.layer.borderWidth = 3
-        image.layer.borderColor = UIColor.border.cgColor
-        image.layer.cornerRadius = 25
-        image.clipsToBounds = true
-        image.snp.makeConstraints { make in
-            make.size.equalTo(CGSize(width: 50, height: 50))
-        }
-        return image
-    }()
-    
-    private lazy var chainName:UILabel = {
-        let label = UILabel()
-        label.text = "Ethereum"
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.numberOfLines = .zero
-        label.textAlignment = .center
-        label.font = UIFont(name: "Geist-medium", size: 14)
-        label.textColor = .foreground
-        return label
     }()
     
     private lazy var versionStack:UIStackView = {
@@ -438,15 +402,8 @@ class ProtocolGeneralView: UIView {
 //        }
 //    }
     
-    private lazy var background:UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .cardBackgroundDark
-        return view
-    }()
-    
-    
     private func setupUI(){
+        backgroundColor = .cardBackgroundDark
         translatesAutoresizingMaskIntoConstraints = false
         protocolInfoStack.addArrangedSubview(protocolName)
         protocolInfoStack.addArrangedSubview(protocolSecondInfo)
@@ -454,12 +411,8 @@ class ProtocolGeneralView: UIView {
         protocolStack.addArrangedSubview(protocolImage)
         protocolStack.addArrangedSubview(protocolInfoStack)
         
-        chainStack.addArrangedSubview(chainImage)
-        chainStack.addArrangedSubview(chainName)
-        
         versionStack.addArrangedSubview(versionImage)
         versionStack.addArrangedSubview(versionName)
-        
         
         primaryStack.addArrangedSubview(versionStack)
         primaryStack.addArrangedSubview(protocolStack)
@@ -473,13 +426,13 @@ class ProtocolGeneralView: UIView {
         tertiaryStack.addArrangedSubview(secondaryItemTwo)
         tertiaryStack.addArrangedSubview(riskContainer)
         
-        background.addSubview(primaryHeader)
-        background.addSubview(primaryStack)
-        background.addSubview(secondaryHeader)
-        background.addSubview(secondaryStack)
-        background.addSubview(tertiaryHeader)
-        background.addSubview(tertiaryStack)
-        addSubview(background)
+        addSubview(primaryHeader)
+        addSubview(primaryStack)
+        addSubview(secondaryHeader)
+        addSubview(secondaryStack)
+        addSubview(tertiaryHeader)
+        addSubview(tertiaryStack)
+        
         NSLayoutConstraint.activate([
             primaryHeader.topAnchor.constraint(equalTo: topAnchor,constant: 12),
             primaryHeader.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
@@ -505,10 +458,6 @@ class ProtocolGeneralView: UIView {
             tertiaryStack.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
             tertiaryStack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8),
             
-            background.topAnchor.constraint(equalTo: topAnchor,constant: 2),
-            background.trailingAnchor.constraint(equalTo: trailingAnchor,constant: -2),
-            background.leadingAnchor.constraint(equalTo: leadingAnchor,constant: 2),
-            background.bottomAnchor.constraint(equalTo: bottomAnchor,constant: -2)
         ])
     }
 }
