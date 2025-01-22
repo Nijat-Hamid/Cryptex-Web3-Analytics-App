@@ -17,8 +17,8 @@ class ContainerState {
         return containerView
     }
     
-    private lazy var containerView:ContainerViewController = {
-        let vc = ContainerViewController()
+    private lazy var containerView:ContainerVC = {
+        let vc = ContainerVC()
         vc.initialPage = .root
         return vc
     }()
@@ -26,7 +26,7 @@ class ContainerState {
     func setPage(to page: Pages) {
         let animation = Transitions.fade(duration: 0.4)
         
-        if page != .main, let mainTabBar = containerView.viewController[.main] as? MainTabBarViewController {
+        if page != .main, let mainTabBar = containerView.viewController[.main] as? MainTabBarVC {
             mainTabBar.viewControllers?.forEach { vc in
                 if let navController = vc as? AppNavigationController {
                     navController.popToRootViewController(animated: true)

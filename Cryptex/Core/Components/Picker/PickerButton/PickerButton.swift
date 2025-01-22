@@ -85,7 +85,7 @@ class PickerButton: UIView {
     }()
     
     @objc private func openPickerSheet(){
-        let pickerSheetVC = PickerSheetViewController()
+        let pickerSheetVC = PickerSheetVC()
         pickerSheetVC.navigationItem.title = sheetType.title
         let vc = AppNavigationController(rootViewController: pickerSheetVC)
         vc.modalPresentationStyle = .custom

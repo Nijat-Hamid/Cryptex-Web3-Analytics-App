@@ -9,8 +9,7 @@
 import UIKit
 import DGCharts
 
-class ChartMarkerView: MarkerView {
-    
+class ChartMarker: MarkerView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)

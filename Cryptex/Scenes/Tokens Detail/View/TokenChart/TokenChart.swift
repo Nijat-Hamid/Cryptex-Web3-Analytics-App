@@ -1,16 +1,16 @@
 //
-//  MetricsChart.swift
+//  TokenChartView.swift
 //  Cryptex
 //
-//  Created by Nijat Hamid on 12/16/24.
+//  Created by Nijat Hamid on 12/20/24.
 //  Copyright © 2024 Nijat Hamid. All rights reserved.
 //
 
 import UIKit
 import DGCharts
 
-class MetricsChart: UIView {
-    
+class TokenChart: UIView {
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupUI()
@@ -28,43 +28,34 @@ class MetricsChart: UIView {
     
     private var priceData: [ChartDataEntry] = []
     private var marketCapData: [ChartDataEntry] = []
-    private var capTvlData: [ChartDataEntry] = []
     
     private lazy var chart = LineChart()
-    private lazy var segments = CustomSegment(segments: ["Price","Market Cap","Cap/TVL"])
+    private lazy var segments = CustomSegment(segments: ["Price","Market Cap"])
     
-    
-    func updateChart(with data: MetricsChartModel) {
+    func updateChart(with data: TokenDetailChartDataModel) {
         
-        priceData = data.historicalPriceNative
-        marketCapData = data.historicalMcapNative
-        capTvlData = data.historicalMcapTvl
+        priceData = data.historicalPrice
+        marketCapData = data.historicalMCap
         
         updateChartData(for: 0)
     }
     
     private func updateChartData(for index: Int) {
+        
+        chart.configureYAxisFormatter(type: .currency)
+        chart.chartMarker.yMarkerFormatter = .currency
+        
         switch index {
         case 0:
             chart.chartData = priceData
             chart.chartDataLabel = "Price"
-            chart.configureYAxisFormatter(type: .currency)
-            chart.chartMarker.yMarkerFormatter = .currency
         case 1:
             chart.chartData = marketCapData
             chart.chartDataLabel = "Market Cap"
-            chart.configureYAxisFormatter(type: .currency)
-            chart.chartMarker.yMarkerFormatter = .currency
-        case 2:
-            chart.chartData = capTvlData
-            chart.chartDataLabel = "Cap/TVL"
-            chart.configureYAxisFormatter(type: .decimal)
-            chart.chartMarker.yMarkerFormatter = .decimal
         default:
             break
         }
     }
-    
     
     private func setupUI() {
         backgroundColor = .cardBackgroundDark
@@ -84,10 +75,14 @@ class MetricsChart: UIView {
             chart.trailingAnchor.constraint(equalTo: trailingAnchor,constant: -8),
             chart.bottomAnchor.constraint(equalTo: bottomAnchor,constant: -8)
         ])
+        
+        
     }
 }
-extension MetricsChart:SegmentDelegate{
+
+extension TokenChart:SegmentDelegate{
     func didSelect(index: Int) {
         updateChartData(for: index)
     }
+    
 }

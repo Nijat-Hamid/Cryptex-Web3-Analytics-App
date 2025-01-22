@@ -14,15 +14,15 @@ final class Router{
     static func tabbarViewController(for type:TabbarControllerType) -> UIViewController {
         switch type {
         case .overview:
-            return OverviewViewController()
+            return OverviewVC()
         case .pools:
-            return PoolsViewController()
+            return PoolsVC()
         case .tokens:
-            return TokensViewController()
+            return TokensVC()
         case .blockchains:
-            return BlockchainsViewController()
+            return BlockchainsVC()
         case .metrics:
-            return MetricsViewController()
+            return MetricsVC()
         }
     }
 }

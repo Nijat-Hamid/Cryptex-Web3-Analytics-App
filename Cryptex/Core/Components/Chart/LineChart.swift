@@ -33,7 +33,7 @@ class LineChart: UIView {
         }
     }
     
-     lazy var chartMarker = ChartMarkerView()
+     lazy var chartMarker = ChartMarker()
     
     
      lazy var chart:LineChartView = {
