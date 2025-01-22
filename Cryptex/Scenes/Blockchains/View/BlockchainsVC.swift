@@ -17,9 +17,6 @@ class BlockchainsVC: BaseSidePageVC {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupBindings()
-        fetch()
-        errorDelegate = self
     }
     
     override func loadView() {
@@ -27,11 +24,11 @@ class BlockchainsVC: BaseSidePageVC {
         setupUI()
     }
     
-    private func fetch(){
+    override func fetch(){
         vm.fetchBlockchain()
     }
     
-    private func setupBindings(){
+    override func setBindings(){
         vm.state
             .receive(on: DispatchQueue.main)
             .sink {[weak self] state in
@@ -108,16 +105,12 @@ class BlockchainsVC: BaseSidePageVC {
     
 }
 
-extension BlockchainsVC:UICollectionViewDelegate,ErrorStateDelegate{
+extension BlockchainsVC:UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let vc = BlockchainDetailVC()
         vc.navigationItem.title = blockchainsUIData[indexPath.row].blockchainName
         vc.blockchainName = blockchainsUIData[indexPath.row].chain
         navigationController?.pushViewController(vc, animated: true)
-    }
-    
-    func didTapTryAgain() {
-        fetch()
     }
 }
 

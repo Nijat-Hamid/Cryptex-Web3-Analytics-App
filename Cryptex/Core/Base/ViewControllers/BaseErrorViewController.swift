@@ -8,18 +8,12 @@
 
 import UIKit
 
-protocol ErrorStateDelegate: AnyObject {
-    func didTapTryAgain()
-}
-
 class BaseErrorViewController: BaseVC {
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
     }
-    
-    weak var errorDelegate: ErrorStateDelegate?
     
     private lazy var tryAgainButton: UIButton = {
         let button = UIButton(type: .system)
@@ -41,7 +35,7 @@ class BaseErrorViewController: BaseVC {
     }()
     
     @objc private func tryAgainTapped() {
-        errorDelegate?.didTapTryAgain()
+        fetch()
     }
     
     private lazy var overlayView: UIView = {

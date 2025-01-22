@@ -16,9 +16,6 @@ class BlockchainDetailVC: BaseHidesTabBarVC {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupBindings()
-        fetch()
-        errorDelegate = self
     }
     
     override func loadView() {
@@ -32,11 +29,11 @@ class BlockchainDetailVC: BaseHidesTabBarVC {
         view.safeAreaLayoutGuide
     }
     
-    private func fetch() {
+    override func fetch() {
         vm.fetchBlockchainDetail(name: blockchainName)
     }
     
-    private func setupBindings(){
+    override func setBindings(){
         vm.state
             .receive(on: DispatchQueue.main)
             .sink { [weak self] state in
@@ -78,10 +75,4 @@ class BlockchainDetailVC: BaseHidesTabBarVC {
         ])
     }
 
-}
-
-extension BlockchainDetailVC:ErrorStateDelegate{
-    func didTapTryAgain() {
-        fetch()        
-    }
 }

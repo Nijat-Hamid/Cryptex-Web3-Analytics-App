@@ -17,9 +17,6 @@ class PoolsVC: BaseSidePageVC {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupBindings()
-        fetch()
-        errorDelegate = self
     }
     
     override func loadView() {
@@ -27,11 +24,11 @@ class PoolsVC: BaseSidePageVC {
         setupUI()
     }
     
-    private func fetch(){
+    override func fetch(){
         vm.fetchPools()
     }
     
-    private func setupBindings(){
+    override func setBindings(){
         vm.state
             .receive(on: DispatchQueue.main)
             .sink {[weak self] state in
@@ -136,7 +133,7 @@ class PoolsVC: BaseSidePageVC {
     }
 }
 
-extension PoolsVC:UICollectionViewDelegate,ErrorStateDelegate{
+extension PoolsVC:UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let vc = PoolsDetailVC()
         
@@ -160,7 +157,4 @@ extension PoolsVC:UICollectionViewDelegate,ErrorStateDelegate{
         navigationController?.pushViewController(vc, animated: true)
     }
     
-    func didTapTryAgain() {
-        fetch()
-    }
 }

@@ -17,9 +17,6 @@ class TokensVC: BaseSidePageVC {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupBindings()
-        fetch()
-        errorDelegate = self
     }
     
     override func loadView() {
@@ -27,11 +24,11 @@ class TokensVC: BaseSidePageVC {
         setupUI()
     }
 
-    private func fetch(){
+    override func fetch(){
         vm.fetchTokens()
     }
     
-    private func setupBindings(){
+    override func setBindings(){
         vm.state
             .receive(on: DispatchQueue.main)
             .sink {[weak self] state in
@@ -117,11 +114,5 @@ extension TokensVC:UICollectionViewDelegate{
         vc.tokenChain = tokensUIData[indexPath.row].chain.lowercased()
         vc.tokenContract = tokensUIData[indexPath.row].tokenContract
         navigationController?.pushViewController(vc, animated: true)
-    }
-}
-
-extension TokensVC:ErrorStateDelegate{
-    func didTapTryAgain() {
-        fetch()
     }
 }

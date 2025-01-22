@@ -12,12 +12,18 @@ class BaseVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setBindings()
+        fetch()
     }
     
     override func loadView() {
         super.loadView()
         view.backgroundColor = .background
     }
+    
+    func fetch() { }
+    
+    func setBindings() {}
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

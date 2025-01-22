@@ -13,9 +13,6 @@ class MetricsVC: BaseSidePageVC {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupBindings()
-        fetch()
-        errorDelegate = self
     }
 
     override func loadView() {
@@ -33,11 +30,11 @@ class MetricsVC: BaseSidePageVC {
     private lazy var metricsChart = MetricsChart()
     private lazy var metricsStatistics = MetricsStatistics()
     
-    private func fetch(){
+    override func fetch(){
         vm.fetchMetrics()
     }
     
-    private func setupBindings(){
+    override func setBindings(){
         vm.state
             .receive(on: DispatchQueue.main)
             .sink {[weak self] state in
@@ -82,11 +79,5 @@ class MetricsVC: BaseSidePageVC {
             metricsStatistics.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -14),
             
         ])
-    }
-}
-
-extension MetricsVC:ErrorStateDelegate{
-    func didTapTryAgain() {
-        fetch()
     }
 }

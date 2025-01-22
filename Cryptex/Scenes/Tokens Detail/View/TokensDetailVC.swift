@@ -16,9 +16,6 @@ class TokensDetailVC: BaseHidesTabBarVC {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupBindings()
-        fetch()
-        errorDelegate = self
 
     }
     override func loadView() {
@@ -34,11 +31,11 @@ class TokensDetailVC: BaseHidesTabBarVC {
         view.safeAreaLayoutGuide
     }
     
-    private func fetch(){
+    override func fetch(){
         vm.fetchTokenDetail(name: protocolName, contract: tokenContract, chain: tokenChain)
     }
     
-    private func setupBindings(){
+    override func setBindings(){
         vm.state
             .receive(on: DispatchQueue.main)
             .sink {[weak self] state in
@@ -80,12 +77,4 @@ class TokensDetailVC: BaseHidesTabBarVC {
         ])
     }
 
-}
-
-extension TokensDetailVC:ErrorStateDelegate{
-    func didTapTryAgain() {
-        fetch()
-    }
-    
-    
 }

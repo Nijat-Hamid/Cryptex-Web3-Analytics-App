@@ -16,9 +16,6 @@ class PoolsDetailVC: BaseHidesTabBarVC {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupBindings()
-        fetch()
-        errorDelegate = self
     }
     override func loadView() {
         super.loadView()
@@ -32,11 +29,11 @@ class PoolsDetailVC: BaseHidesTabBarVC {
     var poolChain:String = ""
     var poolContract:String = ""
     
-    private func fetch(){
+    override func fetch(){
         vm.fetchPoolDetail(name: protocolName, contract: poolContract, chain: poolChain)
     }
     
-    private func setupBindings(){
+    override func setBindings(){
         vm.state
             .receive(on: DispatchQueue.main)
             .sink {[weak self] state in
@@ -86,10 +83,4 @@ class PoolsDetailVC: BaseHidesTabBarVC {
         ])
     }
     
-}
-
-extension PoolsDetailVC:ErrorStateDelegate{
-    func didTapTryAgain() {
-        fetch()
-    }
 }
