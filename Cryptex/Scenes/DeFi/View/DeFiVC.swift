@@ -25,7 +25,6 @@ class DeFiVC: BaseVC {
     private var safeAreaLayoutGuide:UILayoutGuide{
         view.safeAreaLayoutGuide
     }
-    private var cancellables = Set<AnyCancellable>()
     private var selectedProtocol: ProtocolTypes? {
            didSet { updateSelection() }
        }

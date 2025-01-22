@@ -12,7 +12,6 @@ import Combine
 class BlockchainDetailVC: BaseHidesTabBarVC {
     
     private let vm = BlockchainDetailVM()
-    private var cancellables = Set<AnyCancellable>()
     
     override func viewDidLoad() {
         super.viewDidLoad()

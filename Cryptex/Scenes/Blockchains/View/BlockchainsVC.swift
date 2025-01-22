@@ -12,7 +12,6 @@ import Combine
 class BlockchainsVC: BaseSidePageVC {
     
     private let vm = BlockchainVM()
-    private var cancellables = Set<AnyCancellable>()
     private var blockchainsUIData:[BlockchainsUIModel] = []
     
     override func viewDidLoad() {

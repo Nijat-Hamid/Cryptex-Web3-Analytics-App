@@ -12,7 +12,6 @@ import Combine
 class TokensDetailVC: BaseHidesTabBarVC {
     
     private let vm = TokenDetailVM()
-    private var cancellables = Set<AnyCancellable>()
 
     override func viewDidLoad() {
         super.viewDidLoad()

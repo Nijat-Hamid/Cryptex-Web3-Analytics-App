@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Combine
 
 class BaseVC: UIViewController {
     
@@ -20,6 +21,8 @@ class BaseVC: UIViewController {
         super.loadView()
         view.backgroundColor = .background
     }
+    
+    var cancellables = Set<AnyCancellable>()
     
     func fetch() { }
     

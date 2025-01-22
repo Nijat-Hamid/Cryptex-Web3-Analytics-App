@@ -24,7 +24,6 @@ class MetricsVC: BaseSidePageVC {
         view.safeAreaLayoutGuide
     }
     private let vm = MetricsVM()
-    private var cancellables = Set<AnyCancellable>()
     
     private lazy var metricsGeneralView = MetricsGeneral()
     private lazy var metricsChart = MetricsChart()

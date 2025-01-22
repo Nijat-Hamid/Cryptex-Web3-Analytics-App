@@ -12,7 +12,6 @@ import Combine
 class TokensVC: BaseSidePageVC {
 
     private let vm = TokensVM()
-    private var cancellables = Set<AnyCancellable>()
     private var tokensUIData:[TokensUIModel] = []
     
     override func viewDidLoad() {

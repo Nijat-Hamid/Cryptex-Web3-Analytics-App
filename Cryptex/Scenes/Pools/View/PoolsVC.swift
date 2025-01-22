@@ -12,7 +12,6 @@ import Combine
 class PoolsVC: BaseSidePageVC {
 
     private let vm = PoolsVM()
-    private var cancellables = Set<AnyCancellable>()
     private var poolsUIData:PoolsCombinedUIModel?
     
     override func viewDidLoad() {

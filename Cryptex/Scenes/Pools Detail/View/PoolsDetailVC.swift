@@ -12,7 +12,6 @@ import Combine
 class PoolsDetailVC: BaseHidesTabBarVC {
 
     private let vm = PoolDetailVM()
-    private var cancellables = Set<AnyCancellable>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
