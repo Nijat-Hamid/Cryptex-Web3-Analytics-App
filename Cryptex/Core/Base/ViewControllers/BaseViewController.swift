@@ -9,9 +9,14 @@
 import UIKit
 
 class BaseViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func loadView() {
+        super.loadView()
+        view.backgroundColor = .background
     }
     
     override func viewWillAppear(_ animated: Bool) {

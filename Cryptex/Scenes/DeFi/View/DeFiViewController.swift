@@ -8,7 +8,7 @@
 import UIKit
 import Combine
 
-class DeFiViewController: BaseBackgroundViewController {
+class DeFiViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()

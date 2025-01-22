@@ -12,7 +12,7 @@ protocol ErrorStateDelegate: AnyObject {
     func didTapTryAgain()
 }
 
-class BaseErrorViewController: BaseBackgroundViewController {
+class BaseErrorViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()

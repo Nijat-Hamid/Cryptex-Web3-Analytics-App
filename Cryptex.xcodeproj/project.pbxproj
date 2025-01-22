@@ -50,7 +50,6 @@
 		1F42934C2D00D03E000CFA9E /* SocialUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F42934B2D00D03A000CFA9E /* SocialUIModel.swift */; };
 		1F42934F2D00F50D000CFA9E /* AppNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F42934E2D00F50D000CFA9E /* AppNavigationController.swift */; };
 		1F4293512D00FA66000CFA9E /* FadeTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4293502D00FA61000CFA9E /* FadeTransition.swift */; };
-		1F4293552D0173DB000CFA9E /* BaseBackgroundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4293542D0173DB000CFA9E /* BaseBackgroundViewController.swift */; };
 		1F4CCAFA2D02A283003F9D99 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4CCAF92D02A283003F9D99 /* RootViewController.swift */; };
 		1F53EBC42D2D645E008EDDB0 /* TokensViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F53EBC32D2D645E008EDDB0 /* TokensViewModel.swift */; };
 		1F53EBC62D2D65C5008EDDB0 /* TokenEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F53EBC52D2D65BD008EDDB0 /* TokenEndpoint.swift */; };
@@ -167,7 +166,6 @@
 		1F42934B2D00D03A000CFA9E /* SocialUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialUIModel.swift; sourceTree = "<group>"; };
 		1F42934E2D00F50D000CFA9E /* AppNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNavigationController.swift; sourceTree = "<group>"; };
 		1F4293502D00FA61000CFA9E /* FadeTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadeTransition.swift; sourceTree = "<group>"; };
-		1F4293542D0173DB000CFA9E /* BaseBackgroundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseBackgroundViewController.swift; sourceTree = "<group>"; };
 		1F4CCAF92D02A283003F9D99 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		1F53EBC32D2D645E008EDDB0 /* TokensViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokensViewModel.swift; sourceTree = "<group>"; };
 		1F53EBC52D2D65BD008EDDB0 /* TokenEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenEndpoint.swift; sourceTree = "<group>"; };
@@ -849,7 +847,6 @@
 				1FBDD1F62CF71EE000223819 /* BaseSidePageViewController.swift */,
 				1F3C80632D1B13F800737BED /* BaseHidesTabBarViewController.swift */,
 				1F934D322D12DE6A002085DD /* BaseLoadingViewController.swift */,
-				1F4293542D0173DB000CFA9E /* BaseBackgroundViewController.swift */,
 				1F3C80A42D22EC0200737BED /* BaseViewController.swift */,
 				1FA38BE72D369F0B00611800 /* BaseErrorViewController.swift */,
 			);
@@ -1235,7 +1232,6 @@
 				1F3C807A2D1DCEED00737BED /* NetworkError.swift in Sources */,
 				1FA38BEE2D38320B00611800 /* PoolDetailDTOModel.swift in Sources */,
 				1F6092782D10457E001CCE43 /* MetricsChart.swift in Sources */,
-				1F4293552D0173DB000CFA9E /* BaseBackgroundViewController.swift in Sources */,
 				1F4293462D008D90000CFA9E /* AboutViewModel.swift in Sources */,
 				1F53EBD02D2FC84E008EDDB0 /* PoolsUIModel.swift in Sources */,
 				1F3C80642D1B13F800737BED /* BaseHidesTabBarViewController.swift in Sources */,

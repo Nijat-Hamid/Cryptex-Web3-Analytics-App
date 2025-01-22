@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PickerSheetViewController: BaseBackgroundViewController {
+class PickerSheetViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
