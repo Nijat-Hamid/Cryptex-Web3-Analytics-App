@@ -9,7 +9,7 @@
 import Foundation
 import Combine
 
-class PoolDetailVM: BaseVM<PoolsDetailCombinedUIModel> {
+class PoolDetailVM: BaseVM<PoolDetailVM.PoolDetailTypes> {
 
     private let networkService: Networkable
     
@@ -40,24 +40,30 @@ class PoolDetailVM: BaseVM<PoolsDetailCombinedUIModel> {
                 guard let uiData = DetailLendingUIModel(dto: lending),
                       let chartData = DetailChartModel(dto: .detailLendingModel(lending))
                 else {
-                    stateSubject.send(.error(.decode))
+                    stateSubject.send(.error(.modelTransformFailure))
                     return
                 }
                 
                 let combinedModel = DetailLendingCombinedModel(uiData: uiData, chartData: chartData)
-                stateSubject.send(.loaded(.detailLendingModel(combinedModel)))
+                stateSubject.send(.loaded(.pooldetail(.detailLendingModel(combinedModel))))
             case .detailDexModel(let dex):
                 guard let uiData = DetailDexUIModel(dto: dex),
                       let chartData = DetailChartModel(dto: .detailDexModel(dex))
                 else {
-                    stateSubject.send(.error(.decode))
+                    stateSubject.send(.error(.modelTransformFailure))
                     return
                 }
                 
                 let combinedModel = DetailDexCombinedModel(uiData: uiData, chartData: chartData)
-                stateSubject.send(.loaded(.detailDexModel(combinedModel)))
+                stateSubject.send(.loaded(.pooldetail(.detailDexModel(combinedModel))))
             }
         }
         .store(in: &cancellables)
+    }
+}
+
+extension PoolDetailVM{
+    enum PoolDetailTypes{
+        case pooldetail(PoolsDetailCombinedUIModel)
     }
 }

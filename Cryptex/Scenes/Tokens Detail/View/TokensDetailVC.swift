@@ -13,10 +13,6 @@ class TokensDetailVC: BaseHidesTabBarVC {
     
     private let vm = TokenDetailVM()
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-    }
     override func loadView() {
         super.loadView()
         setupUI()
@@ -48,8 +44,11 @@ class TokensDetailVC: BaseHidesTabBarVC {
                 case .loaded(let data):
                     hideError()
                     hideLoading()
-                    tokensChart.updateChart(with: data.chartData)
-                    tokenInfoView.configure(with: data.uiModel)
+                    switch data {
+                    case .detail(let detail):
+                        tokensChart.updateChart(with: detail.chartData)
+                        tokenInfoView.configure(with: detail.uiModel)
+                    }
                 case .error(let error):
                     hideLoading()
                     showError(for: error)

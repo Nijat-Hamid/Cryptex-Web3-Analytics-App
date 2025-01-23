@@ -11,14 +11,9 @@ import Combine
 
 class BlockchainsVC: BaseSidePageVC {
     
-    private let vm = BlockchainVM()
-    private var blockchainsUIData:[BlockchainsUIModel] = []
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
-    override func loadView() {
+   private let vm = BlockchainVM()
+   
+   override func loadView() {
         super.loadView()
         setupUI()
     }
@@ -38,10 +33,9 @@ class BlockchainsVC: BaseSidePageVC {
                 case .loading:
                     hideError()
                     showLoading()
-                case .loaded(let data):
+                case .loaded:
                     hideError()
                     hideLoading()
-                    blockchainsUIData = data
                     reloadData()
                 case .error(let error):
                     hideLoading()
@@ -72,7 +66,7 @@ class BlockchainsVC: BaseSidePageVC {
     
     private lazy var dataSource:UICollectionViewDiffableDataSource<Int, BlockchainsUIModel> = {
         let cell = UICollectionView.CellRegistration<BlockchainCell, BlockchainsUIModel> { [unowned self]  cell, indexPath, itemIdentifier in
-            let blockchain = blockchainsUIData[indexPath.row]
+            let blockchain = vm.blockchainData[indexPath.row]
             cell.configure(with: blockchain)
         }
         
@@ -87,7 +81,7 @@ class BlockchainsVC: BaseSidePageVC {
     private func reloadData(){
         var snapshoot = NSDiffableDataSourceSnapshot<Int, BlockchainsUIModel>()
         snapshoot.appendSections([0])
-        snapshoot.appendItems(blockchainsUIData, toSection: 0)
+        snapshoot.appendItems(vm.blockchainData, toSection: 0)
         dataSource.apply(snapshoot)
     }
     
@@ -106,9 +100,10 @@ class BlockchainsVC: BaseSidePageVC {
 
 extension BlockchainsVC:UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let selectedBlockchain = vm.blockchainData[indexPath.row]
         let vc = BlockchainDetailVC()
-        vc.navigationItem.title = blockchainsUIData[indexPath.row].blockchainName
-        vc.blockchainName = blockchainsUIData[indexPath.row].chain
+        vc.navigationItem.title = selectedBlockchain.blockchainName
+        vc.blockchainName = selectedBlockchain.chain
         navigationController?.pushViewController(vc, animated: true)
     }
 }

@@ -9,12 +9,18 @@
 import Foundation
 import Combine
 
-class TokensVM: BaseVM<[TokensUIModel]> {
+class TokensVM: BaseVM<TokensVM.TokenTypes> {
     
     private let networkService: Networkable
   
     init(networkService: Networkable = NetworkService()) {
         self.networkService = networkService
+    }
+    
+    private var tokensUIData:[TokensUIModel] = []
+    
+    var tokenData:[TokensUIModel]{
+        return tokensUIData
     }
     
     func fetchTokens(){
@@ -42,8 +48,16 @@ class TokensVM: BaseVM<[TokensUIModel]> {
                 guard let self else {return}
                 
                 let uiData = data.toUIModels() as [TokensUIModel]
-                stateSubject.send(.loaded(uiData))
+                tokensUIData = uiData
+                stateSubject.send(.loaded(.token))
             }
             .store(in: &cancellables)
     }
 }
+
+extension TokensVM{
+    enum TokenTypes{
+        case token
+    }
+}
+

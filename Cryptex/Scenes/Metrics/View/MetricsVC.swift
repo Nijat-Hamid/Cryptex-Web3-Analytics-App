@@ -11,10 +11,6 @@ import Combine
 
 class MetricsVC: BaseSidePageVC {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-
     override func loadView() {
         super.loadView()
         setupUI()
@@ -47,9 +43,12 @@ class MetricsVC: BaseSidePageVC {
                 case .loaded(let data):
                     hideError()
                     hideLoading()
-                    metricsChart.updateChart(with: data.chartData)
-                    metricsStatistics.configure(with: data.statisticsData)
-                    metricsGeneralView.configure(with: data.generalData)
+                    switch data {
+                    case .metrics(let metrics):
+                        metricsChart.updateChart(with: metrics.chartData)
+                        metricsStatistics.configure(with: metrics.statisticsData)
+                        metricsGeneralView.configure(with: metrics.generalData)
+                    }
                 case .error(let error):
                     hideLoading()
                     showError(for: error)

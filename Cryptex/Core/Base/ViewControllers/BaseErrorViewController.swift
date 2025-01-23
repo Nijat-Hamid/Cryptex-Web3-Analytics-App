@@ -107,7 +107,7 @@ class BaseErrorViewController: BaseVC {
     }
     
     func showError(for error:NetworkError) {
-        errorDescription.text = "Cause: \(error)"
+        errorDescription.text = "Cause: \(error.message)"
         overlayView.isHidden = false
     }
     

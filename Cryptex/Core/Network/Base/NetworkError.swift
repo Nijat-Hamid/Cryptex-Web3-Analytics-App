@@ -14,8 +14,10 @@ public enum NetworkError: Error {
     case unauthorized
     case unexpectedStatusCode
     case unknown
+    case networkFailure(Error)
+    case modelTransformFailure
     
-    public var customMessage: String {
+    public var message: String {
         switch self {
         case .decode:
             return "Decode Error"
@@ -29,6 +31,10 @@ public enum NetworkError: Error {
             return "Unauthorized URL"
         case .unexpectedStatusCode:
             return "Status Code Error"
+        case .networkFailure(let error):
+            return error.localizedDescription
+        case .modelTransformFailure:
+            return "DTO to UI Model Transformation Error"
         default:
             return "Unknown Error"
         }

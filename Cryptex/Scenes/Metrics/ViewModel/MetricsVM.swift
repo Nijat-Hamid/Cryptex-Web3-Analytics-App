@@ -9,7 +9,7 @@
 import Foundation
 import Combine
 
-class MetricsVM: BaseVM<MetricsCombinedModel> {
+class MetricsVM: BaseVM<MetricsVM.MetricsTypes> {
     
     private let networkService: Networkable
     
@@ -45,14 +45,19 @@ class MetricsVM: BaseVM<MetricsCombinedModel> {
                       let chartData = MetricsChartModel(dto: dto),
                       let statisticsData = MetricsStatisticsModel(dto: dto)
                 else {
-                    stateSubject.send(.error(.decode))
+                    stateSubject.send(.error(.modelTransformFailure))
                     return
                 }
 
-                
                 let combinedData = MetricsCombinedModel(generalData: generalData, chartData: chartData,statisticsData: statisticsData)
-                stateSubject.send(.loaded(combinedData))
+                stateSubject.send(.loaded(.metrics(combinedData)))
             }
             .store(in: &cancellables)
+    }
+}
+
+extension MetricsVM{
+    enum MetricsTypes{
+        case metrics(MetricsCombinedModel)
     }
 }

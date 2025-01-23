@@ -13,10 +13,6 @@ class BlockchainDetailVC: BaseHidesTabBarVC {
     
     private let vm = BlockchainDetailVM()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
     override func loadView() {
         super.loadView()
         setupUI()
@@ -46,8 +42,11 @@ class BlockchainDetailVC: BaseHidesTabBarVC {
                 case .loaded(let data):
                     hideError()
                     hideLoading()
-                    blockchainChart.updateChart(with:data.chartData)
-                    blockchainInfoView.configure(with: data.uiModel)
+                    switch data {
+                    case .detail(let detail):
+                        blockchainChart.updateChart(with:detail.chartData)
+                        blockchainInfoView.configure(with: detail.uiModel)
+                    }
                 case .error(let error):
                     hideLoading()
                     showError(for: error)

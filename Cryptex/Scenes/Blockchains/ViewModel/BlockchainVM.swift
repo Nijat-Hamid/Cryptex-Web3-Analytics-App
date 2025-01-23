@@ -9,12 +9,18 @@
 import Foundation
 import Combine
 
-class BlockchainVM: BaseVM<[BlockchainsUIModel]> {
+class BlockchainVM: BaseVM<BlockchainVM.BlockchainTypes> {
     
     private let networkService: Networkable
    
     init(networkService: Networkable = NetworkService()) {
         self.networkService = networkService
+    }
+    
+    private var blockchainsUIData:[BlockchainsUIModel] = []
+    
+    var blockchainData:[BlockchainsUIModel]{
+        return blockchainsUIData
     }
     
     func fetchBlockchain(){
@@ -42,9 +48,15 @@ class BlockchainVM: BaseVM<[BlockchainsUIModel]> {
                 guard let self else {return}
                 
                 let uiData = data.toUIModels() as [BlockchainsUIModel]
-                stateSubject.send(.loaded(uiData))
+                blockchainsUIData = uiData
+                stateSubject.send(.loaded(.blockchains))
             }
             .store(in: &cancellables)
     }
-    
+}
+
+extension BlockchainVM{
+    enum BlockchainTypes{
+        case blockchains
+    }
 }

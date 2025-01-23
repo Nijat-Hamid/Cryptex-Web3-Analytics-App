@@ -12,14 +12,12 @@ import Combine
 class PoolsDetailVC: BaseHidesTabBarVC {
 
     private let vm = PoolDetailVM()
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
+
     override func loadView() {
         super.loadView()
         setupUI()
     }
+    
     private var safeAreaLayoutGuide:UILayoutGuide{
         view.safeAreaLayoutGuide
     }
@@ -48,12 +46,15 @@ class PoolsDetailVC: BaseHidesTabBarVC {
                     hideLoading()
                     
                     switch data {
-                    case .detailLendingModel(let lending):
-                        poolsChart.updateChart(with: lending.chartData)
-                        poolInfoView.configure(with: .lending(lending.uiData))
-                    case .detailDexModel(let dex):
-                        poolsChart.updateChart(with: dex.chartData)
-                        poolInfoView.configure(with: .dex(dex.uiData))
+                    case .pooldetail(let detail):
+                        switch detail {
+                        case .detailLendingModel(let lending):
+                            poolsChart.updateChart(with: lending.chartData)
+                            poolInfoView.configure(with: .lending(lending.uiData))
+                        case .detailDexModel(let dex):
+                            poolsChart.updateChart(with: dex.chartData)
+                            poolInfoView.configure(with: .dex(dex.uiData))
+                        }
                     }
                 case .error(let error):
                     hideLoading()

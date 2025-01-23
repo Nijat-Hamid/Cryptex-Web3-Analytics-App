@@ -9,7 +9,8 @@
 import Foundation
 import Combine
 
-class BlockchainDetailVM: BaseVM<BlockchainCombinedModel> {
+class BlockchainDetailVM: BaseVM<BlockchainDetailVM.BlockchainDetailTypes> {
+    
     private let networkService: Networkable
    
     init(networkService: Networkable = NetworkService()) {
@@ -36,12 +37,19 @@ class BlockchainDetailVM: BaseVM<BlockchainCombinedModel> {
             guard let uiModel = BlockchainDetailUIModel(dto: dto),
                   let chartDataModel = BlockchainDetailChartDataModel(dto: dto)
             else {
-                stateSubject.send(.error(.decode))
+                stateSubject.send(.error(.modelTransformFailure))
                 return
             }
             
             let combinedModel = BlockchainCombinedModel(uiModel: uiModel, chartData: chartDataModel)
-            stateSubject.send(.loaded(combinedModel))
-        }.store(in: &cancellables)
+            stateSubject.send(.loaded(.detail(combinedModel)))
+        }
+        .store(in: &cancellables)
+    }
+}
+
+extension BlockchainDetailVM{
+    enum BlockchainDetailTypes{
+        case detail(BlockchainCombinedModel)
     }
 }

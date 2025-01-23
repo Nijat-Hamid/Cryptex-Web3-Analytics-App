@@ -12,12 +12,7 @@ import Combine
 class TokensVC: BaseSidePageVC {
 
     private let vm = TokensVM()
-    private var tokensUIData:[TokensUIModel] = []
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
+
     override func loadView() {
         super.loadView()
         setupUI()
@@ -38,10 +33,9 @@ class TokensVC: BaseSidePageVC {
                 case .loading:
                     hideError()
                     showLoading()
-                case .loaded(let data):
+                case .loaded:
                     hideError()
                     hideLoading()
-                    tokensUIData = data
                     reloadData()
                 case .error(let error):
                     hideLoading()
@@ -72,7 +66,7 @@ class TokensVC: BaseSidePageVC {
     
     private lazy var dataSource:UICollectionViewDiffableDataSource<Int, TokensUIModel> = {
         let cell = UICollectionView.CellRegistration<TokenCell, TokensUIModel> { [unowned self]  cell, indexPath, itemIdentifier in
-            let token = tokensUIData[indexPath.row]
+            let token = vm.tokenData[indexPath.row]
             cell.configure(with: token)
         }
         
@@ -87,7 +81,7 @@ class TokensVC: BaseSidePageVC {
     private func reloadData(){
         var snapshoot = NSDiffableDataSourceSnapshot<Int, TokensUIModel>()
         snapshoot.appendSections([0])
-        snapshoot.appendItems(tokensUIData, toSection: 0)
+        snapshoot.appendItems(vm.tokenData, toSection: 0)
         dataSource.apply(snapshoot)
     }
     
@@ -107,11 +101,12 @@ class TokensVC: BaseSidePageVC {
 
 extension TokensVC:UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let selectedToken = vm.tokenData[indexPath.row]
         let vc = TokensDetailVC()
-        vc.navigationItem.title = tokensUIData[indexPath.row].tokenName
-        vc.protocolName = tokensUIData[indexPath.row].protocolName
-        vc.tokenChain = tokensUIData[indexPath.row].chain.lowercased()
-        vc.tokenContract = tokensUIData[indexPath.row].tokenContract
+        vc.navigationItem.title = selectedToken.tokenName
+        vc.protocolName = selectedToken.protocolName
+        vc.tokenChain = selectedToken.chain.lowercased()
+        vc.tokenContract = selectedToken.tokenContract
         navigationController?.pushViewController(vc, animated: true)
     }
 }

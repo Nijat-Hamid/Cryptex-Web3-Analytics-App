@@ -9,7 +9,7 @@
 import Foundation
 import Combine
 
-class TokenDetailVM: BaseVM<TokenCombinedModel> {
+class TokenDetailVM: BaseVM<TokenDetailVM.TokenDetailTypes> {
 
     private let networkService: Networkable
     
@@ -38,13 +38,20 @@ class TokenDetailVM: BaseVM<TokenCombinedModel> {
             guard let uiModel = TokenDetailUIModel(dto: dto),
                   let chartDataModel = TokenDetailChartDataModel(dto: dto)
             else {
-                stateSubject.send(.error(.decode))
+                stateSubject.send(.error(.modelTransformFailure))
                 return
             }
             
             let combinedModel = TokenCombinedModel(uiModel: uiModel, chartData: chartDataModel)
-            stateSubject.send(.loaded(combinedModel))
+            stateSubject.send(.loaded(.detail(combinedModel)))
         }
         .store(in: &cancellables)
     }
 }
+
+extension TokenDetailVM{
+    enum TokenDetailTypes{
+        case detail(TokenCombinedModel)
+    }
+}
+

@@ -9,12 +9,18 @@
 import Foundation
 import Combine
 
-class PoolsVM: BaseVM<PoolsCombinedUIModel> {
+class PoolsVM: BaseVM<PoolsVM.PoolsTypes> {
 
     private let networkService: Networkable
  
     init(networkService: Networkable = NetworkService()) {
         self.networkService = networkService
+    }
+    
+    private var poolsUIData: PoolsCombinedUIModel? = nil
+    
+    var poolsData: PoolsCombinedUIModel {
+        return poolsUIData ?? .dexUIModel(.init())
     }
     
     func fetchPools(){
@@ -44,13 +50,21 @@ class PoolsVM: BaseVM<PoolsCombinedUIModel> {
                 switch combinedDTO {
                 case .lendingModel(let lending):
                     let uiModels = lending.toUIModels() as [PoolsLendingUIModel]
-                    stateSubject.send(.loaded(.lendingUIModel(uiModels)))
+                    poolsUIData = .lendingUIModel(uiModels)
+                    stateSubject.send(.loaded(.pools))
                     
                 case .dexModel(let dex):
                     let uiModels = dex.toUIModels() as [PoolsDexUIModel]
-                    stateSubject.send(.loaded(.dexUIModel(uiModels)))
+                    poolsUIData = .dexUIModel(uiModels)
+                    stateSubject.send(.loaded(.pools))
                 }
             }
             .store(in: &cancellables)
+    }
+}
+
+extension PoolsVM{
+    enum PoolsTypes{
+        case pools
     }
 }

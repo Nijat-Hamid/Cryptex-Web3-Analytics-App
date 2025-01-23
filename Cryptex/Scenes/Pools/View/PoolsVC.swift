@@ -12,12 +12,7 @@ import Combine
 class PoolsVC: BaseSidePageVC {
 
     private let vm = PoolsVM()
-    private var poolsUIData:PoolsCombinedUIModel?
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
+        
     override func loadView() {
         super.loadView()
         setupUI()
@@ -41,14 +36,6 @@ class PoolsVC: BaseSidePageVC {
                 case .loaded(let data):
                     hideError()
                     hideLoading()
-                    
-                    switch data {
-                    case .lendingUIModel(let lending):
-                        poolsUIData = .lendingUIModel(lending)
-                    case .dexUIModel(let dex):
-                        poolsUIData = .dexUIModel(dex)
-                    }
-                    
                     reloadData()
                 case .error(let error):
                     hideLoading()
@@ -79,7 +66,7 @@ class PoolsVC: BaseSidePageVC {
     private lazy var dataSource:UICollectionViewDiffableDataSource<Int, PoolsCombinedUIModel> = {
         let cell = UICollectionView.CellRegistration<PoolCell, PoolsCombinedUIModel> { [unowned self]  cell, indexPath, itemIdentifier in
             
-            switch poolsUIData {
+            switch vm.poolsData {
             case .lendingUIModel(let lending):
                 let pool = lending[indexPath.row]
                 let combinedModel = PoolsCombinedSingleUIModel.lendingUIModel(pool)
@@ -88,8 +75,6 @@ class PoolsVC: BaseSidePageVC {
                 let pool = dex[indexPath.row]
                 let combinedModel = PoolsCombinedSingleUIModel.dexUIModel(pool)
                 cell.configure(with: combinedModel)
-            default:
-                break
             }
         }
         
@@ -105,15 +90,13 @@ class PoolsVC: BaseSidePageVC {
         var snapshoot = NSDiffableDataSourceSnapshot<Int, PoolsCombinedUIModel>()
         snapshoot.appendSections([0])
         
-        switch poolsUIData {
+        switch vm.poolsData {
         case .lendingUIModel(let lending):
             let items = lending.map { PoolsCombinedUIModel.lendingUIModel([$0]) }
             snapshoot.appendItems(items, toSection: 0)
         case .dexUIModel(let dex):
             let items = dex.map { PoolsCombinedUIModel.dexUIModel([$0]) }
             snapshoot.appendItems(items, toSection: 0)
-        default:
-            break
         }
         
         dataSource.apply(snapshoot)
@@ -136,7 +119,7 @@ extension PoolsVC:UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let vc = PoolsDetailVC()
         
-        switch poolsUIData {
+        switch vm.poolsData {
         case .lendingUIModel(let lending):
             let lendingModel = lending[indexPath.row]
             vc.navigationItem.title = lendingModel.symbol
@@ -149,8 +132,6 @@ extension PoolsVC:UICollectionViewDelegate{
             vc.protocolName = dexModel.project
             vc.poolChain = dexModel.chain
             vc.poolContract = dexModel.poolContract
-        default:
-            break
         }
         
         navigationController?.pushViewController(vc, animated: true)
