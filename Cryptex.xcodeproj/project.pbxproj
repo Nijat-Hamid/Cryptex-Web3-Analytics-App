@@ -912,7 +912,7 @@
 		1FBDD1B72CF71CA800223819 = {
 			isa = PBXGroup;
 			children = (
-				1FBDD1E12CF71CAF00223819 /* Cryptex */,
+				1FBDD1E12CF71CAF00223819 /* Sources */,
 				1FBDD1C12CF71CA800223819 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -925,7 +925,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		1FBDD1E12CF71CAF00223819 /* Cryptex */ = {
+		1FBDD1E12CF71CAF00223819 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
 				1FBDD1EA2CF71E0300223819 /* Application */,
@@ -933,7 +933,7 @@
 				1FBDD1EE2CF71E4F00223819 /* Core */,
 				1FBDD20E2CF7802D00223819 /* Scenes */,
 			);
-			path = Cryptex;
+			path = Sources;
 			sourceTree = "<group>";
 		};
 		1FBDD1EA2CF71E0300223819 /* Application */ = {
