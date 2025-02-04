@@ -24,9 +24,10 @@ class BaseVC: UIViewController {
     
     var cancellables = Set<AnyCancellable>()
     
-    func fetch() { }
+    @objc func fetch() { }
     
-    func setBindings() {}
+    func setBindings() { }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

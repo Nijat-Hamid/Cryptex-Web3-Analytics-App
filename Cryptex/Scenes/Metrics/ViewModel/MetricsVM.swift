@@ -22,23 +22,22 @@ class MetricsVM: BaseVM<MetricsVM.MetricsTypes> {
         
         AppState.shared.selectedProtocolPublisher
             .filter { !$0.id.isEmpty }
-            .removeDuplicates()
+            .handleEvents(receiveOutput: { [weak self] _ in
+                guard let self else {return}
+                stateSubject.send(.loading)
+            })
             .flatMap { name in
                 return self.networkService.sendRequest(
                     endpoint: MetricsEndpoint.getMetrics(name: name.subID),
                     type: MetricsDTOModel.self
                 )
-            }
-            .sink { [weak self] completion in
-                guard let self else {return}
-                
-                switch completion {
-                case .finished:
-                    break
-                case .failure(let error):
+                .catch { [weak self] error -> AnyPublisher<MetricsDTOModel, Never> in
+                    guard let self else {return Empty().eraseToAnyPublisher() }
                     stateSubject.send(.error(error))
+                    return Empty().eraseToAnyPublisher()
                 }
-            } receiveValue: { [weak self] dto in
+            }
+            .sink ( receiveValue: { [weak self] dto in
                 guard let self else {return}
                 
                 guard let generalData = MetricsGeneralModel(dto: dto),
@@ -51,7 +50,7 @@ class MetricsVM: BaseVM<MetricsVM.MetricsTypes> {
 
                 let combinedData = MetricsCombinedModel(generalData: generalData, chartData: chartData,statisticsData: statisticsData)
                 stateSubject.send(.loaded(.metrics(combinedData)))
-            }
+            })
             .store(in: &cancellables)
     }
 }

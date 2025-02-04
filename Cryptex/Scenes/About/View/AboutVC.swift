@@ -12,6 +12,7 @@ class AboutVC: BaseHidesTabBarVC {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        observer()
     }
     
     override func loadView() {
@@ -54,29 +55,28 @@ class AboutVC: BaseHidesTabBarVC {
         return stack
     }()
     
+    private lazy var protocolLogo:UIImageView = {
+            let image = UIImageView()
+            image.translatesAutoresizingMaskIntoConstraints = false
+            image.contentMode = .scaleAspectFill
+            image.snp.makeConstraints { make in
+                make.size.equalTo(CGSize(width: 28, height: 28))
+            }
+            return image
+    }()
+    
+    private lazy var protocolName:UILabel = {
+        let label = UILabel()
+        label.numberOfLines = 1
+        label.textAlignment = .left
+        label.font = UIFont(name: "Geist-bold", size: 16)
+        label.textColor = .foreground
+        label.text = "N/A"
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
     private lazy var protocolInfoStack: UIStackView = {
-        let stack = UIStackView(arrangedSubviews: [
-            {
-                let image = UIImageView(image: UIImage(named: "aaveLogo"))
-                image.translatesAutoresizingMaskIntoConstraints = false
-                image.contentMode = .scaleAspectFill
-                image.snp.makeConstraints { make in
-                    make.size.equalTo(CGSize(width: 28, height: 28))
-                }
-               
-                return image
-            }(),
-            {
-                let label = UILabel()
-                label.numberOfLines = 1
-                label.textAlignment = .left
-                label.font = UIFont(name: "Geist-bold", size: 16)
-                label.textColor = .foreground
-                label.text = "Cryptex"
-                label.translatesAutoresizingMaskIntoConstraints = false
-                return label
-            }()
-        ])
+        let stack = UIStackView()
         stack.axis = .horizontal
         stack.layer.borderWidth = 1.2
         stack.layer.borderColor = UIColor.border.cgColor
@@ -131,8 +131,8 @@ class AboutVC: BaseHidesTabBarVC {
     
     @objc private func logOutAction(_ sender:UIButton){
         AppState.shared.resetProtocolID()
+        AppState.shared.resetChain()
         ContainerState.shared.setPage(to: .defi)
-
     }
     
     @objc private func linkOpener (_ sender:UIButton) {
@@ -149,9 +149,36 @@ class AboutVC: BaseHidesTabBarVC {
         stack.alignment = .center
         return stack
     }()
+    
+    private func observer(){
+        AppState.shared.selectedProtocolPublisher
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] protocolTypes in
+                guard let self else {return}
+                configureAbout(protocolTypes)
+            }
+            .store(in: &cancellables)
+    }
+    
+    private func configureAbout(_ value:ProtocolTypes){
+        protocolName.text = value.id.uppercased()
+        
+        switch value.id {
+        case "aave":
+            protocolLogo.image = .aaveLogo
+        case "uniswap":
+            protocolLogo.image = .uniswapLogo
+        default:
+            break
+        }
+    }
+    
     private func setupUI(){
         view.backgroundColor = .cardBackground
-    
+        
+        protocolInfoStack.addArrangedSubview(protocolLogo)
+        protocolInfoStack.addArrangedSubview(protocolName)
+        
         container.addArrangedSubview(protocolInfoStack)
         container.addArrangedSubview(logOut)
         container.addArrangedSubview(horizontalLine)
@@ -159,7 +186,6 @@ class AboutVC: BaseHidesTabBarVC {
         
         view.addSubview(logoStack)
         view.addSubview(container)
-        
         
         vm.socialData.forEach { item in
             let button = UIButton()

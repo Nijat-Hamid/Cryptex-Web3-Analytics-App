@@ -12,7 +12,7 @@ protocol DeFiItemViewDelegate:AnyObject {
     func didSelectProtocol (withProtocol id:ProtocolTypes)
 }
 
-class DeFiItemViewController: UIView {
+class DeFiItem: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)

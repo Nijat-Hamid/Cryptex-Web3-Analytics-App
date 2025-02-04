@@ -24,13 +24,11 @@ class TokensVC: BaseSidePageVC {
     
     override func setBindings(){
         vm.state
-            .receive(on: DispatchQueue.main)
             .sink {[weak self] state in
                 guard let self else {return}
                 
                 switch state {
-                case .idle:break
-                case .loading:
+                case .idle, .loading:
                     hideError()
                     showLoading()
                 case .loaded:
@@ -57,7 +55,7 @@ class TokensVC: BaseSidePageVC {
         )
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.delegate = self
-        collectionView.backgroundColor = .clear
+        collectionView.backgroundColor = .background
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.showsVerticalScrollIndicator = false
         collectionView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom:8, right: 0)
@@ -82,6 +80,7 @@ class TokensVC: BaseSidePageVC {
         var snapshoot = NSDiffableDataSourceSnapshot<Int, TokensUIModel>()
         snapshoot.appendSections([0])
         snapshoot.appendItems(vm.tokenData, toSection: 0)
+        
         dataSource.apply(snapshoot)
     }
     

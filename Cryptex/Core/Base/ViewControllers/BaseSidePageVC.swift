@@ -11,10 +11,6 @@ import Combine
 import SnapKit
 class BaseSidePageVC: BaseLoadingVC {
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
     override func loadView() {
         super.loadView()
         setupUI()

@@ -21,7 +21,7 @@ class DeFiVC: BaseVC {
     }
     
     private let vm = DeFiVM()
-    private var itemViews: [DeFiItemViewController] = []
+    private var itemViews: [DeFiItem] = []
     private var safeAreaLayoutGuide:UILayoutGuide{
         view.safeAreaLayoutGuide
     }
@@ -67,7 +67,7 @@ class DeFiVC: BaseVC {
         navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         navigationItem.hidesBackButton = true
         vm.rootData.forEach { item in
-            let view = DeFiItemViewController()
+            let view = DeFiItem()
             view.configure(with: item)
             view.delegate = self
             itemViews.append(view)

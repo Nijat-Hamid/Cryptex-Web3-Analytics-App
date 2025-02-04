@@ -9,10 +9,13 @@
 import UIKit
 
 class PickerSheetVC: BaseVC {
-
+    
+    var pickerType: SheetType = .unknown
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNav()
+        observeAppState()
     }
     
     override func loadView() {
@@ -32,72 +35,35 @@ class PickerSheetVC: BaseVC {
         return picker
     }()
     
-    let data: [PickerTypes] = [
-        PickerTypes(
-            id: 0,
-            label: "Ethereum",
-            value: "Ethereum",
-            isDefault: true,
-            imageUrl: "/chainlogo/ethereum.svg"
-        ),
-        PickerTypes(
-            id: 1,
-            label: "Polygon",
-            value: "Polygon",
-            isDefault: false,
-            imageUrl: "/chainlogo/poly.svg"
-        ),
-        PickerTypes(
-            id: 2,
-            label: "Avalanche",
-            value: "Avalanche",
-            isDefault: false,
-            imageUrl: "/chainlogo/avax.svg"
-        ),
-        PickerTypes(
-            id: 3,
-            label: "Fantom",
-            value: "Fantom",
-            isDefault: false,
-            imageUrl: "/chainlogo/fantom.svg"
-        ),
-        PickerTypes(
-            id: 4,
-            label: "Optimism",
-            value: "Optimism",
-            isDefault: false,
-            imageUrl: "/chainlogo/optimism.svg"
-        ),
-        PickerTypes(
-            id: 5,
-            label: "Harmony",
-            value: "Harmony",
-            isDefault: false,
-            imageUrl: "/chainlogo/harmony.svg"
-        ),
-        PickerTypes(
-            id: 6,
-            label: "Base",
-            value: "Base",
-            isDefault: false,
-            imageUrl: "/chainlogo/base.svg"
-        ),
-        PickerTypes(
-            id: 7,
-            label: "Arbitrum",
-            value: "Arbitrum",
-            isDefault: false,
-            imageUrl: "/chainlogo/arbitrum.svg"
-        ),
-        PickerTypes(
-            id: 8,
-            label: "Metis",
-            value: "Metis",
-            isDefault: false,
-            imageUrl: "/chainlogo/metis.svg"
-        )
-    ]
-
+    private var data: [PickerTypes] = []
+   
+    func configure(with selectData:[PickerTypes]){
+        data = selectData
+    }
+    
+    private func observeAppState() {
+        AppState.shared.selectedProtocolPublisher
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] protocolType in
+                guard let self else { return }
+                updatePickerData(value: protocolType.cleanSubID)
+            }
+            .store(in: &cancellables)
+        
+        AppState.shared.selectedChain
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] chain in
+                guard let self else { return }
+                updatePickerData(value: chain)
+            }
+            .store(in: &cancellables)
+    }
+    
+    private func updatePickerData(value:String) {
+        guard let index = data.firstIndex(where: { $0.value == value }) else { return }
+        uiPicker.selectRow(index, inComponent: 0, animated: true)
+    }
+    
     private func setupNav() {
         let leftButton = UIBarButtonItem(
             title: "Cancel",
@@ -126,9 +92,25 @@ class PickerSheetVC: BaseVC {
     }
     
     @objc private func rightButtonTapped() {
+        let selectedRow = uiPicker.selectedRow(inComponent: 0)
+        let selectedData = data[selectedRow]
+        
+        switch pickerType {
+        case .protocolVersion:
+            if let protocolType = ProtocolTypes.allCases.first(where: { $0.cleanSubID == selectedData.value }) {
+                AppState.shared.setProtocolID(with: protocolType)
+                AppState.shared.resetChain()
+            }
+        case .chain:
+            if let chain = ProtocolChains(rawValue: selectedData.value) {
+                AppState.shared.setChain(with: chain)
+            }
+        case .unknown: break
+        }
+        
+        
         if let presentationController = navigationController?.presentationController as? SlideUpPresenter {
             presentationController.dismissMenu()
-            print("Right button tapped")
         } else {
             dismiss(animated: true)
         }
@@ -160,21 +142,19 @@ extension PickerSheetVC:UIPickerViewDelegate,UIPickerViewDataSource{
     }
     
     func pickerView(_ pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
-        return 100
+        return 140
     }
     
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
-        let pickerRow = PickerRow()
-        pickerRow.configure(with: data[row])
-
-        NSLayoutConstraint.activate([
-            pickerRow.heightAnchor.constraint(equalToConstant: 40)
-        ])
+        if let view = view as? PickerRow{
+            view.configure(with: data[row])
+            return view
+        } else {
+            let pickerRow = PickerRow()
+            pickerRow.configure(with: data[row])
+            return pickerRow
+        }
         
-        return pickerRow
-    }
-
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        print(row)
+        
     }
 }

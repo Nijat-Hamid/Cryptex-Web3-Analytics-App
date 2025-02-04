@@ -32,13 +32,11 @@ class TokensDetailVC: BaseHidesTabBarVC {
     
     override func setBindings(){
         vm.state
-            .receive(on: DispatchQueue.main)
             .sink {[weak self] state in
                 guard let self else {return}
                 
                 switch state {
-                case .idle: break
-                case .loading:
+                case .idle, .loading:
                     hideError()
                     showLoading()
                 case .loaded(let data):

@@ -22,16 +22,13 @@ class BlockchainDetailVM: BaseVM<BlockchainDetailVM.BlockchainDetailTypes> {
         networkService.sendRequest(
             endpoint: BlockchainEndpoint.getSingleBlockchain(name: name),
             type: BlockchainDetailDTOModel.self
-        ).sink {[weak self] completion in
-            guard let self else {return}
-            
-            switch completion {
-            case .finished:
-                break
-            case .failure(let error):
-                stateSubject.send(.error(error))
-            }
-        } receiveValue: {[weak self] dto in
+        )
+        .catch { [weak self] error -> AnyPublisher<BlockchainDetailDTOModel, Never> in
+            guard let self else {return Empty().eraseToAnyPublisher() }
+            stateSubject.send(.error(error))
+            return Empty().eraseToAnyPublisher()
+        }
+        .sink ( receiveValue: {[weak self] dto in
             guard let self else {return}
             
             guard let uiModel = BlockchainDetailUIModel(dto: dto),
@@ -43,7 +40,7 @@ class BlockchainDetailVM: BaseVM<BlockchainDetailVM.BlockchainDetailTypes> {
             
             let combinedModel = BlockchainCombinedModel(uiModel: uiModel, chartData: chartDataModel)
             stateSubject.send(.loaded(.detail(combinedModel)))
-        }
+        })
         .store(in: &cancellables)
     }
 }

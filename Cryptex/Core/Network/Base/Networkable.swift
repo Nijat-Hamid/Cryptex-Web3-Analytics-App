@@ -17,27 +17,56 @@ public final class NetworkService: Networkable {
    
     public func sendRequest<T>(endpoint: EndPoint, type: T.Type) -> AnyPublisher<T, NetworkError> where T: Decodable {
         guard let urlRequest = createRequest(endPoint: endpoint) else {
-            preconditionFailure("Failed URLRequest")
+            return Fail(error: NetworkError.invalidURL)
+                .eraseToAnyPublisher()
         }
         return URLSession.shared.dataTaskPublisher(for: urlRequest)
             .subscribe(on: DispatchQueue.global(qos: .background))
             .tryMap { data, response -> Data in
-                guard let response = response as? HTTPURLResponse, 200...299 ~= response.statusCode else {
+                guard let response = response as? HTTPURLResponse else {
                     throw NetworkError.invalidURL
                 }
-                return data
+                
+                switch response.statusCode {
+                case 200...299:
+                    return data
+                case 400:
+                    throw NetworkError.badRequest
+                case 401:
+                    throw NetworkError.unauthorized
+                case 403:
+                    throw NetworkError.forbidden
+                case 404:
+                    throw NetworkError.noResponse
+                case 500...599:
+                    throw NetworkError.server
+                default:
+                    throw NetworkError.unknown
+                }
+                    
             }
-            .decode(type: T.self, decoder: JSONDecoder())
+            .tryMap { data -> T in
+                do {
+                    return try JSONDecoder().decode(T.self, from: data)
+                } catch {
+                    throw NetworkError.decode
+                }
+            }
             .mapError { error -> NetworkError in
-                print(error)
-                if error is DecodingError {
-                    return NetworkError.decode
-                } else if let error = error as? NetworkError {
-                    return error
-                } else {
+                if let networkError = error as? NetworkError {
+                    return networkError
+                }
+                
+                switch error {
+                case URLError.notConnectedToInternet:
+                    return NetworkError.noConnection
+                case URLError.timedOut:
+                    return NetworkError.timeout
+                default:
                     return NetworkError.unknown
                 }
             }
+            .receive(on: DispatchQueue.main)
             .eraseToAnyPublisher()
     }
     

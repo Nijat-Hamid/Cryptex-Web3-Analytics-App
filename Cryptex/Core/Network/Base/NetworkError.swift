@@ -8,33 +8,39 @@
 
 public enum NetworkError: Error {
     case decode
-    case generic
     case invalidURL
     case noResponse
     case unauthorized
-    case unexpectedStatusCode
     case unknown
-    case networkFailure(Error)
     case modelTransformFailure
+    case badRequest
+    case forbidden
+    case server
+    case noConnection
+    case timeout
     
     public var message: String {
         switch self {
         case .decode:
             return "Decode Error"
-        case .generic:
-            return "Generic Error"
+        case .badRequest:
+            return "Bad Request Error"
         case .invalidURL:
             return "Invalid URL Error"
         case .noResponse:
             return "No Response"
         case .unauthorized:
             return "Unauthorized URL"
-        case .unexpectedStatusCode:
-            return "Status Code Error"
-        case .networkFailure(let error):
-            return error.localizedDescription
         case .modelTransformFailure:
             return "DTO to UI Model Transformation Error"
+        case .forbidden:
+            return "Forbidden Request Error"
+        case .server:
+            return "Server Error"
+        case .noConnection:
+            return "No Internet Connection"
+        case .timeout:
+            return "Timeout Error"
         default:
             return "Unknown Error"
         }

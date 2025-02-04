@@ -8,33 +8,22 @@
 
 import UIKit
 import SnapKit
+class PickerRow: UIStackView {
 
-class PickerRow: UIView {
-
-    required init?(coder: NSCoder) {
+    required init(coder: NSCoder) {
         super.init(coder: coder)
         setupUI()
     }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupUI()
     }
     
-    private lazy var stack:UIStackView = {
-        let stack = UIStackView()
-        stack.axis = .horizontal
-        stack.spacing = 8
-        stack.alignment = .center
-        stack.distribution = .fill
-        stack.clipsToBounds = true
-        stack.translatesAutoresizingMaskIntoConstraints = false
-        return stack
-    }()
-    
     private lazy var label:UILabel = {
         let label = UILabel()
         label.numberOfLines = 1
-        label.textAlignment = .center
+        label.textAlignment = .left
         label.font = UIFont(name: "Geist-semibold", size: 16)
         label.textColor = .foreground
         return label
@@ -46,6 +35,8 @@ class PickerRow: UIView {
         image.layer.cornerRadius = 15
         image.clipsToBounds = true
         image.contentMode = .scaleAspectFill
+        image.translatesAutoresizingMaskIntoConstraints = false
+        
         image.snp.makeConstraints { make in
             make.size.equalTo(CGSize(width: 30, height: 30))
         }
@@ -54,17 +45,18 @@ class PickerRow: UIView {
     
     func configure(with row:PickerTypes){
         label.text = row.label
-        image.sd_setImage(with: URL.fromBase(row.imageUrl))
+        image.sd_setImage(with: URL.fromBase(row.img))
+       
     }
     
     private func setupUI(){
-        stack.addArrangedSubview(image)
-        stack.addArrangedSubview(label)
-        addSubview(stack)
-        translatesAutoresizingMaskIntoConstraints = false
+        axis = .horizontal
+        spacing = 8
+        alignment = .center
+        distribution = .fill
+        clipsToBounds = true
         
-        stack.snp.makeConstraints { make in
-            make.top.bottom.leading.trailing.equalToSuperview()
-        }
+        addArrangedSubview(image)
+        addArrangedSubview(label)
     }
 }

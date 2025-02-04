@@ -6,10 +6,9 @@
 //  Copyright © 2025 Nijat Hamid. All rights reserved.
 //
 
-struct PickerTypes {
+struct PickerTypes{
     let id: Int
     let label: String
-    let value: String
-    let isDefault: Bool
-    let imageUrl: String
+    let `default`: Bool
+    let value, img: String
 }

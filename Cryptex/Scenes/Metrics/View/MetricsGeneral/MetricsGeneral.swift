@@ -8,17 +8,18 @@
 
 import UIKit
 
-class MetricsGeneral: UIView {
+class MetricsGeneral: UIStackView {
 
+    required init(coder: NSCoder) {
+        super.init(coder: coder)
+        setupUI()
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupUI()
     }
-
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        setupUI()
-    }
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         applyCornerRadiusWithShadow()
@@ -321,6 +322,13 @@ class MetricsGeneral: UIView {
     }
     
     private func setupUI(){
+        axis = .vertical
+        translatesAutoresizingMaskIntoConstraints = false
+        spacing = 6
+        alignment = .fill
+        distribution = .fillEqually
+        isLayoutMarginsRelativeArrangement = true
+        layoutMargins = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
         backgroundColor = .cardBackgroundDark
         
         primaryStack.addArrangedSubview(athValue)
@@ -335,22 +343,12 @@ class MetricsGeneral: UIView {
         tetriaryStack.addArrangedSubview(diliuatingCap)
         tetriaryStack.addArrangedSubview(marketShare)
         
-        generalContainer.addArrangedSubview(primaryHeader)
-        generalContainer.addArrangedSubview(primaryStack)
-        generalContainer.addArrangedSubview(secondaryHeader)
-        generalContainer.addArrangedSubview(secondaryStack)
-        generalContainer.addArrangedSubview(tetriaryHeader)
-        generalContainer.addArrangedSubview(tetriaryStack)
+        addArrangedSubview(primaryHeader)
+        addArrangedSubview(primaryStack)
+        addArrangedSubview(secondaryHeader)
+        addArrangedSubview(secondaryStack)
+        addArrangedSubview(tetriaryHeader)
+        addArrangedSubview(tetriaryStack)
         
-        addSubview(generalContainer)
-        
-        translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            generalContainer.topAnchor.constraint(equalTo: topAnchor),
-            generalContainer.leadingAnchor.constraint(equalTo: leadingAnchor),
-            generalContainer.trailingAnchor.constraint(equalTo: trailingAnchor),
-            generalContainer.bottomAnchor.constraint(equalTo: bottomAnchor),
-            
-        ])
     }
 }

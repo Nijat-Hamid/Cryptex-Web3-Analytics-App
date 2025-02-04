@@ -111,7 +111,7 @@
 		1FBDD20B2CF76BA300223819 /* geist-sans-latin-400-normal.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1FBDD1FF2CF76BA300223819 /* geist-sans-latin-400-normal.ttf */; };
 		1FBDD20C2CF76BA300223819 /* geist-sans-latin-800-normal.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1FBDD2032CF76BA300223819 /* geist-sans-latin-800-normal.ttf */; };
 		1FBDD20D2CF76BA300223819 /* geist-sans-latin-900-normal.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1FBDD2042CF76BA300223819 /* geist-sans-latin-900-normal.ttf */; };
-		1FBDD21A2CF8903500223819 /* DeFiItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBDD2192CF8903500223819 /* DeFiItemViewController.swift */; };
+		1FBDD21A2CF8903500223819 /* DeFiItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBDD2192CF8903500223819 /* DeFiItem.swift */; };
 		1FBDD21C2CF894A700223819 /* DeFiVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBDD21B2CF894A300223819 /* DeFiVM.swift */; };
 		1FDE0E032D39334700D5F932 /* PickerRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDE0E022D39334700D5F932 /* PickerRow.swift */; };
 		1FDE0E082D393F1E00D5F932 /* PickerUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDE0E072D393F1500D5F932 /* PickerUIModel.swift */; };
@@ -120,6 +120,14 @@
 		1FDE0E162D3BE3B800D5F932 /* MetricsDTOModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDE0E152D3BE3B400D5F932 /* MetricsDTOModel.swift */; };
 		1FDE0E182D3BE3F600D5F932 /* MetricsUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDE0E172D3BE3F100D5F932 /* MetricsUIModel.swift */; };
 		1FDE0E1A2D3BE96A00D5F932 /* MetricsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDE0E192D3BE96300D5F932 /* MetricsVM.swift */; };
+		1FDE0E202D42837E00D5F932 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDE0E1F2D42837D00D5F932 /* Utils.swift */; };
+		1FDE0E232D42E48B00D5F932 /* ProtocolDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDE0E222D42E48B00D5F932 /* ProtocolDetail.swift */; };
+		1FDE0E262D4325BF00D5F932 /* ProtocolChainStatistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDE0E252D4325BF00D5F932 /* ProtocolChainStatistics.swift */; };
+		1FDE0E292D433FAD00D5F932 /* ProtocolChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDE0E282D433FAD00D5F932 /* ProtocolChart.swift */; };
+		1FDE0E2E2D449EB400D5F932 /* OverviewDTOModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDE0E2D2D449EAF00D5F932 /* OverviewDTOModel.swift */; };
+		1FDE0E3C2D46D39C00D5F932 /* OverviewVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDE0E3B2D46D39700D5F932 /* OverviewVM.swift */; };
+		1FDE0E3F2D46D47B00D5F932 /* OverviewEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDE0E3E2D46D47800D5F932 /* OverviewEndpoint.swift */; };
+		1FDE0E412D4779EE00D5F932 /* OverviewUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDE0E402D4779EA00D5F932 /* OverviewUIModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -226,7 +234,7 @@
 		1FBDD2022CF76BA300223819 /* geist-sans-latin-700-normal.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "geist-sans-latin-700-normal.ttf"; sourceTree = "<group>"; };
 		1FBDD2032CF76BA300223819 /* geist-sans-latin-800-normal.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "geist-sans-latin-800-normal.ttf"; sourceTree = "<group>"; };
 		1FBDD2042CF76BA300223819 /* geist-sans-latin-900-normal.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "geist-sans-latin-900-normal.ttf"; sourceTree = "<group>"; };
-		1FBDD2192CF8903500223819 /* DeFiItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeFiItemViewController.swift; sourceTree = "<group>"; };
+		1FBDD2192CF8903500223819 /* DeFiItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeFiItem.swift; sourceTree = "<group>"; };
 		1FBDD21B2CF894A300223819 /* DeFiVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeFiVM.swift; sourceTree = "<group>"; };
 		1FDE0E022D39334700D5F932 /* PickerRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerRow.swift; sourceTree = "<group>"; };
 		1FDE0E072D393F1500D5F932 /* PickerUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerUIModel.swift; sourceTree = "<group>"; };
@@ -235,6 +243,14 @@
 		1FDE0E152D3BE3B400D5F932 /* MetricsDTOModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricsDTOModel.swift; sourceTree = "<group>"; };
 		1FDE0E172D3BE3F100D5F932 /* MetricsUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricsUIModel.swift; sourceTree = "<group>"; };
 		1FDE0E192D3BE96300D5F932 /* MetricsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricsVM.swift; sourceTree = "<group>"; };
+		1FDE0E1F2D42837D00D5F932 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		1FDE0E222D42E48B00D5F932 /* ProtocolDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolDetail.swift; sourceTree = "<group>"; };
+		1FDE0E252D4325BF00D5F932 /* ProtocolChainStatistics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolChainStatistics.swift; sourceTree = "<group>"; };
+		1FDE0E282D433FAD00D5F932 /* ProtocolChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolChart.swift; sourceTree = "<group>"; };
+		1FDE0E2D2D449EAF00D5F932 /* OverviewDTOModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewDTOModel.swift; sourceTree = "<group>"; };
+		1FDE0E3B2D46D39700D5F932 /* OverviewVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewVM.swift; sourceTree = "<group>"; };
+		1FDE0E3E2D46D47800D5F932 /* OverviewEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewEndpoint.swift; sourceTree = "<group>"; };
+		1FDE0E402D4779EA00D5F932 /* OverviewUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewUIModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -349,6 +365,7 @@
 		1F3C80802D1DDF3E00737BED /* Endpoints */ = {
 			isa = PBXGroup;
 			children = (
+				1FDE0E3E2D46D47800D5F932 /* OverviewEndpoint.swift */,
 				1F53EBD32D2FCCB5008EDDB0 /* PoolEndpoint.swift */,
 				1F53EBC92D2EC015008EDDB0 /* MetricsEndpoint.swift */,
 				1F53EBC52D2D65BD008EDDB0 /* TokenEndpoint.swift */,
@@ -376,6 +393,7 @@
 		1F3C80952D21959000737BED /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				1FDE0E1F2D42837D00D5F932 /* Utils.swift */,
 				1FA38BEB2D37E3D500611800 /* Transitions.swift */,
 				1FA38BE02D3552E800611800 /* Router.swift */,
 				1F3C80982D219E3400737BED /* Formatter.swift */,
@@ -405,6 +423,8 @@
 		1F4293172CF9F901000CFA9E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				1FDE0E402D4779EA00D5F932 /* OverviewUIModel.swift */,
+				1FDE0E2D2D449EAF00D5F932 /* OverviewDTOModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -412,6 +432,9 @@
 		1F4293182CF9F908000CFA9E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				1FDE0E272D433F9C00D5F932 /* ProtocolChart */,
+				1FDE0E242D4325AB00D5F932 /* ProtocolChainStatistics */,
+				1FDE0E212D42E2E900D5F932 /* ProtocolDetail */,
 				1F6092812D11D7DE001CCE43 /* ProtocolGeneral */,
 				1F42931A2CF9F955000CFA9E /* OverviewVC.swift */,
 			);
@@ -421,6 +444,7 @@
 		1F4293192CF9F90D000CFA9E /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				1FDE0E3B2D46D39700D5F932 /* OverviewVM.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1041,7 +1065,7 @@
 		1FBDD2122CF7887500223819 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				1FBDD2182CF8901700223819 /* DeFiItemView */,
+				1FBDD2182CF8901700223819 /* DeFiItem */,
 				1FBDD1E02CF71CAF00223819 /* DeFiVC.swift */,
 			);
 			path = View;
@@ -1055,19 +1079,12 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		1FBDD2182CF8901700223819 /* DeFiItemView */ = {
+		1FBDD2182CF8901700223819 /* DeFiItem */ = {
 			isa = PBXGroup;
 			children = (
-				1FBDD2192CF8903500223819 /* DeFiItemViewController.swift */,
+				1FBDD2192CF8903500223819 /* DeFiItem.swift */,
 			);
-			path = DeFiItemView;
-			sourceTree = "<group>";
-		};
-		1FDE0E042D393EF800D5F932 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
+			path = DeFiItem;
 			sourceTree = "<group>";
 		};
 		1FDE0E052D393EFF00D5F932 /* View */ = {
@@ -1092,7 +1109,6 @@
 			children = (
 				1FDE0E062D393F0400D5F932 /* Model */,
 				1FDE0E052D393EFF00D5F932 /* View */,
-				1FDE0E042D393EF800D5F932 /* ViewModel */,
 			);
 			path = PickerSheet;
 			sourceTree = "<group>";
@@ -1111,6 +1127,30 @@
 				1FDE0E022D39334700D5F932 /* PickerRow.swift */,
 			);
 			path = PickerRow;
+			sourceTree = "<group>";
+		};
+		1FDE0E212D42E2E900D5F932 /* ProtocolDetail */ = {
+			isa = PBXGroup;
+			children = (
+				1FDE0E222D42E48B00D5F932 /* ProtocolDetail.swift */,
+			);
+			path = ProtocolDetail;
+			sourceTree = "<group>";
+		};
+		1FDE0E242D4325AB00D5F932 /* ProtocolChainStatistics */ = {
+			isa = PBXGroup;
+			children = (
+				1FDE0E252D4325BF00D5F932 /* ProtocolChainStatistics.swift */,
+			);
+			path = ProtocolChainStatistics;
+			sourceTree = "<group>";
+		};
+		1FDE0E272D433F9C00D5F932 /* ProtocolChart */ = {
+			isa = PBXGroup;
+			children = (
+				1FDE0E282D433FAD00D5F932 /* ProtocolChart.swift */,
+			);
+			path = ProtocolChart;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1205,15 +1245,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				1FA38BE12D3552EA00611800 /* Router.swift in Sources */,
+				1FDE0E232D42E48B00D5F932 /* ProtocolDetail.swift in Sources */,
 				1F53EBC62D2D65C5008EDDB0 /* TokenEndpoint.swift in Sources */,
-				1FBDD21A2CF8903500223819 /* DeFiItemViewController.swift in Sources */,
+				1FBDD21A2CF8903500223819 /* DeFiItem.swift in Sources */,
 				1F53EBC82D2E94F5008EDDB0 /* TokenDetailVM.swift in Sources */,
 				1FBDD1F72CF71EE000223819 /* BaseSidePageVC.swift in Sources */,
 				1F4293112CF9EB54000CFA9E /* UIView+Extension.swift in Sources */,
 				1F3C807E2D1DCF3200737BED /* Networkable.swift in Sources */,
 				1F53EBD42D2FCCB9008EDDB0 /* PoolEndpoint.swift in Sources */,
 				1FB9E5DB2D0AC62200128526 /* PoolsDTOModel.swift in Sources */,
+				1FDE0E412D4779EE00D5F932 /* OverviewUIModel.swift in Sources */,
 				1F6092622D0F0C2E001CCE43 /* TokenCell.swift in Sources */,
+				1FDE0E2E2D449EB400D5F932 /* OverviewDTOModel.swift in Sources */,
 				1F42934C2D00D03E000CFA9E /* SocialUIModel.swift in Sources */,
 				1F3C80682D1B4A6000737BED /* UICollectionViewLayout+Extensions.swift in Sources */,
 				1F4293442D008D53000CFA9E /* BlockchainsVC.swift in Sources */,
@@ -1222,6 +1265,7 @@
 				1F3C80912D1F858C00737BED /* Constants.swift in Sources */,
 				1F3C807C2D1DCF0E00737BED /* EndPoint.swift in Sources */,
 				1F42931E2CFCC7BD000CFA9E /* ChartMarker.swift in Sources */,
+				1FDE0E262D4325BF00D5F932 /* ProtocolChainStatistics.swift in Sources */,
 				1FA38BF02D383B9B00611800 /* PoolDetailUIModel.swift in Sources */,
 				1F3C806A2D1B5C4800737BED /* Collection+Extensions.swift in Sources */,
 				1F6092852D11F1F5001CCE43 /* String+Extensions.swift in Sources */,
@@ -1259,8 +1303,11 @@
 				1F3C80782D1DCAA700737BED /* RequestMethod.swift in Sources */,
 				1F3C80A12D22E20B00737BED /* ChartFormatters.swift in Sources */,
 				1F3C808C2D1F2BE200737BED /* Array+Extensions.swift in Sources */,
+				1FDE0E202D42837E00D5F932 /* Utils.swift in Sources */,
 				1F3C80992D219E3E00737BED /* Formatter.swift in Sources */,
+				1FDE0E292D433FAD00D5F932 /* ProtocolChart.swift in Sources */,
 				1F934D432D15DD45002085DD /* BlockchainInfo.swift in Sources */,
+				1FDE0E3F2D46D47B00D5F932 /* OverviewEndpoint.swift in Sources */,
 				1F3C80572D198DDB00737BED /* MainTabBarUIModel.swift in Sources */,
 				1F3C80842D1DEABA00737BED /* BlockchainVM.swift in Sources */,
 				1FDE0E082D393F1E00D5F932 /* PickerUIModel.swift in Sources */,
@@ -1284,6 +1331,7 @@
 				1F3C808E2D1F855100737BED /* URL+Extensions.swift in Sources */,
 				1F53EBCA2D2EC01C008EDDB0 /* MetricsEndpoint.swift in Sources */,
 				1F3C80822D1DDF5B00737BED /* BlockchainEndpoint.swift in Sources */,
+				1FDE0E3C2D46D39C00D5F932 /* OverviewVM.swift in Sources */,
 				1FDE0E0A2D39539A00D5F932 /* PickerSheetVC.swift in Sources */,
 				1F60925D2D0F0585001CCE43 /* TokensDTOModel.swift in Sources */,
 				1FDE0E162D3BE3B800D5F932 /* MetricsDTOModel.swift in Sources */,

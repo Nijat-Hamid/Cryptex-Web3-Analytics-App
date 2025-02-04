@@ -17,10 +17,10 @@ class PoolsVM: BaseVM<PoolsVM.PoolsTypes> {
         self.networkService = networkService
     }
     
-    private var poolsUIData: PoolsCombinedUIModel? = nil
+    private var poolsUIData: PoolsCombinedUIModel = .dexUIModel(.init())
     
     var poolsData: PoolsCombinedUIModel {
-        return poolsUIData ?? .dexUIModel(.init())
+        return poolsUIData
     }
     
     func fetchPools(){
@@ -28,23 +28,22 @@ class PoolsVM: BaseVM<PoolsVM.PoolsTypes> {
         
         AppState.shared.selectedProtocolPublisher
             .filter { !$0.id.isEmpty }
-            .removeDuplicates()
+            .handleEvents(receiveOutput: { [weak self] _ in
+                guard let self else {return}
+                stateSubject.send(.loading)
+            })
             .flatMap { name in
                 return self.networkService.sendRequest(
                     endpoint: PoolEndpoint.getPools(name: name.id),
                     type: PoolsCombinedDTOModel.self
                 )
-            }
-            .sink { [weak self] completion in
-                guard let self else {return}
-                
-                switch completion {
-                case .finished:
-                    break
-                case .failure(let error):
+                .catch { [weak self] error -> AnyPublisher<PoolsCombinedDTOModel, Never> in
+                    guard let self else {return Empty().eraseToAnyPublisher() }
                     stateSubject.send(.error(error))
+                    return Empty().eraseToAnyPublisher()
                 }
-            } receiveValue: { [weak self] combinedDTO in
+            }
+            .sink ( receiveValue: { [weak self] combinedDTO in
                 guard let self else {return}
             
                 switch combinedDTO {
@@ -58,7 +57,7 @@ class PoolsVM: BaseVM<PoolsVM.PoolsTypes> {
                     poolsUIData = .dexUIModel(uiModels)
                     stateSubject.send(.loaded(.pools))
                 }
-            }
+            })
             .store(in: &cancellables)
     }
 }

@@ -8,17 +8,19 @@
 
 import UIKit
 
-class MetricsStatistics: UIView {
+class MetricsStatistics: UIStackView {
+    
+    
+    required init(coder: NSCoder) {
+        super.init(coder: coder)
+        setupUI()
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupUI()
     }
     
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        setupUI()
-    }
     override func layoutSubviews() {
         super.layoutSubviews()
         applyCornerRadiusWithShadow()
@@ -158,18 +160,6 @@ class MetricsStatistics: UIView {
         return stack
     }()
     
-    private lazy var statisticsContainer:UIStackView = {
-        let stack = UIStackView()
-        stack.axis = .vertical
-        stack.translatesAutoresizingMaskIntoConstraints = false
-        stack.spacing = 6
-        stack.alignment = .fill
-        stack.distribution = .fillEqually
-        stack.isLayoutMarginsRelativeArrangement = true
-        stack.layoutMargins = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
-        return stack
-    }()
-    
     func configure(with data:MetricsStatisticsModel){
         let formattedFeeValue = Formatter.number(data.fee.total7d, as: .currency)
         let formattedRevenueValue = Formatter.number(data.revenue.total7d, as: .currency)
@@ -183,6 +173,13 @@ class MetricsStatistics: UIView {
     }
     
     private func setupUI(){
+        axis = .vertical
+        translatesAutoresizingMaskIntoConstraints = false
+        spacing = 6
+        alignment = .fill
+        distribution = .fillEqually
+        isLayoutMarginsRelativeArrangement = true
+        layoutMargins = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
         backgroundColor = .cardBackgroundDark
         
         feeRevenueStack.addArrangedSubview(feeValue)
@@ -191,19 +188,9 @@ class MetricsStatistics: UIView {
         pfpsRatioStack.addArrangedSubview(pfRatio)
         pfpsRatioStack.addArrangedSubview(psRatio)
         
-        statisticsContainer.addArrangedSubview(feeRevenueHeader)
-        statisticsContainer.addArrangedSubview(feeRevenueStack)
-        statisticsContainer.addArrangedSubview(pfpsRatioHeader)
-        statisticsContainer.addArrangedSubview(pfpsRatioStack)
-        
-        addSubview(statisticsContainer)
-        
-        translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            statisticsContainer.topAnchor.constraint(equalTo: topAnchor),
-            statisticsContainer.leadingAnchor.constraint(equalTo: leadingAnchor),
-            statisticsContainer.trailingAnchor.constraint(equalTo: trailingAnchor),
-            statisticsContainer.bottomAnchor.constraint(equalTo: bottomAnchor),
-        ])
+        addArrangedSubview(feeRevenueHeader)
+        addArrangedSubview(feeRevenueStack)
+        addArrangedSubview(pfpsRatioHeader)
+        addArrangedSubview(pfpsRatioStack)
     }
 }

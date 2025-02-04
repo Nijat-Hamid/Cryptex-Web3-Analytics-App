@@ -8,6 +8,8 @@
 
 import UIKit
 import SnapKit
+import SDWebImage
+import Combine
 
 enum SheetType {
     case chain
@@ -19,16 +21,20 @@ enum SheetType {
         case .chain:
             return "Select Chain"
         case .protocolVersion:
-            return "Select Protocol Version"
+            return "Select Protocol"
         case .unknown:
             return ""
         }
     }
 }
 
-class PickerButton: UIView {
+protocol PickerButtonDelegate:AnyObject{
+    func openPicker(for type:SheetType)
+}
+
+class PickerButton: UIStackView {
     
-    required init?(coder: NSCoder) {
+    required init(coder: NSCoder) {
         super.init(coder: coder)
         setupUI()
     }
@@ -38,46 +44,52 @@ class PickerButton: UIView {
         setupUI()
     }
     
+    weak var delegate:PickerButtonDelegate?
+    
+    private var cancellables = Set<AnyCancellable>()
+    private var currentChain: ProtocolChains.RawValue = ""
+    private var currentProtocol: ProtocolTypes = .unknown
+    
     var sheetType: SheetType = .unknown
     
-    private lazy var stack:UIStackView = {
-        let stack = UIStackView()
-        stack.translatesAutoresizingMaskIntoConstraints = false
-        stack.axis = .vertical
-        stack.spacing = 8
-        stack.distribution = .fill
-        stack.alignment = .center
-        return stack
-    }()
+    var pickerData: [Select] = []
     
     private lazy var image:UIImageView = {
-        let image = UIImageView(image: UIImage(named: "chainDemo"))
+        let image = UIImageView()
         image.backgroundColor = .cardBackgroundDark
-        image.layer.cornerRadius = 30
+        image.layer.cornerRadius = 15
         image.clipsToBounds = true
         image.contentMode = .scaleAspectFill
         image.snp.makeConstraints { make in
-            make.size.equalTo(CGSize(width: 60, height: 60))
+            make.size.equalTo(CGSize(width: 30, height: 30))
         }
         return image
     }()
     
-    private lazy var button: UIButton = {
-        let button = UIButton()
-        button.backgroundColor = .backgroundAlpha
-        button.layer.cornerRadius = 10
+    
+    private var buttonConfig: UIButton.Configuration = {
         var config = UIButton.Configuration.plain()
         config.contentInsets = NSDirectionalEdgeInsets(top: 4, leading: 8, bottom: 4, trailing: 4)
         config.image = UIImage(named: "changeArrow")?
             .resizedImage(Size: .init(width: 18, height: 18))
         config.imagePlacement = .trailing
         config.titleAlignment = .center
-        config.attributedTitle = AttributedString("Ethereum", attributes: AttributeContainer([
-            .font: UIFont(name: "Geist-semibold", size: 14)!,
-            .foregroundColor: UIColor.foreground
-        ]))
+        config.title = "N/A"
+        config.baseForegroundColor = .foreground
+        config.titleTextAttributesTransformer = UIConfigurationTextAttributesTransformer { incoming in
+            var outgoing = incoming
+            outgoing.font = UIFont(name: "Geist-semibold", size: 14)
+            return outgoing
+        }
+        return config
+    }()
+    
+    private lazy var button: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = .backgroundAlpha
+        button.layer.cornerRadius = 10
         
-        button.configuration = config
+        button.configuration = buttonConfig
         button.tintColor = .foreground
         
         button.addTarget(self, action: #selector(openPickerSheet), for: .touchUpInside)
@@ -85,29 +97,64 @@ class PickerButton: UIView {
     }()
     
     @objc private func openPickerSheet(){
-        let pickerSheetVC = PickerSheetVC()
-        pickerSheetVC.navigationItem.title = sheetType.title
-        let vc = AppNavigationController(rootViewController: pickerSheetVC)
-        vc.modalPresentationStyle = .custom
-        vc.transitioningDelegate = self
-        findViewController()?.present(vc, animated: true)
+        delegate?.openPicker(for: sheetType)
+    }
+    
+    private func observeAppState() {
+        AppState.shared.selectedProtocolPublisher
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] protocolType in
+                guard let self else {return}
+                currentProtocol = protocolType
+                updatePickerData(sheetType)
+            }
+            .store(in: &cancellables)
+        
+        AppState.shared.selectedChain
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] chain in
+                guard let self else {return}
+                currentChain = chain
+                updatePickerData(sheetType)
+            }
+            .store(in: &cancellables)
+    }
+    
+    
+    func configurePicker(data:[Select]){
+        pickerData = data
+        updatePickerData(sheetType)
+    }
+    
+    private func updatePickerData(_ type:SheetType) {
+        switch type {
+        case .chain:
+            guard let index = pickerData.firstIndex(where: { $0.value == currentChain }) else { return }
+            updatePickerButton(data: pickerData[index])
+        case .protocolVersion:
+            guard let index = pickerData.firstIndex(where: { $0.value == currentProtocol.cleanSubID }) else { return }
+            updatePickerButton(data: pickerData[index])
+        case .unknown:
+            break
+        }
+    }
+    
+    private func updatePickerButton(data:Select){
+        image.sd_setImage(with: URL.fromBase(data.img))
+        
+        buttonConfig.title = data.label
+        button.configuration = buttonConfig
     }
     
     private func setupUI(){
-        stack.addArrangedSubview(image)
-        stack.addArrangedSubview(button)
-        addSubview(stack)
+        observeAppState()
         translatesAutoresizingMaskIntoConstraints = false
-        
-        stack.snp.makeConstraints { make in
-            make.center.equalToSuperview()
-            make.leading.trailing.top.bottom.equalToSuperview()
-        }
+        axis = .vertical
+        spacing = 8
+        distribution = .fill
+        alignment = .center
+        addArrangedSubview(image)
+        addArrangedSubview(button)
     }
 }
 
-extension PickerButton:UIViewControllerTransitioningDelegate{
-    func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
-        return SlideUpPresenter(presentedViewController: presented, presenting: presenting)
-    }
-}

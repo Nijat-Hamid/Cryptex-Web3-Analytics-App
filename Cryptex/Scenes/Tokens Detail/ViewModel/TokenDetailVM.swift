@@ -23,16 +23,13 @@ class TokenDetailVM: BaseVM<TokenDetailVM.TokenDetailTypes> {
         networkService.sendRequest(
             endpoint: TokenEndpoint.getSingleToken(contract: contract, name: name, chain: chain),
             type: TokenDetailDTOModel.self
-        ).sink { [weak self] completion in
-            guard let self else {return}
-            
-            switch completion {
-            case .finished:
-                break
-            case .failure(let error):
-                stateSubject.send(.error(error))
-            }
-        } receiveValue: { [weak self] dto in
+        )
+        .catch { [weak self] error -> AnyPublisher<TokenDetailDTOModel, Never> in
+            guard let self else {return Empty().eraseToAnyPublisher() }
+            stateSubject.send(.error(error))
+            return Empty().eraseToAnyPublisher()
+        }
+        .sink (receiveValue: { [weak self] dto in
             guard let self else {return}
             
             guard let uiModel = TokenDetailUIModel(dto: dto),
@@ -44,7 +41,7 @@ class TokenDetailVM: BaseVM<TokenDetailVM.TokenDetailTypes> {
             
             let combinedModel = TokenCombinedModel(uiModel: uiModel, chartData: chartDataModel)
             stateSubject.send(.loaded(.detail(combinedModel)))
-        }
+        })
         .store(in: &cancellables)
     }
 }

@@ -64,11 +64,15 @@ class LineChart: UIView {
         chart.scaleYEnabled = false
          
         chart.xAxis.valueFormatter = XAxisDateFormatter(formatType: .yearOnly)
+         
+        chart.noDataTextColor = .foreground
+        chart.noDataText = "N/A"
+        chart.noDataFont = UIFont(name: "Geist-semibold", size: 14)!
         return chart
     }()
     
     private func setupChart(){
-        guard !chartData.isEmpty, !chartDataLabel.isEmpty else {
+        guard !chartData.isEmpty else {
             chart.data = nil
             return
         }

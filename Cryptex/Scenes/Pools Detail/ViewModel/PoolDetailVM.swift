@@ -23,16 +23,13 @@ class PoolDetailVM: BaseVM<PoolDetailVM.PoolDetailTypes> {
         networkService.sendRequest(
             endpoint: PoolEndpoint.getSinglePool(contract: contract, name: name, chain: chain),
             type: PoolsDetailCombinedDTOModel.self
-        ).sink { [weak self] completion in
-            guard let self else {return}
-            
-            switch completion {
-            case .finished:
-                break
-            case .failure(let error):
-                stateSubject.send(.error(error))
-            }
-        } receiveValue: { [weak self] combinedDto in
+        )
+        .catch { [weak self] error -> AnyPublisher<PoolsDetailCombinedDTOModel, Never> in
+            guard let self else {return Empty().eraseToAnyPublisher() }
+            stateSubject.send(.error(error))
+            return Empty().eraseToAnyPublisher()
+        }
+        .sink ( receiveValue: { [weak self] combinedDto in
             guard let self else {return}
             
             switch combinedDto {
@@ -57,7 +54,7 @@ class PoolDetailVM: BaseVM<PoolDetailVM.PoolDetailTypes> {
                 let combinedModel = DetailDexCombinedModel(uiData: uiData, chartData: chartData)
                 stateSubject.send(.loaded(.pooldetail(.detailDexModel(combinedModel))))
             }
-        }
+        })
         .store(in: &cancellables)
     }
 }
