@@ -198,6 +198,7 @@
 		1F60927F2D11A086001CCE43 /* MetricsStatistics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricsStatistics.swift; sourceTree = "<group>"; };
 		1F6092822D11D824001CCE43 /* ProtocolGeneral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolGeneral.swift; sourceTree = "<group>"; };
 		1F6092842D11F1EE001CCE43 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
+		1F74B6682D532FF30076CF31 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		1F934D302D12DC86002085DD /* TokensDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokensDetailVC.swift; sourceTree = "<group>"; };
 		1F934D322D12DE6A002085DD /* BaseLoadingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseLoadingVC.swift; sourceTree = "<group>"; };
 		1F934D352D132F48002085DD /* TokenInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenInfo.swift; sourceTree = "<group>"; };
@@ -714,6 +715,13 @@
 			path = ProtocolGeneral;
 			sourceTree = "<group>";
 		};
+		1F74B6672D532FEE0076CF31 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
 		1F934D242D12DC02002085DD /* Tokens Detail */ = {
 			isa = PBXGroup;
 			children = (
@@ -912,8 +920,10 @@
 		1FBDD1B72CF71CA800223819 = {
 			isa = PBXGroup;
 			children = (
-				1FBDD1E12CF71CAF00223819 /* Sources */,
+				1F74B6682D532FF30076CF31 /* .gitignore */,
 				1FBDD1C12CF71CA800223819 /* Products */,
+				1FBDD1E12CF71CAF00223819 /* Sources */,
+				1F74B6672D532FEE0076CF31 /* Tests */,
 			);
 			sourceTree = "<group>";
 		};
