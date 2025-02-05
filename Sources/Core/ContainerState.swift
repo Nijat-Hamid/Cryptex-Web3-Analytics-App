@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ContainerState {
+final class ContainerState {
     
     static let shared = ContainerState()
     private init(){}

@@ -8,7 +8,7 @@
 import Combine
 import Foundation
 
-class AppState {
+final class AppState {
     
     static let shared = AppState()
     private let userDefault = UserDefaults.standard
