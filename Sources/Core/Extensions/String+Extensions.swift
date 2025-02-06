@@ -9,11 +9,11 @@
 import Foundation
 
 extension String {
-    func truncateMiddle(maxLength: Int) -> String {
-        guard self.count > maxLength else { return self }
-        
+    func truncateMiddle(maxLength: Int, minLength:Int = 6) -> String {
+        guard self.count > maxLength,self.count > minLength else { return self }
+                
         let prefixLength = maxLength / 2
-        let suffixLength = maxLength - prefixLength - 3
+        let suffixLength = max(0, maxLength - prefixLength - 3) 
         
         let prefix = self.prefix(prefixLength)
         let suffix = self.suffix(suffixLength)
