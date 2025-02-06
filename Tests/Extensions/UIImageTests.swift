@@ -9,10 +9,10 @@
 import Testing
 import UIKit
 
-@Suite
+@Suite("UIImage tests")
 struct UIImageTests {
     @Test
-    func testResizedImage() async throws {
+    func resizedImage() async throws {
         
         let originalImage = UIGraphicsImageRenderer(size: CGSize(width: 100, height: 100)).image { context in
             UIColor.red.setFill()
