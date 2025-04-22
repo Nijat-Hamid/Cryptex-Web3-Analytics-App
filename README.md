@@ -12,7 +12,7 @@
   <a href="#introduction">Introduction</a> •
   <a href="#key-features">Key Features</a> •
   <a href="#tech-stack">Tech Stack</a> •
-  <a href="#support-and-roadmap">Support & Roadmap</a>
+  <a href="#support">Support</a>
 </p>
 
 ![screenshot](https://github.com/Nijat-Hamid/Debloatfy-Android_App_Debloater/blob/main/Demo/gif/demo.gif)
@@ -121,7 +121,7 @@
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## Support and Roadmap
+## Support
 
 If you like this project, its underlying philosophy, or appreciate my code as a developer, you can support me by giving it a star. This motivation will help me continue working on the project and deliver even better features in the future.  
   
