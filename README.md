@@ -82,8 +82,7 @@
 </summary> <br />
 <pre>
 ```
-.Debloatfy
-
+.Cryptex
 ├─ Application                      # Main App
 ├─ Core
 │  ├── Base                         # Base VC and VM for inheritance
@@ -116,6 +115,7 @@
    ├── Tokens                       # Tokens Screen
    └── Tokens Detail                # Token Detail Screen
 ```
+
 </pre>
 </details>
 
