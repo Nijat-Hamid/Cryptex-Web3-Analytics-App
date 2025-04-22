@@ -131,6 +131,7 @@
 		1FDE0E3C2D46D39C00D5F932 /* OverviewVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDE0E3B2D46D39700D5F932 /* OverviewVM.swift */; };
 		1FDE0E3F2D46D47B00D5F932 /* OverviewEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDE0E3E2D46D47800D5F932 /* OverviewEndpoint.swift */; };
 		1FDE0E412D4779EE00D5F932 /* OverviewUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDE0E402D4779EA00D5F932 /* OverviewUIModel.swift */; };
+		1FEA6A962DB83B8800F47D16 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FEA6A952DB83B8800F47D16 /* logo.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -269,6 +270,9 @@
 		1FDE0E3B2D46D39700D5F932 /* OverviewVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewVM.swift; sourceTree = "<group>"; };
 		1FDE0E3E2D46D47800D5F932 /* OverviewEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewEndpoint.swift; sourceTree = "<group>"; };
 		1FDE0E402D4779EA00D5F932 /* OverviewUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewUIModel.swift; sourceTree = "<group>"; };
+		1FEA6A8F2DB83AE900F47D16 /* LICENSE.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
+		1FEA6A902DB83B1600F47D16 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		1FEA6A952DB83B8800F47D16 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -979,6 +983,9 @@
 		1FBDD1B72CF71CA800223819 = {
 			isa = PBXGroup;
 			children = (
+				1FEA6A912DB83B4200F47D16 /* Demo */,
+				1FEA6A902DB83B1600F47D16 /* README.md */,
+				1FEA6A8F2DB83AE900F47D16 /* LICENSE.txt */,
 				1F74B6682D532FF30076CF31 /* .gitignore */,
 				1FBDD1C12CF71CA800223819 /* Products */,
 				1FBDD1E12CF71CAF00223819 /* Sources */,
@@ -1223,6 +1230,38 @@
 			path = ProtocolChart;
 			sourceTree = "<group>";
 		};
+		1FEA6A912DB83B4200F47D16 /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				1FEA6A942DB83B6000F47D16 /* video */,
+				1FEA6A932DB83B5700F47D16 /* gif */,
+				1FEA6A922DB83B5000F47D16 /* image */,
+			);
+			path = Demo;
+			sourceTree = "<group>";
+		};
+		1FEA6A922DB83B5000F47D16 /* image */ = {
+			isa = PBXGroup;
+			children = (
+				1FEA6A952DB83B8800F47D16 /* logo.png */,
+			);
+			path = image;
+			sourceTree = "<group>";
+		};
+		1FEA6A932DB83B5700F47D16 /* gif */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = gif;
+			sourceTree = "<group>";
+		};
+		1FEA6A942DB83B6000F47D16 /* video */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = video;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1333,6 +1372,7 @@
 				1FBDD2082CF76BA300223819 /* geist-sans-latin-200-normal.ttf in Resources */,
 				1FBDD2092CF76BA300223819 /* geist-sans-latin-100-normal.ttf in Resources */,
 				1FBDD20A2CF76BA300223819 /* geist-sans-latin-300-normal.ttf in Resources */,
+				1FEA6A962DB83B8800F47D16 /* logo.png in Resources */,
 				1FBDD20B2CF76BA300223819 /* geist-sans-latin-400-normal.ttf in Resources */,
 				1FBDD20C2CF76BA300223819 /* geist-sans-latin-800-normal.ttf in Resources */,
 				1FBDD20D2CF76BA300223819 /* geist-sans-latin-900-normal.ttf in Resources */,
