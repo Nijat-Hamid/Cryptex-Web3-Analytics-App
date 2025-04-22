@@ -1035,11 +1035,11 @@
 		1FBDD1EE2CF71E4F00223819 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				1FA38BE92D37CFD300611800 /* ContainerState.swift */,
 				1F42931F2CFDA9D7000CFA9E /* AppState.swift */,
+				1FA38BE92D37CFD300611800 /* ContainerState.swift */,
+				1FBDD1F32CF71EBA00223819 /* Base */,
 				1F42931C2CFCC723000CFA9E /* Components */,
 				1F3C808F2D1F857700737BED /* Constants */,
-				1FBDD1F32CF71EBA00223819 /* Base */,
 				1FBDD1F02CF71E7200223819 /* Extensions */,
 				1F3C80952D21959000737BED /* Helpers */,
 				1F42934D2D00F4E9000CFA9E /* Navigation */,
