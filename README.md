@@ -15,7 +15,7 @@
   <a href="#support">Support</a>
 </p>
 
-![screenshot](https://github.com/Nijat-Hamid/Debloatfy-Android_App_Debloater/blob/main/Demo/gif/demo.gif)
+<img src="https://github.com/Nijat-Hamid/Cryptex-Web3-Analytics-App/blob/main/Demo/gif/demo.gif" alt="Cryptex" align="center" width="200">
 
 ## Introduction
 
