@@ -16,7 +16,7 @@
 </p>
 
 <p align="center">
-  <img src="https://github.com/Nijat-Hamid/Cryptex-Web3-Analytics-App/blob/main/Demo/gif/demo.gif" alt="Cryptex" width="200">
+  <img src="https://github.com/Nijat-Hamid/Cryptex-Web3-Analytics-App/blob/main/Demo/gif/demo.gif" alt="Cryptex" width="300">
 </p>
 
 ## Introduction
