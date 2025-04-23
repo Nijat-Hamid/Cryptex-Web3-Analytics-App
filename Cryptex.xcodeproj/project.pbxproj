@@ -132,6 +132,8 @@
 		1FDE0E3F2D46D47B00D5F932 /* OverviewEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDE0E3E2D46D47800D5F932 /* OverviewEndpoint.swift */; };
 		1FDE0E412D4779EE00D5F932 /* OverviewUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDE0E402D4779EA00D5F932 /* OverviewUIModel.swift */; };
 		1FEA6A962DB83B8800F47D16 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FEA6A952DB83B8800F47D16 /* logo.png */; };
+		1FEA6A9A2DB927C300F47D16 /* demo.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 1FEA6A992DB927C300F47D16 /* demo.mp4 */; };
+		1FEA6A9C2DB9339A00F47D16 /* demo.gif in Resources */ = {isa = PBXBuildFile; fileRef = 1FEA6A9B2DB9339A00F47D16 /* demo.gif */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -273,6 +275,8 @@
 		1FEA6A8F2DB83AE900F47D16 /* LICENSE.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 		1FEA6A902DB83B1600F47D16 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		1FEA6A952DB83B8800F47D16 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		1FEA6A992DB927C300F47D16 /* demo.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = demo.mp4; sourceTree = "<group>"; };
+		1FEA6A9B2DB9339A00F47D16 /* demo.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = demo.gif; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1251,6 +1255,7 @@
 		1FEA6A932DB83B5700F47D16 /* gif */ = {
 			isa = PBXGroup;
 			children = (
+				1FEA6A9B2DB9339A00F47D16 /* demo.gif */,
 			);
 			path = gif;
 			sourceTree = "<group>";
@@ -1258,6 +1263,7 @@
 		1FEA6A942DB83B6000F47D16 /* video */ = {
 			isa = PBXGroup;
 			children = (
+				1FEA6A992DB927C300F47D16 /* demo.mp4 */,
 			);
 			path = video;
 			sourceTree = "<group>";
@@ -1365,6 +1371,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1FBDD1E22CF71CAF00223819 /* Assets.xcassets in Resources */,
+				1FEA6A9C2DB9339A00F47D16 /* demo.gif in Resources */,
 				1FBDD1E42CF71CAF00223819 /* LaunchScreen.storyboard in Resources */,
 				1FBDD2052CF76BA300223819 /* geist-sans-latin-600-normal.ttf in Resources */,
 				1FBDD2062CF76BA300223819 /* geist-sans-latin-700-normal.ttf in Resources */,
@@ -1376,6 +1383,7 @@
 				1FBDD20B2CF76BA300223819 /* geist-sans-latin-400-normal.ttf in Resources */,
 				1FBDD20C2CF76BA300223819 /* geist-sans-latin-800-normal.ttf in Resources */,
 				1FBDD20D2CF76BA300223819 /* geist-sans-latin-900-normal.ttf in Resources */,
+				1FEA6A9A2DB927C300F47D16 /* demo.mp4 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
