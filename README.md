@@ -15,7 +15,9 @@
   <a href="#support">Support</a>
 </p>
 
-<img src="https://github.com/Nijat-Hamid/Cryptex-Web3-Analytics-App/blob/main/Demo/gif/demo.gif" alt="Cryptex" align="center" width="200">
+<p align="center">
+  <img src="https://github.com/Nijat-Hamid/Cryptex-Web3-Analytics-App/blob/main/Demo/gif/demo.gif" alt="Cryptex" width="200">
+</p>
 
 ## Introduction
 
